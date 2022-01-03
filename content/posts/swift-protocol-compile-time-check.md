@@ -4,7 +4,6 @@ date: 2021-12-30T14:25:11-05:00
 slug: "swift-protocol-compile-time-check"
 category: ['category', 'protocol']
 tags: ['swift', 'swift-protocols', 'compile-time-check', 'misconception']
-draft: true
 params:
     showShareButtons: true
     showReadingTime: true
