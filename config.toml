@@ -1,4 +1,12 @@
 baseURL = 'http://mfaani.com/'
 languageCode = 'en-us'
-title = 'TIL iOS'
+title = 'TIL with Mohammad'
 theme = "paperMod"
+
+params.ShowReadingTime = true
+params.ShowShareButtons = true
+params.ShowBreadCrumbs = true
+
+params.editPost.URL = "https://github.com/prohoney/mfaani"
+params.editPost.Text = "Suggest Changes" # edit text
+params.editPost.appendFilePath = true # to append file path to Edit link
