@@ -4,12 +4,11 @@ date: 2022-01-04T22:26:19-05:00
 slug: "why-cant-xcode-show-caller"
 category: ['category', 'protocol']
 tags: ['swift', 'swift-protocols', 'compile-time-check', 'Xcode']
-draft: true 
 # need to upload the project without any git stuff...
 ---
 
-Please download the sample project. 
-There's no function of the project that needs to be ran. Just focus on the protocol definition and conformances to it. 
+Download the [sample project](https://github.com/prohoney/xcode-cant-show-caller-sample) if you want. It's optional.
+The project doesn't even need to be ran. It's just provided for context. 
 
 I'm going to discuss two gotchas with protocols and Xcode.  
 

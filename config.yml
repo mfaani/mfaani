@@ -2,19 +2,18 @@ baseURL: 'http://mfaani.com/'
 languageCode: en-us
 title: TIL with Mohammad
 theme: paperMod
-# params:
-#   ShowReadingTime: true
-#   ShowShareButtons: true
-#   # ShowBreadCrumbs: true // to show parent pages of a subpage
-#   ShowCodeCopyButtons: true
-
+params:
+  ShowReadingTime: true
+  ShowShareButtons: true
+  # ShowBreadCrumbs: true // to show parent pages of a subpage
+  ShowCodeCopyButtons: true
 languages:
     en:
         languageName: "English"
         weight: 1
         menu:
             main:
-                - name: Archive
+                - name: Blog
                   url: archives/
                   weight: 5
                 - name: About
@@ -26,18 +25,20 @@ languages:
                 - name: Tags
                   url: tags/
                   weight: 20
-                - name: Categories
-                  url: categories/
-                  weight: 25
-    fa:
-        languagedirection: rtl
-        weight: 3
-        title: PaperMod RTL
-        homeInfoParams:
-            Title: "Hi there \U0001F44B"
-            Content: Welcome to RTL layout
-        menu:
-            main:
-                - name: Tags
-                  url: tags
-                  weight: 10
+    # fa:
+    #     languagedirection: rtl
+    #     weight: 3
+    #     title: PaperMod RTL
+    #     homeInfoParams:
+    #         Title: "Hi there \U0001F44B"
+    #         Content: Welcome to RTL layout
+    #     menu:
+    #         main:
+    #             - name: Tags
+    #               url: tags
+    #               weight: 10
+
+outputs: # needed so the site's search works
+  home:
+    - HTML
+    - RSS
