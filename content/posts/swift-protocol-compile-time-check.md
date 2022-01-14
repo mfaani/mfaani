@@ -2,11 +2,16 @@
 title: "Swift Protocol Compile Time Check"
 date: 2021-12-30T14:25:11-05:00
 slug: "swift-protocol-compile-time-check"
-category: ['category', 'protocol']
 tags: ['swift', 'swift-protocols', 'compile-time-check', 'misconception']
 params:
-    showShareButtons: true
-    showReadingTime: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  editPost:
+    URL: 'https://github.com/prohoney/mfaani/content'
+    Text: Suggest Changes
+    appendFilePath: true
 ---
 
 I always thought that if you just use `{get}` on a protocol variable, then you can still set it i.e. it doesn't matter if you give it a setter or not. That's not true. It really depends on which compiler checks come in to place. Compiler checks are different depending on the _type_ you want a variable to be. 
