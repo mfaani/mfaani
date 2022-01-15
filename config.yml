@@ -2,11 +2,15 @@ baseURL: 'http://mfaani.com/'
 languageCode: en-us
 title: TIL with Mohammad
 theme: paperMod
+googleAnalytics: G-Z3VBFH9DKH
+env: production
+
 params:
   ShowReadingTime: true
   ShowShareButtons: true
   # ShowBreadCrumbs: true // to show parent pages of a subpage
   ShowCodeCopyButtons: true
+
 languages:
     en:
         languageName: "English"
@@ -37,6 +41,47 @@ languages:
     #             - name: Tags
     #               url: tags
     #               weight: 10
+
+markup:
+  blackFriday:
+    angledQuotes: false
+    extensions: null
+    extensionsMask: null
+    footnoteAnchorPrefix: ""
+    footnoteReturnLinkContents: ""
+    fractions: true
+    hrefTargetBlank: false
+    latexDashes: true
+    nofollowLinks: false
+    noreferrerLinks: false
+    plainIDAnchors: true
+    skipHTML: false
+    smartDashes: true
+    smartypants: true
+    smartypantsQuotesNBSP: false
+    taskLists: true
+
+markup:
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute:
+        block: false
+        title: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+    renderer:
+      hardWraps: false
+      unsafe: false
+      xhtml: false
+
 
 outputs: # needed so the site's search works
   home:
