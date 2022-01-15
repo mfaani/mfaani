@@ -3,13 +3,8 @@ title: "Swift Protocol Compile Time Check"
 date: 2021-12-30T14:25:11-05:00
 slug: "swift-protocol-compile-time-check"
 tags: ['swift', 'swift-protocols', 'compile-time-check', 'misconception']
-params:
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  editPost:
-    URL: 'https://github.com/prohoney/mfaani/content'
+editPost:
+    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
     Text: Suggest Changes
     appendFilePath: true
 ---

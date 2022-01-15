@@ -2,11 +2,15 @@ baseURL: 'http://mfaani.com/'
 languageCode: en-us
 title: TIL with Mohammad
 theme: paperMod
+googleAnalytics: G-Z3VBFH9DKH
+env: production
+
 params:
   ShowReadingTime: true
   ShowShareButtons: true
   # ShowBreadCrumbs: true // to show parent pages of a subpage
   ShowCodeCopyButtons: true
+
 languages:
     en:
         languageName: "English"
@@ -38,7 +42,38 @@ languages:
     #               url: tags
     #               weight: 10
 
-outputs: # needed so the site's search works
+## neither BlackFriday nor Goldmark made any difference in the syntax highlight. Removing them for now
+
+# not sure what this privacy does, but just adding it for now
+privacy:
+    vimeo:
+        disabled: false
+        simple: true
+
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: false
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+# not sure what this services does, but just adding it for now
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true
+
+
+ # needed so the site's search works  
+outputs:
   home:
     - HTML
     - RSS
+
