@@ -11,9 +11,6 @@ params:
   # ShowBreadCrumbs: true // to show parent pages of a subpage
   ShowCodeCopyButtons: true
 
-cover:
-  image: "https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png"
-
 languages:
     en:
         languageName: "English"
@@ -79,3 +76,4 @@ outputs:
   home:
     - HTML
     - RSS
+
