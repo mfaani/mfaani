@@ -11,6 +11,9 @@ params:
   # ShowBreadCrumbs: true // to show parent pages of a subpage
   ShowCodeCopyButtons: true
 
+cover:
+  image: "https://i.ibb.co/K0HVPBd/paper-mod-profilemode.png"
+
 languages:
     en:
         languageName: "English"
@@ -42,48 +45,37 @@ languages:
     #               url: tags
     #               weight: 10
 
-markup:
-  blackFriday:
-    angledQuotes: false
-    extensions: null
-    extensionsMask: null
-    footnoteAnchorPrefix: ""
-    footnoteReturnLinkContents: ""
-    fractions: true
-    hrefTargetBlank: false
-    latexDashes: true
-    nofollowLinks: false
-    noreferrerLinks: false
-    plainIDAnchors: true
-    skipHTML: false
-    smartDashes: true
-    smartypants: true
-    smartypantsQuotesNBSP: false
-    taskLists: true
+## neither BlackFriday nor Goldmark made any difference in the syntax highlight. Removing them for now
 
-markup:
-  goldmark:
-    extensions:
-      definitionList: true
-      footnote: true
-      linkify: true
-      strikethrough: true
-      table: true
-      taskList: true
-      typographer: true
-    parser:
-      attribute:
-        block: false
-        title: true
-      autoHeadingID: true
-      autoHeadingIDType: github
-    renderer:
-      hardWraps: false
-      unsafe: false
-      xhtml: false
+# not sure what this privacy does, but just adding it for now
+privacy:
+    vimeo:
+        disabled: false
+        simple: true
+
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: false
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+# not sure what this services does, but just adding it for now
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true
 
 
-outputs: # needed so the site's search works
+ # needed so the site's search works  
+outputs:
   home:
     - HTML
     - RSS
