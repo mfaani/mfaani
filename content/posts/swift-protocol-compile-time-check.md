@@ -71,6 +71,6 @@ var x: SomeType = SomeClass()
 */
 ```
 
-### Acknowledgement
+### Credits
 
 Special thanks to [Suyash Srijan](https://twitter.com/suyashsrijan) who helped me figure this out.
