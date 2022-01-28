@@ -7,9 +7,9 @@ DispatchQueues have this flag named `barrier`. You use on your _concurrent_ queu
 
 > Cause the work item to act as a barrier block when submitted to a concurrent queue.
 
-This got me thinking, so if barrier flags are so cool, then why not use them all over the place. Why not nuke all every read-write queues with the `.barrier` flag. 
+This got me thinking, so if `.barrier` flags are so cool, then why not use them every time we have a read-write problem.
 
-I asked this from an [Apple engineer](https://twitter.com/Catfish_Man). The answer I got was quite interesting.
+I asked this from a senior engineer. The answer I got was quite interesting.
 
 tl;dr serial queues with sync dispatch are better for most cases. Only use concurrency for when the actual task takes more than `1ms`. Because **creating new threads actually takes time itself**
 
@@ -56,7 +56,7 @@ But the problem is that reader-writer locks/concurrent queues don’t support Pr
 
 This is definitely not a hard rule or anything; especially on newer devices there are situations where it can make sense to go wider than that. It’s about getting in a mindset where you’re only reaching for more threads in an intentional, considered way, rather than by default. Which is unfortunately not what was encouraged for years, and not what `libdispatch` or `NSOperationQueue` encourage in their design. 
 
-This is something Apple Engineers learned the hard way in the last few years. Like, remember your oldest target devices these days are typically what, iPhone 6? That’s a dual core device, so you’re not gonna have more than two threads actually running at the same time anyway. And your network calls are presumably using APIs that are themselves internally async
+This is something that was learned the hard way in the last few years. Like, remember your oldest target devices these days are typically what, iPhone 6? That’s a dual core device, so you’re not gonna have more than two threads actually running at the same time anyway. And your network calls are presumably using APIs that are themselves internally async
 
 FWIW, this is somewhat less of a problem for apps than it is for libraries, because apps tend to have more control over their threads, whereas libraries expect to be called from anywhere
 
