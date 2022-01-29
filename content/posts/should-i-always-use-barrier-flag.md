@@ -72,4 +72,4 @@ Good to watch:
 https://developer.apple.com/videos/play/wwdc2017/706/
 
 ## Credits
-Huge shout out to [David Smith](https://twitter.com/Catfish_Man). This post is all just me copying/piecing his answers to my questions.
+Huge shout out to the anonymous engineer. This post is all just me copying/piecing his answers to my questions.
