@@ -10,7 +10,7 @@ tags: ['swift', 'swift-protocols', 'compile-time-check', 'Xcode']
 Download the [sample project](https://github.com/prohoney/xcode-cant-show-caller-sample) if you want. You don't have to though.
 The project doesn't even need to be ran. It's just provided for context. 
 
-I'm going to discuss two gotchas I hade with Xcode. For quite some time (~65 months) I thought a fix was coming, then I realized this is because I didn't fully understand the difference between an interface (or protocol) with a concrete type. 
+I'm going to discuss two gotchas I hade with Xcode. For quite some time I thought a fix was coming, then I realized this is because I didn't fully understand the difference between an interface (or protocol) with a concrete type. 
 
 ### Find Call Hierarchy not working:
 
@@ -73,6 +73,17 @@ Xcode leaves it up to you to decide _which_ class definition/implementation is t
 ![jump-to-defintion](images/jump-to-definition.png "Xcode - leaves it up to the developer to decide which implementation they want")
 
 Usually you don't want the protocol definition nor want the mock implementation. Rather you just want one of the concrete implementations that is for production code.
+
+### Runtime advantages
+
+During runtime Xcode can actually identify the implementation is uses. Obviously if that wasn't the case then Xcode won't know which implementation to execute. The advantage of this is that if you use Xcode's Step Into ({{< rawhtml >}}
+<img src="images/IB_Debug_StepInto_2x.png" alt="Step into" width="21" height="21" style="display:inline; vertical-align:bottom">{{< /rawhtml >}} ) on a function then it will take you to the right implementation.
+
+![Step into on breakpoint](images/step-into-on-breakpoint.png "Xcode - Step into on `perfromLog` takes you to correct implementation")
+
+Will take you to: 
+
+![Xcode Finds correct code](images/finds-right-code.png "Xcode - found implementation")
 
 ## Conclusion: 
 
