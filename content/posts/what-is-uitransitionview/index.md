@@ -3,7 +3,7 @@ title: "What is UITransitionView about?"
 date: 2022-02-01T14:21:03-05:00
 category: ['Xcode']
 tags: ['Xcode', 'iOS', 'view debugger']
-slug: "why-is-uitransitionview-about"
+slug: "what-is-uitransitionview-about"
 ---
 
 I was using Xcode's View Hierarchy and noticed this `UITransitionView` in my hierachy. 
