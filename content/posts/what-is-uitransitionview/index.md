@@ -6,7 +6,7 @@ tags: ['Xcode', 'iOS', 'view debugger']
 slug: "what-is-uitransitionview-about"
 ---
 
-I was using Xcode's View Hierarchy and noticed this `UITransitionView` in my hierachy. 
+I was using Xcode's View Hierarchy and noticed this `UITransitionView` in my view hierachy. 
 
 ```
 ...
@@ -17,7 +17,16 @@ I was using Xcode's View Hierarchy and noticed this `UITransitionView` in my hie
             BarVC
 ```
 
-What made it more perplexing was that the cavnas was showing things correct, but the _View Hierachy_ didn't make sense.
+This was odd because I was expected a view hierarchy as such:
+```
+...
+    UIWindow
+        UITransitionView
+            FooVC
+                BarVC
+```
+
+What made it more perplexing was that the _cavnas_ was showing things correct, but the _View Hierachy_ didn't make sense.
 
 To be clear on jargon, the following is the name of each section of Apple's view debugger:
 
@@ -25,7 +34,7 @@ To be clear on jargon, the following is the name of each section of Apple's view
 
 
 I googled Apple documents, but found notihing on `UITransitionView`. It's private API. 
-I had suspicions about what it was... So I opened up a sample project to test things out. 
+I had suspicions for why I was seeing it... So I opened up a sample project to test things out. 
 
 The following is the view hierachy I got for **presenting** the yellow VC on another VC. 
 
@@ -38,4 +47,4 @@ Expanded Hierarchy is as such:
 
 ## Conclusion
 
-If you you're seeing `UITransitionView` it's likely because you're **presenting** one viewcontroller over another.
+If you you're seeing **multiple** `UITransitionView` it's likely because you're **presenting** one viewcontroller over another. One `UITransitionView` is for the _presenting_ nav stack while the other is for the _prsented_ nav stack.
