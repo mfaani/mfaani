@@ -2,7 +2,7 @@
 title: "Why can't Xcode show the caller?"
 date: 2022-01-04T22:26:19-05:00
 slug: "why-cant-xcode-show-caller"
-category: ['category', 'protocol']
+category: ['Swift','Xcode']
 tags: ['swift', 'swift-protocols', 'compile-time-check', 'Xcode']
 # need to upload the project without any git stuff...
 ---

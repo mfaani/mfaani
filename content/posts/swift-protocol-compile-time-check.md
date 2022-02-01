@@ -2,6 +2,7 @@
 title: "Swift Protocol Compile Time Check"
 date: 2021-12-30T14:25:11-05:00
 slug: "swift-protocol-compile-time-check"
+category: ['Swift']
 tags: ['swift', 'swift-protocols', 'compile-time-check', 'misconception']
 editPost:
     URL: 'https://github.com/prohoney/mfaani/tree/main/content'
