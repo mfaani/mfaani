@@ -10,7 +10,7 @@ cover:
 
 When you get on a plane, the crew members make sure everyone that checked in, is actually on the flight. If someone doesn't board, then the plane either stays until they board or remove them and their luggages from the plane. It's a safety check. 
 
-CocoaPods does something similar. But before we dive deep into what a `Manifest.lock` file is, we should learn about the two school of thoughts when it comes to dependencies. 
+CocoaPods does something similar. But before we dive deep into what a `Manifest.lock` file is, we should learn about the 2 school of thoughts when it comes to dependencies. 
 
 ## Committing /Pods folder
 Commit the `Podfile`, `Podfile.lock` and `/Pods` folder. 
@@ -62,7 +62,7 @@ If the lock files don't match, then Xcode will throw the following error:
 
 ## Docs: 
 
-To show [CocoaPods docs](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L21-L25) on this: 
+[Docs from CocoaPods repo](https://github.com/CocoaPods/CocoaPods/blob/master/lib/cocoapods/installer.rb#L21-L25): 
 
 >  `Manifest.lock`: A file contained in the Pods folder that keeps track of
 >  the pods installed in the local machine. This files is used once the
