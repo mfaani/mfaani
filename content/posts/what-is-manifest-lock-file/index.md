@@ -50,6 +50,9 @@ If these two files don't match, then Xcode will throw a build time error.
 
 To be clear those two files always have to always match, it's just that there's a higher probability of things not matching when two engineers/macs are involved. Meaning one engineer has done `pod install` on their mac and has updated the `Podfile.lock` and now you have to do another `pod install` on your own mac. When you run `pod install` on your mac, it affects your `Manifest.lock`. 
 
+## Why would the lock files not be in sync though?
+Only reason I can think of is, things go wrong during some merge conflict on the `Podfile` or `Podfile.lock`.
+
 ## How does Xcode check your lock files?
 
 Xcode adds a shell script into the Build Phases.
