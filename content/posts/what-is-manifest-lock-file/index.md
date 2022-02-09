@@ -10,7 +10,7 @@ cover:
 
 When you get on a plane, the crew members make sure everyone that checked in, is actually on the flight. If someone doesn't board, then the plane either stays until they board or remove them and their luggages from the plane. It's a safety check. 
 
-CocoaPods does something similar. But before we dive deep into what a `Manifest.lock` file is, we should learn about the 2 school of thoughts when it comes to dependencies. 
+CocoaPods does something similar. But before we dive deep into what a `Manifest.lock` file is, we should learn about the two schools of thoughts when it comes to dependencies. 
 
 ## Committing /Pods folder
 Commit the `Podfile`, `Podfile.lock` and `/Pods` folder. 
@@ -48,7 +48,7 @@ It's mainly used to protect you when your intent is 'After you pulled down the r
 
 If these two files don't match, then Xcode will throw a build time error. 
 
-To be clear those two files always have to always match, it's just that there's a higher probability of things not matching when 2 engineers/macs are involved. Meaning one engineer has done `pod install` on their mac and has updated the `Podfile.lock` and now you have to do another `pod install` on your own mac. When you run `pod install` on your mac, it affects your `Manifest.lock`. 
+To be clear those two files always have to always match, it's just that there's a higher probability of things not matching when two engineers/macs are involved. Meaning one engineer has done `pod install` on their mac and has updated the `Podfile.lock` and now you have to do another `pod install` on your own mac. When you run `pod install` on your mac, it affects your `Manifest.lock`. 
 
 ## How does Xcode check your lock files?
 
