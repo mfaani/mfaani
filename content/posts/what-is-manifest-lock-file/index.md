@@ -17,7 +17,11 @@ CocoaPods does something similar. But before we dive deep into what a `Manifest.
 ## Committing /Pods folder
 Commit the `Podfile`, `Podfile.lock` and `/Pods` folder. 
 
-**Pros:** Anyone can download the project and even without having CocoaPods they can run the app. It's easier to see all the code at once. They'll only need to have CocoaPods installed if they ever needed to bump a pod version. 
+**Pros:** 
+- Anyone can download the project and even without having CocoaPods they can run the app. 
+- It's easier to see all the code at once, but also you get to see changes/updates to the pods. This becomes more vital if you own the pod yourself.
+- Some security tools can scan your dependencies only if you commit the /Pods folder. 
+- Engineers will only need to have CocoaPods installed if they ever needed to bump a pod version. 
 
 **Cons:** Your repo size would go up, because it contains all these libraries. 
 
@@ -29,7 +33,10 @@ Commit the `Podfile`, `Podfilee.lock` only. Don't commit the `/Pods` folder.
 
 **Pros:** Your repo size is smaller. 
 
-**Cons:** Every person needs to have CocoaPods installed. And before they do anything, they have to do `pod install` to make sure they have all the necessary code pulled in. It's a tedious and repetitive process as everyone in your team has to do it. The extra process also makes it slightly more difficult for junior engineers to learn about the project. 
+**Cons:** 
+- Every person needs to have CocoaPods installed. And before they do anything, they have to do `pod install` to make sure they have all the necessary code pulled in. 
+- It's a tedious and repetitive process as everyone in your team has to do it. 
+- The extra process also makes it slightly more difficult for junior engineers to learn about the project. 
 
 #### When is `pod install` required?
 - After you clone the repo.
