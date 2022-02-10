@@ -2,6 +2,8 @@
 title: "What is Manifest.lock File?"
 date: 2022-02-09T06:47:16-05:00
 slug: "what-is-manifest.lock-file"
+tags: ['CocoaPods', 'lock file', 'Manifest.lock', 'Dependencie Management']
+category: ['iOS']
 cover: 
     image: "images/nypass_list_laurel_chaplin-4fb9cfe3.jpg"
     alt: "Flight manifest"
