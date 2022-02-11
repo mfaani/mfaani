@@ -20,7 +20,6 @@ Commit the `Podfile`, `Podfile.lock` and `/Pods` folder.
 **Pros:** 
 - Anyone can download the project and even without having CocoaPods they can run the app. 
 - It's easier to see all the code at once, but also you get to see changes/updates to the pods. This becomes more vital if you own the pod yourself.
-- Some security tools can scan your dependencies only if you commit the /Pods folder. 
 - Engineers will only need to have CocoaPods installed if they ever needed to bump a pod version. 
 
 **Cons:** Your repo size would go up, because it contains all these libraries. 
