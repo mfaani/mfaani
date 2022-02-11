@@ -63,7 +63,7 @@ Only reason I can think of is, things go wrong during some merge conflict on the
 
 ## How does Xcode check your lock files?
 
-Xcode adds a shell script into the Build Phases.
+CocoaPods adds a shell script into the Build Phases:
 
 ![Xcode lock file checks](images/Xcode-build-rule-manifest-check.png "Xcode - lock file checks during build phase")
 
