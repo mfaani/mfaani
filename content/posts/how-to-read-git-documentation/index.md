@@ -176,6 +176,6 @@ The 👆 are allowed, because both a tag and branch point to a specific commit, 
 
 - The git doc pages are not identically structured. If you can't understand the docs, it's not your fault. It's because the documentation is written by lots of different people. 
 
-## Also see 🖇: 
+## Also see:
 
 [How do I read git synopsis documentation?](https://stackoverflow.com/questions/60906410/how-do-i-read-git-synopsis-documentation/60906506#60906506)
