@@ -112,8 +112,8 @@ Translates to:
 - `git diff`
 - Any number of options. This is an odd one, because it's not marked with `...`, but the placeholder itself conveys that there can be multiple options. Typically options can be multiple.
 - a commit (SHA)
-- `--` is just a separator from the options. You don't need need it unless git needs it to disambiguate your command. 
-- zero or more paths
+- `--` is just a separator added at the end of options. You don't need need it unless git needs it to disambiguate your command. 
+- zero or more paths.
 
 Meaning, all of the following are accepted: 
 
@@ -151,7 +151,7 @@ The 👆 are allowed, because both a tag and branch point to a specific commit, 
 
 ## Other notes:
 
-- To familiarize yourself more with jargon used in the pages. See [git glossary](https://git-scm.com/docs/gitglossary)
+- To familiarize yourself more with jargon used in the pages. See [git glossary](https://git-scm.com/docs/gitglossary) 📖. 
 - Understanding what the placeholder is about is key. Take your time and search on the doc page (or on the internet) for it. Common placeholders are: 
     - `<path>`
     - `<pathspec>`
@@ -176,6 +176,6 @@ The 👆 are allowed, because both a tag and branch point to a specific commit, 
 
 - The git doc pages are not identically structured. If you can't understand the docs, it's not your fault. It's because the documentation is written by lots of different people. 
 
-## Also see: 
+## Also see 🖇: 
 
 [How do I read git synopsis documentation?](https://stackoverflow.com/questions/60906410/how-do-i-read-git-synopsis-documentation/60906506#60906506)
