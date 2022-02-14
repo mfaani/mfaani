@@ -1,7 +1,6 @@
 ---
 title: "How to Read Git Documentation"
 date: 2022-02-11T08:55:15-05:00
-draft: true
 category: [Devtools]
 tags: ['git', 'Documentation', 'Source Control']
 cover: 
