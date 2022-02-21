@@ -1,6 +1,6 @@
 ---
-title: "Understanding how background tasks work through the lens of different closure types in Swift"
-date: 2022-02-21T01:00:28-05:00
+title: "UIApplication BackgroundTasks Through The Lens of Closures"
+date: 2022-02-22T09:30:28-05:00
 category: ['iOS', 'Swift']
 tags: ['iOS', 'background-task', 'closures', 'UIApplication']
 ---
@@ -50,7 +50,7 @@ func startFlow(handler: @escaping (Result) -> ()) {
 }
 ```
 
-**uniqueness:** `handler` block is called by the `startFlow` function. Execution of the block is within the function itself. It gets called after some asynchronous operation. 
+**Uniqueness:** `handler` block is called by the `startFlow` function. Execution of the block is within the function itself. It gets called after some asynchronous operation. 
 
 ## The async closure — block is stored. 
 
@@ -74,7 +74,7 @@ class FlowManager {
 }
 ```
 
-💡💡💡 `handler` is **not** called by the `startFlow` function! `handler` is called later. You don't know really when. You'd have to look where it gets stored. And then where that stored block gets executed. 
+**Uniqueness:** 💡💡💡 `exitHandler` is **not** called by the `startFlow` function! `exitHandler` is called later. You don't know really when. You'd have to look where it gets stored. And then where that stored block gets executed. 
 
 The usage would be something like: 
 
@@ -205,16 +205,16 @@ class UIApplication {
 
 ## How are things different in +iOS13?
 
-You don't use `beginBackgroundTask(expirationHandler:)`. Instead you use the `BackgroundTasks` framework. A lot of things change with that. The API is cleaner i.e. specifically for expiration, there is a [property named `expirationHandler`](https://developer.apple.com/documentation/backgroundtasks/bgtask/3142234-expirationhandler) that you need to set:
+You don't use `beginBackgroundTask(expirationHandler:)`. Instead you use the `BackgroundTasks` framework. A lot of things change with that, but that's beyond the scope of this article. The API is cleaner i.e. specifically for expiration, there is a [property named `expirationHandler`](https://developer.apple.com/documentation/backgroundtasks/bgtask/3142234-expirationhandler) that you need to set:
 
 ```swift
 task.expirationHandler = {
-	endTask()
+    endTask()
 }
 ```
 
 ## Summary
-Not every block is to be considered a `completionHandler`. Some blocks get stored for later execution. Some blocks may never get executed. It all just depends on the logic. The `expirationHandler` parameter of the  `beginBackgroundTask` is a block that gets stored and may or may not get executed.
+Not every block is to be considered a `completionHandler`. Some blocks get stored for later execution. Some blocks may never get executed. It all just depends on the logic. The `expirationHandler` parameter of the  `beginBackgroundTask` is a block that gets stored and may or may not get executed later.
 
 
 ## Also see
