@@ -74,7 +74,7 @@ class FlowManager {
 }
 ```
 
-**Uniqueness:** 💡💡💡 `exitHandler` is **not** called by the `startFlow` function! `exitHandler` is called later. You don't know really when. You'd have to look where it gets stored. And then where that stored block gets executed. 
+**💡Uniqueness:**  `exitHandler` is **not** called by the `startFlow` function! `exitHandler` is called later. You don't know really when. You'd have to look where it gets stored. And then where that stored block gets executed. 
 
 The usage would be something like: 
 
@@ -203,7 +203,7 @@ class UIApplication {
 }
 ```
 
-## How are things different in +iOS13?
+### How are things different in +iOS13?
 
 You don't use `beginBackgroundTask(expirationHandler:)`. Instead you use the `BackgroundTasks` framework. A lot of things change with that, but that's beyond the scope of this article. The API is cleaner i.e. specifically for expiration, there is a [property named `expirationHandler`](https://developer.apple.com/documentation/backgroundtasks/bgtask/3142234-expirationhandler) that you need to set:
 
@@ -219,4 +219,4 @@ Not every block is to be considered a `completionHandler`. Some blocks get store
 
 ## Also see
 
-[Apple forums: UIApplication Background Task Notes](https://developer.apple.com/forums/thread/85066)
+[Apple forums: UIApplication Background Task Notes](https://developer.apple.com/forums/thread/85066). It addressses a lot of commons questions. 
