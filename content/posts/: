@@ -3,7 +3,7 @@ title: "How to Use OSLog?"
 date: 2022-01-17T22:39:20-05:00
 draft: true
 ---
-xxxxxxy
+xxxxxx
 Out of the box with iOS, you get `print`. In Objective-C world, you'd get `NSLog`. `print` has a very limited API. `NSLog` is clunky and old. Apple introduced us the `os.log` framework. It's a powerful yet simple to use API. This post assumes you're targeting iOS15 users only. But before we begin you might ask why should I care about `OSLog`. [Quoting Apple](https://developer.apple.com/documentation/os/logging): 
 
 > - When you are unable to attach a debugger to the app, such as when you’re diagnosing problems on a user’s machine.
