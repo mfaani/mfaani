@@ -31,7 +31,7 @@ And I was never able to tell how much I actually currently have if I was to leav
     - RSU
 
 The Individual sections/accounts are **already** vested and taxed. 
-The Retirement account is tax-defferred. It's all yours i.e. no vesting, but you'll end up paying taxes when you cash them. 
+The Retirement account is tax-deferred. It's all yours i.e. no vesting, but you'll end up paying taxes when you cash them. If you cash them before 65 then you'll also pay a penalty!
 The stocks section is the portion of your stocks/options that isn't vested. As it's only been granted. 
 ```
 ### RSU Vesting schedule
