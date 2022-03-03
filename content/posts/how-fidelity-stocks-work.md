@@ -148,4 +148,4 @@ I'll ask and update the post when I find out.
 
 ## Summary
 
-The Fidelity gives you too many ways to see things. It gets confusing. But if you learn of [this structure mentioned above]() and get to know to use the table format, then things will become easier. 
+The Fidelity gives you too many ways to see things. It gets confusing. But if you learn of [this structure mentioned above](https://mfaani.com/posts/how-fidelity-stocks-work/#quick-breakdown) and get to know to use the table format, then things will become easier. 
