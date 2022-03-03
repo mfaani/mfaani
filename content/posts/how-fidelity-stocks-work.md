@@ -78,14 +78,15 @@ Adjust the 'Transaction Date' and 'Grant Date' if needed and hit Apply.
 Because you pay income taxes when they get vested.
 And whenver you sell the vested stocks then you get taxed for capital gains (profit or loss) between the sell price and vesting price.
 
-e.g.
-You're granted a single stock at $200 at 2020
-It gets vested at $400 at 2021. 
-You sell it for $500 at 2025. 
+**Example:**
+1. You're granted a single stock at $200 at 2020.
+2. It gets vested at $400 at 2021. 
+3. You sell it for $500 at 2025. 
 
-For tax purposes, the grant price isn't important.
-In 2021 you'll $400 as taxable income.
-In 2025, you'll have $100 as an increase in your capital gains tax. ($500 - $400 = $100)
+For tax purposes, the grant price/date isn't important.
+
+1. In 2021 you'll have $400 as taxable income.
+2. In 2025, you'll have $100 as an increase in your capital gains tax. ($500 - $400 = $100)
 
 ### Do I have to file taxes for each year for my RSUs?
 
