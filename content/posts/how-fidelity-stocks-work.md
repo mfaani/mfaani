@@ -146,6 +146,16 @@ Note Tax brackets may change every year/president.
 
 I'll ask and update the post when I find out. 
 
+#### What's the difference between capital gain taxes and income taxes? 
+
+> Income tax is paid on earnings from employment, interest, dividends, royalties, or self-employment, whether it’s in the form of services, money, or property. Capital gains tax is paid on income that derives from the sale or exchange of an asset, such as a stock or property that’s categorized as a capital asset. For more see [InvestoPedia](https://www.investopedia.com/ask/answers/052015/what-difference-between-income-tax-and-capital-gains-tax.asp)
+
+The rate for capital gain tax rate is usually less that income tax rate. 
+
+If you hold the stock for less than one year, your gain will be short term, and you'll owe ordinary income tax on it
+If you hold the stock for one year or more, your gain will be long term, meaning you'll pay tax at the more favorable capital gains rate. For more see [TurboTax](https://turbotax.intuit.com/tax-tips/investments-and-taxes/how-to-report-rsus-or-stock-grants-on-your-tax-return/L55yZieu0)
+
+
 ## Summary
 
 The Fidelity gives you too many ways to see things. It gets confusing. But if you learn of [this structure mentioned above](https://mfaani.com/posts/how-fidelity-stocks-work/#quick-breakdown) and get to know to use the table format, then things will become easier.
