@@ -34,6 +34,7 @@ The Individual sections/accounts are **already** vested and taxed.
 The Retirement account is tax-defferred. It's all yours i.e. no vesting, but you'll end up paying taxes when you cash them. 
 The stocks section is the portion of your stocks/options that isn't vested. As it's only been granted. 
 ```
+### RSU Vesting schedule
 
 **Note:** Stocks are granted at their designated time. Then they need to get Distributed and vested. 
 Once they get granted, your distribution time table depending on your company will be like:
@@ -72,8 +73,6 @@ Adjust the 'Transaction Date' and 'Grant Date' if needed and hit Apply.
 
 !["RSU Transaction history"](/RSU-transaction-history.png "With regards to a specific grant, lists all the vestings that has happened so far.")
 
-## Questions: 
-
 ### Why is my stock value far less than my actual RSUs? 
 
 Because you pay income taxes when they get vested.
@@ -88,10 +87,12 @@ For tax purposes, the grant price isn't important.
 In 2021 you'll $400 as taxable income.
 In 2025, you'll have $100 as an increase in your capital gains tax. ($500 - $400 = $100)
 
-### Do I have to file taxes for each year for my stocks?
+### Do I have to file taxes for each year for my RSUs?
 
 - Vesting: Whenever it vests, very likely it's already included in your W2 and you get taxed as income tax. 
 - Cashing: But if you're selling then stocks, then you just have to pay capital gains tax.
+
+For taxes about options. See [here](http://mfaani.com/posts/how-fidelity-stocks-work/#does-the-options-selling-get-reported-in-my-w2)
 
 ### Should I sell my stocks now? 
 
@@ -99,7 +100,7 @@ So if you sell your stocks today, then whatever profit you have will be consider
 
 But if you don't cash on it until you're retired, then you're selling it in a year where your income is ~$0 (because you don't have any income salary). So your tax bracket is lower. 
 
-### What's a Stock Option? 
+## What's a Stock Option? 
 
 From [here](https://smartasset.com/investing/how-do-stock-options-work):
 > Companies can grant them to employees, contractors, consultants and investors. These options, which are contracts, give an employee the right to buy, or exercise, a set number of shares of the company stock at a preset price, also known as the grant price.
@@ -111,6 +112,10 @@ Pre-IPO options are not super valuable because you can't sell the stock (not 100
 But that's a big capital gains event, you're making 20-6 $ per stock, and you'll owe that at the end of the year.
 
 Most brokerages have a "buy and sell immediately" thing, with a "sell for cover" option that means that you don't actually have to put in the $6, they'll lend you the $6 for 10 milliseconds, so you'll just get $20-$6 per share in cash
+
+### Does the Options selling get reported in my W2? 
+
+No. You have report that yourself. Because your company isn't aware of your Option trading/sales. Only your brokerage knows of that. 
 
 ### How much time do I have to exercise my SOPs?
 
