@@ -14,7 +14,7 @@ So at my company, I get:
 - 401k
 
 But the 'account list' on the left is slightly vague. It looks like this: 
-!["account list"](/account-list.png "Fidelity Account List. It kinda remains there for a lot of screens you go to.")
+!["account list"](/account-list.png "Fidelity Account List. The list remains there for some screens.")
 
 And I was never able to tell how much I actually currently have if I was to leave the company today and how much of it is unvested and will be lost if I leave. 
 
