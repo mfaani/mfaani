@@ -1,7 +1,7 @@
 ---
 title: "How (Fidelity) Stocks Work?"
 date: 2022-03-02T21:50:44-05:00
-categories: ['Personal-finanace', '']
+categories: ['Personal Finanace']
 tags: ['Fidelity', 'Stocks', 'Retirement', 'RSU', 'ESPP', 'SOP']
 ---
 I know this blog is mainly an engineering blog, but this is something I struggled to learn and thought blogging my findings would be helpful for my friends who want to learn about their investments or evaluate and compare offers. 
