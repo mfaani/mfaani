@@ -60,7 +60,7 @@ Sample distribution:
 
 To see in this view, make sure you've selected **In Table Format**.
 
-!["RSU in Table format"](/RSU-in-table-format.png "RSU in table format. Helps you see how far are you in the vesting of each year's stock that was granted to you before")
+!["RSU in Table format"](/RSU-in-table-format.png "RSU in table format - Helps you see how far are you in the vesting of each year's stock that was granted to you before. Anything Distributed is vested.")
 
 If you want to see the your the timeline of the vesting of a specific grant, then from the above screen: 
 - Select the 'Account & Info' dropdown
@@ -148,4 +148,4 @@ I'll ask and update the post when I find out.
 
 ## Summary
 
-The Fidelity gives you too many ways to see things. It gets confusing. But if you learn of [this structure mentioned above](https://mfaani.com/posts/how-fidelity-stocks-work/#quick-breakdown) and get to know to use the table format, then things will become easier. 
+The Fidelity gives you too many ways to see things. It gets confusing. But if you learn of [this structure mentioned above](https://mfaani.com/posts/how-fidelity-stocks-work/#quick-breakdown) and get to know to use the table format, then things will become easier.
