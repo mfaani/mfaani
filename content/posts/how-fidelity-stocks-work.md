@@ -6,7 +6,7 @@ tags: ['Fidelity', 'Stocks', 'Retirement', 'RSU', 'ESPP', 'SOP']
 ---
 I know this blog is mainly an engineering blog, but this is something I struggled to learn and thought blogging my findings would be helpful for my friends who want to learn about their investments or evaluate and compare offers. 
 
-The following are a result of my findings after an hour long phone call with Fidelity representitive. I opened the chat section in my browser and asked to speak with someone. They gave me a phone number. I was waiting on the line for about 7-8 minutes. I had an hour long great conversation. And they're available Monday - Sunday til midnight EST. After 3 yrs of being an employee I finally got answers. Please note I made some changes to the actual numbers. The screenshots are just for demonstration purposes. 
+The following are a result of my findings after an hour long phone call with Fidelity representitive. I opened the chat section in my browser and asked to speak with someone. They gave me a phone number. And they're available Monday - Sunday til midnight EST. I was waiting on the line for about 7-8 minutes. I had an hour long great conversation + along with some follow up questions with some friends. After 3 yrs of being an employee I finally got answers. Please note I made some changes to the actual numbers. The screenshots are just for demonstration purposes. 
 
 So at my company, I get:
 - Restricted Stock options (RSU or RS)
