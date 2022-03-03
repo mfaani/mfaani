@@ -99,12 +99,18 @@ So if you sell your stocks today, then whatever profit you have will be consider
 
 But if you don't cash on it until you're retired, then you're selling it in a year where your income is ~$0 (because you don't have any income salary). So your tax bracket is lower. 
 
-### What's an SOP? 
+### What's a Stock Option? 
 
 From [here](https://smartasset.com/investing/how-do-stock-options-work):
 > Companies can grant them to employees, contractors, consultants and investors. These options, which are contracts, give an employee the right to buy, or exercise, a set number of shares of the company stock at a preset price, also known as the grant price.
 
-I honestly don't know what it is. Think of it more like a chance to buy stocks of your company for a preset price at a future date. This can be advantageuous to you if the market price might be much higher than the preset price.
+Options aren't actual stocks when they vest, they're not worth anything. They're an option to buy stock at a specific (hopefully lower) price than the stock currently trades at. If the current price is lesser than the option price then you won't exercise it at all.
+
+Pre-IPO options are not super valuable because you can't sell the stock (not 100% true but mostly true) but the idea is that post-IPO, now you can buy all this stock at $6 that's worth $20 or whatever. So you can buy for 6 and sell for 20.
+
+But that's a big capital gains event, you're making 20-6 $ per stock, and you'll owe that at the end of the year.
+
+Most brokerages have a "buy and sell immediately" thing, with a "sell for cover" option that means that you don't actually have to put in the $6, they'll lend you the $6 for 10 milliseconds, so you'll just get $20-$6 per share in cash
 
 ### How much time do I have to exercise my SOPs?
 
