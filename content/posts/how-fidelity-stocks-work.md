@@ -122,12 +122,12 @@ Go to your Stock option Plan section and open the exercise calculator:
 
 Then put in the number of options you want to exercise along with the current stock price: 
 
-![SOP-exercise-calculator](/SOP-exercise-calculator.png "Add the number of stocks and current stock price and hit Estimate")
+![SOP-exercise-calculator](/SOP-exercise-calculator.png "Add the number of stocks and current stock price and hit Estimate (or update)")
 
 So if the Stock options were granted when stock price was $42.52 and now the current prices are $85.00 then if I exercise 500 options I'll end up with 150 stocks. 
 If I change the current price to $43.00 then I'll end up with only 2 shares.
 
-To be honest, I just know how the calculation works. I don't know why it's calculated this way...
+To be honest, I just know how to use calculator. I don't know why it's calculated this way...
 
 ## Tax Brackets 2021
 #### Income tax 
