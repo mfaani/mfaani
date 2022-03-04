@@ -130,7 +130,7 @@ You'd usually exercise it when your stock is doing good.
 
 Go to your Stock option Plan section and open the exercise calculator:
 
-![SOP-page](/SOP-exercise-calculator.png "From the drop down select exercise calculator")
+![SOP-page](/SOP-page.png "From the drop down select exercise calculator")
 
 Then put in the number of options you want to exercise along with the current stock price: 
 
