@@ -7,9 +7,9 @@ tags: ['memory-management', 'reference-counting', 'swift']
 
 TIL I finally learned when to use `unowned` as opposed to using `weak`.
 
-- `unowned` is more performant because it doesn’t go back and set the reference to `nil` when the object to which it references is deallocated.
-- `unowned` is dangerous, because it doesn’t go back and set the reference to `nil` when the object to which it references - is deallocated. As a result, accessing it would cause a crash.
-- Because it’s not `nil`-able, it’s not optional. This makes the call site cleaner, because you don’t have to do the optional unwrapping dance.
+- `unowned` unowned is essentially a force-unwrap of a weak capture, with all that it entails. Because of this using it sligtly more dangerous. 
+- Because it’s not `nil`-able, it’s not optional. 
+- Because it's not `nil`-able, the call site becomes cleaner i.e. you don’t have to do the optional unwrapping dance.
 
 ### Don't
 Use `unowned` for async/network operations. Because the object may become `nil` and then accessing it would crash!
