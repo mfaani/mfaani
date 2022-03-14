@@ -18,7 +18,7 @@ Use `unowned` for async/network operations. Because the object may become `nil` 
 Only use `unowned` when you’re certain that something can never be `nil` and you just want cleaner looking code.
 e.g. you need to break the reference cycle between a childVC & ParentVC. Obviously a childVC can’t be on the stack if its parent is `nil`. So that’s a good example.
 
-**Note:** You could use `weak`, but then you'd have to do optional unwrapping. But it's just not as clean as using `unowned`...
+**Note:** You could use `weak`, which then you'd have to do optional unwrapping. However it's just not as clean as using `unowned`...
 
 ### Docs
 The [docs](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html) say: 
