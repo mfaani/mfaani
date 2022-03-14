@@ -7,9 +7,15 @@ tags: ['memory-management', 'reference-counting', 'swift']
 
 TIL I finally learned when to use `unowned` as opposed to using `weak`.
 
-- `unowned` unowned is essentially a force-unwrap of a weak capture, with all that it entails. Because of this using it sligtly more dangerous. 
-- Because it’s not `nil`-able, it’s not optional. 
-- Because it's not `nil`-able, the call site becomes cleaner i.e. you don’t have to do the optional unwrapping dance.
+- **Under the shood:** `unowned` is essentially a force-unwrap of a `weak` capture, with all that it entails. Because of this using it sligtly more dangerous.
+- **Crash danger:** Accessing an _unowned_ reference while it's `nil` will cause a crash.
+- **Compilation error:** Every `weak` reference, must be an optional propery. Otherwise you'll get a compilation error:
+
+```swift
+weak var delegate: DataEntryDelegate = DataHandler() // ERROR: 'weak' variable should have optional type 'DataEntryDelegate?'
+```
+
+- **Call site:** Unlike _weak_ references, it's not mandatory for _unowned_ references to be an **optional**. This makes the call site cleaner i.e. you don’t have to do the optional unwrapping dance.
 
 ### Don't
 Use `unowned` for async/network operations. Because the object may become `nil` and then accessing it would crash!
