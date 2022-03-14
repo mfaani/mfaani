@@ -7,7 +7,7 @@ tags: ['memory-management', 'reference-counting', 'swift']
 
 TIL I finally learned when to use `unowned` as opposed to using `weak`.
 
-- **Under the shood:** `unowned` is essentially a force-unwrap of a `weak` capture, with all that it entails. Because of this using it sligtly more dangerous.
+- **Under the hood:** `unowned` is essentially a force-unwrap of a `weak` capture, with all that it entails. Because of this using it sligtly more dangerous.
 - **Crash danger:** Accessing an _unowned_ reference while it's `nil` will cause a crash.
 - **Compilation error:** Every `weak` reference, must be an optional propery. Otherwise you'll get a compilation error:
 
