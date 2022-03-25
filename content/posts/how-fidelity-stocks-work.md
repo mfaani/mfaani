@@ -93,7 +93,7 @@ For tax purposes, the grant price/date isn't important.
 - Vesting: Whenever it vests, very likely it's already included in your W2 and you get taxed as income tax. 
 - Cashing: But if you're selling then stocks, then you just have to pay capital gains tax.
 
-For taxes about options. See [here](http://mfaani.com/posts/how-fidelity-stocks-work/#does-the-options-selling-get-reported-in-my-w2)
+For taxes about options. See [here](https://mfaani.com/posts/how-fidelity-stocks-work/#does-the-options-selling-get-reported-in-my-w2)
 
 ### Should I sell my stocks now? 
 
