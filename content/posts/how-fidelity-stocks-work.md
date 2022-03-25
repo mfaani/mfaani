@@ -101,6 +101,14 @@ So if you sell your stocks today, then whatever profit you have will be consider
 
 But if you don't cash on it until you're retired, then you're selling it in a year where your income is ~$0 (because you don't have any income salary). So your tax bracket is lower. 
 
+### How do I change my ESPP contribution rate?
+
+For my company we're only allowed to do that in the first two weeks of every quarter. During a quarter we can only set it back to `%0` i.e. for my account I wasn't able to reduce it from `%10` to `%5`.
+
+How to access it: Portfolio >> Stock Plans >> ESPP Contribution Balance >> Change Contribution Rate
+
+I'm not sure why but it has two (current and future) offerings. I believe those are for my current quarter and upcoming i.e. I wasn't given an option to change it for current and all upcoming offerings. 
+
 ## What's a Stock Option? 
 
 From [here](https://smartasset.com/investing/how-do-stock-options-work):
