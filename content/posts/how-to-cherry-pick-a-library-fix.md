@@ -6,15 +6,14 @@ tags: [git, cherry-pick, library]
 ---
 
 I've done this so many times, but every time I do it with hesitance. 
-It's usually because I'm not certain I'm finding the right thing or if I'm applying it the right way. 
-
-## How to cherry-pick a library fix? 
+It's usually because I'm not certain I'm finding the right commit or if I'm applying it the right way. 
+These steps explain the process and how to validate that you're doing thins the right way. 
 
 1. Find out the library version that your release is using.
 2. Check out that version of your library.
 3. Create a new branch off that version.
 4. Find the SHA of the commits you want to cherry pick. 
-5. Cherry pick them in.
+5. Cherry pick them in and validate you've cherr-picked correctly.
 6. Make a new release/tag.
 7. Go back to your main app. Check out the release branch again. Create a new release version
 8. Update your `Podfile` (or whatever it is that you're using) to pull the updated version.
@@ -44,7 +43,8 @@ git log --oneline -20 # copy the SHA of the commit. I only added `--oneline` bec
 git show <SHA of the commit I wanna cherry pick> # If I wanted to be sure that I'm cherry picking things correct, then I just do  and I can see what exactly I'm cherry picking. I highly recommend doing this.
 # 5.2
 git cherry-pick aec4e0f9; git cherry-pick d963d6bc  # (Cherry-picking two commits)
-
+# 5.3 (Optional)
+git diff 1.32.0 # validate all the changes version your previous library release.
 # 6
 git tag 1.32.1 
 
