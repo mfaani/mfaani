@@ -49,6 +49,7 @@ git show <SHA of the commit I wanna cherry pick> # If I wanted to be sure that I
 git cherry-pick aec4e0f9; git cherry-pick d963d6bc  # (Cherry-picking two commits)
 # 5.3 (Optional)
 git diff 1.32.0 # validate all the changes version your previous library release.
+
 # 6
 git tag 1.32.1 
 
