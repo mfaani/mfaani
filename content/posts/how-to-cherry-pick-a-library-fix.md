@@ -3,6 +3,10 @@ title: "How to cherry-pick a library fix?"
 date: 2022-04-05T12:22:16-04:00
 categories: [Devtools]
 tags: [git, cherry-pick, library]
+cover:
+    image: "git-cherry-pick.jpg"
+    alt: "git cherry-pick"
+    relative: true
 ---
 
 I've done this so many times, but every time I do it with hesitance. 
