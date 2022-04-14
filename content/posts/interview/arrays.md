@@ -25,6 +25,8 @@ Every Array trick I've learned for solving Algorithm style questions:
     - Have a start index and end Index and move them as needed. 
 - Start from the end.
 - Binary search i.e. use middle of array and so on.
+- To preserver space, often you may need to just loop over certain indicies as opposed to creating a new array. 
+- Swift tip. To create a simple array of 1 to 10, do `Array(1...10)`. [1...10] will create `Array<ClosedRange<Int>>` instead. 
 
 I also liked this: 
 
