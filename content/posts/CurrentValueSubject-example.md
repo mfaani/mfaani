@@ -3,9 +3,13 @@ title: "CurrentValueSubject Example"
 date: 2022-04-14T15:20:02-04:00
 categories: [Combine]
 tags: ['swift', 'currentValueSubject', 'combine']
+cover:
+    image: "dispose-bag.jpg"
+    alt: "dispose bag"
+    relative: true
 ---
 
-I googled a bit for "CurrentValueSubject Example". Surprisingly I wasn't able to find a simple answer. I created a few examples:
+I googled a bit for "CurrentValueSubject Example". Surprisingly I wasn't able to find a simple answer. So I created a few examples:
 
 ## Basic
 ```swift
@@ -58,16 +62,14 @@ class ViewController: UIViewController {
 
 Output:
 ```
-debug - : receive subscription: (CurrentValueSubject)
-debug - : request unlimited
-debug - : receive value: (Jason)
-Jason
-debug - : receive value: (Jason Bourne)
-Jason Bourne
-debug - : receive cancel
+debug - : receive subscription: (CurrentValueSubject) # It has a subscription
+debug - : request unlimited # The subscriber wants to know of every value the publisher emits. It doesn't want to stop after a certain number.
+debug - : receive value: (Jason) # A value of 'Jason' was received' 
+debug - : receive value: (Jason Bourne) # A value of 'Jason Bourne' was received' 
+debug - : receive cancel # The subscription was terminated.
 ```
 
-## Deinitialization gotcha 1
+## Deinitialization gotcha - no retain
 
 ```swift
 import UIKit
@@ -82,7 +84,7 @@ class ViewController: UIViewController {
     }
     
     func setup() {
-        let _ = name.print("debug - ").sink { value in
+        let _ = name.sink { value in
             print(value) // Jason. WILL NOT necessarily be called for 'Jason Bourne'
         }
         name.send("Jason Bourne")
@@ -94,8 +96,13 @@ Here the subscription is valid only until the end of the `setup` function. Howev
 
 Generally the only way to guarantee your subscriptions stay alive is to reference them from a lexical scope that outlives the time you want to receive subscriptions.
 
+The [docs](https://developer.apple.com/documentation/combine/publisher/sink(receivevalue:)) on `sink` also say: 
 
-## Deinitialization gotcha 2
+> This method creates the subscriber and immediately requests an unlimited number of values, prior to returning the subscriber. The return value should be held, otherwise the stream will be canceled.
+
+If you try using the Debugging technique, you'll realize that the subscription is canceled before `name.send("Jason Bourne")` is reached. 
+
+## Deinitialization gotcha - scope exit
 
 ```swift
 import UIKit
@@ -113,7 +120,7 @@ class ViewController: UIViewController {
     }
     
     func setup() {
-        let sub = name.print("debug - ").sink { value in
+        let sub = name.sink { value in
             print(value) // Jason, Jason Bourne. Will NOT be called for 'Delayed name' 
         }
         name.send("Jason Bourne")
@@ -140,7 +147,7 @@ class ViewController: UIViewController {
     var sub: AnyCancellable? 
     
     func setup() {        
-        sub = name.print("debug - ").sink { value in
+        sub = name.sink { value in
             print(value) // Jason, Jason Bourne, Delayed name
         }
         name.send("Jason Bourne")
@@ -163,17 +170,98 @@ tldr within its `deinit` it will call `cancel`.
 ```swift
 
 var name = CurrentValueSubject<String, Never>("Jason")
-print(name) // Combine.CurrentValueSubject<Swift.String, Swift.Never>
+print(name) // 😐 Combine.CurrentValueSubject<Swift.String, Swift.Never>
 print(name.value) // Jason
 
 name = "David" // ❌ ERROR: Cannot assign value of type 'String' to type 'CurrentValueSubject<String, Never>'
 name.send("David") ✅
 ```
 
+## Alternate solution
+
+```swift
+import UIKit
+import Combine
+
+class ViewController: UIViewController {
+   
+    var name = CurrentValueSubject<String, Never>("Jason")
+    var subscriptions: Set<AnyCancellable> = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+    
+    func setup() {
+        name.sink { value in
+            print(value) // Jason, Jason Bourne
+        }.store(in: &subscriptions)
+        
+        name.send("Jason Bourne")
+    }
+}
+```
+
+Remember we said that we should [retain the return value of a subscription](https://mfaani.com/posts/currentvaluesubject-example/#deinitialization-gotcha---no-retain)? 
+
+There's a cleaner way other than doing `let sub = name.sink {...}`
+
+You could just store the subscription using [`store(in:)`](https://developer.apple.com/documentation/combine/anycancellable/store(in:)-3hyxs)
+
+This way you don't create multiple (not really wanted) objects just so you could retain the subscription. You just store one variable and then dump all the subscriptions into it. 
+
+### Can you explain what `var subscriptions: Set<AnyCancellable> = []` is again?
+
+It might helpful if we named the variable differently. Alternate names are: 
+
+```
+// just to retain all our subscriptions
+var subscriptionRetainer: Set<AnyCancellable> = [] 
+
+// a group of cancelable items. Remember every subscription is cancellable. That's why often the names are used interchangeably 
+var cancellables: Set<AnyCancellable> = []  
+
+// a place to just dump my subscriptions and not care too much.
+var subscriptionDumpster: Set<AnyCancellable> = [] 
+
+// a bag (of subscriptions) that is soon to be disposed. This is how RxSwift used to name things. 
+var disposableBag: Set<AnyCancellable> = [] 
+
+// self-explanatory
+var storageForAllOurSubscriptionsSoWeDon'tCreatVariablesForThem: Set<AnyCancellable> = [] 
+```
+
+All the names above are for the same purpose. It's just that people name it differently. 
+
+Beyond that, you could use it for grouping subscriptions. Example: 
+
+```swift
+var primaryUserSubscriptions: Set<AnyCancellable> = [] 
+var secondaryUserSubscriptions:  Set<AnyCancellable> = [] 
+```
+
+### What's with the cover image of the post? 
+It's an image of disposable bags. Just like how some name the set of their subscriptions. 😀
+
+### OK. I get what `Set<AnyCancellable>` does. But why not just use the normal subscription I had before?
+It's just a convenience. That is:
+- All subscriptions get to live as long as the set is living.
+- You don’t have to create variables just so you can increase the life-cycle of the subscription.
+
+All that said, often a single value can still be useful if you need to shorten the lifetime. Example if you want to only subscribe after `viewWillAppear` and cancel after `viewWillDisAppear`
+
+### Anything else about `Set<AnyCancellable>`? 
+
+You almost always want it to be a `private` variable. It really has no purpose outside its current class. 
+
 ## Summary
 - Use `send` to update values. 
 - Use `print()` like `name.print("a prefix").sink{...}` to see what's happening under the hood.
-- Your subscription needs to be retained, otherwise your subscritpions won't happen. 
+- Your subscription needs to be retained, otherwise your subscritpions would get canceled either immediately or upon exiting the current scope. 
 - The reason a subscription returns an `AnyCancelleable` is to give you control over the scope/duration of the subscription. 
 - `AnyCancellable` automatically calls `cancel` when deinitialized.
-
+- `Set<AnyCancellable>` offers a nicer API that helps reduce clutter in your code. 
+- `Set<AnyCancellable>` is not the solution for every kind of subscription you have. 
+- Engineers name their `Set<AnyCancellable>` different things. Yet the purpose of it identical across all engineers. 
+- Almost all the time you want your `Set<AnyCancellable>` to be a `private` variable. 
