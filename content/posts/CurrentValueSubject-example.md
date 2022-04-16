@@ -177,6 +177,13 @@ name = "David" // ❌ ERROR: Cannot assign value of type 'String' to type 'Curre
 name.send("David") ✅
 ```
 
+It's also named as _current_ valuesubject because:
+- As demonstrated above, you can always access its **current** value using `.value`. 
+- Upon subscription, the subscriber will get a callback for the _current_ value of the publisher. 
+
+You can think of `CurrentSubjectValue` as `APublisherThatItCurrentValueIsAccessibleAndWillEmitItsValue`. For more on that see [here](https://stackoverflow.com/a/60563199/5175709)
+
+
 ## Alternate solution
 
 ```swift
@@ -259,7 +266,7 @@ You almost always want it to be a `private` variable. It really has no purpose o
 - Use `send` to update values. 
 - Use `print()` like `name.print("a prefix").sink{...}` to see what's happening under the hood.
 - Your subscription needs to be retained, otherwise your subscritpions would get canceled either immediately or upon exiting the current scope. 
-- The reason a subscription returns an `AnyCancelleable` is to give you control over the scope/duration of the subscription. 
+- A subscription returns an `AnyCancelleable`. The reason for that is to give you control over the scope/duration of the subscription. 
 - `AnyCancellable` automatically calls `cancel` when deinitialized.
 - `Set<AnyCancellable>` offers a nicer API that helps reduce clutter in your code. 
 - `Set<AnyCancellable>` is not the solution for every kind of subscription you have. 
