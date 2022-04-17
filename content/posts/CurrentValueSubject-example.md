@@ -258,6 +258,12 @@ It's just a convenience. That is:
 
 All that said, often a single value can still be useful if you need to shorten the lifetime. Example if you want to only subscribe after `viewWillAppear` and cancel after `viewWillDisAppear`
 
+### Does `Set<AnyCancellable>` help avoid memory leaking? 
+
+The concept of disposeBag / having a Set<AnyCancellable> variable, is not about leaking memory i.e. it’s not about ending subscriptions when an object goes out of memory. That will happen. The main purpose is to retain the subscription until the object is in memory (or until you call `cancel` yourself)
+
+Because if you don’t use store your subscriptions (use dispose bag), your subscriptions will go out of memory right away (hence no leaking) as shown earlier.
+
 ### Anything else about `Set<AnyCancellable>`? 
 
 You almost always want it to be a `private` variable. It really has no purpose outside its current class. 
@@ -266,9 +272,9 @@ You almost always want it to be a `private` variable. It really has no purpose o
 - Use `send` to update values. 
 - Use `print()` like `name.print("a prefix").sink{...}` to see what's happening under the hood.
 - Your subscription needs to be retained, otherwise your subscritpions would get canceled either immediately or upon exiting the current scope. 
-- A subscription returns an `AnyCancelleable`. The reason for that is to give you control over the scope/duration of the subscription. 
+- A subscription returns an `AnyCancelleable`. The reason for that is to give you control over the scope/duration of the subscription. It's not about leaking memory.
 - `AnyCancellable` automatically calls `cancel` when deinitialized.
 - `Set<AnyCancellable>` offers a nicer API that helps reduce clutter in your code. 
 - `Set<AnyCancellable>` is not the solution for every kind of subscription you have. 
 - Engineers name their `Set<AnyCancellable>` different things. Yet the purpose of it identical across all engineers. 
-- Almost all the time you want your `Set<AnyCancellable>` to be a `private` variable. 
+- Almost all the time you want your `Set<AnyCancellable>` to be a `private` variable.
