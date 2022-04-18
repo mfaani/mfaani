@@ -260,8 +260,9 @@ All that said, often a single value can still be useful if you need to shorten t
 
 ### Does `Set<AnyCancellable>` help avoid memory leaking? 
 
-The concept of disposeBag / having a Set<AnyCancellable> variable, is not about leaking memory i.e. it’s not about ending subscriptions when an object goes out of memory. That will happen. The main purpose is to retain the subscription until the object is in memory (or until you call `cancel` yourself)
+The concept of disposeBag / having a Set<AnyCancellable> variable, is not about leaking memory i.e. it’s not about ending subscriptions when an object goes out of memory. That will happen automatically. 
 
+The main purpose is to retain the subscription until the object is in memory (or until you call `cancel` yourself)
 Because if you don’t use store your subscriptions (use dispose bag), your subscriptions will go out of memory right away (hence no leaking) as shown earlier.
 
 ### Anything else about `Set<AnyCancellable>`? 
