@@ -1,0 +1,47 @@
+---
+title: "What Is a Self Contained Build Script"
+date: 2022-04-22T13:11:12-04:00
+categories: [Devtools]
+tags: [CI, jenkins, bundler]
+draft: true
+---
+
+So I had this need to add a brew package into our build script. I spoke with with the team that handled our agents and asked them to add a new package on the agents. 
+
+I was told that the package has to be included as part of the build script and that build scripts need to be self-contained. 
+
+At first I didn't fully understand what 'self-contained' means in this context but as I digged more into our `Jenkinsfile` I learned what it meant. First let's figure out:
+
+### How is running `pod lib lint` on my local machine different from running it on an agent?
+So today if on my local machine I want to run `pod lib lint`, I just do it. I don't ever check if CocoaPods is installed or not. I just know that I've installed and use it. 
+
+However you can't assume the same on a agent. An agent isn't owned by you. And you have no control over what command line tools it has. 
+You need `CocoaPods` installed. To have `CocoaPods` installed you need:
+
+- `bundler` installed. 
+- To have `bundler` installed you `ruby`
+- To have `ruby` need `rvm` installed.
+
+Our CI team installs `rvm` on all agents, as that's not a trivial process. The rest (installing ruby, bundler, CocoaPods) is to be owned by the build script.
+
+### Hmmm. OK. So should I install ruby, bundler, cocoapods on every build? 
+No. You just install it if it wasn't installed before. Example: 
+
+```bash {linenos=true linenostart=1}
+rvm use ruby-2.5.1 || rvm install ruby-2.5.1 # only installs ruby if it's not installed
+gem install bundler -v "2.1.4" 
+bundle install
+pod lib lint
+```
+
+Lines 2 & 3 obviously only install packages once. The `bundle` and `gem` commands have have logic internally to exit early if the dependencies are installed already.
+
+### What should I do if I need a brew dependency installed?
+- On all agents: Have `brew` installed
+- In your build script do: `gh --version || brew install gh`. 
+
+By having `gh --version || brew install gh` in your build script, you make your scripts **self-contained** i.e. your build script doesn't depend on the `gh` formula being installed. 
+
+### Conclusion
+
+It's ok to expect `rvm`, `brew` to be installed. But for any other dependency or package, you should check for its presence. If not available then install it during your build script. 

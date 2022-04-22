@@ -14,7 +14,7 @@ Every Array trick I've learned for solving Algorithm style questions:
     - Need to know the last occurrence of something.
     - etc.
 - Exit early to simplify logic. Example when the array is empty or only contains a single item.
-    - Don't exit early if the question itself explicity says it has more than 1 item. 
+    - Don't exit early if the question itself explicitly says it has more than 1 item. 
 - Create a local variable. So you can: 
     - Carry state
     - Carry last index (of something)
@@ -25,8 +25,8 @@ Every Array trick I've learned for solving Algorithm style questions:
     - Have a start index and end Index and move them as needed. 
 - Start from the end.
 - Binary search i.e. use middle of array and so on.
-- To preserver space, often you may need to just loop over certain indicies as opposed to creating a new array. 
-- Swift tip. To create a simple array of 1 to 10, do `Array(1...10)`. [1...10] will create `Array<ClosedRange<Int>>` instead. 
+- To preserver space, often you may need to just loop over certain indices as opposed to creating a new array. 
+- Swift tip. To create a simple array of 1 to 10, do `Array(1...10)`. [1...10] will create `Array<ClosedRange<Int>>` instead.
 
 I also liked this: 
 
