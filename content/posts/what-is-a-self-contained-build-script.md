@@ -36,13 +36,14 @@ Our CI team installs `rvm` on all agents, as that's not a trivial process. The r
 No. You just install it if it wasn't installed before. Example: 
 
 ```bash {linenos=true linenostart=1}
-rvm use ruby-2.5.1 || rvm install ruby-2.5.1 # only installs ruby if it's not installed
+rvm use ruby-2.5.1 || rvm install ruby-2.5.1
 gem install bundler -v "2.1.4" 
 bundle install
 pod lib lint
 ```
-
-Lines 2 & 3 obviously only install packages once. The `bundle` and `gem` commands have have logic internally to exit early if the dependencies are installed already.
+Line 1 only installs ruby if it's not installed.  
+Lines 2 & 3 only install packages once. The `bundle` and `gem` commands have have logic internally to exit early if the dependencies are installed already.  
+Line 4 can then safely execute.
 
 ### What should I do if I need a brew dependency installed?
 - On all agents: Have `brew` installed
@@ -50,6 +51,13 @@ Lines 2 & 3 obviously only install packages once. The `bundle` and `gem` command
 
 By having `gh --version || brew install gh` in your build script, you make your scripts **self-contained** i.e. your build script doesn't depend on the `gh` formula being installed. 
 
+### And what's the cover image about? 
+
+A self-contained RV is an RV that has a bathroom and tank system for holding water. It doesn't need any outside sources to operate.
+
+Build scripts need to be just like that. 😀  
+They should be able to work without knowing what dependencies exist on the agent. 
+
 ### Conclusion
 
-It's ok to expect `rvm`, `brew` to be installed. But for any other dependency or package, you should check for its presence. If not available then install it during your build script.
+It's ok to expect `rvm`, `brew`, `Xcode` to be installed. But for any other dependency or package, you should check for its presence. If not available then install it during your build script.
