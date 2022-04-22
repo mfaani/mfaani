@@ -28,7 +28,7 @@ Commit the `Podfile`, `Podfile.lock` and `/Pods` folder.
 - If you bumped a pod version. The intent is to propagate the changes to both the `Podfile.lock` and `/Pods` 
 
 ## Not committing the /Pods folder
-Commit the `Podfile`, `Podfilee.lock` only. Don't commit the `/Pods` folder.
+Commit the `Podfile`, `Podfile.lock` only. Don't commit the `/Pods` folder.
 
 **Pros:** Your repo size is smaller. 
 
@@ -43,7 +43,7 @@ Commit the `Podfile`, `Podfilee.lock` only. Don't commit the `/Pods` folder.
 - After you pulled down the repo and see changes in the `Podfile.lock` and need pull the current version of all dependencies.
 ----
 
-To be clear, this post isn't about which approach is better. It's just about explaining the differences. For more on the comparsion of the two approaches, see [CocoaPods and Lockfiles - video](https://www.youtube.com/watch?v=H-zK1mEwTe0)
+To be clear, this post isn't about which approach is better. It's just about explaining the differences. For more on the comparison of the two approaches, see [CocoaPods and Lockfiles - video](https://www.youtube.com/watch?v=H-zK1mEwTe0)
 
 You might be thinking now how do we make sure everyone has all the correct pods installed. It's simple, the `Podfile.lock` gives you the version used for every pod. Think of the `Podfile.lock` as a snapshot of all your versions. 
 
@@ -84,6 +84,6 @@ If the lock files don't match, then Xcode will throw the following error:
 ## Summary
 
 - `Manifest.lock` is per machine, while `Podfile.lock` is per project. 
-- `Manifest.lock` should never be commited, while `Podfile.lock` must always be committed. 
+- `Manifest.lock` should never be committed, while `Podfile.lock` must always be committed. 
 - `Manifest.lock` should always match the `Podfile.lock`. Otherwise you'll get a build error.
 - Committing the /Pods folder depends on your team's decision. It's optional. 

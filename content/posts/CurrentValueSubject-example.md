@@ -272,7 +272,7 @@ You almost always want it to be a `private` variable. It really has no purpose o
 ## Summary
 - Use `send` to update values. 
 - Use `print()` like `name.print("a prefix").sink{...}` to see what's happening under the hood.
-- Your subscription needs to be retained, otherwise your subscritpions would get canceled either immediately or upon exiting the current scope. 
+- Your subscription needs to be retained, otherwise your subscriptions would get canceled either immediately or upon exiting the current scope. 
 - A subscription returns an `AnyCancelleable`. The reason for that is to give you control over the scope/duration of the subscription. It's not about leaking memory.
 - `AnyCancellable` automatically calls `cancel` when deinitialized.
 - `Set<AnyCancellable>` offers a nicer API that helps reduce clutter in your code. 

@@ -3,6 +3,10 @@ title: "Whats the Difference Between Unowned and Weak References?"
 date: 2022-03-11T17:30:09-05:00
 category: ['iOS', 'Swift']
 tags: ['memory-management', 'reference-counting', 'swift']
+editPost:
+    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    Text: Suggest Changes
+    appendFilePath: true
 ---
 
 TIL I finally learned when to use `unowned` as opposed to using `weak`.

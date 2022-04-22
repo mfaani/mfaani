@@ -4,6 +4,14 @@ date: 2022-04-22T13:11:12-04:00
 categories: [Devtools]
 tags: [CI, jenkins, bundler]
 draft: true
+editPost:
+    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    Text: Suggest Changes
+    appendFilePath: true
+cover:
+    image: "self-contained-rv.jpg"
+    alt: "self-contained rv"
+    relative: false
 ---
 
 So I had this need to add a brew package into our build script. I spoke with with the team that handled our agents and asked them to add a new package on the agents. 
@@ -44,4 +52,4 @@ By having `gh --version || brew install gh` in your build script, you make your 
 
 ### Conclusion
 
-It's ok to expect `rvm`, `brew` to be installed. But for any other dependency or package, you should check for its presence. If not available then install it during your build script. 
+It's ok to expect `rvm`, `brew` to be installed. But for any other dependency or package, you should check for its presence. If not available then install it during your build script.
