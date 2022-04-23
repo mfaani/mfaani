@@ -37,7 +37,7 @@ No. You just install it if it wasn't installed before. Example:
 
 ```bash {linenos=true linenostart=1}
 rvm use ruby-2.5.1 || rvm install ruby-2.5.1
-gem install bundler -v "2.1.4" 
+gem install bundler -v "2.3.3" 
 bundle install
 pod lib lint
 ```
