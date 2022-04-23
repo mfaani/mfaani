@@ -24,11 +24,11 @@ At first I didn't fully understand what 'self-contained' means in this context b
 So today if on my local machine I want to run `pod lib lint`, I just do it. I don't ever check if CocoaPods is installed or not. I just know that I've installed and use it. 
 
 However you can't assume the same on a agent. An agent isn't owned by you. And you have no control over what command line tools it has. 
-You need `CocoaPods` installed. To have `CocoaPods` installed you need:
+You need `CocoaPods` installed. 
 
-- `bundler` installed. 
-- To have `bundler` installed you `ruby`
-- To have `ruby` need `rvm` installed.
+- To have `CocoaPods` you need (recommended) `bundler`.
+- To have `bundler` you need `ruby`.
+- To have `ruby` you need (recommended) `rvm`.
 
 Our CI team installs `rvm` on all agents, as that's not a trivial process. The rest (installing ruby, bundler, CocoaPods) is to be owned by the build script.
 
