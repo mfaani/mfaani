@@ -23,11 +23,12 @@ Every Array trick I've learned for solving Algorithm style questions:
 - Sort it. Then depending on the type of question:
     - Have an index and start from beginning
     - Have a start index and end Index and move them as needed. 
+    - Note: Sorting has a performance hit. Usually `n(logN)`
 - Start from the end.
 - Binary search i.e. use middle of array and so on.
 - To preserver space, often you may need to just loop over certain indices as opposed to creating a new array. 
 - Swift tip. To create a simple array of 1 to 10, do `Array(1...10)`. [1...10] will create `Array<ClosedRange<Int>>` instead.
-- Math and index manipulation is always tough. First index, last index, empty array. `i - 1`, `i + 1`, are dangerous areas. 
+- Math and index manipulation is always a source of bugs. First index, last index, empty array. `i - 1`, `i + 1`, are dangerous areas. 
 - Make sure you return an answer from every case. e.g. 
 
 ```swift
@@ -46,9 +47,13 @@ And for what the recovering return is to be, you'd either be returning an empty 
 
 - It's great to convert strings to an array of characters. But once you do that, then make sure you convert back the array of characters to String — when necessary.
 - Knowledge of [`Range`](https://developer.apple.com/documentation/swift/range) vs. [`ClosedRange`](https://developer.apple.com/documentation/swift/closedrange) can be helpful.
-    - `Range` can be empty. `0..<0` won't contain `0`. `isEmpty` is `true` in this case. 
+    - `Range` can be empty. `0..<0` won't contain `0`. `isEmpty` is `true` in this case. This can be advantageous if you e.g. you need to return nothing. Otherwise for the most part its very similar to `ClosedRange`. 
     - `ClosedRange` can never be empty. `0...0` will contain `0`. `isEmpty` can never be `true`. Nor you can ever have a bound like `0...-1` as that's illegal. Because you can't form a range...
-- Helper functions you might need for string manipulations: 
+
+## Strings 
+- Just convert the string to an array of characters. This is an `O(n)` operation. You can almost never do better than that. So it's not impacting anything. It's just good to be able to speak about why you have to do that. 
+- If that doesn't work for you, then use these two helper functions for `String` manipulation: 
+
 ```swift
 extension String { 
     func at(_ i: Int) -> Character {
@@ -61,6 +66,10 @@ extension String {
     }
 }
 ```
+
+Like I typically do: 
+
+
 
 I also liked this: 
 
