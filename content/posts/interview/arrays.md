@@ -27,6 +27,27 @@ Every Array trick I've learned for solving Algorithm style questions:
 - Binary search i.e. use middle of array and so on.
 - To preserver space, often you may need to just loop over certain indices as opposed to creating a new array. 
 - Swift tip. To create a simple array of 1 to 10, do `Array(1...10)`. [1...10] will create `Array<ClosedRange<Int>>` instead.
+- Math and index manipulation is always tough. First index, last index, empty array. `i - 1`, `i + 1`, are dangerous areas. 
+- Make sure you return an answer from every case. e.g. 
+
+```swift
+func calc(str: String) -> Int
+    for s in str {
+        if s == "a" {
+            return "a"
+        } else {
+            return "b"
+        }
+    }
+    // MISSING RETURN here! 
+}
+```
+And for what the recovering return is to be, you'd either be returning an empty base, or an untouched base. i.e. either return `""` or like `strings.first!` (in the case of longest common prefix)
+
+- It's great to convert strings to an array of characters. But once you do that, then make sure you convert back the array of characters to String — when necessary.
+- Knowledge of [`Range`](https://developer.apple.com/documentation/swift/range) vs. [`ClosedRange`](https://developer.apple.com/documentation/swift/closedrange) can be helpful.
+    - `Range` can be empty. `0..<0` won't contain `0`. `isEmpty` is `true` in this case. 
+    - `ClosedRange` can never be empty. `0...0` will contain `0`. `isEmpty` can never be `true`. Nor you can ever have a bound like `0...-1` as that's illegal. Because you can't form a range...
 
 I also liked this: 
 
