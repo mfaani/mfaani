@@ -48,6 +48,19 @@ And for what the recovering return is to be, you'd either be returning an empty 
 - Knowledge of [`Range`](https://developer.apple.com/documentation/swift/range) vs. [`ClosedRange`](https://developer.apple.com/documentation/swift/closedrange) can be helpful.
     - `Range` can be empty. `0..<0` won't contain `0`. `isEmpty` is `true` in this case. 
     - `ClosedRange` can never be empty. `0...0` will contain `0`. `isEmpty` can never be `true`. Nor you can ever have a bound like `0...-1` as that's illegal. Because you can't form a range...
+- Helper functions you might need for string manipulations: 
+```swift
+extension String { 
+    func at(_ i: Int) -> Character {
+        return self[self.index(self.startIndex, offsetBy: i)]
+    }
+    
+    func safeAt(_ i: Int) -> Character? {
+        guard i < count  else { return nil }
+        return at(i)
+    }
+}
+```
 
 I also liked this: 
 
