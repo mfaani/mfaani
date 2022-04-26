@@ -3,6 +3,7 @@ title: "Should I Always Use Barrier Flag?"
 date: 2022-01-25T17:04:59-05:00
 draft: true
 ---
+USE LINK, REFERENCE it, REMOVE IT. https://gist.github.com/tclementdev/6af616354912b0347cdf6db159c37057
 
 DispatchQueues have this flag named `barrier`. You use on your _concurrent_ queues to block other concurrent queues to execute simultaneously. [Docs](https://developer.apple.com/documentation/dispatch/dispatchworkitemflags/1780674-barrier) say:
 
