@@ -1,4 +1,4 @@
-baseURL: 'https://mfaani.com/'
+baseURL: "https://mfaani.com/"
 languageCode: en-us
 title: TIL with Mohammad
 theme: paperMod
@@ -12,68 +12,66 @@ params:
   ShowCodeCopyButtons: true
 
 languages:
-    en:
-        languageName: "English"
-        weight: 1
-        menu:
-            main:
-                - name: Blog
-                  url: archives/
-                  weight: 5
-                - name: About
-                  url: about/
-                  weight: 10
-                - name: Search
-                  url: search/
-                  weight: 15
-                - name: Tags
-                  url: tags/
-                  weight: 20
-    # fa:
-    #     languagedirection: rtl
-    #     weight: 3
-    #     title: PaperMod RTL
-    #     homeInfoParams:
-    #         Title: "Hi there \U0001F44B"
-    #         Content: Welcome to RTL layout
-    #     menu:
-    #         main:
-    #             - name: Tags
-    #               url: tags
-    #               weight: 10
+  en:
+    languageName: "English"
+    weight: 1
+    menu:
+      main:
+        - name: Blog
+          url: archives/
+          weight: 5
+        - name: About
+          url: about/
+          weight: 10
+        - name: Search
+          url: search/
+          weight: 15
+        - name: Tags
+          url: tags/
+          weight: 20
+  # fa:
+  #     languagedirection: rtl
+  #     weight: 3
+  #     title: PaperMod RTL
+  #     homeInfoParams:
+  #         Title: "Hi there \U0001F44B"
+  #         Content: Welcome to RTL layout
+  #     menu:
+  #         main:
+  #             - name: Tags
+  #               url: tags
+  #               weight: 10
 
 ## neither BlackFriday nor Goldmark made any difference in the syntax highlight. Removing them for now
 
 # not sure what this privacy does, but just adding it for now
 privacy:
-    vimeo:
-        disabled: false
-        simple: true
+  vimeo:
+    disabled: false
+    simple: true
 
-    twitter:
-        disabled: false
-        enableDNT: true
-        simple: true
+  twitter:
+    disabled: false
+    enableDNT: true
+    simple: true
 
-    instagram:
-        disabled: false
-        simple: true
+  instagram:
+    disabled: false
+    simple: true
 
-    youtube:
-        disabled: false
-        privacyEnhanced: true
+  youtube:
+    disabled: false
+    privacyEnhanced: true
 
 # not sure what this services does, but just adding it for now
 services:
-    instagram:
-        disableInlineCSS: true
-    twitter:
-        disableInlineCSS: true
+  instagram:
+    disableInlineCSS: true
+  twitter:
+    disableInlineCSS: true
 
-
- # needed so the site's search works  
+  # needed so the site's search works
 outputs:
   home:
     - HTML
     - RSS
-
