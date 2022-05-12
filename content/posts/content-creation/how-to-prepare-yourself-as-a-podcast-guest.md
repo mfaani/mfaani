@@ -28,7 +28,7 @@ The first time I listened to an iOS podcast was yrs ago. I was struggling to gra
     - Product
     - Team  
 
-For the most part the conversation just flows naturally. Your rehearsing just helps.Don't be too technical. Nor speak in length.
+For the most part the conversation just flows naturally. Your rehearsing just helps. Don't be too technical. Nor speak in length.
 
 ## How to Talk
 - Speak slow and clear.
@@ -47,7 +47,7 @@ For the most part the conversation just flows naturally. Your rehearsing just he
 ### Blue Yeti Nano
 {{< audio audio-name="blue-nano" audio-type="mp3">}}
 
-- It's ok to have a few hiccups in your speaking. But it's good to know if you over-use something too much. I didn't realize by I somewhat overused the term "I feel like". 
+- It's ok to have a few hiccups in your speaking. But it's good to know if you over-use something too much. Though out my talk I realized I somewhat overused the term "I feel like" 🤦‍♂️. 
 - Speak with energy. Ask a friend to ask a few questions for a few minutes. Record that it. Make it a conversation, so you can gauge your energy level easier. Listen to it and see if your energy is good enough. Energy doesn't mean being loud but after hearing the recording, I often felt like I was too shy or my voice was low. 
 
 ## Other tips
