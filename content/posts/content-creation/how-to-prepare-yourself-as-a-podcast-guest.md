@@ -33,7 +33,7 @@ For the most part the conversation just flows naturally. Your rehearsing just he
 ## How to Talk
 - Speak slow and clear.
 - Have a professional microphone. AirPods aren't professional microphones 🫠🫠🫠.
-    - I ended buying a [Blue Yeti Nano](https://www.bluemic.com/en-us/products/yeti-nano/) for $69.99.
+    - I ended buying a [Blue Yeti Nano](https://www.bluemic.com/en-us/products/yeti-nano/) for $69.99. There were some more premium products, but from the feedback I got, it seemed like a good choice. 
     - Reduce any possible noise (heater, fan, kids, tv) in your room.
     - Test it. Watch a Youtube video on the microphone. Often you need to install specific hardware to be able to adjust the microphone gain (the output volume of your microphone).
     - Getting early to the recording is helpful to get feedback on your audio from the host, because they they likely have more experience than you.
