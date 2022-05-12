@@ -34,10 +34,11 @@ For the most part the conversation just flows naturally. Your rehearsing just he
 - Speak slow and clear.
 - Have a professional microphone. AirPods aren't professional microphones 🫠🫠🫠.
     - I ended buying a [Blue Yeti Nano](https://www.bluemic.com/en-us/products/yeti-nano/) for $69.99.
-    - Kill the noise (heater, fan, kids, tv) in your room.
+    - Reduce any possible noise (heater, fan, kids, tv) in your room.
     - Test it. Watch a Youtube video on the microphone. Often you need to install specific hardware to be able to adjust the microphone gain (the output volume of your microphone).
     - Getting early to the recording is helpful to get feedback on your audio from the host, because they they likely have more experience than you.
     - I also learned about 'Pop Filters'. For more on that see [this](https://www.youtube.com/watch?v=amWbTkjfhDk) video. I ended up not buying one and things just worked fine. 
+    - When using an external mic, it’s often something you have to tell Zoom/Skype/etc to use. You may not notice that you're using your computer's built-in microphone. A standard way of testing is to rub the microphone with your nail and ask if others can hear the scratching. 
 - Here's an example of how AirPods compare with a Yeti Nano:
 
 ### AirPods2
@@ -45,6 +46,7 @@ For the most part the conversation just flows naturally. Your rehearsing just he
 {{< audio audio-name="airpods2" audio-type="mp3">}}
 ### Blue Yeti Nano
 {{< audio audio-name="blue-nano" audio-type="mp3">}}
+
 - It's ok to have a few hiccups in your speaking. But it's good to know if you over-use something too much. I didn't realize by I somewhat overused the term "I feel like". 
 - Speak with energy. Ask a friend to ask a few questions for a few minutes. Record that it. Make it a conversation, so you can gauge your energy level easier. Listen to it and see if your energy is good enough. Energy doesn't mean being loud but after hearing the recording, I often felt like I was too shy or my voice was low. 
 
