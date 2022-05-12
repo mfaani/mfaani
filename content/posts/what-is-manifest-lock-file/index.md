@@ -2,8 +2,9 @@
 title: "What is Manifest.lock File?"
 date: 2022-02-09T06:47:16-05:00
 slug: "what-is-manifest.lock-file"
-tags: ['CocoaPods', 'lock file', 'Manifest.lock', 'Dependency Management']
 category: ['iOS']
+tags: ['CocoaPods', 'lock file', 'Manifest.lock', 'Dependency Management']
+description: "In this post I discuss why there are two lockfiles and how that helps CocoaPods maintain integrity across machines"
 cover: 
     image: "images/nypass_list_laurel_chaplin-4fb9cfe3.jpg"
     alt: "Flight manifest"

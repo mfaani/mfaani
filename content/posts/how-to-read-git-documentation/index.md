@@ -3,6 +3,7 @@ title: "How to Read Git Documentation"
 date: 2022-02-11T08:55:15-05:00
 category: [Devtools]
 tags: ['git', 'Documentation', 'Source Control']
+description: "I was always perplexed with gits documentation. You need another documentation to just understand it. In this post I give tips on how to decipher it."
 cover: 
     image: "images/git-branch-synopsis.png"
     alt: "git branch synopsis"

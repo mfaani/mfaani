@@ -1,23 +1,30 @@
 ---
-title: "Everything You Need to Know About Keychain as an Ios Engineer"
+title: "Everything You Need to Know About Keychain as an ios Engineer"
 date: 2022-05-06T13:21:51-04:00
 draft: true
 ---
+Please note through out this post I'll use the term cert/certificate and profile/provisioning profile interchangeably. This post will not go through what a profile or cert is. Rather how it's all used together for signing and problems you could face during. 
 
+The way app app signing works is that: 
+All files are linked/compiled together. They create a binary/archive.  
+That archive is signed using your provisioning profile and certificate.  
+The signing is ultimately done using `codesign` command.  
+If you're doing automatic signing, things are simple. Xcode will handle things for you and for the most part things should just work. 
+
+However if you're signing things manually, then `codesign` will only retrieve the certificate from your keychain. This is where things can get (very) complicated. 
+
+But before we dive deep, let's do a crash course on `security` command. 
+
+Essentially it lets you administer keychains, manipulate (public, private) keys, certificates, request certificates (from Apple), store credit card information, etc. 
+
+## Some examples of `security` command
+
+### lists all your certs: 
 ```
 security find-identity -v -p codesigning
 ```
 
-lists all your certs
-
-```
-security list-keychains -s `security list-keychains | xargs`  "/Users/mfaani908/Library/Keychains/personal.keychain-db"
-
-```
-
-helps add new keychain while maintaining the current list of keychains. 
-
-Add a password to a keychain:
+### Add a password to a keychain:
 
 ```
 security add-generic-password -s 'gmail.com'  -a 'armin' -w 'password123'
@@ -46,7 +53,21 @@ So if you don't specify which keychains to look up from in your `find-generic-pa
 
 The same problem that happens if you name all your children the same. If you have 3 kids named "Alex", then you never know who's going to respond first. 
 
-But let's try that, see if 
+Having that said, I was able to figure out the order in which keychain retrieves items. 
+
+Simply put it's the lookup happens `list-keychain` trumps even the _default-keychain_.
+
+Meaning if your `list-keychain` is in this order:
+
+```
+KeychainB  
+KeychainA (login)  
+keychain C (default)
+```
+
+it will first try to find the item from KeychainB. 
+
+
 ## Jargon
 - Keychain: Groups multiple items of your keychains together. You can one keychain only for Safari. Another just for Banking app. Or you could just store all items in one Keychain. Up to you.
 - Keychain item: A password, cert, public key private key, credit card, note, etc. 
