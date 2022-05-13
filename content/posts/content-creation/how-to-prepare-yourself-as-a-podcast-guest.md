@@ -1,5 +1,5 @@
 ---
-title: "How to Prepare yourself as a Podcast Guest?"
+title: "How to Prepare Yourself as a Podcast Guest?"
 date: 2022-05-12T05:10:04-04:00
 category: 'content-creation'
 tags: ['podcast','microphone', 'public-speaking', 'philly-cocoaheads']
