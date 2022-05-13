@@ -35,10 +35,10 @@ For the most part the conversation just flows naturally. Your rehearsing just he
 - Have a professional microphone. AirPods aren't professional microphones 🫠🫠🫠.
     - I ended buying a [Blue Yeti Nano](https://www.bluemic.com/en-us/products/yeti-nano/) for $69.99. There were some more premium products, but from the feedback I got, it seemed like a good choice. 
     - Reduce any possible noise (heater, fan, kids, tv) in your room.
-    - Test it. Watch a Youtube video on the microphone. Often you need to install specific hardware to be able to adjust the microphone gain (the output volume of your microphone).
-    - Getting early to the recording is helpful to get feedback on your audio from the host, because they they likely have more experience than you.
+    - Test it. Watch a Youtube video on the microphone on its correct position/angle. I needed to reduce the microphone gain (the output volume of your microphone) as it was my headphones' output as well. 
+    - Getting early to the recording is helpful to get feedback on your audio from the host, because they they likely have more experience than you. Also you may not notice that you're using your computer's built-in microphone. A standard way of testing is to rub the microphone with your nail and ask if others can hear it. Often setting the input at the OS level doesn't adjust the input device. Fix is easy. You just need to set input for Zoom.
     - I also learned about 'Pop Filters'. For more on that see [this](https://www.youtube.com/watch?v=amWbTkjfhDk) video. I ended up not buying one and things just worked fine. 
-    - When using an external mic, it’s often something you have to tell Zoom/Skype/etc to use. You may not notice that you're using your computer's built-in microphone. A standard way of testing is to rub the microphone with your nail and ask if others can hear the scratching. 
+    
 - Here's an example of how AirPods compare with a Yeti Nano:
 
 ### AirPods2
