@@ -11,7 +11,7 @@ That archive is signed using your provisioning profile and certificate.
 The signing is ultimately done using `codesign` command.  
 If you're doing automatic signing, things are simple. Xcode will handle things for you and for the most part things should just work. 
 
-However if you're signing things manually, then `codesign` will only retrieve the certificate from your keychain. This is where things can get (very) complicated. 
+However if you're signing things manually, then `codesign` will only retrieve the certificate from your keychain. This is where things can get very complicated very quickly 🫠.
 
 But before we dive deep, let's do a crash course on `security` command. 
 
@@ -73,12 +73,25 @@ it will first try to find the item from KeychainB.
 - Keychain item: A password, cert, public key private key, credit card, note, etc. 
 - Keychain search list: The certain Keychains that you want to look into. 
 
-```
-```
+
+## Login Keychain is special
+The password of your macOS is the same password of your `login` keychain. It may go off sync: https://support.apple.com/guide/keychain-access/mac-keychain-password-kyca1242/mac 
+https://apple.stackexchange.com/questions/153720/how-do-i-delete-or-fix-my-keychain-after-changing-my-password
+
+## Keychain access restraints
+https://www.patreon.com/posts/14556409
+
 ## Common problems
 - Keychain is locked
 - Another keychain item present in the search list with the same name, but the keychain is locked.
 - Another keychain item present in the search list with the same name, but the keychain item is expired.
 - 
-Keychain won't get rid of expired certs. It will keep them. This can cause your problems. For more on that see [here](https://stackoverflow.com/questions/32821189/xcode-7-error-missing-ios-distribution-signing-identity-for/35401483#35401483). I suppose just like how expired certs don't get flused out and cause problems, expired profiles, don't get flushed out either. 
+Keychain won't get rid of expired certs. It will keep them. This can cause your problems. For more on that see [here](https://stackoverflow.com/questions/32821189/xcode-7-error-missing-ios-distribution-signing-identity-for/35401483#35401483). I suppose just like how expired certs don't get flushed out and cause problems, expired profiles, don't get flushed out either. 
 Similarly the password that logs you into your mac, is the password of your _login_ keychain. 
+
+
+https://www.youtube.com/watch?v=F7wVrbeZ2B4
+
+https://docs.fastlane.tools/codesigning/common-issues/
+
+https://gist.github.com/digiter/9c3c64dbdb73c27af730c6e1b04828eb
