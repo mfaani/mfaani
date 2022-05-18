@@ -37,6 +37,7 @@ For the most part the conversation just flows naturally. Your rehearsing just he
     - Reduce any possible noise (heater, fan, kids, tv) in your room.
     - Test it. Watch a Youtube video on the microphone on its correct position/angle. I needed to reduce the microphone gain (the output volume of your microphone) as it was my headphones' output as well. 
     - Getting early to the recording is helpful to get feedback on your audio from the host, because they they likely have more experience than you. Also you may not notice that you're using your computer's built-in microphone. A standard way of testing is to rub the microphone with your nail and ask if others can hear it. Often setting the input at the OS level doesn't adjust the input device. Fix is easy. You just need to set input for Zoom.
+    - **Pro tip:** If you're using a mic, then make sure you accompany it with a headphone, otherwise your microphone will echo the the sound it hears. You won't notice this until you get to the meeting where people are talking back and forth
     - I also learned about 'Pop Filters'. For more on that see [this](https://www.youtube.com/watch?v=amWbTkjfhDk) video. I ended up not buying one and things just worked fine. 
     
 - Here's an example of how AirPods compare with a Yeti Nano:
