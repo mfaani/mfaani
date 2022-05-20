@@ -95,3 +95,5 @@ https://www.youtube.com/watch?v=F7wVrbeZ2B4
 https://docs.fastlane.tools/codesigning/common-issues/
 
 https://gist.github.com/digiter/9c3c64dbdb73c27af730c6e1b04828eb
+
+https://pewpewthespells.com/blog/migrating_code_signing.html

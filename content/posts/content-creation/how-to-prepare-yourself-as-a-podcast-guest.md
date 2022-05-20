@@ -22,6 +22,7 @@ The first time I listened to an iOS podcast was yrs ago. I was struggling to gra
     - Journeys
     - Leadership
     - Friendships
+    - Inspirations
     - First job or hiring experiences
     - Challenge or Success
     - Funny incidents
@@ -58,9 +59,10 @@ For the most part the conversation just flows naturally. Your rehearsing just he
 - Don't try to correct your hosts. You may be incorrect yourself. If you really needed then first check if the host is giving room for correction. Like instead of saying "That's incorrect / You're wrong". Just go with "I thought it was like .... instead. No?" and if they gave you signals that they're willing to hear more, then indulge them with more stuff. 
 - If there's anything you don't want talking about then, let your host know of it days before, not just before the conversation. Be candid but also comfortable about it. 
 - If something was discussed in the conversation that you didn't like or was just too off-topic, then just continue with the conversation. Often the hosts pivot a bit early in the talk, just to have enough content to select from. It's like a director doing different cuts so they can later choose the best recording. Still if there was something you really didn't want released then just ask your host to remove those sections. I asked for something to be removed. They were 100% onboard. 
-- If you're seeing something on the screen, well others can't see it. Or others may be hearing about you for the first time e.g. you might need to spell out your Twitter handle or blog name letter by letter. You can't assume that people would just know how your name is spelled.
 - It's ok to go a bit over time, because there will be some editing and shrinkage. So plan ahead for this as well. 
+- Others can't see your screen or others may be hearing about you for the first time or have a hard time understanding your accent. I was listening to this Podcast and the person had some (English) accent and I couldn't tell if they were saying 'Peacock' or 'Peak calk'. Turns out they were actually saying [PCalc](https://apps.apple.com/us/app/pcalc-lite/id300311831). 🤦‍♂️ e.g. you might need to spell out your Twitter handle or blog name letter by letter. The alternative to that is to mention: "Look into the show notes". Hosts are really good for filling this information. But you must also be prepared to help with filling the information. 
 
+!["Show notes"](/show-notes.jpeg)
 ## Philly CocoaHeads + Side Project Spotlight shout out🔊
 
 I would like to officially give thanks to all the [Philly CocoaHeads](http://phillycocoa.org) community for supporting me through the years by answering my questions (I'm known for asking a lot of questions). Facilitating meetups and inviting me to this wonderful podcast. Special shout out to [Stephen Tolton](https://twitter.com/stolton), [Kotaro Fujita](https://twitter.com/wild37) and [Aaron Bilenky](https://twitter.com/ambilenky) whom all gave me this opportunity. They changed my perception of Podcasts. I've started listening a lot more since then.
