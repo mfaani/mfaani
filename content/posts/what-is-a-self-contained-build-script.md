@@ -57,9 +57,9 @@ A self-contained RV is an RV that has a bathroom and tank system for holding wat
 Build scripts need to be just like that. 😀  
 They should be able to work without knowing what dependencies exist on the agent. 
 
-## Anything else? 
+### Anything else? 
 💡
-A good RV won't leave any trash behind itself. Similarly build scripts must clean up after themselves. Usually that's done with just deleting after your checked in the branch. However things can quickly get tricky if you make changes **outside** of your repo's _directory_. 
+Yes. A good RV won't leave any trash behind itself. Similarly build scripts must clean up after themselves. Usually that's done with just deleting after your checked in the branch. However things can quickly get tricky if you make changes **outside** of your repo's _directory_. 
 
 Example: if you create a new keychain with the name of "FooProject" and don't delete it once your build script finishes, then if the next build script attempts to [create a keychain](https://jonlabelle.com/snippets/view/shell/security-command) with the same name then it will fail. 
 #### Creating same Keychain twice
