@@ -64,8 +64,8 @@ A good RV won't leave any trash behind itself. Similarly build scripts must clea
 Example: if you create a new keychain with the name of "FooProject" and don't delete it once your build script finishes, then if the next build script attempts to [create a keychain](https://jonlabelle.com/snippets/view/shell/security-command) with the same name then it will fail. 
 #### Creating same Keychain twice
 ```
-security create-keychain -p kevin123 FooProject.keychain-db # (ran by build job 1... no error)
-security create-keychain -p kevin123 FooProject.keychain-db # (ran by build job 2)
+$ security create-keychain -p kevin123 FooProject.keychain-db # (ran by build job 1... no error)
+$ security create-keychain -p kevin123 FooProject.keychain-db # (ran by build job 2)
 security: SecKeychainCreate FooProject.keychain-db: A keychain with the same name already exists.
 ```
 
