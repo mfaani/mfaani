@@ -66,7 +66,7 @@ Example: if you create a new keychain with the name of "FooProject" and don't de
 ```
 $ security create-keychain -p kevin123 FooProject.keychain-db # (ran by build job 1... no error)
 $ security create-keychain -p kevin123 FooProject.keychain-db # (ran by build job 2)
-security: SecKeychainCreate FooProject.keychain-db: A keychain with the same name already exists.
+security: SecKeychainCreate FooProject.keychain-db: A keychain with the same name already exists. 
 ```
 
 Looking into the logs makes it easy for you triage. But if it's something that leads to a visual error or a visual password prompt then it's HARD to triage. You may not have access to the build machine and would need to pair with the team that owns the machines and SSH into it and triage things together. Example such a prompt would pause the build while leaving no trace on your machine. Only way to know it happened is to SSH into the agent.
@@ -86,4 +86,4 @@ The second solution works better. Because it does a base clean up within itself 
 
 It's ok to expect `rvm`, `brew`, `Xcode` to be installed. But for any other dependency or package, you should check for its presence. If not available then install it during your build script. 
 
-If you touched anything outside your working directory, then it's best to clean up afterwards. You also can't assume other build scripts have done proper clean up, so you may need to do a base clean up _before_ everything. 
+If you touched anything outside your working directory, then it's best to clean up afterwards. You also can't assume other build scripts have done proper clean up, so you may need to do a base clean up _before_ doing anything in your script. 
