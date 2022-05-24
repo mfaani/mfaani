@@ -2,6 +2,12 @@
 title: "Everything You Need to Know About Keychain as an ios Engineer"
 date: 2022-05-06T13:21:51-04:00
 draft: true
+tags: [CI, jenkins, keychain, certificates, provisioning-profiles,security-command, macOS]
+editPost:
+    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    Text: Suggest Changes
+    appendFilePath: true
+description: "Deep dive into how certificates are retrieved and common problem one can face for retrieving certificates for signing"
 ---
 Please note through out this post I'll use the term cert/certificate and profile/provisioning profile interchangeably. This post will not go through what a profile or cert is. Rather how it's all used together for signing and problems you could face during. 
 
