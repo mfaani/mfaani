@@ -8,7 +8,7 @@ editPost:
     appendFilePath: true
 description: "Deep dive into how certificates are retrieved and common problem one can face for retrieving certificates for signing"
 ---
-Please note through out this post I'll use the term cert/certificate and profile/provisioning profile interchangeably. This post will not go through what a profile or cert is. Rather how it's all used together for signing and problems you could face during. 
+Please note this post will not go through what a profile or certificate is. Rather how it's all used together for signing and problems you could face during. 
 
 In a nutshell, the way app signing works is that: 
 All files are linked/compiled together. They create a binary/archive.  
@@ -29,7 +29,7 @@ But before we dive deep, into the internals it's really good if you go and poke 
 
 ### Jargon you should have learned by now
 - Keychain: Groups multiple items/secrets together. You can have one keychain for Safari. Another just for a Banking app. Or you could just store all items in one Keychain. Up to you.
-- Keychain item: A password, cert, public key private key, credit card, note, etc. 
+- Keychain item: A password, certificate, public key private key, credit card, note, etc. 
 - Keychain search list: The certain Keychains that you want to look into. 
 
 tldr think of Keychains as different vaults. Keychain items as unique valuable items in these vaults. And think of keychain search list as a way to group/order multiple vaults.
@@ -42,7 +42,7 @@ What you need to know is that the 'keychain access' app uses the `security` comm
 
 ## `security` command crash course with examples:
 
-#### List all certs (coupled with private keys) on your mac: 
+#### List all certificates (coupled with private keys) on your mac: 
 ```
 $ security find-identity -v -p codesigning
 1) 4E8D512C8480FAC679947D6E50190AE9BAB3E825 "3rd Party Mac Developer Application: Developer Name (DUCNFCN445)"
@@ -52,7 +52,7 @@ $ security find-identity -v -p codesigning
    4 valid identities found
 ```
 
-If you see less than what you expect then it might be because you don't have the private key. A cert without a private key is useless. Private key is the only thing that can prove it was signed by you. 
+If you see less than what you expect then it might be because you don't have the private key. A certificate without a private key is useless. Private key is the only thing that can prove it was signed by you. 
 
 #### Add a password to a keychain:
 
@@ -127,21 +127,21 @@ Knowing that is important. Because you can safely assume that an agent that's lo
 - By its name
 - By its SHA-1
 
-Both the name and SHA-1 are auto generated. Like you can't name your cert as "My Distribution cert: Meta Media". Upon generating Apple will generate the cert's name as such: "Apple Distribution: Meta Media" basically "<cert-type>:<apple-developer-team-name>". 
+Both the name and SHA-1 are auto generated. Like you can't name your certificate as "My Distribution cert: Meta Media". Upon generating Apple will generate the cert's name as such: "Apple Distribution: Meta Media" basically "<cert-type>:<apple-developer-team-name>". 
 So if you generate two distribution certificates Then you will face some collisions that's why it's best to use the SHA-1 of certificates
 
 ### Common problems
 - **Locked keychain:** You attempt to access an item from a keychain that is locked. This will cause an OS system prompt which halts your CI process. 
 - **Another locked keychain:** Another keychain item with the same name is present in the search list with the same name, but the keychain is locked.
-- **Different certificates with same name:** You're accessing a cert with identical name, but the SHA-1 is different. 
+- **Different certificates with same name:** You're accessing a certificate with identical name, but the SHA-1 is different. 
 - **Expired certificate with same name:** Another keychain item present in the search list with the same name, but the keychain item is expired.  
-Keychain won't get rid of expired certs. It will keep them. This can cause your problems. For more on that see [here](https://stackoverflow.com/questions/32821189/xcode-7-error-missing-ios-distribution-signing-identity-for/35401483#35401483). I suppose just like how expired certs don't get flushed out and cause problems, expired profiles, don't get flushed out either. 
+Keychain won't get rid of expired certificates. It will keep them. This can cause your problems. For more on that see [here](https://stackoverflow.com/questions/32821189/xcode-7-error-missing-ios-distribution-signing-identity-for/35401483#35401483). I suppose just like how expired certificates don't get flushed out and cause problems, expired profiles, don't get flushed out either. 
 
 ## Solutions and how to avoid Keychain Pollution?
 
 #### Apple Developer portal todo:
-- Have a single distribution cert. Delete all others from your Apple developer account. You don't need to have two certificates for the same team. You only want two certificates, when you're near the expiration of your current certificate and you want to _transition_ to the other certificate. 
-- Have a single distribution Provisioning profile. Delete all others from your Apple developer account. Often without knowing the CI uses an old profile that's using an old cert, mac agents can be buggy with the way they cache things.
+- Have a single distribution certificate. Delete all others from your Apple developer account. You don't need to have two certificates for the same team. You only want two certificates, when you're near the expiration of your current certificate and you want to _transition_ to the other certificate. 
+- Have a single distribution Provisioning profile. Delete all others from your Apple developer account. Often without knowing the CI uses an old profile that's using an old certificate, mac agents can be buggy with the way they cache things.
 
 #### Proper specification at every point in Xcode and CI
 - If you're using Xcode and some tool like fastlane, then make sure you: 
@@ -154,17 +154,17 @@ Keychain won't get rid of expired certs. It will keep them. This can cause your 
 
 #### Keychain configurations
 - Don't lock a keychain that you're about to use
-- Don't add a short timeout on a keychain that contains your cert. 
+- Don't add a short timeout on a keychain that contains your certificate. 
 - To follow the [self-contained build script](https://mfaani.com/posts/what-is-a-self-contained-build-script/) logic, you should delete any similar named keychains. 
 
 #### Keychain Triage
 - Add logs in your CI to help triage things. Example: 
-    - Log all the certs on the machine: `security find-identity -v -p codesigning`
+    - Log all the certificates on the machine: `security find-identity -v -p codesigning`
     - Log all the keychains in the search list: `security list-keychains`
     Basically you want to makes sure there isn't another keychain with the same SHA, but in a locked keychain that you didn't create and wasn't delete by others. 
 
 #### Specify Keychain path 
-- `codesign` also takes in `--keychain <keychain-path>` parameter. You can use that and specify the exact keychain to use. That would help disambiguate cert look up. 
+- `codesign` also takes in `--keychain <keychain-path>` parameter. You can use that and specify the exact keychain to use. That would help disambiguate certificate look up. 
 - If you're signing with `xcodebuild` then you can do:
     - `xcodebuild "OTHER_CODE_SIGN_FLAGS=--keychain '$PATH_TO_KEYCHAIN'"`
     - or within a `Fastfile` you can pass the following `"OTHER_CODE_SIGN_FLAGS='--keychain ~/Library/Keychains/AppPrivate.keychain-db'"` as an `xcargs` parameter of `build_ios_app` or `gym`
