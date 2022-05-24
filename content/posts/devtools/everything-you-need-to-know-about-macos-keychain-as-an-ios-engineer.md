@@ -142,6 +142,7 @@ Keychain won't get rid of expired certificates. It will keep them. This can caus
 ## Solutions and how to avoid Keychain Pollution?
 
 #### Apple Developer portal todo:
+- Limit the number of devs that can create distribution certificates/profiles. This is crucial. AppManagers, Admins and Account holders can do such. And too often some manager gives an incorrect access to someone and then other people just following without knowing that higher level of access was unintentional. For the most part your engineers should just have a **Developer** role.
 - Have a single distribution certificate. Delete all others from your Apple developer account. You don't need to have two certificates for the same team. You only want two certificates, when you're near the expiration of your current certificate and you want to _transition_ to the other certificate. 
 - Have a single distribution Provisioning profile. Delete all others from your Apple developer account. Often without knowing the CI uses an old profile that's using an old certificate, mac agents can be buggy with the way they cache things.
 
