@@ -81,7 +81,7 @@ So you have a global 'default search list'. Think of that as a fallback. You can
 
 If you don't specify which keychains to look up from in your `find-generic-password`, then it will just look up from (default) list. If you do specify which keychains to look from, then it will only look from within those.
 
-Meaning: 
+#### using 'default search list'
 ```
 security find-generic-password -w -s 'gmail.com' -a 'armin'
 ```
@@ -91,13 +91,13 @@ security find-generic-password -w -s 'gmail.com' -a 'armin'
 
 The above is based on the docs. But based on my findings the default keychain gets ignored when you look up things. 
 
-
+#### Specifying a 'search list'
 ```
 security find-generic-password -w -s 'gmail.com' -a 'armin' \
  "/Users/mfaani/Library/Keychains/business.keychain-db" \
  /Users/mfaani/Library/Keychains/personal.keychain-db"
 ```
- will query from "business.keychain-db" and "personal.keychain-db" i.e. it will look in the _provided_ search list
+ will query from "business.keychain-db" and "personal.keychain-db" i.e. it will look in the _specified_ search list
 
 
 ### So what really happens?
