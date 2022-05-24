@@ -101,7 +101,7 @@ security find-generic-password -w -s 'gmail.com' -a 'armin' \
 
 
 ### So what really happens?
-`security find-generic-password` looks for an item based on the order of keychains. 
+`security find-generic-password` looks for an item based on **the order of keychains**. 
 
 Meaning if your `list-keychain` is in this order:
 
