@@ -25,7 +25,9 @@ But before we dive deep, into the internals it's really good if you go and poke 
 - Delete a keychain
 - Delete a keychain item 
 
-👆 You might think that the above is a lot to learn, but it's really not. Anytime you login to a fresh account for the first time the OS prompts you with something like "Do you want to save (into the keychain) the username password you just entered for the gmail account you just logged in". The next time you go to gmail, assuming you've signed out, the OS pre fills the username/password for you as soon as you provide the keychain's password which most likely is the password/fingerprint of your macOS.
+👆 You might think that the above is a lot to learn, but it's a lot more simpler than you think. What's more interesting is that the OS has already done this for you without you noticing.
+
+Anytime you login to an (email) account for the first time the OS prompts you with something like "Do you want to save (into the keychain) the username password you just entered for the gmail account you just logged in". The next time you go to gmail, assuming you've signed out, the OS pre fills the username/password for you as soon as you provide the keychain's password. The keychain's password is most likely is the password/fingerprint of your macOS.
 
 ### Jargon you should have learned by now
 - Keychain: Groups multiple items/secrets together. You can have one keychain for Safari. Another just for a Banking app. Or you could just store all items in one Keychain. Up to you.
