@@ -121,7 +121,7 @@ All macs come with a **login** keychain. All your passwords by default get store
 All macs also come with a **system** keychain. All your WiFi passwords get stored in that. 
 
 The password of your macOS is the same password of your `login` keychain. 
-Knowing that is important. Because you can safely assume that an agent that's logged in, will have access to the login keychain. But also if you ever run into an issue where you get a password prompt for your nomal logins you'd know it's because the password between logging into your mac and the login keychain are off sync. For more on that see [here](https://support.apple.com/guide/keychain-access/mac-keychain-password-kyca1242/mac) and [here](https://apple.stackexchange.com/questions/153720/how-do-i-delete-or-fix-my-keychain-after-changing-my-password)
+Knowing that is important. Because you can safely assume that an agent that's logged in, will have access to the login keychain. But also if you ever run into an issue where you get a password prompt for your normal logins you'd know it's because the password between logging into your mac and the login keychain are off sync. For more on that see [here](https://support.apple.com/guide/keychain-access/mac-keychain-password-kyca1242/mac) and [here](https://apple.stackexchange.com/questions/153720/how-do-i-delete-or-fix-my-keychain-after-changing-my-password)
 
 
 
@@ -129,12 +129,12 @@ Knowing that is important. Because you can safely assume that an agent that's lo
 - By its name
 - By its SHA-1
 
-Both the name and SHA-1 are auto generated. Like you can't name your certificate as "My Distribution cert: Meta Media". Upon generating Apple will generate the cert's name as such: "Apple Distribution: Meta Media" basically "<cert-type>:<apple-developer-team-name>". 
-So if you generate two distribution certificates Then you will face some collisions that's why it's best to use the SHA-1 of certificates
+Both the name and SHA-1 are auto generated. Like you can't name your certificate as "My Distribution cert: Meta Media". Upon generating Apple will generate the cert's name as such: "Apple Distribution: Meta Media" basically `<cert-type>:<apple-developer-team-name>`. 
+So if you generate two distribution certificates then you will experience randomness if you used just the name. That's why it's best to use the SHA-1 of certificates
 
 ### Common problems
 - **Locked keychain:** You attempt to access an item from a keychain that is locked. This will cause an OS system prompt which halts your CI process. 
-- **Another locked keychain:** Another keychain item with the same name is present in the search list with the same name, but the keychain is locked.
+- **Another locked keychain:** Your desired keychain was unlocked. Yet the provided identity (name or SHA-1) was present in _another locked_ keychain. The OS gave precedence to the locked keychain because it was the **first** keychain it saw in the _search list_. 
 - **Different certificates with same name:** You're accessing a certificate with identical name, but the SHA-1 is different. 
 - **Expired certificate with same name:** Another keychain item present in the search list with the same name, but the keychain item is expired.  
 Keychain won't get rid of expired certificates. It will keep them. This can cause your problems. For more on that see [here](https://stackoverflow.com/questions/32821189/xcode-7-error-missing-ios-distribution-signing-identity-for/35401483#35401483). I suppose just like how expired certificates don't get flushed out and cause problems, expired profiles, don't get flushed out either. 
