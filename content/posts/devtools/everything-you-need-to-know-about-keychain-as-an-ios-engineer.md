@@ -35,9 +35,9 @@ But before we dive deep, into the internals it's really good if you go and poke 
 
 tldr think of Keychains as different vaults. Keychain items as unique valuable items in these vaults. And think of keychain search list as a way to group/order multiple vaults.
 
------
+⚠️ Don't proceed, if you didn't poke around with the keychain access app. The rest of this post, won't make much sense if you didn't. ⚠️ 
 
-DO NOT PROCEED IF YOU DIDN'T POKE AROUND WITH KEYCHAIN ACCESS. The rest of this post, won't make much sense if you didn't. 
+-----
 
 What you need to know is that the 'keychain access' app uses the `security` command under the hood. Keychain access lets you administer keychains, manipulate (public, private) keys, certificates, request certificates (from Apple), store credit card information, etc. 
 
