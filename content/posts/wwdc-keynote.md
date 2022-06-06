@@ -101,3 +101,12 @@ New Looks
 - Refresh Siri UI
 - Search and listen now in Podcasts
 
+### Fitness
+- Better metrics. 
+- 3 new running metrics. 
+- Race against your last or best work out times
+
+### Sleep
+- Sleep stages. How much time you spent in each stage. Awake, REM, Core, Deep. 
+- 'Apple Heart & Movement Study' is a new research program you can opt into. 
+
