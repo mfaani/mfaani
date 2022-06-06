@@ -53,4 +53,13 @@ tags: ['WWDC', '2022', 'Apple Special Event']
 - Ask Siri to add stops
 - See fares + add transit cards
 - Receive alerts if your balance is low.
-- More rich details. Example for 'Bird' Scooter app, you can see scooters around. 
+- More rich details. Example for 'Bird' Scooter app, you can see scooters around.
+
+### Sports
+- In Apple News
+- Favorites will sync with Apple TV + other Apple Devices. 
+
+### Features for Family
+- Family sharing: Can share subscriptions with upto 5 other accounts. 
+- Can create accounts just for kids with built-in screen control time or purchase controls
+- Age restrictions for for apps, books, 
