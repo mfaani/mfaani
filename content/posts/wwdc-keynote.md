@@ -109,4 +109,12 @@ New Looks
 ### Sleep
 - Sleep stages. How much time you spent in each stage. Awake, REM, Core, Deep. 
 - 'Apple Heart & Movement Study' is a new research program you can opt into. 
+- Create custom alerts for the medications you take. 
+- Can ask a family member send their medication with you.
+
+### Mac
+- Macbook Air will get M2 CPU. 
+- Silver, Gray, Gold, Blue
+- Audio head jack 
+- MagSafe
 
