@@ -62,4 +62,5 @@ tags: ['WWDC', '2022', 'Apple Special Event']
 ### Features for Family
 - Family sharing: Can share subscriptions with upto 5 other accounts. 
 - Can create accounts just for kids with built-in screen control time or purchase controls
-- Age restrictions for for apps, books, 
+- Age restrictions for for apps, books
+- Prove or deny more screen time within messages. 
