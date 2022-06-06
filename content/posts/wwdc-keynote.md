@@ -2,8 +2,7 @@
 title: "WWDC 2022 Keynote"
 date: 2022-06-06T10:24:12-07:00
 category: ['WWDC', 'Apple']
-tags: ['WWDC', 'reference-counting', 'swift']
-
+tags: ['WWDC', '2022', 'Apple Special Event']
 
 ---
 
@@ -46,4 +45,5 @@ tags: ['WWDC', 'reference-counting', 'swift']
 - Tap to pay on iPhone. Can accept payments with no other device...
 - Apple Pay - Later. Pay in 6weeks with zero interest. Requires zero integration
 - Order tracking. Starting with Shopify...
+
 
