@@ -47,3 +47,10 @@ tags: ['WWDC', '2022', 'Apple Special Event']
 - Order tracking. Starting with Shopify...
 
 
+
+### Maps
+- Multi stop routings
+- Ask Siri to add stops
+- See fares + add transit cards
+- Receive alerts if your balance is low.
+- More rich details. Example for 'Bird' Scooter app, you can see scooters around. 
