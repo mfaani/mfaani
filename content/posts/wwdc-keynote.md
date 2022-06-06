@@ -121,5 +121,5 @@ New Looks
 - ~20% Faster than M1
 - Compact power adapter with Compact 
 - Fast charge 50% in 30 minutes
-- $1199 Macbook Air ($1099 Education)
-- $1299 Macbook Pro ($1199 Education)
+- $1199 MacBook Air ($1099 Education)
+- $1299 MacBook Pro ($1199 Education)
