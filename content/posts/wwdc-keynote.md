@@ -88,4 +88,16 @@ You spend the most time there...
 - Dial treatments, backgrounds, different layouts. 
 
 ### Special Audio
+- Personalized spatial audio. 
+
+
+### Apple Watch
+New Looks
+    - Astronomy face 
+    - Lunar calendar
+    - Playtime 
+    - Metropolitan 
+
+- Refresh Siri UI
+- Search and listen now in Podcasts
 
