@@ -150,6 +150,11 @@ New Looks
 - See which tabs friends are using live. Talk over messages or Facetime
 - Social Hacking or breach a site to get passwords. Solution: Passkeys. Use touch-id and face-id and you're done. Passkeys can't be fished. Nor leaked
 
+### Gaming
+- Game developers can scale across different Apple devices. 
+- Game Loading
 
 
-
+### Continuity
+- Universal Control
+- Handoff. Handoff to facetime. If you bring your phone near to your Mac, you can then switch over. 
