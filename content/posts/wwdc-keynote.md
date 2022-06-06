@@ -77,4 +77,15 @@ tags: ['WWDC', '2022', 'Apple Special Event']
     - Shows who you've given access to.
 
 ### New Experiences in your Home
+You spend the most time there...
+- New smart home connectivity standard. 'matter' is the standard. Industry leading brands have joined this standard. 
+- Show lights, climate, Cameras
+
+### CarPlay
+- Smarter and safer way to use your phone in your car. Available in 98% US Cars
+- 79% people consider it for buying a car.
+- Fuel, Distance, Air Quality. RPM, Speed and more 
+- Dial treatments, backgrounds, different layouts. 
+
+### Special Audio
 
