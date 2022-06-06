@@ -64,3 +64,17 @@ tags: ['WWDC', '2022', 'Apple Special Event']
 - Can create accounts just for kids with built-in screen control time or purchase controls
 - Age restrictions for for apps, books
 - Prove or deny more screen time within messages. 
+- Share photos with Family. 
+- iCloud Photo Share library, so everyone can contribute to. This way you have all photos from everyone..
+- Send photos just as you take them. 'Shared Library' or 'Personal Library'
+- Will Receive intelligent suggestions. 
+
+### Privacy
+- Disable location sharing if they're in an abusive relationships
+- 'Safety Check' is a feature that you can revoke access of some people. 
+    - Access to messages
+    - Stops sharing location and limit back to the device in hand. 
+    - Shows who you've given access to.
+
+### New Experiences in your Home
+
