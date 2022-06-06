@@ -123,3 +123,18 @@ New Looks
 - Fast charge 50% in 30 minutes
 - $1199 MacBook Air ($1099 Education)
 - $1299 MacBook Pro ($1199 Education)
+
+### macOS
+- macOS Ventura
+- So many windows and distractions...**Stage Manager**
+- Moves recent apps to the *left*
+- Stage gathers all windows of app in a _pile_
+- Stage Manager can group different windows of different apps together. 
+
+**Spotlight improvements**
+- Search text inside image
+- running timer from Spotlight
+- Get previews from Spotlight
+
+
+
