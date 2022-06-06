@@ -136,5 +136,20 @@ New Looks
 - running timer from Spotlight
 - Get previews from Spotlight
 
+### Mail App
+- Undo Send
+- Schedule Send
+- Follow up
+- Remind
+- Search (more accurate and complete results)
+- Comes in iOS and iPadOS
+
+### Safari
+- Fastest browser and most efficient
+- Shared Tabbed Groups
+- See which tabs friends are using live. Talk over messages or Facetime
+- Social Hacking or breach a site to get passwords. Solution: Passkeys. Use touch-id and face-id and you're done. Passkeys can't be fished. Nor leaked
+
+
 
 
