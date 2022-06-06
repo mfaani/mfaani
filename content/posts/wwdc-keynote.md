@@ -113,8 +113,11 @@ New Looks
 - Can ask a family member send their medication with you.
 
 ### Mac
-- Macbook Air will get M2 CPU. 
+- Macbook Air will get M2 CPU. Macbook Pro 13" will get it as well. 
 - Silver, Gray, Gold, Blue
 - Audio head jack 
 - MagSafe
-
+- 1080P Camera
+- ~20% Faster than M1
+- Compact power adapter with Compact 
+- Fast charge 50% in 30 minutes
