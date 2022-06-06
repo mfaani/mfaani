@@ -25,3 +25,25 @@ tags: ['WWDC', 'reference-counting', 'swift']
     - See only **Safari Tabs** or **Inbox conversations** that are work related. 
 
 ### Messages
+- Undo
+- Edit
+- Watch movies together
+- Share your screen with friends
+- Compose messages - Dictation: 
+
+### Use Siri with Apps
+- Currently require manual APIs
+- Now shortcuts work with 'zero' setup.
+
+### Live text for video
+- pause a video and do live text it. 
+- 
+
+### Wallet
+
+- can share age rather than exact birthday. Better for privacy...
+- Share room keys. IETF standard. A lot of partners are joining the program. 
+- Tap to pay on iPhone. Can accept payments with no other device...
+- Apple Pay - Later. Pay in 6weeks with zero interest. Requires zero integration
+- Order tracking. Starting with Shopify...
+
