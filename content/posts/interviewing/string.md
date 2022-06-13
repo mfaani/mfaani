@@ -108,11 +108,11 @@ Depending on how the sting/character is constructed the character count could be
 Don't discuss the above 👆, rather just have a foundational understanding of it and for the most part just convert your string to an array of characters. 99.99% of questions you get asked aren't considerate of such complexities. 
 However if you're confident to talk about these, then you'll stand out vs. the rest of the pack. 
 
-So if you're asked to check if a string is palindrome or your solution requires you to do some indexing then then just convert it to an array of characters and write code. 
+If you're asked to check if a string is palindrome or your solution requires you to do some indexing then then just convert it to an array of characters and write code. 
 Converting a string to an array has a time complexity of `O(n)`. Since most algorithmic problems can't be solved better than O(n) then it's totally fine to do so. 
 
 ### What if I don't want/can't use an array of Characters? 
-Master the [String - Manipulating indices](https://developer.apple.com/documentation/swift/string) section. 
+Try mastering the [String - Manipulating indices](https://developer.apple.com/documentation/swift/string) section. 
 
 A helper method I use is this:
 
