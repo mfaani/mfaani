@@ -105,10 +105,28 @@ Depending on how the sting/character is constructed the character count could be
 
 ## What do I in an interview? 
 
-Don't discuss the above 👆, rather just have a foundational understanding of it and for the most part just convert your string to an array of characters. 99.99% of questions you get asked aren't considerate of such complexities. 
-However if you're confident to talk about these, then you'll stand out vs. the rest of the pack. 
+If all you want is **looping** then do: 
 
-If you're asked to check if a string is palindrome or your solution requires you to do some indexing then then just convert it to an array of characters and write code. 
+Just do: 
+```swift
+let str = "hello world"
+
+for s in str {
+    print(type(of:s))
+} 
+```
+
+If you need **indexing** then without giving away too much time for explanation just convert the string to an array of characters. 99.99% of questions you get asked aren't considerate of previous Unicode complexities.
+```
+let str = "hello world"
+let characters = Array(str)
+
+print([characters[2]]) // "l"
+ 
+```
+
+However if you're confident and you're not losing time or you think it works to your advantage then discuss the complexities. It could help you stand out vs. the rest of the pack. 
+
 Converting a string to an array has a time complexity of `O(n)`. Since most algorithmic problems can't be solved better than O(n) then it's totally fine to do so. 
 
 ### What if I don't want/can't use an array of Characters? 
@@ -178,6 +196,9 @@ print(firstName)
 Try not to memorize the above. If you understand the 'why' then you'll memorize it naturally. 
 
 Also see this discussion in the [dev forums](https://forums.swift.org/t/collections-past-the-end-endindex/3249/2)
+
+### if empty check
+To check whether a string is empty, use its `isEmpty` property instead of comparing the length of one of the views to 0. Unlike with `isEmpty`, calculating a view’s `count` property requires iterating through the elements of the string.
 
 ## Summary
 
