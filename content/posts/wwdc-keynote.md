@@ -3,6 +3,7 @@ title: "WWDC 2022 Keynote"
 date: 2022-06-06T10:24:12-07:00
 category: ['WWDC', 'Apple']
 tags: ['WWDC', '2022', 'Apple Special Event']
+draft: true
 
 ---
 
@@ -157,4 +158,29 @@ New Looks
 
 ### Continuity
 - Universal Control
-- Handoff. Handoff to facetime. If you bring your phone near to your Mac, you can then switch over. 
+- Handoff. Handoff to Facetime. If you bring your phone near to your Mac, you can then switch over. 
+- Use iPhone Mac on Mac as your camera. Need a Mount. 
+- Can use Portrait mode...
+- Studio Light: Lighten face + darken background
+- Desk view: Can see work in my desk. Desk View is doing this from Ultra wide Camera. **Mount is available this year**. [Add Image]
+
+### iPadOS
+
+- Collaboration: Initiating a collaboration across the system.
+- Can add new Safari Tabs to share. Can see who's watching which tab. 
+
+### Freeform app
+
+- Freeform can be used for creating diagrams, boards, add their thoughts. You'll get to see their live cursors. Can just jump to to see where someone is at. Photos, Audio, Video, Web links. 
+- Can preview things 
+
+### Gaming on iPad
+- Meta 3 improvements
+- Background download API
+- GameCenter profile: Add activity. Find out if they beat your score.
+
+### Desktop-class apps
+- Stage manager on iPads
+- Can work with overlapping window
+
+
