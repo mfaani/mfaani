@@ -3,6 +3,7 @@ title: "Swift Strings for iOS interviewing"
 date: 2022-06-12T14:49:48-04:00
 category: [interviewing]
 tags: [swift, strings, unicode, character]
+description: "Some discussion on Unicode and clustering and why converting a string to an array of characters makes things easier"
 ---
 
 This is bit of fast paced intro into Swift Strings. 
@@ -85,7 +86,7 @@ What's interesting is that `a\u{301}` produces `á`. Unicode has logic to combin
 
 Like if you're reading 
 
-`a` then it's palindrome is just `a`.  
+`a` then its palindrome is just `a`.  
 However if you're reading `á` then it's reverse could be either: 
 - `á`  (the reverse of y)
 - ` ́a` (the reverse of z)
