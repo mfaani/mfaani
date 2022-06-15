@@ -7,6 +7,10 @@ cover:
     image: "dispose-bag.jpg"
     alt: "dispose bag"
     relative: true
+editPost:
+    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    Text: Suggest Changes
+    appendFilePath: true
 ---
 
 I googled a bit for "CurrentValueSubject Example". Surprisingly I wasn't able to find a simple answer. So I created a few examples:
