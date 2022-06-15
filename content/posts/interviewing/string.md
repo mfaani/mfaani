@@ -34,7 +34,7 @@ Then came Unicode. It was roomy. Currently Unicode has `144,697` characters.
 - Anything is asci will have the same value it did in Unicode. This helps backwards compatibility.
 - However it also has combining logic. Examples: 
     - `"a"` + `" ́"` together will create `"á"`.  You'd have to write it as such: `"a\u{301}"`. `\u{codepoint}`
-    - `🇺` + `🇸` together will create 🇺🇸 .  
+    - `🇺` + `🇸` together will create 🇺🇸 . For more on that see https://en.wikipedia.org/wiki/Regional_indicator_symbol 
 
 Unicode is a giant table of code-points (Swift calls scalars) matching to some full characters, some combining accents, and some invisibles.
 
