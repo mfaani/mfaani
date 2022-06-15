@@ -192,10 +192,9 @@ print(firstName)
 // Prints "Marie"
 ```
 
-
 Try not to memorize the above. If you understand the 'why' then you'll memorize it naturally. 
 
-Also see this discussion in the [dev forums](https://forums.swift.org/t/collections-past-the-end-endindex/3249/2)
+Also see this discussion in the [dev forums](https://forums.swift.org/t/collections-past-the-end-endindex/3249/2) and [the original post by Dijkstra](https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html) himself
 
 ### if empty check
 To check whether a string is empty, use its `isEmpty` property instead of comparing the length of one of the views to 0. Unlike with `isEmpty`, calculating a view’s `count` property requires iterating through the elements of the string.
