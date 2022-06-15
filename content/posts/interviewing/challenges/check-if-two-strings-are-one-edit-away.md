@@ -80,7 +80,11 @@ func isOneInsertAway(_ str1: [Character], _ str2: [Character]) -> Bool {
     }
     return diffCount <= 1
 }
+```
 
+### Tests
+
+```swift
 print(isOneOrZeroEditsAway("like", "like")) // true
 print(isOneOrZeroEditsAway("like", "likes")) // true
 print(isOneOrZeroEditsAway("like", "life")) // true
