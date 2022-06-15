@@ -36,10 +36,12 @@ In my implementation I assumed they're different.
 func compress(_ str: String) -> String { 
     let chars = Array(str)
     guard !chars.isEmpty else { return str }
+
     var currentChar = chars.first!
     var currentCount = 1
     var ans: String = ""
     guard chars.count > 1 else { return "\(currentChar)\(currentCount)"}
+    
     for i in 1..<chars.count { 
         if chars[i] == currentChar {
             // increment
