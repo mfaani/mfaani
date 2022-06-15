@@ -10,10 +10,10 @@ editPost:
     appendFilePath: true
 ---
 
-#### Question
+### Question
 You can edit a string in three different ways: insert, remove or replace a character. Write a function to see if two strings are one or zero edits away. 
 
-#### Example
+### Example
 ```
 like, like  --> true (zero edits)
 like, likes --> true (one edit: remove/insert)
@@ -23,7 +23,7 @@ like, pine  --> false (two edits)
 like, lion  --> false (two edits)
 ```
 
-#### Strategy
+### Strategy
 
 1. For most questions that require you to return true or false, you can reduce the scope of the question by removing noise. 
 Often that means exiting early or having conditions that make it impossible to have a true result...
@@ -35,7 +35,7 @@ Example: If the string _lengths_ differ by 2 or more characters, then you can ex
 
 3. Keep things simple. See how I avoid adding complex logic by intentionally passing the longer string to `isOneInsertAway`.
 
-#### Code
+### Code
 
 ```swift
 func isOneOrZeroEditsAway(_ str1: String, _ str2: String) -> Bool { 
@@ -88,3 +88,7 @@ print(isOneOrZeroEditsAway("like", "lik")) // true
 print(isOneOrZeroEditsAway("like", "pine")) // false
 print(isOneOrZeroEditsAway("like", "lion")) // false
 ```
+
+### Complexity
+
+Obviously `O(n)` where `n` is the length of the **shorter** string.
