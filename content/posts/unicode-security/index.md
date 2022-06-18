@@ -4,6 +4,10 @@ date: 2022-06-17T00:06:40-04:00
 category: ['web']
 tags: ['web', 'unicode', 'punycode', 'security', 'browsers']
 description: "How Unicode can cause chaos"
+editPost:
+    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    Text: Suggest Changes
+    appendFilePath: true
 ---
 
 This post is the result of some post-discussion on my [Swift Strings for iOS interviewing](https://mfaani.com/posts/interviewing/string/) post. 
