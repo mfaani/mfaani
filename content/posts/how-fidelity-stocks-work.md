@@ -4,7 +4,7 @@ date: 2022-03-02T21:50:44-05:00
 categories: ['Personal Finance']
 tags: ['Fidelity', 'Stocks', 'Retirement', 'RSU', 'ESPP', 'SOP']
 editPost:
-    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
     appendFilePath: true
 ---

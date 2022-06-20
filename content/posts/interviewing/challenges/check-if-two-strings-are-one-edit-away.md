@@ -5,7 +5,7 @@ category: "interviewing"
 tags: ["string", "string-comparison", "swift"]
 description: "Learn how to break down a question into smaller pieces"
 editPost:
-    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
     appendFilePath: true
 ---

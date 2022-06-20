@@ -5,7 +5,7 @@ category: 'content-creation'
 tags: ['podcast','microphone', 'public-speaking', 'philly-cocoaheads']
 description: "If you don't know anything about Podcasts, let alone how to be a guest on the show, then this post can get you in the right direction."
 editPost:
-    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
     appendFilePath: true
 ---

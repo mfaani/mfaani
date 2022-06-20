@@ -5,7 +5,7 @@ category: ['Xcode']
 tags: ['Xcode', 'iOS', 'view debugger']
 slug: "what-is-uitransitionview-about"
 editPost:
-    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
     appendFilePath: true
 ---
