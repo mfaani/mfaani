@@ -23,7 +23,7 @@ Given that characters look like one another or that are invisible codepoints I t
 > For example, suppose that strings containing the letters “delete” are sensitive internally, and that therefore a gatekeeper checks for them. If some process casefolds “DELETE” after the gatekeeper has checked, then the sensitive string can sneak through. While many programmers are aware of this, they may not be aware that the same thing can happen with other transformations, such as an NFKC transformation of “Ⓓⓔⓛⓔⓣⓔ” into “delete”.
 
 
-Another problem is similar looking characters. They are known as [confusables](https://util.unicode.org/UnicodeJsps/confusables.jsp).
+The technical term for similar looking characters is [confusables](https://util.unicode.org/UnicodeJsps/confusables.jsp).
 ![Unicode Confusables](images/confusables.png "Similar looking characters")
 
 One of main places where having knowledge about confusables is domain names.  

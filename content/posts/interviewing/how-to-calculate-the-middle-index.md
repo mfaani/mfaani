@@ -2,6 +2,7 @@
 title: "How to Calculate the Middle Index?"
 date: 2022-06-19T22:55:27-04:00
 category: "interviewing"
+draft: true
 tags: ["arrays", "foundations", "swift"]
 description: "Are middle indexes always actually the middle index?"
 editPost:
