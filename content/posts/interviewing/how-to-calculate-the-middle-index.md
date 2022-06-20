@@ -77,7 +77,7 @@ left  pivot      right
 pivot is now `index: 4`. It's now actually the middle. 
 
 ```
-
+[2, 7, 20, 24, 40, 99]
            |    |   |
         left pivot right
 ```
