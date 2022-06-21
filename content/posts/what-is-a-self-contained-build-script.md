@@ -5,7 +5,7 @@ categories: [Devtools]
 tags: [CI, jenkins, bundler, build-scripts, keychain]
 description: "Deep dive into how certificates are retrieved and common problem one can face for retrieving certificates for signing"
 editPost:
-    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
     appendFilePath: true
 cover:

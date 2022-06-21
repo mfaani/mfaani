@@ -5,7 +5,7 @@ slug: "swift-protocol-compile-time-check"
 category: ['Swift']
 tags: ['swift', 'swift-protocols', 'compile-time-check', 'misconception']
 editPost:
-    URL: 'https://github.com/prohoney/mfaani/tree/main/content'
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
     appendFilePath: true
 ---
