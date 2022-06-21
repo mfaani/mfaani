@@ -2,7 +2,7 @@
 title: "Unicode Security"
 date: 2022-06-17T00:06:40-04:00
 category: ['web']
-tags: ['web', 'unicode', 'punycode', 'security', 'browsers']
+tags: ['web', 'unicode', 'punycode', 'security', 'browsers', 'confusables']
 description: "How Unicode can cause chaos"
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
