@@ -22,11 +22,11 @@ let a = [1,3,8,10,22] // middle index is 2
 let b = [1,3,8,10] // middle index is 1.5 which is non-existent. So what now?
 ```
 
-Most important thing to note is: There's no such thing as "middle index" when the count is even, I mean there's two middles in that case. I guess the "middle" are those two indices.‌‌ ‌But then you have to pick one. For this reason it's often better to think of it as a **pivot** because it's really the 2nd index isn't really the middle index of a 4 element array. 
+Most important thing to note is: There's no such thing as "middle index" when the count is even, I mean there's two middles in that case. I guess the "middle" are those two indices.‌‌ ‌But then you have to pick one. For this reason it's often better to think of it as a **pivot** because it's really the 2nd index. The 2nd index isn't the middle index of a 4 element array. 
 
 Moving away from 'find the middle index' to a 'find the pivot index which we'll use as a middle index' helped me understand the concept better.
 
-After that, you typically just need logic that handles all three cases of before, after and the index itself. 
+After that, you typically just need logic that handles all three cases of before, after and the index itself or similarly lower, greater, equal to the index itself.  
 
 ### Example - Flip an array
 
