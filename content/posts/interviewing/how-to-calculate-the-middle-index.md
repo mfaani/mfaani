@@ -1,4 +1,10 @@
 ---
+title: "My First Post"
+date: 2022-06-24T11:13:04-04:00
+draft: true
+---
+
+---
 title: "How to Calculate the Middle Index?"
 date: 2022-06-19T22:55:27-04:00
 category: "interviewing"
@@ -59,12 +65,14 @@ pivot index = (0 + 3) / 2 = 1
 
 ### Example - Binary Search
 
+#### Ask
 ```
 [2, 7, 20, 24, 40, 99]
 ```
 
 find 99
 
+#### 1st Iteration
 pivot index = (0 + 5) / 2 = 2
 
 ```
@@ -73,15 +81,16 @@ pivot index = (0 + 5) / 2 = 2
 left  pivot      right
 ```
 
-pivot is now `index: 4`. It's now actually the middle. 
+#### 2nd Iteration
+pivot is now `index: 4`. It's now actually the middle of its range. 
 
 ```
 [2, 7, 20, 24, 40, 99]
            |    |   |
         left pivot right
 ```
-
-pivot is now `index: 5`. left and right index are also index:5
+#### 3rd Iteration
+pivot is now `index: 5`. left and right index are also `index: 5`
 
 ```
 [2, 7, 20, 24, 40, 99]
@@ -96,17 +105,20 @@ pivot is now `index: 5`. left and right index are also index:5
 We're not always cutting the array/section in half. 
 
 - For odd ranges: you calculate the middle index correctly. Yet you’re not precisely cutting the section in half. Example: 
-`[2, 7, 20, 24, 40]` will be drop three items `(20, 24,40)` if you’re looking for `2` or `7`.
-`[2, 7, 20, 24, 40]` will be drop three items `(2, 7, 20)` if you’re looking for `24` or `40`.
-`[2, 7, 20, 24, 40]` will be drop four items `(2, 7, 24, 40)` if you’re looking for `20`.
+
+`[2, 7, 20, 24, 40]` pivot point is `index: 2`.  
+
+- You will drop three items: `(20, 24,40)` if you’re looking for `2` or `7`.  
+- You will drop three items: `(2, 7, 20)` if you’re looking for `24` or `40`.  
+- You will drop four items: `(2, 7, 24, 40)` if you’re looking for `20`.
 
 - For even ranges: You're not really calculating a middle. You **may or may not** end up precisely cutting the section in half. Example: 
 
 `[2, 7, 20, 24, 40, 99]` pivot point is `index: 2`.  
 
-- You will drop four `(20, 24, 40, 99)` items if you’re looking for `2`, `7`
-- You will drop three items `(2, 7, 20)` items if you’re looking for `24`, `40`, `99`
-- You will drop five items `(2, 7, 24, 40, 99)` items if you’re looking for `20`.
+- You will drop four items: `(20, 24, 40, 99)` if you’re looking for `2`, `7`.  
+- You will drop three items: `(2, 7, 20)` if you’re looking for `24`, `40`, `99`.  
+- You will drop five items: `(2, 7, 24, 40, 99)` if you’re looking for `20`.
 
 👆 isn't to tell you think how many you're dropping. It's just once you realize you're not always cutting in half, things actually start to make more sense. Personally it helped me visualize what’s happening easier…
 
