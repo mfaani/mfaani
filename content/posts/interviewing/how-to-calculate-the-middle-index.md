@@ -1,10 +1,4 @@
 ---
-title: "My First Post"
-date: 2022-06-24T11:13:04-04:00
-draft: true
----
-
----
 title: "How to Calculate the Middle Index?"
 date: 2022-06-19T22:55:27-04:00
 category: "interviewing"
