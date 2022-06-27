@@ -79,6 +79,25 @@ extension String {
 }
 ```
 
+
+```
+
+extension Array {
+    public subscript(safe index: Int) -> Element? {
+        guard index >= 0, index < endIndex else {
+            return nil
+        }
+        
+        return self[index]
+    }
+}
+
+var a = [1,2,3]
+print(a[safe:2]) // optional(3)
+print(a[safe:4]) // nil
+
+```
+
 Like I typically do: 
 
 
