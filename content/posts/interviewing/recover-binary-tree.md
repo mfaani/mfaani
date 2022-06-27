@@ -153,7 +153,9 @@ class TreeFixer {
                 }
             }              
         }
-        print("sorted tree: InOrderTraversal")
+
+        // print new tree, so we can validate our work...
+        print("SORTED TREE: InOrderTraversal")
         inOrder(root) { node in
             print(node?.val)
         }
@@ -189,7 +191,6 @@ extension Array {
 }
 
 let fixer = TreeFixer()
-print(four.left?.val)
 fixer.recoverTree(four)
 ```
 
@@ -198,6 +199,8 @@ fixer.recoverTree(four)
 - Appending to the array is `O(1)`.
 - Traversing the array is `O(n)`.
 - swapping in the tree is `O(n)`.
+
+Given that they're not nested to total Time complexity is `O(n)`
 
 ## Space Complexity
 `O(n)` because you need an array. 
