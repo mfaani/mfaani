@@ -18,14 +18,12 @@ The challenge is to swap those two elements. And fix the tree.
 ## Solution
 I knew I had to traverse it. But then what? 
 
-
 With a little help from reading online, I realized I should traverse it, and store the values into an array. 
 Then you just loop the array and find the bad indexes. 
 
 Here's the tricky part:
 
 Suppose your array is something like: 
-
 
 ```
 [1, 2, 4, 3, 6, 7, 8]
@@ -195,6 +193,14 @@ print(four.left?.val)
 fixer.recoverTree(four)
 ```
 
+## Time Complexity
+- Traversing is `O(n)`.
+- Appending to the array is `O(1)`.
+- Traversing the array is `O(n)`.
+- swapping in the tree is `O(n)`.
+
+## Space Complexity
+`O(n)` because you need an array. 
 ## Summary: 
 - Often translating a tree into an array can be helpful.
 - Using an `inOrder` method that takes a handler block can be helpful.
