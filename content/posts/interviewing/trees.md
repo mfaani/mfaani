@@ -10,16 +10,14 @@ Allow your traversing to take in a function. Gives you more flexibility:
 
 ```swift
 func inOrder(_ root: TreeNode?, nodeHandler: (TreeNode?) -> ()) {
-        if let letft = root?.left {
+        if let left = root?.left {
             inOrder(left)
             nodeHandler(left)
         }
-        if let node = root {
-            inOrder(node)
-            nodeHandler(node)
-        }
         
-        ift left right = root?.right { 
+        nodeHandler(node)
+
+        if let right = root?.right { 
             inOrder(right)
             nodeHandler(node)
         }
