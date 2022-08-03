@@ -1,5 +1,5 @@
 ---
-title: "Which Way Am I Sorting"
+title: "Which Way Am I Sorting?"
 date: 2022-08-03T08:19:26-04:00
 description: "Ever confused as to what the end result of your sorting?"
 category: "interviewing"
