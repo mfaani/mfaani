@@ -1,7 +1,7 @@
 ---
 title: "Which Way Am I Sorting?"
 date: 2022-08-03T08:19:26-04:00
-description: "Ever confused as to what the end result of your sorting?"
+description: "Ever confused as to what the end result of your sorting is?"
 category: "interviewing"
 tags: ["arrays", "foundations", "swift"]
 editPost:
