@@ -23,6 +23,7 @@ let sorted_nums = arr.sorted(by: {
 ```
 If you see `$0 < $1` then _left_ side is smaller than the next item. i.e. it's ascending.  
 
+
 ```swift
 let nums = [1,4,2,3]
 let sorted_nums = arr.sorted(by: {
@@ -30,6 +31,12 @@ let sorted_nums = arr.sorted(by: {
 })
 ```
 If you see `$0 > $1` then _right_ side is smaller than the next item. i.e. it's descending. 
+Similarly writing `array.sorted(by: <)` is identical. 
+
+#### Alternate way:
+- `array.sorted(by: <)` will make it decreasing.
+- `array.sorted(by: >)` will make it increasing.
+
 
 #### And if I don't pass a block?
 It will make the array increasing. It feels natural...
