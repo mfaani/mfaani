@@ -27,7 +27,7 @@ If you see `$0 < $1` then _left_ side is smaller than the next item. i.e. it's a
 ```swift
 let nums = [1,4,2,3]
 let sorted_nums = arr.sorted(by: {
-    $0 > $1  // right is bigger [4,3,2,1] i.e. descending
+    $0 > $1  // left is bigger [4,3,2,1] i.e. descending
 })
 ```
 If you see `$0 > $1` then _right_ side is smaller than the next item. i.e. it's descending. 
