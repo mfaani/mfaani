@@ -1,0 +1,93 @@
+---
+title: "Longest Increasing Subsequence Length"
+date: 2022-08-25T07:50:38-04:00
+category: "interviewing"
+tags: ["dynamic-programming", "longest-increasing-subsequence", "subsequence"]
+description: "Learn how to calculate the longest increasing subsequence"
+editPost:
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
+    Text: Suggest Changes
+    appendFilePath: true
+---
+
+## What's a subsequence?
+Any selection of items from the original array. The selection must respect the order. Meaning for `[1,2,3,4,5]` only two of the four below are subsequences:
+
+```swift
+[1,2,3,4,5] ✅
+[1,4,3,2,5] ❌ order not respected
+[1,2,5] ✅
+[5,1] ❌ order not respected
+```
+
+### What's the difference between a subsequence and a subarray?
+Subarray, is just like subsequence, that is order must be respected. Additionally the sub-array has to be made of continuous elements. 
+
+```swift
+[1,2,3,4,5] ✅
+[1,2,3,5] ❌ gap 
+[1,2,3] ✅
+[2,4] ❌ gap
+```
+
+## What's a longest increasing subsequence? 
+This is also known as LIS. 
+So with an array of `[0, 3, 1, 7, 5, 2, 8]` the longest _increasing_ subsequence would be: `[0,1,7,8]` 
+For `[2,2,2,2]`. LIS is: `[2]`
+For `[3]`. LIS is: `[3]`
+
+In this post, we're only going to calculate the _length_ of the LIS. We won't construct the actual subsequence itself. To learn how to construct the path, see [here](https://stackoverflow.com/questions/14806328/how-to-print-longest-increasing-subsequencelis-from-a-given-array)
+
+### Explanation
+`let arr = [0, 3, 1, 7, 5, 2, 8]`
+We'll create an array with the same length of our original array. Default all the values to `1`. Example: `var dp: [Int] = Array(repeating: 1, count: arr.count)`
+Let's just assume we want to calculate the LIS all the way to index `4`. And we've already updated the value for all previous indexes.  How do you think we need to update `dp[4]`
+    `[0, 3, 1, 7, 5, 2, 8]`
+                  ↑
+                dp[4]
+
+Which of the following would it be?
+1. The value for `dp[4]` will be `max(dp[0] + 1, dp[1] + 1, dp[2] + 1, dp[3] + 1)`
+2. The value for `dp[4]` will be `max(dp[0] + 1, dp[1] + 1, dp[2] + 1)`
+2. The value for `dp[4]` will be `max(dp[0] + 1, dp[2] + 1)`
+
+The correct answer is the second line. 
+First line is incorrect because `7` is bigger than `5`. `dp[3] + 1` shouldn't be considered.
+Third line is incorrect because `1` is smaller than `4`, `dp[2] + 1` should be considered. 
+This means that assuming there is at least one item in the array, the default value should then be `1`.
+
+In short:
+- for every index, we use compare its value with its previous indices
+    - If current index is bigger, then we increase the LIS length between the two indices.
+    - At any given index we perform a `max` between all nodes that were able to increase the subsequence to that point. 
+- We do this till the end of the array.  
+- Then do a max against our dp array.
+
+### PRO tip
+Use a **paper** and go through this example again. 
+Just compare any two indexes and do a max. 
+I was then able to reason with it a lot lot easier.
+Here's what I wrote: 
+
+!["LIS steps"](/LIS.jpg "Longest Increasing Subsequence Length Steps")
+
+### Code
+
+```
+func lengthOfLIS(_ nums: [Int]) -> Int {
+    var dp: [Int] = Array(repeating: 1, count: nums.count)
+    
+    for i in 0...nums.count - 1 {
+        for j in 0..<i {
+            if nums[j] < nums[i] {
+                dp[i] = max(dp[i], dp[j] + 1)
+            }
+        }
+    }
+    
+    return dp.max()!
+}
+```
+
+## Other Questions that use LIS:
+[Russian Doll - Envelopes](https://leetcode.com/problems/russian-doll-envelopes/). I plan on posting about it next. 
