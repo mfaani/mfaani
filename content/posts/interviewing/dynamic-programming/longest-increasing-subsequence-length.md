@@ -31,16 +31,16 @@ Subarray, is just like subsequence, that is order must be respected. Additionall
 ```
 
 ## What's a longest increasing subsequence? 
-This is also known as LIS. 
-So with an array of `[0, 3, 1, 7, 5, 2, 8]` the longest _increasing_ subsequence would be: `[0,1,7,8]` 
-For `[2,2,2,2]`. LIS is: `[2]`
+This is also known as LIS.  
+For `[0, 3, 1, 7, 5, 2, 8]` the longest _increasing_ subsequence is: `[0,1,7,8]`.  
+For `[2,2,2,2]`. LIS is: `[2]`.  
 For `[3]`. LIS is: `[3]`
 
 In this post, we're only going to calculate the _length_ of the LIS. We won't construct the actual subsequence itself. To learn how to construct the path, see [here](https://stackoverflow.com/questions/14806328/how-to-print-longest-increasing-subsequencelis-from-a-given-array)
 
 ### Explanation
 `let arr = [0, 3, 1, 7, 5, 2, 8]`
-We'll create an array with the same length of our original array. Default all the values to `1`. Example: `var dp: [Int] = Array(repeating: 1, count: arr.count)`
+We'll create an array with the same length of our original array. Default all the values to `1`. Example: `var dp: [Int] = Array(repeating: 1, count: arr.count)`.  
 Let's just assume we want to calculate the LIS all the way to index `4`. And we've already updated the value for all previous indexes.  How do you think we need to update `dp[4]`
     `[0, 3, 1, 7, 5, 2, 8]`
                   ↑
@@ -51,25 +51,25 @@ Which of the following would it be?
 2. The value for `dp[4]` will be `max(dp[0] + 1, dp[1] + 1, dp[2] + 1)`
 2. The value for `dp[4]` will be `max(dp[0] + 1, dp[2] + 1)`
 
-The correct answer is the second line. 
-First line is incorrect because `7` is bigger than `5`. `dp[3] + 1` shouldn't be considered.
-Third line is incorrect because `1` is smaller than `4`, `dp[2] + 1` should be considered. 
+The correct answer is the second line.  
+First line is incorrect because `7` is bigger than `5`. `dp[3] + 1` shouldn't be considered.  
+Third line is incorrect because `1` is smaller than `4`, `dp[2] + 1` should be considered.  
 This means that assuming there is at least one item in the array, the default value should then be `1`.
 
 In short:
-- for every index, we use compare its value with its previous indices
+- For every index, we use compare its value with its previous indices
     - If current index is bigger, then we increase the LIS length between the two indices.
     - At any given index we perform a `max` between all nodes that were able to increase the subsequence to that point. 
 - We do this till the end of the array.  
 - Then do a max against our dp array.
 
-### PRO tip
-Use a **paper** and go through this example again. 
-Just compare any two indexes and do a max. 
-I was then able to reason with it a lot lot easier.
+### Pro tip
+Use a **paper** and go through this example again by yourself.
+Just compare any two indexes, add to the previous, do a max. 
+I was then able to reason with it a lot lot easier on paper.
 Here's what I wrote: 
 
-!["LIS steps"](/LIS.jpg "Longest Increasing Subsequence Length Steps")
+!["LIS steps"](/LIS.jpg "Longest Increasing Subsequence Length")
 
 ### Code
 
