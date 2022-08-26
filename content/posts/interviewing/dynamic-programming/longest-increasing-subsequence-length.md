@@ -10,7 +10,7 @@ editPost:
     appendFilePath: true
 ---
 
-## What's a subsequence?
+### What's a subsequence?
 Any selection of items from the original array. The selection must respect the order. Meaning for `[1,2,3,4,5]` only two of the four below are subsequences:
 
 ```swift
@@ -20,7 +20,7 @@ Any selection of items from the original array. The selection must respect the o
 [5,1] ❌ order not respected
 ```
 
-### What's the difference between a subsequence and a subarray?
+#### What's the difference between a subsequence and a subarray?
 Subarray, is just like subsequence, that is order must be respected. Additionally the sub-array has to be made of continuous elements. 
 
 ```swift
@@ -30,7 +30,7 @@ Subarray, is just like subsequence, that is order must be respected. Additionall
 [2,4] ❌ gap
 ```
 
-## What's a longest increasing subsequence? 
+### What's a longest increasing subsequence? 
 This is also known as LIS.  
 For `[0, 3, 1, 7, 5, 2, 8]` the longest _increasing_ subsequence is: `[0,1,7,8]`.  
 For `[2,2,2,2]`. LIS is: `[2]`.  
@@ -73,7 +73,7 @@ In short:
 - We do this till the end of the array.  
 - Then do a max against our dp array.
 
-### Pro tip
+#### Pro tip
 Use a **paper** and go through this example again by yourself.
 Just compare any two indexes, add to the previous, do a max. 
 I was then able to reason with it a lot lot easier on paper.
@@ -81,7 +81,7 @@ Here's what I wrote:
 
 !["LIS steps"](/LIS.jpg "Longest Increasing Subsequence Length")
 
-### Code
+#### Code
 
 
 ```
@@ -100,5 +100,5 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
 }
 ```
 
-## Other Questions that use LIS:
+### Other Questions that use LIS:
 [Russian Doll - Envelopes](https://leetcode.com/problems/russian-doll-envelopes/). I plan on posting about it next. 
