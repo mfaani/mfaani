@@ -24,3 +24,4 @@ draft: true
 - Shortcodes
 - Description
 - Google search console
+- Try using smaller header sizes if you have too many headers. This practice is ok. I've seen books often have smaller chapter sizes. 

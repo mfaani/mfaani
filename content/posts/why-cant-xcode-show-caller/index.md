@@ -20,7 +20,7 @@ Have you ever right clicked on a function -> Find -> Find Call Hierarchy, but th
 
 The reason that such a complication exists is Swift Protocols. The compiler is very precise. 
 
-- When you try to look up 'Find Call Hierarchy' on a **concrete type**, Xcode tries to look things up by finding a call to that very implementations. 
+- When you try to look up 'Find Call Hierarchy' on a **concrete type**, Xcode tries to look things up by finding a call to that very implementation. 
 - When you try to look up 'Find Call Hierarchy' on a **protocol type**, Xcode tries to look things up by finding a call to all conforming implementations. 
 
 
@@ -36,7 +36,7 @@ Trying to find all callers of `performLog` from above results in Xcode looking u
 
 ![Jump to Definition](images/find-call-hierarchy-on-class.png "Xcode - Find call hierarchy on a class/concrete type, doesn't find callers")
 
-While for: 
+While if you try finding the caller by write clicking the function signature under the protocol then things are different: 
 
 ```swift
 protocol LoggerProtocol {
@@ -44,9 +44,9 @@ protocol LoggerProtocol {
 }
 ```
 
-As a result I often end up doing: 'Find call hierarchy' on the protocol function and and then 
+It's because Xcode will look up _references_ for `LoggerProtocol.performLog` (vs. `Logger.performLog`).
 
-Trying to find all callers of `performLog` from above results in Xcode looking up _references_ for `LoggerProtocol.performLog`. Usually there are a lot of conforming types that implement a function.  Xcode found 1 caller:
+Usually there are a lot of conforming types that implement a protocol function.  In this sample project that I wrote, Xcode only found one caller:
 
 ![Jump to Definition](images/find-call-hierarchy-on-protocol.png "Xcode - Find call hierarchy on a protocol type,can find callers")
 
