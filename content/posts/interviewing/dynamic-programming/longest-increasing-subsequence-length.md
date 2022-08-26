@@ -46,7 +46,8 @@ So this problem can be broken into subproblems i.e.
 - The LIS of index 1, depends on the LIS of index 0
 - The LIS of index 0, is 1. Because every element has a subsequence of 1. 
 
-Whenver we can turn our problem into subproblems, then Dynamic programming is a good candidate for finding a solution. 
+Whenever we can turn our problem into subproblems, then Dynamic programming is a good candidate for finding a solution.  
+To do this, let's create an array named `dp` to represent the the answer to the subproblem for a given index.
 
 `let arr = [0, 3, 1, 7, 5, 2, 8]`
 We'll create an array with the same length of our original array. Default all the values to `1`. Example: `var dp: [Int] = Array(repeating: 1, count: arr.count)`.  
@@ -81,6 +82,7 @@ Here's what I wrote:
 !["LIS steps"](/LIS.jpg "Longest Increasing Subsequence Length")
 
 ### Code
+
 
 ```
 func lengthOfLIS(_ nums: [Int]) -> Int {
