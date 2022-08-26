@@ -39,6 +39,15 @@ For `[3]`. LIS is: `[3]`
 In this post, we're only going to calculate the _length_ of the LIS. We won't construct the actual subsequence itself. To learn how to construct the path, see [here](https://stackoverflow.com/questions/14806328/how-to-print-longest-increasing-subsequencelis-from-a-given-array)
 
 ### Explanation
+So this problem can be broken into subproblems i.e. 
+- The LIS of index 6, depends on the LIS at indices 0-5. 
+- The LIS of index 5, depends on the LIS at indices 0-4.
+- ...
+- The LIS of index 1, depends on the LIS of index 0
+- The LIS of index 0, is 1. Because every element has a subsequence of 1. 
+
+Whenver we can turn our problem into subproblems, then Dynamic programming is a good candidate for finding a solution. 
+
 `let arr = [0, 3, 1, 7, 5, 2, 8]`
 We'll create an array with the same length of our original array. Default all the values to `1`. Example: `var dp: [Int] = Array(repeating: 1, count: arr.count)`.  
 Let's just assume we want to calculate the LIS all the way to index `4`. And we've already updated the value for all previous indexes.  How do you think we need to update `dp[4]`
