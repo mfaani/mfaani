@@ -1,19 +1,17 @@
 ---
 title: "What Resources Does Apple Provide for teaching iOS to students?"
 date: 2022-08-03T13:45:52-04:00
+description: "Buried deep under Apple's K-12 resources?"
 category: "training"
-tags: ["iOS", "iOS-trainings", "swift-playgrounds", "teaching", "Apple Teacher Program"]
+tags: ["iOS", "iOS-trainings", "swift-playgrounds", "teaching", "Apple Teacher Program", "K-12 Coding"]
 ---
 
-I've started an iOS training course in my local community. At the beginning I thought it would be easy for me to just start training people with whatever I know, then I was like let me see what are some of the resources out there. 
+I've started an iOS training course in my local community. At the beginning I thought it would be easy for me to just start training people with whatever I know. Later I decided to look at some of the resources. I found great amount of material prepared by Apple. Only problem was that there were soo many that I got confused. In this article I plan on cataloging and comparing the different resources **provided by Apple**. 
 
+What you must understand is that some of Apple's Documents (PDFs) are out of sync with their Playground tutorials. Some of their books found through the Books app are available in Xcode 11, Xcode 12, and Xcode 13. Making it confusing because you may not notice that the book is for an older Xcode version. So just make sure you're downloading the correct Xcode version. 
 
-I found great amount of material prepared by Apple. Only problem was that there were soo many that I got confused. In this article I plan on cataloging the different resources **provided by Apple**. 
-
-What you must understand is that some of Apple's Documents (PDFs) are out of sync with their Playground tutorials. Or some of their books found through the Books app are available in Xcode 11, Xcode 12, and Xcode 13. It's confusing because you may not notice that the book is for an older Xcode version. Pro-tip: If you see multiple books with the same name, try digging in and find your appropriate Xcode version.
-
-### Where to begin?
-Overall Apple has teaching material in their Swift Playgrounds app and PDF books. It just really depends on how you answer the following questions. 
+## Where to begin?
+Overall Apple has teaching material in their Swift Playgrounds app and PDF books. In my opinion what you choose, depends on how you answer the following questions. 
 - Are you looking for ages 10+ or 14+?
 - Do you want to learn using Playgrounds or learn using PDF + Xcode?
 - Do you want to learn SwiftUI or UIKit?
@@ -21,26 +19,30 @@ Overall Apple has teaching material in their Swift Playgrounds app and PDF books
 
 Overall Apple has two distinct series: 
 
-| Name       | Age | Tutorial type | Swift vs. UIKit | Learn Basics vs. jump into building apps |
-| -----------| ----| ------------- | --------------- | ---------------------------------------- |
-| Everyone Can Code      | 10+       | Very engaging games for learning basic programmings | The SwiftUI portion is not gamified, but still interactive | Very basic concepts|
-| Develop in Swift   | 14+        | Not interactive. Must just read PDF and follow | More tailored towards building apps + some content for discussing real world problems | Build multiple mini apps |
+| Name       | Target Age | Tutorial type | Swift vs. UIKit | Learn Basics vs. Building apps | Real world vs Abstract concepts |
+| -----------| ----| ------------- | --------------- | ---------------------------------------- | ------------------------------- |
+| Everyone Can Code | 10+       | Very engaging games with awesome graphics and cute characters for learning basic programmings | The SwiftUI portion is not gamified, but still interactive | Very basic concepts | It's just concepts or simple views | 
+| Develop in Swift  | 14+       | Not interactive. Must just read PDF and follow in Xcode | UIKit based. CompletionHandler based | Build multiple mini apps | You build apps and learn about the app design process. Also some discussions about real programmer's problems and considerations|
 
+Below you will find more details about the two series:
 
-## Everyone Can Code
+## Everyone Can Code (series)
 - [Everyone Can Code - Curriculum Guide](https://www.apple.com/education/docs/everyone-can-code-curriculum-guide.pdf)
 ![Every Can Code - Curriculum Guide](/everyone-can-code-curriculum.png "ATTENTION: This PDF isn't up to date")
 
 ### Playgrounds overview
 ![Playgrounds overview](/playgrounds-overview.png)
 
-#### Problems within Playgrounds: 
+### Problems within Playgrounds: 
 - Can't search for text within it
 - Can't command click to go to the definition of a type. 
 ## Playground Tutorials
 
 ### Learn to Code 1
-**My Score: 10**
+**My Score: 9**
+Only reason I gave a 9 is because it's often too difficult — even for myself. The hints also aren't that great. In the while loop, and algorithm chapters I had to look into the solutions. 
+
+Otherwise the graphics are rich. The music and sound are top-notch. The pace and direction of the lessons are generally fantastic. And each lesson/chapter is very focused on learning one thing only — while using what you learned from previous chapters.
 
 The Playground is focused on: 
 - Commands: `moveForward()`
@@ -51,22 +53,18 @@ The Playground is focused on:
 - While Loops: `while ageIsUnder18()`
 - Algorithms: functions and loops combined...
 
-#### Teaching Tips: 
-
-- Bring kids to the front or ask them to share their screen while they're coding. I had students who didn't want to go the first time, but after trying it they were asking to back for the 2nd time. 
-- Take the pace as slow as possible. Understanding concepts is one thing. Understanding the syntax is another thing. I had a knowledge curse (Expert blindness) and thought I could finish the 'Learn to code 1' tutorial in 2 session. It's taking about 4 sessions. I forgot how I was slow in learning syntax myself too. 
-- You can skip chapters and jump to whatever you want. (The SwiftUI playgrounds don't allows random access though.)
-- Start simple. Ex if you have an assignment asking them to write a function then first begin by giving them the function signature and ask them to just implement it. Often figuring out the function signature is a struggle of its own. 
-    - Having a Slack workspace can help with fast easy sharing of code snippets. Kids are super fast to joining your Slack. 
-- Or ask questions that makes them think: 
-    - What happens if I remove the double quotes?
-    - Can you assign an `Int` to this (`String`) variable?
-    - Would the function take a different variable? Example, you can pass a different constant, case. Example change `scaleToFit` to `scaleToFill`. 
-    - Where did this image come from? This questions asks them to think bigger than the only file they're currently seeing i.e. see the project...
-
 #### Chapters
 
 ![Learn to Code 1 - Chapters](/Learn-to-code-1-chapters.png)
+
+### MeeBot Dances†
+
+
+
+†: You need to **subscribe** UBTech Jimu Robots:
+
+> MeeBot Dances: In the “From Other Publishers” section of the More Playgrounds screen, tap UBTech Jimu Robots, then tap Subscribe.  
+Tap Get to download the MeeBot 2.0 Dances playground.
 
 ### Learn to Code 2
 **My Score: 10**
@@ -107,10 +105,12 @@ TBD
 https://education-static.apple.com/teaching-code/learn-to-code-solutions.pdf
 
 ## Teacher Guides
+
+### Teacher courses
 - Apple has courses that you can take as a teacher. You can become certified if you go through their courses. 
 I tried on becoming a certified teacher for coding, but you first have to become certified in iPad or Mac training, then you can become certified for coding 🤷‍♂️.
 To become certified for iPad, you have to go through the following tutorials: 
-- the iPad itself
+- The iPad itself
 - Pages for iPad
 - Keynote for iPad
 - Numbers for iPad
@@ -118,56 +118,18 @@ To become certified for iPad, you have to go through the following tutorials:
 - GarageBand for iPad
 From https://appleteacher.apple.com/#/home/resources search for 'Playgrounds', 'Swift', 'Code'. 
 
-I must admit I learned a number of things in these tutorials. They're relatively short. Takes about 3hrs to go through it all. 
+I must admit I learned a number of things in these tutorials. They're relatively short. Takes about 3hrs to go through it all. The GarageBand tutorial was **very difficult**.
 
+You can also get certified for Mac, and a number of other courses. See the rest of the courses:
+
+![Apple course badges](/apple-teaching-course-badges.png)
+
+
+### Teacher guides
 - Apple also has a 'Teacher Guide' for its [Every Can Code Puzzles](https://books.apple.com/us/book/everyone-can-code-puzzles-teacher-guide/id1481279144) & [Everyone Can Code Adventures](https://books.apple.com/us/book/everyone-can-code-adventures-teacher-guide/id1514850776) tutorials. They're available to download from iBooks app. They have really good recommendations for what to say during the class, lots of nice images and (graphical) solutions.
 
-
-## Develop in Swift series
-- Find its Curriculum Guide from [here](https://www.apple.com/education/docs/develop-in-swift-curriculum-guide.pdf).
-- Level: **high school** students (14+)
-- Books contain Playgrounds & Template Xcode Projects that are used in different units. Books also contain 10-20 second videos for certain instructions. 
-- Does NOT have the visual richness of the Playground tutorials. It's mainly because you're coding in Xcode, not Playgrounds.
-- Does not teach using SwiftUI, Observables.
-- Content: It has different books. That are meant to be read in the following order: 
-    - Explorations
-    - Fundamentals
-    - Data Collections
-
-
-In this post, I'll only illustrate the content within the _Explorations_ book. 
-
-### Explorations
-- Explorations (180hrs)
-    - Unit 1: Values (Build a PhotoFrame App - Students get started with Xcode and playgrounds. They learn about the fundamental units of programming—the values that flow through their code, including text and numbers. They explore how to associate names with values using variables and constants, and how values can be used in simulations. They apply their skills to build a word game in a playground. The unit culminates in an app project to display a photo, which introduces them to the basics of Xcode and Interface Builder—tools they’ll use later for more complex projects.)
-![PhotoFrame App](/PhotoFrame-app.png "PhotoFrame App")
-    - Episode 1: The TV Club (Students will learn how searching on the web and signing up for accounts can impact their personal information and how to think about their privacy while using apps.)
-    - Unit 2: Algorithms (Build a QuestionBot - Students learn about the fundamentals of structured code. They explore how functions can encapsulate repetitive tasks and how to use if/else statements to make decisions in their code. They also learn how Swift uses types to distinguish different kinds of data. They apply their skills in playgrounds to create a dancing BoogieBot and a data visualizer. The culminating project is a QuestionBot app that responds to user input from the keyboard.)
-![QuestionBot App](/QuestionBot-app.png "QuestionBot App")
-    - Episode 2: The Viewing Party (Students learn how data is represented inside their devices and how it flows across the internet. They also learn more about security and data privacy)
-    - Unit 3: Organizing Data (Build a BouncyBall App - Students explore how to create custom types using structs, group large quantities of items into arrays, and process them using loops. They also learn how to use enums to represent a set of related values. They apply their knowledge by creating pixel art, extending their data visualizer, and creating an algorithm to determine password security. In the app project at the end of the unit, they build an interactive game app with colorful shapes.)
-    ![BouncingBall App](/BouncingBall-app.png "BouncingBall App")
-    - Episode 3: Sharing Photos (Students explore how sharing data online can impact privacy and result in other unanticipated consequences. They also look at how images are captured and processed by a mobile device and how a social media service handles posts) 
-    - Unit 4: Building Apps (Build an ElementQuiz App - Students deepen their skills in Xcode and Interface Builder in guided projects that show how to build an app from the ground up. Students use techniques to add user interface elements to a screen, connect those elements to their code, and respond to the events generated by user interaction. They also experience the incremental development of an app by gradually expanding its capabilities, testing it at each phase.)
-
-The book is divided into four **units** that focus on building your programming skills and understanding of key concepts. Between units, you’ll explore a story about a group of students in a TV club. As you follow these **episodes**, you’ll have a chance to think about different aspects of online engagement, how information is shared online, and what kinds of decisions need to be made in a connected world.
-By the end of the book, you will have built several simple apps and prototyped an app of your own design. And along the way, you’ll have gotten a taste for the world of app development—gaining an appreciation for how technology works, how you can use it to express yourself, and how it can be used to solve problems.
-Each unit is divided into four sections:
-- Get Started
-- Play
-- Build
-- Design
-
-### Fundamentals (180hrs)
-- Unit 1: Getting Started with App Development 
-- Unit 2: Introduction to **UIKit**
-- Unit 3: Navigation and Workflows
-### Data Collections (180hrs)
-- Unit 1: Tables and Persistence 
-- Unit 2: Working with the Web 
-- Unit 3: Advanced Data Display
-
-There's also a 4th book named: "AP CS Principles". The AP® CS Principles course extends _Develop in Swift Explorations_ to prepare students for the AP® Computer Science Principles exam.
+### Teacher forums
+Also since late Aug 2022, Apple has launched forums: https://education.apple.com/en/community
 
 ## How to start a coding club
 
@@ -180,13 +142,24 @@ Tips from [Swift Code Club](https://www.apple.com/education/docs/swift-club-xcod
 - Record showcases and presentations. 
 - Allow people to pitch app ideas and showcase prototypes and then give feedback.
 
+## General Teaching Tips: 
+
+- Bring kids to the front or ask them to share their screen while they're coding. I had students who didn't want to go the first time, but after trying it they were asking to back for the 2nd time. 
+- Take the pace as slow as possible. Understanding concepts is one thing. Understanding the syntax is another thing. I had a knowledge curse (Expert blindness) and thought I could finish the 'Learn to code 1' tutorial in 2 session. It's taking about 4 sessions, but we still don't cover all lessons of every chapter. I forgot how I was slow in learning syntax myself too. 
+- You can skip chapters and jump to whatever you want. (The SwiftUI playgrounds don't allows random access though.)
+- Start simple. Ex if you have an assignment asking them to write a function then first begin by giving them the function signature and ask them to just implement it. Figuring out the function signature is a struggle of its own. 
+- Having a Slack workspace can help with fast easy sharing of code snippets. Kids are super fast to joining your Slack. 
+- Or ask questions that makes them think: 
+    - What happens if I remove the double quotes?
+    - Can you assign an `Int` to this (`String`) variable?
+    - Would the function take a different variable? Example, you can pass a different constant, case. Example change `scaleToFit` to `scaleToFill`. 
+    - Where did this image come from? This questions asks them to think bigger than the only file they're currently seeing i.e. see the project...
 
 ### Other Tutorials
 https://developer.apple.com/tutorials/swiftui
 
-
-## Summary
+## Verdict - what course should I take?
 - If you have absolute beginners or under 14yrs of age then you can only use the 'Everyone can code' Playground series. 
-- If you have 14+ years of age students and want to start with more real world code and are also ok with learning UIKit then use 'Develop in Swift' series. 
+- If you have 14+ years of age students and want to start with more real world code and are also ok with learning UIKit then use 'Develop in Swift' series. Because UIKit will be useful and around in a lot of big companies until 2030...
 - If you're not ok with teaching UIKit and want to only teach SwiftUI then you can't use 'Develop in Swift'. Must use the various Playgrounds Apple has. 
 
