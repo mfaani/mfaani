@@ -3,7 +3,7 @@ title: "What is a Self Contained Build Script?"
 date: 2022-04-22T13:11:12-04:00
 categories: [Devtools]
 tags: [CI, jenkins, bundler, build-scripts, keychain]
-description: "Deep dive into how certificates are retrieved and common problem one can face for retrieving certificates for signing"
+description: "Discussion about how to make your script work without interruption or manual intervention"
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
