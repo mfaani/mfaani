@@ -46,7 +46,12 @@ In this post I focus on going through the 'Everyone can code' series. I have ano
 ### ebook: [Everyone can code Puzzles](https://books.apple.com/us/book/everyone-can-code-puzzles/id1481279769)  
 - Score: 10
 The book is amazingly rich with its content, instructions and graphics. 
+
+#### Chapters:
 ![Everyone can code Puzzles Playgrounds](/everyone-can-code-puzzles.png)
+
+#### Sample content:
+![Sample Instructions](/instructions-from-puzzles-book.jpg)
 
 
 ### Playground - Learn to Code 1
