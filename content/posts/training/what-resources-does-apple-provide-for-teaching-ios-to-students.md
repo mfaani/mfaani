@@ -4,6 +4,10 @@ date: 2022-09-21T13:45:52-04:00
 description: "Buried deep under Apple's K-12 resources?"
 category: "training"
 tags: ["iOS", "iOS-trainings", "swift-playgrounds", "teaching", "Apple Teacher Program", "K-12 Coding"]
+cover:
+    image: "/everyone-can-code-curriculum.png"
+    alt: "self-contained rv"
+    relative: false
 ---
 
 Note: This post has got a bit longer than what I originally intended. You might want to skip to the very end to see the [verdict](http://mfaani.com/posts/training/what-resources-does-apple-provide-for-teaching-ios-to-students/#verdict---what-course-should-i-take) and [table](http://mfaani.com/posts/training/what-resources-does-apple-provide-for-teaching-ios-to-students/#where-to-begin) first and then read again.
@@ -33,8 +37,7 @@ Overall Apple has two distinct series. 'Every Can Code' & 'Develop in Swift'
 In this post I focus on going through the 'Everyone can code' series. I have another post in the works for 'Develop in Swift'. 
 
 # Overview 
-![Everyone Can Code - Curriculum Guide](/everyone-can-code-curriculum.png "ATTENTION: This PDF isn't 100% updated.")
-[Everyone Can Code - Curriculum Guide](https://www.apple.com/education/docs/everyone-can-code-curriculum-guide.pdf)
+[Everyone Can Code - Curriculum Guide PDF ](https://www.apple.com/education/docs/everyone-can-code-curriculum-guide.pdf)
 
 ### Playgrounds overview
 ![Playgrounds overview](/playgrounds-overview.png)
@@ -155,7 +158,8 @@ You can also get certified for Mac, and a number of other courses. See the rest 
 - Apple also has a 'Teacher Guide' for its [Every Can Code Puzzles](https://books.apple.com/us/book/everyone-can-code-puzzles-teacher-guide/id1481279144) & [Everyone Can Code Adventures](https://books.apple.com/us/book/everyone-can-code-adventures-teacher-guide/id1514850776) tutorials. They're available to download from iBooks app. They have really good recommendations for what to say during the class, lots of nice images and (graphical) solutions.
 
 #### Teacher forums
-Also since late Aug 2022, Apple has launched forums: https://education.apple.com/en/community
+- Also since late Aug 2022, Apple has launched forums: https://education.apple.com/en/community
+- Can also search for `#AppleEDUchat` `#AppleTeacher` on Twitter. 
 
 #### How to start a coding club
 
