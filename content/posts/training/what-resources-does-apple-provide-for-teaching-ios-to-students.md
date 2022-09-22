@@ -1,6 +1,6 @@
 ---
 title: "What Resources Does Apple Provide for teaching iOS to students?"
-date: 2022-08-03T13:45:52-04:00
+date: 2022-09-21T13:45:52-04:00
 description: "Buried deep under Apple's K-12 resources?"
 category: "training"
 tags: ["iOS", "iOS-trainings", "swift-playgrounds", "teaching", "Apple Teacher Program", "K-12 Coding"]
