@@ -12,9 +12,9 @@ It's the first time I'm doing a refactor at this scale. I'm changing the logic h
 - I often use pen and paper to get the current diagram down or write _special_ todos for myself. Example I write a comment and do: 
 
 ```
-// @selfdo: replace `Foo` with `Bar`
+// @self:do: replace `Foo` with `Bar`
+// @self:mistake: we should use `fooFlag` instead of `barFlag`
 ```
-{{< rawhtml >}}<sub style="font-size:10px"> `selfdo` has no meaning. It's just a made up term I use so I can quickly search in code </sub>{{</rawhtml >}}
 
 Once I push up my code for code-review, I remove the todos I wrote. 
 
@@ -26,10 +26,11 @@ Once I push up my code for code-review, I remove the todos I wrote.
 
 ### Other tips:
 - Use `git worktree` to be able to compare your changes with code of your `main` branch in realtime. I compared two branches of my project. It's easier vs. doing `git diff` to go through your changes.
+- If you're refactoring code you haven't wrote yourself, then it might be a good idea to have some meetings with the person who actually wrote the code — if possible. 
 - Often moving multiple properties into a new type helps
 - Move functions into an extension
 - Rename variables
-- Add documentation
+- Add documentation. Documentation have a huge rubber-🐤 effect.
 - Add new variables
 - Remove variables
 - Remove dead code
