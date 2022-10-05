@@ -21,7 +21,11 @@ Once I push up my code for code-review, I remove the todos I wrote.
 - If needed write down the new signature. 
 - Do refactor incrementally. 
 - The bigger the codebase is, the more time it takes for you to come up with a good architecture. Often the code-change is very little, but just coming up with the correct mindset and steps take time. Might need to re-do your refactor. It's totally fine to refactor your refactored code again. Make sure you communicate to your team members that a lot of time is needed. 
-- The bigger the refactoring is, the more QA work that will be needed. 
+- The bigger the refactoring is, the more QA work that will be needed.
+- Create a diagram in incremental steps
+    - High Level diagram. Remove edge cases. Example: `Enter Flow >> Check Device Model >> Check if user is allowed to Activate Device >> Activate Device >> Exit Flow`
+    - More Detailed diagram. `Enter flow from ScreenA >> Check Device Model >> Check if user is allowed to Activate >> Check if device is online >> setup device >> If success then Exit flow | If failure then retry`
+  You can have a more detailed diagram than this too. The note is to do it steps. Often using writing down on a paper initially makes things a whole lot easier for me.     
 
 
 ### Other tips:
@@ -32,6 +36,9 @@ Once I push up my code for code-review, I remove the todos I wrote.
 - Rename variables
 - Add documentation. Documentation have a huge rubber-🐤 effect.
 - Add new variables
+- Computed properties are great
+    - Try finding identify what was it truly that the decision was based off of. Example: You reload the home screen for a certain enum (Ex successful activation). However the real reason you reload the Home screen isn't because it's a successful response. It's because an activation resulted in **change**
+- Often you'd want to 
 - Remove variables
 - Remove dead code
 - Often similar properties exist that you can merge them together. 
