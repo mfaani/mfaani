@@ -9,7 +9,10 @@ editPost:
     Text: Suggest Changes
     appendFilePath: true
 ---
- 
+My team was dealing with a large flow, where user can transition from multiple states or sometimes skip certain states. We didn't have a centralized controller, every screen just had logic on where it should go next.  
+This made it difficult for us to see all our logic at once. We asked around and was told state machines are a good fit for our situation.  
+State machines are void of any UX. You just pass an event to it. Based on the event and the current state, you update to a new state and you get a command to act upon. 
+
 A watered down example of a [State machine](https://gist.github.com/andymatuschak/d5f0a8730ad601bcccae97e8398e25b2) is: 
 
 ```
