@@ -15,14 +15,20 @@ State machines are void of any UX. You just pass an event to it. Based on the ev
 
 A watered down example of a [State machine](https://gist.github.com/andymatuschak/d5f0a8730ad601bcccae97e8398e25b2) is: 
 
-```
-event           + current state         ->    command  
---------------------------------------------------------
-.momEnteredHome + houseWasClean         -> .enjoyYourself  
-.momEnteredHome + houseWasAMess         -> .cleanHouse  
-.guestsArrived  + notAllGuestsArrived   -> .wait  
-.guestsArrived  + allGuestsArrived      -> .serveDinner  
-.guestsLeft     + houseIsClean          -> .cleanHouse
+```haskell
+Event             + Current state         ->   Command    ->    New state
+-----------------------------------------------------------------------------------
+.momEnteredHome   + .houseIsClean         -> .nothing     ->   no state change
+.momEnteredHome   + .houseWasAMess        -> .cleanHouse  ->   .cleaningHouse
+.houseGotCleaned  + .cleaningHouse        -> .nothing     ->   .houseIsClean
+
+.guestsWillCome   + .houseIsClean         -> .makeFood    ->   .makingFood
+.foodPrepared     + .makingFood           -> .nothing     ->   .foodPrepared
+
+.guestsArrived    + notAllGuestsArrived   ->   .wait      ->   .waitingForAllGuests 
+                   & .foodPrepared   
+.lastGuestArrived + waitingForAllGuests   -> .serveDinner ->   .eating
+
 ```  
 
 Now let's see how that can be deemed similar to graphs...
@@ -50,7 +56,7 @@ Not 100% similar, but to a certain point: when we apply the same concept:
 
  
 ```apache
-event  + currentState -> command
+command + state -> event
 --------------------------------
 jump 1 + from 0 -> arriveAtStep 1
     jump 1 + from 1 -> arrive at 2
@@ -63,9 +69,9 @@ jump 2 + from 0 -> arriveAtStep 2
  ```
 
 It's important to note that: 
-- The only possible events are 'jump 1' and 'jump 2'. (If we were allowed to jump 3 steps, then 'jump 3' would have been another event as well)
+- The only possible commands are 'jump 1' and 'jump 2'. (If we were allowed to jump 3 steps, then 'jump 3' would have been another command as well)
 - However the current state can be a different number each time.
-- From each state we bifurcate apply **two** new events.
+- From each state we bifurcate to apply **two** new commands.
 - Because we bifurcate, we have to _add_ the result (number of paths that lead to step `n` from node `m`) of the two branches. 
 - A code-path terminates when it reaches `n` or above. 
    - If we reach `n` exactly then we return `1`. 
@@ -73,7 +79,7 @@ It's important to note that:
 - In state machines, once you reach the terminating event, then your state machine is finished. However since we've bifurcated _multiple_ times, the exploring will only terminate when **all** branches terminate.
  
 ### 💡Summary: 
-- An Edge in a graph is like an event in a state machine.
+- An Edge in a graph is like an command in a state machine.
 - The _current_ node in a graph is like the states in a state machine.
 - The _next_ node in a graph is like the after result of handling a command in a state machine.
 - The end of a path is like reaching the end of a state machine. 
