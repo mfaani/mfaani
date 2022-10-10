@@ -56,16 +56,17 @@ Not 100% similar, but to a certain point: when we apply the same concept:
 
  
 ```apache
-command + state -> event
+apply command + state -> event - - - > calculate new command
 --------------------------------
-jump 1 + from 0 -> arriveAtStep 1
-    jump 1 + from 1 -> arrive at 2
-        jump 1 + from 2 -> arrive at 3
-        jump 2 + from 2 -> arrive at 4
-    jump 2 + from 1 -> arriveAtStep 3
-jump 2 + from 0 -> arriveAtStep 2
-    jump 1 + from 2 -> arriveAtStep 3
-    jump 2 + from 2 -> arriveAtStep 4
+No command + from 0 -> from 0 - - - > jump 1 & jump 2
+    jump 1 + from 0 -> arrive at 1 - - - > jump 1 & jump 2
+        jump 1 + from 1 -> arrive at 2 - - - > jump 1 & jump 2
+            jump 1 + from 2 -> arrive at 3 - - - > terminate
+            jump 2 + from 2 -> arrive at 4 - - - > terminate
+        jump 2 + from 1 -> arrive at 3 - - - > terminate
+    jump 2 + from 0 -> arrive at 2 - - - > jump 1 & jump 2
+        jump 1 + from 2 -> arrive at 3 - - - > terminate
+        jump 2 + from 2 -> arrive at 4 - - - > terminate
  ```
 
 It's important to note that: 
@@ -132,4 +133,7 @@ func helper(origin: Int, current: Int, target: Int) -> Int {
         return ans
     }
 }
+
+## Note: 
+Your graphs shouldn't be cyclic otherwise 
 ```
