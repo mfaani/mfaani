@@ -57,7 +57,7 @@ Not 100% similar, but to a certain point: when we apply the same concept:
  
 ```apache
 apply command + state -> event - - - > calculate new command
---------------------------------
+------------------------------------------------------------
 No command + from 0 -> from 0 - - - > jump 1 & jump 2
     jump 1 + from 0 -> arrive at 1 - - - > jump 1 & jump 2
         jump 1 + from 1 -> arrive at 2 - - - > jump 1 & jump 2
