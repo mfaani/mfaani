@@ -134,6 +134,7 @@ func helper(origin: Int, current: Int, target: Int) -> Int {
     }
 }
 
-## Note: 
-Your graphs shouldn't be cyclic otherwise 
 ```
+
+## Note: 
+Your graphs shouldn't be cyclic otherwise you won't be terminating/ending your graph or state machine. For this reason, State Machines are usually named 'Finite State machines'.
