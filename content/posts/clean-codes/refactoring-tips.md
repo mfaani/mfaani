@@ -27,10 +27,10 @@ Once I push up my code for code-review, I remove the todos I wrote.
     - More Detailed diagram. `Enter flow from ScreenA >> Check Device Model >> Check if user is allowed to Activate >> Check if device is online >> setup device >> If success then Exit flow | If failure then retry`
   You can have a more detailed diagram than this too. The note is to do it steps. Often using writing down on a paper initially makes things a whole lot easier for me.     
 
-
 ### Other tips:
 - Use `git worktree` to be able to compare your changes with code of your `main` branch in realtime. I compared two branches of my project. It's easier vs. doing `git diff` to go through your changes.
     - Note: `git worktree` are good for comparing lines of code. However things get messy when you **run** the two projects. This I believe is what the git worktree man page refers to [here]()
+    - Be careful to make the changes / run / test the correct worktree. Don't ask how I know this. 🙃
 - If you're refactoring code you haven't wrote yourself, then it might be a good idea to have some meetings with the person who actually wrote the code — if possible. 
 - Often moving multiple properties into a new type helps
 - Move functions into an extension
@@ -47,6 +47,7 @@ Once I push up my code for code-review, I remove the todos I wrote.
     - It's better to have a single point of entry and single code-point of exit. 
 - Computed properties are great
     - Try finding identify what was it truly that the decision was based off of. Example: You reload the home screen for a certain enum (Ex successful activation). However the real reason you reload the Home screen isn't because it's a successful response. It's because an activation resulted in **change**
+- As you do QA/unit-test you may learn new things about your architecture. If that happens then you might need to update your diagrams again. 
 - Often you'd want to 
 - Remove variables
 - Remove dead code
