@@ -912,3 +912,14 @@ The first view render will give you like:
 but if the nex time you just toggled a Switch change, then you'll just get a print of: 
 `<your-state-property> changed` or something. 
 
+## Property Wrapper
+
+It requires a wrapped value.
+It doesn't require to have a projected value. If it doesn't have one then you can't the projected value. 
+The Projected Value can be of any type. `Binding<Value>`, `Published<Value>.Publisher`, etc
+
+
+### What's the difference between Property Wrapper vs Computed Property? 
+- Computed Property isn't re-usable
+- With Property wrapper, you can re-apply that property wrapper on a gazzilion other properties. 
+- If you need to do the same, then you'd have to copy/paste that computation for every property and get the name right, etc. 
