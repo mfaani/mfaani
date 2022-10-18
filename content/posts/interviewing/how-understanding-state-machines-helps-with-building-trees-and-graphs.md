@@ -18,7 +18,7 @@ A watered down example of a [State machine](https://gist.github.com/andymatuscha
 ```haskell
 Event             + Current state         ->   Command    ->    New state
 -----------------------------------------------------------------------------------
-.momEnteredHome   + .houseIsClean         -> .nothing     ->   no state change
+.momEnteredHome   + .houseIsClean         -> .nothing     ->   (no state change)
 .momEnteredHome   + .houseWasAMess        -> .cleanHouse  ->   .cleaningHouse
 .houseGotCleaned  + .cleaningHouse        -> .nothing     ->   .houseIsClean
 
@@ -108,7 +108,7 @@ func helper(origin: Int, current: Int, target: Int) -> Int {
 print(howManyWays(num: 4))
 ```
 
-## Code using caching: 
+## Code using memoization/caching: 
 
 ```swift
 var cache: [Int: Int] = [:]
@@ -138,6 +138,23 @@ func helper(origin: Int, current: Int, target: Int) -> Int {
 }
 
 ```
+### 💡 Summary - Appendix
+- If we've already handled a certain event + state combination, then we just store the output _command_ in memory. 
+- By doing this, we don't need to re-calculate the command every time. 
+
+## Another Dynamic Programming Example: 
+- Assuming you can travel in only the right and down direction: count the number of possible ways to reach from one corder of a grid to another. Assume our example grid is 3 x 3
+    - Our commands are only 
+        - move right
+        - move down
+    - Our events are: 
+        - arrived at grid (1,0), (1,1) . . . (3,3)
+    - Our terminating states are: 
+        - arrived at (3,0)
+        - arrived at (0,3)
+        - arrived at (3,3)
+    - Store previous results is done by
+        - storing the number of ways to reach to (3,3) from (3,2), (2,3), (2,2) . . . (0,0)
 
 ## Note: 
 Your graphs shouldn't be cyclic otherwise you won't be terminating/ending your graph or state machine. For this reason, State Machines are usually named 'Finite State machines'.
