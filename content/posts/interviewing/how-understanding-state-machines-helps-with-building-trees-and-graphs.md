@@ -84,6 +84,9 @@ It's important to note that:
 - The _current_ node in a graph is like the states in a state machine.
 - The _next_ node in a graph is like the after result of handling a command in a state machine.
 - The end of a path is like reaching the end of a state machine. 
+- A leaf branch of a base case is like terminating a state machine. Meaning state machine finishes i.e. the branch can't recurse any more. In the tree example, base case is either if:
+    - Target has been reached. (You reached the desired stair)
+    - You've passed beyond your target. (You jumped pass the desired stair)
 
 ## Code
 
