@@ -25,6 +25,12 @@ Once I push up my code for code-review, I remove the todos I wrote.
 - Create a diagram in incremental steps
     - High Level diagram. Remove edge cases. Example: `Enter Flow >> Check Device Model >> Check if user is allowed to Activate Device >> Activate Device >> Exit Flow`
     - More Detailed diagram. `Enter flow from ScreenA >> Check Device Model >> Check if user is allowed to Activate >> Check if device is online >> setup device >> If success then Exit flow | If failure then retry`
+    - NOTE: ANY TINY DISCREPANCY between your diagram and the actual code will turn into a source of bugs. Example: Our diagrams weren't considerate of feature flags. And so in my new architecture I wasn't considerate of exit early due to feature being unavailable. The high levels are meant to simplify the steps. THEY ARE NOT A SOURCE OF TRUTH. 
+    - It's often better to have multiple small yet accurate diagrams.
+    - For anything that's not covered in the diagram leave disclaimers. You as the author might know what you left others. Others won't know it. 
+    - Version your diagram. 
+    - Version control your diagram as well. 
+    
   You can have a more detailed diagram than this too. The note is to do it steps. Often using writing down on a paper initially makes things a whole lot easier for me.     
 
 ### Other tips:

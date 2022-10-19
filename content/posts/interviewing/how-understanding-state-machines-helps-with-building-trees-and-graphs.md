@@ -148,13 +148,19 @@ func helper(origin: Int, current: Int, target: Int) -> Int {
         - move right
         - move down
     - Our events are: 
-        - arrived at grid (1,0), (1,1) . . . (3,3)
-    - Our terminating states are: 
-        - arrived at (3,0)
-        - arrived at (0,3)
-        - arrived at (3,3)
-    - Store previous results is done by
-        - storing the number of ways to reach to (3,3) from (3,2), (2,3), (2,2) . . . (0,0)
+        - arrived at grid (1,0)
+        - arrived at grid (0,1)
+        - arrived at grid (1,1)
+        - ...
+        - arrived at grid (3,3)
+    - Our terminating state is:
+        - arrived at (3,3). Because we can't move down or right anymore. 
+    - State transitions that we don't need to re-calculate over and over are: 
+        - storing the number of ways to reach to (3,3) from (3,2)
+        - storing the number of ways to reach to (3,3) from (2,3)
+        - storing the number of ways to reach to (3,3) from (2,2)
+        - ...
+        - storing the number of ways to reach to (3,3) from (0,0)
 
 ## Note: 
 Your graphs shouldn't be cyclic otherwise you won't be terminating/ending your graph or state machine. For this reason, State Machines are usually named 'Finite State machines'.
