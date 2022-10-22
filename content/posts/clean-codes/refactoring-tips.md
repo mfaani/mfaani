@@ -29,7 +29,15 @@ Once I push up my code for code-review, I remove the todos I wrote.
     - It's often better to have multiple small yet accurate diagrams.
     - For anything that's not covered in the diagram leave disclaimers. You as the author might know what you left others. Others won't know it. 
     - Version your diagram. 
-    - Version control your diagram as well. 
+    - Version control your diagram as well.
+    - Diagram should have stages. Example: 
+        - Eligibility Check 
+        - Feature Flag Check
+        - Error Stage
+        - Success Stage
+        - Early User Exit State
+        - Anchor Stage
+        And perhaps you could have your high level / less detailed diagram made up just
     
   You can have a more detailed diagram than this too. The note is to do it steps. Often using writing down on a paper initially makes things a whole lot easier for me.     
 
@@ -63,6 +71,7 @@ Once I push up my code for code-review, I remove the todos I wrote.
     1. Get the architecture diagram correct
     2. Start writing the code, but don't try to write implementation for every piece of code. Just try to get it compile. I got my code to compile by replacing lots of assertions in place of returns.  Or often if I didn't know what to do then I just left a `fatalError("not sure"), so my code compiles and I don't get stuck on it, but also it's clear that I need fix something later on. 
     3. Replace the assertions with real returns
+- When the refactor is big. Then it means the Pull Request will be big. There will be a lot of conversation. Having a lot of conversation makes the page loads slow and because of the numerous comments, things become confusing. This is on top of the architectural load. For this reason it's best to not make incremental PRs. But if you can't do that then it's perhaps a good idea to just do a screen share with your PR reviewer and LIVE CODe. Try not go back and forth. It can be very toiling especially towards the end. At recall at some point the conversation got so long and the changes I made, I had trouble understand what my comment meant. It was as if I was having memory lose...
 
 tldr don't think of it as pure refactor, it's better to think of clean code.
 Also if you can't make sense of similar properties exist, or dead code, or something is upside down, then it may actually be for no good reason, but it also might have a reason.
