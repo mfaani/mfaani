@@ -1,5 +1,5 @@
 ---
-title: "Why does pod lib lint suddenly fail to build"
+title: "Why does pod lib lint suddenly fail to build?"
 date: 2022-10-24T10:57:20-04:00
 description: "Why might pod lib lint fail to build while the app itself builds fine?"
 category: "devtools"
