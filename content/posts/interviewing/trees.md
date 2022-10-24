@@ -39,5 +39,16 @@ inOrder(root) {node in
 }
 ```
 
+## Complexity
 
- 
+### Time Complexity
+It's a factor of the height of the tree and the number of possible branches. 
+branch ^ height
+
+### Space
+It's a factor of:
+1. The size needed for the **stack** to grow in a tree until you can return. You only return when you hit a leaf of your tree, i.e. a base case of your recursive function. Most of the times your height is as big as your targetSum/bestSum/numberOfCharactersOfaTargetWord. Because you need smaller targetSum / smaller bestSum and smaller numberOfCharactersOfaTargetWord
+
+2. The size of the item you need to carry. 
+
+When you're trying to validate your tree complexity, it might be a good idea to try it with the worst i.e. smallest traversal ability. Example how to get to `10`, if you can only jump by `1`.
