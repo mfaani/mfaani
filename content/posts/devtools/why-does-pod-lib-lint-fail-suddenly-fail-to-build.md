@@ -80,3 +80,5 @@ pod repo update
 pod lib lint
 ```
 will vary depending on the time it was ran.
+
+In general stuff you do in CI, dependency management, build phase scripts are things that go unnoticed when developing or reviewing code. Having an insight to look into these can be helpful.
