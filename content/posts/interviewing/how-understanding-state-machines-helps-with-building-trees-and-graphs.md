@@ -142,6 +142,17 @@ func helper(origin: Int, current: Int, target: Int) -> Int {
 - If we've already handled a certain event + state combination, then we just store the output _command_ in memory. 
 - By doing this, we don't need to re-calculate the command every time. 
 
+## Difference between State Machine and Trees/Graphs
+A state machine usually doesn't care how you arrived at a certain event. All it cares about is 1. event 2. state. Based on those two, it can come up with a command. 
+However trees and graphs, often require to know exactly the previous nodes you traversed through to arrive at a certain point. 
+
+If you had a single path/branch through out your tree i.e. if it look liked a single line, then it would match with a state machine. 
+However if you have multiple branches, which 99% of the time you do, then you must always:
+1. Keep an array to know how you arrived at a current node. Example you could arrive at node `F` from a path of `[A, B]` or `[A, D, C]`
+2. Update the path that was passed down to i.e. change it to `[A, B, F]`, or `[A, D, C, F]`
+3. Pass the new path down to the next node. 
+
+Note: In the 'How many ways you can climb' example, we didn't have a need to know what our current path is, but for other questions example [Generate Parentheses](https://www.youtube.com/watch?v=s9fokUqJ76A) you need to pass certain 'path-specific' variables down the path.
 ## Another Dynamic Programming Example: 
 - Assuming you can travel in only the right and down direction: count the number of possible ways to reach from one corder of a grid to another. Assume our example grid is 3 x 3
     - Our commands are only 

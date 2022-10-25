@@ -75,3 +75,10 @@ Once I push up my code for code-review, I remove the todos I wrote.
 
 tldr don't think of it as pure refactor, it's better to think of clean code.
 Also if you can't make sense of similar properties exist, or dead code, or something is upside down, then it may actually be for no good reason, but it also might have a reason.
+
+## IDE tips 
+- When you've made a big refactor, then tests will fail. 
+- Try to commit the code changes you've made. Then update the tests. This allows you to isolate the tests changes you've made. 
+- Often you need to fix the tests. To do that, it's first best to just get it to compile. 
+    - Then find out how your IDE allows you to just jump between changes in code. 
+    - Then try to fix the change by making the test pass. 
