@@ -60,10 +60,10 @@ The following will explain how that can happen.
 
 What you have to understand is that:
 - At step 3.1, your agent has now downloaded the 4.1.4 PodSpec. 
-- Your linting is rightfully oblivious to `pod lib lint`. It will use 4.1.4 (not 4.1.3)
+- Your linting is rightfully oblivious to `Podfile.lock`. It will use 4.1.4 (not 4.1.3)
 
 At this moment your linting vs. normal project building/running have bifurcated into using two different sets of dependencies.  
-In my situation, the 4.1.4 had some buggy code. It was causing linting to fail. 
+In my situation, the 4.1.4 was causing a compilation error. Linting was failing. 
 
 ### Debugging tips to resolve such issues faster?
 1. In general if things only fail on CI, then it's usually a good idea to go step by step with exactly what your CI is doing.
@@ -71,7 +71,7 @@ In my situation, the 4.1.4 had some buggy code. It was causing linting to fail.
 3. Pay closer attention to the version thats logged in CI. See if it's the version you expect.
 4. Run the app locally with the version CI gives and see if things work as expected. 
 
-## Summary
+## Summary of Problem
 
 `pod lib lint` is oblivious to `Podfile` & `Podfile.lock`. It only cares about the versions mentioned in the `PodSpec`.  
 For this reason, if you're using the [optimistic operator](https://stackoverflow.com/questions/20213751/what-is-the-usage-of-in-cocoapods) then the outcome of 
@@ -82,3 +82,50 @@ pod lib lint
 will vary depending on the time it was ran.
 
 In general stuff you do in CI, dependency management, build phase scripts are things that go unnoticed when developing or reviewing code. Having an insight to look into these can be helpful.
+
+## Proposal Discussion:
+I explained the problem to some CocoaPods experts and mentioned my proposal. 
+The following is that conversation [with some edits]: 
+
+In your CI before doing anything run: `pod update <FooPod>` — **where: the PodSpec is specifying the version using the optimistic operator (`~>`)**. This allows your project's UI, Unit-tests run with the latest possible dependencies. 
+
+[Orta](https://twitter.com/orta) one of CocoaPods original creators replied back with: 
+
+> yep, for the first few years we recommended adding the `podfile.lock` to `.gitignore` **if you were shipping a library** which is effectively the same thing.
+>
+> But too many people misinterpreted it  
+> ...  
+> in the typescript compiler we don't have a lockfile for example
+
+Interesting. And just to be sure. Also ignore `/Pods`. Right?
+
+> yes, I normally always do this. but I understand the desire.
+
+## My altered Proposal:
+
+- Keep the `Podfile.lock` + `/Pods` folder.
+- For any any dependency in your PodSpec that's specified using teh Optimistic operator:
+  - Ask devs to do `pod update <Optimistically-Specified-dependency>` more aggressively. You could just add this as part of your build phase, pre-commit hook etc. 
+  - Add a `pod update <Optimistically-Specified-dependency>` step in our CI — before you build the Example app and run your tests. 
+- For `pod update <some-library>` to work as expected:
+  - Avoid specifying any dependency in your `Podfile` — if it’s already specified in your `PodSpec`. Otherwise your example is restricting what you'll test. 
+- Note: In the case that you pass `--skip-tests` to your `pod lib lint` command, the linting is still needed. It checks two things:
+  - If the `PodSpec` is valid.
+  - If app compiles using the **latest** dependencies specified in the `PodSpec`.
+
+  ## Final Summary
+The manner in which you maintain dependencies for a library as an owner is to be different from how you maintain dependencies for a project/app/library as a consumer. 
+As **library owners** we have very little control over what the host app does for the dependencies we've listed in our `PodSpec`. We can't tell if it's using the minimum specified or the maximum specified.
+For this reason, it's always great to not stay behind your dependencies i.e. you don't want your example app to be locked to 4.1 of your dependency while your actual host app is using the 4.9 version of your dependency. 
+
+Technically speaking 🤞**if** all your dependencies use Semantic versioning correctly🤞 then you shouldn't run into problems because of lagging behind a couple versions. 
+
+However if you're more aggressive with building your app with the latest dependencies, you can provide feedback faster to the maintainer of your dependency. Example of feedback are: 
+- App doesn't compile. You didn't do semantic versioning correctly. 
+- App compiles, but behavior is different: 
+  - Pod still returns an image, but it's a totally different image and you weren't expecting this
+  - The function syntax is the same, however the results are different.
+  - The function syntax is the same, however it's three times slower.
+
+## Acknowledgements
+I like to thank all the CocoaPod creators and contributors. Also give special thanks to [Orta](https://twitter.com/orta) for sharing his insight and the historical context on maintaining a library.
