@@ -143,6 +143,8 @@ func helper(origin: Int, current: Int, target: Int) -> Int {
 - By doing this, we don't need to re-calculate the command every time. 
 
 ## Difference between State Machine and Trees/Graphs
+
+### Does it matter how you got to a start node or state? Or all that matters is that you're at a specific Node (event)?
 A state machine usually doesn't care how you arrived at a certain event. All it cares about is 1. event 2. state. Based on those two, it can come up with a command. 
 However trees and graphs, often require to know exactly the previous nodes you traversed through to arrive at a certain point. 
 
@@ -153,6 +155,21 @@ However if you have multiple branches, which 99% of the time you do, then you mu
 3. Pass the new path down to the next node. 
 
 Note: In the 'How many ways you can climb' example, we didn't have a need to know what our current path is, but for other questions example [Generate Parentheses](https://www.youtube.com/watch?v=s9fokUqJ76A) you need to pass certain 'path-specific' variables down the path.
+
+### Tree vs a single branch
+
+A tree is made up of multiple branches. 
+States (or values of interest i.e. the answer/returned value) can be associated with: 
+- The entire tree
+    - The state is associated with the entire tree. You don't need to pass it down your branch. You can just retrieve it from a property a class. 
+    Example: the [can sum](https://www.youtube.com/watch?v=oBt53YbR9Kk&t=4196s) problem. It doesn't matter if your sum of 7 was made through 5,2 or 2,2,2,1 or 4,3 or 7. All that matter is that you got there. 
+
+- A single branch/path
+    -  The state is associated with the current path. You need to pass and update that value down your branch.
+    Example: the [generate parenthesis](https://www.youtube.com/watch?v=s9fokUqJ76A) problem. You have to pass down how many parenthesis you've opened or closed so far.
+
+
+
 ## Another Dynamic Programming Example: 
 - Assuming you can travel in only the right and down direction: count the number of possible ways to reach from one corder of a grid to another. Assume our example grid is 3 x 3
     - Our commands are only 
