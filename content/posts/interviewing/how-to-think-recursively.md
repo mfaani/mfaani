@@ -4,29 +4,30 @@ date: 2022-10-30T17:19:37-04:00
 draft: true
 ---
 
-/*
-How to think recursively: 
-Just follow these steps: 
 
-- Know what it means to travel in a DFS vs BFS. Draw diagrams for yourself. If you have mastered this, then don't dive deeper yet. 
-    - Try what you've learned with the most simplest examples: fibonacci problem or 'How many different ways you can climb a staircase' problems are great problems. In this post, I'll use the 'How many different ways you can climb a staircase' problem throughout my steps. 
+This post is a bit about the gotchas that I faced. The logic in principle should apply to most recursive problems. 
 
-- Try learning about the different classic (but simple) problems that are solved using Graphs/trees. Just knowing the variant kinds of problems and how they work visually will help you write your own code easier. 
+## General steps
+- Know what it means to travel in a DFS vs BFS. Draw diagrams for yourself. If you haven't mastered this, then don't dive deeper yet. 
+    - Try what you've learned with the most simplest examples: 'How many different ways you can climb a staircase' is  a great problem. In this post, I'll use this problem 'How many different ways you can climb a staircase' problem throughout my steps. 
+    - Understand the term 'branching factor'. That means for each node, how many different ways you can go. If all you can do is jump one or jump three, then your branching factor is `2`. If you were able to only jump six, then your branching factor is just `1`. 
+
+- Try learning about the different classic (but simple) problems that are solved using Graphs/trees. Just knowing the variant kinds of problems and how they work visually will help you write your own code easier. Knowing the various applications of DFS will help you even if you can't write the code. 
 - Use a paper and try to visually solve the question in the simplest form of a tree example (a root and two leafs).
 - Then make your tree bigger by adding one more level to your tree and try to visualize the solution again. If you struggle here, then don't go any further until you figure it out. 
 
-## What information do I need to pass down to my path, so I can have all the variables needed to make a decision?
-- A tree is basically made up of multiple paths. Each path needs to be able to maintain **its own state**. 
-- What information needs to be passed down a path so you can know whether a path is an answer or not. Example of things you need to pass down are: 
-    - The previous actions you took, e.g. Jumped 2, then jumped 3. Your helper function should take that as an array of previous jumps `[3,5]`
-    - The sum of previous jumps, e.g. jumped 8. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps. 
-    - How many right turns you've took so far (as opposed to left, up, down). You'd just pass 2, or 0 , or 6 or 23, etc. 
-
+## Ask yourself 'what information do I need to pass down for each path, so I can have all the variables needed to make a decision'?
+- A tree is basically made up of multiple paths. Each path needs to be able to maintain **its own state**. The state can't be shared amongst other paths. As that would override your decision.  
+The state can't be a property of a class nor a local function of your function. It has to be a argument of the function that you pass down as you traverse the tree. 
+- Here are examples of things you may need to pass down depending on the question: 
+    - The _previous actions_ you took, e.g. Jumped 2, then jumped 3. Your helper function should take that as an array of previous jumps `[2,3]`
+    - The _sum_ of previous jumps, e.g. jumped 8. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps is `8`.
+    - Other sophisticated problems may require you to pass more complex variables down your path.
 ## Under what conditions do I stop tree traversal? 
 
 Under what condition(s) does your tree not grow / hit a leaf / end a path / terminate progression return something that's not recursive itself. Example: 
-- End if reached the top of the stairs. Or end if you jumped passed to targeted stair. 
-- End if you reached the other end of a 2D grid. Or end if you went outside the grid. 
+- End if reached the top of the stairs. Or end if you jumped passed the targeted stair. 
+- If you were solving a grid problem which is more or less the same problem like the climbing stairs, but only in 2D, then you'd end if: you reached the other end of a 2D grid. Or end if you went outside the grid. 
 Try to come up with logic for this. Example:
 
 ```swift
@@ -41,41 +42,51 @@ Don't forget you need to stop also when you go beyond the desired target. Exampl
 if totalJumpSum > targetSum { // do nothing }
 ```
 
-You might think what good does, 'do nothing' do for us? Well the answer is that, you won't be making any more recursive calls, because you've terminated, hit a base case, reached the end of you tree. 
+You might think what good does, 'do nothing' do for us? Well the answer is: the 'do nothing' avoids making any more recursive calls, because you've terminated, hit a base case, reached the end of you tree. 
 
-What you have to understand is that not all leaves are paths that lead to answer...
+What you have to understand is that not all leaves are paths that lead to targeted answers. 
 
 ## So I didn't hit a base case. What then? 
 
-- You have to call your recursive function again. 
-- You pass whatever **path specific** information was needed. 
-    - Often you need to mutate 
-- **Note:** You should not do any other checks at this point. Even if you know jumping 2 steps from 9, will go beyond 10, you shouldn't add logic to skip calling the recursive function. You should just call your recursive function. Let it terminate / exit early in your base case checks. 
-  This is one of those of confusing points in recursion. I was never sure if I needed to be smart and skip calling my recursive function again. But now I know I shouldn't be smart. 
-  Additionally you shouldn't exit early for what's something that's to be decided by the next traversal of tree. Just mutate, and call the recursive function. That's it. 
+- Call your recursive function again. 
+- Pass whatever **path specific** information was needed. 
+    - You always need to apply the mutation given to your state. 
+    - Then pass new mutation to your helper function.
+- **Note:** You should not do any other checks at this point. Even if you know jumping 2 steps from 9, will go beyond 10, you shouldn't add logic to skip calling the recursive function. You should just call your recursive function. Let it terminate / exit early in the **next run** of your function's base case checks. 
+  This was one of those of confusing points in recursion. I was never sure if I needed to be smart and skip calling my recursive function again. But now I know I shouldn't be smart. 
+  Basically don't mix-match the recursive calling with an exit early.
 
 
 Your overall structure should be like this: 
 
-```swift
+```swift {linenos=true linenostart=1}
 
 func findSolution(inputs: [Inputs]) {
     // call helper with empty state and first change
 }
 
 func helper(pathState: State, change: Mutation) -> Value {
+    /*
     let newState = getNewState(from: pathState, change)
-    if newState.isTerminatingState {
-        return terminatingValue
-    } else if newState.isAnotherTerminatingState {
-        return anotherTerminatingValue
-    } else {
-        return helper(pathState: newState, change: newState.newChange)
-    }
+    if you hit a base / leaf (any end of a path of your tree ) / terminate: 
+        return base case value    
+    else if you hit another base case:
+        return the other base case value 
+    else if no base case hit, then we'd want to traverse down the tree: 
+        return the result of your node by just traversing your tree down further. This will ultimately and always lead to hitting a base case. It will return itself. Trust the process.
+        Note usually, you need to return the result of both left and right children together. Often you combine their results
+            - With `+`
+            - With `&&`
+            - With `||`
+            - other ways
+        In the case of the how many ways, we combine the result of left & right by just adding their sum. 
+    */
 }
 ```
 
-
+The two tricky parts in the above are all about figuring out what we discussed earlier: 
+- [Under what conditions do I stop tree traversal?]()
+- [So I didn't hit a base case. What then?]()
 
 
 
