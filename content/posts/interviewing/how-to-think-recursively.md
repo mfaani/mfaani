@@ -1,29 +1,45 @@
 ---
-title: "How to Think Recursively"
+title: "Ultimate Guide to Think Recursively"
 date: 2022-10-30T17:19:37-04:00
 draft: true
 ---
 
 
-This post is a bit about the gotchas that I faced. The logic in principle should apply to most recursive problems. 
+These article are a bit about the gotchas that I faced. The logic in principle should apply to most recursive problems. 
+In this post, I will use the following question as a point of reference:
 
-## General steps
-- Know what it means to travel in a DFS vs BFS. Draw diagrams for yourself. If you haven't mastered this, then don't dive deeper yet. 
-    - Try what you've learned with the most simplest examples: 'How many different ways you can climb a staircase' is  a great problem. In this post, I'll use this problem 'How many different ways you can climb a staircase' problem throughout my steps. 
-    - Understand the term 'branching factor'. That means for each node, how many different ways you can go. If all you can do is jump one or jump three, then your branching factor is `2`. If you were able to only jump six, then your branching factor is just `1`. 
+'Count how many ways you can climb a staircase. You can jump either one step at a time or two steps at a time.'
 
-- Try learning about the different classic (but simple) problems that are solved using Graphs/trees. Just knowing the variant kinds of problems and how they work visually will help you write your own code easier. Knowing the various applications of DFS will help you even if you can't write the code. 
+Example if there are 3 stair cases then you can either jump: 
+
+1,1,1
+2,1
+1,2
+
+So in total it's 3 ways. To be clear: 
+
+1,1,2 goes beyond the desired stair.
+2,2 goes beyond the desired stair as well. 
+
+## Foundational steps
+- Know what it means to travel in a DFS vs BFS. Draw diagrams for yourself. If you haven't mastered this, then it may be best to not dive deeper yet. 
+    - Try what you've learned with the most simplest examples. Like the staircase example we're using in this post.
+    - Understand the term **branching factor**. That means for each node, how many different ways you can traverse to new nodes. 
+        - If all you can do is jump one or jump three, then your branching factor is `2`. 
+        - If you were able to only jump six, then your branching factor is just `1`. 
+
+- Try learning about the different classic (but simple) problems that are solved using trees. Just knowing the variant kinds of problems and how they work visually will help you write your own code easier. Knowing the various applications of DFS will help you even if you can't write the code. 
 - Use a paper and try to visually solve the question in the simplest form of a tree example (a root and two leafs).
 - Then make your tree bigger by adding one more level to your tree and try to visualize the solution again. If you struggle here, then don't go any further until you figure it out. 
 
 ## Ask yourself 'what information do I need to pass down for each path, so I can have all the variables needed to make a decision'?
-- A tree is basically made up of multiple paths. Each path needs to be able to maintain **its own state**. The state can't be shared amongst other paths. As that would override your decision.  
-The state can't be a property of a class nor a local function of your function. It has to be a argument of the function that you pass down as you traverse the tree. 
+- A tree is basically made up of multiple paths. **Each** path needs to be able to maintain **its own state**. The state can't be shared amongst other paths. If things are shared across paths then a states path gets overridden. You don't want that.
+Because of this, the state can't be a property of a class nor a local function of your function. It has to be a argument of the function that you pass down as you traverse the tree. In other words it's the stack's state.
 - Here are examples of things you may need to pass down depending on the question: 
     - The _previous actions_ you took, e.g. Jumped 2, then jumped 3. Your helper function should take that as an array of previous jumps `[2,3]`
-    - The _sum_ of previous jumps, e.g. jumped 8. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps is `8`.
+    - The _sum_ of previous jumps, e.g. jumped 8. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps as `8`.
     - Other sophisticated problems may require you to pass more complex variables down your path.
-## Under what conditions do I stop tree traversal? 
+## Under what conditions do I stop tree traversal? What do I return (or do i.e. if I was writing it using a Void function) in those cases?
 
 Under what condition(s) does your tree not grow / hit a leaf / end a path / terminate progression return something that's not recursive itself. Example: 
 - End if reached the top of the stairs. Or end if you jumped passed the targeted stair. 
@@ -31,20 +47,24 @@ Under what condition(s) does your tree not grow / hit a leaf / end a path / term
 Try to come up with logic for this. Example:
 
 ```swift
-if totalJumpSum == targetSum { answerCount += 1}
-// or if you needed to return the actual jumps and not just the total 'numbers'  then: 
-if totalJumpSum == targetSum { answerArray += currentJumps + lastJump } // answerArray = [jump2,jump5] + jump[3] = target10
+if totalJumpSum == targetSum { return 1 }
+```
+
+Note: If you were dealing with another variant of the climbing stair question and needed to return the actual jumps and not just the total 'numbers'  then: 
+```swift
+if totalJumpSum == targetSum { answerArray += [currentJumps + lastJump] } // answerArray += [[jump2,jump5] + [jump3]
 ```
 
 Don't forget you need to stop also when you go beyond the desired target. Example:
 
+```swift
+if totalJumpSum > targetSum { return 0 }
 ```
-if totalJumpSum > targetSum { // do nothing }
-```
+So
+- Return 1 if you found an answer, that would increase the total count.
+- Return 0 if needed to terminate, but didn't find a good answer.
 
-You might think what good does, 'do nothing' do for us? Well the answer is: the 'do nothing' avoids making any more recursive calls, because you've terminated, hit a base case, reached the end of you tree. 
-
-What you have to understand is that not all leaves are paths that lead to targeted answers. 
+As the coder you have to identify when your tree is to be cut off / reaches its target or when it has hit a wall and can't move any more in that direction.
 
 ## So I didn't hit a base case. What then? 
 
@@ -53,13 +73,13 @@ What you have to understand is that not all leaves are paths that lead to target
     - You always need to apply the mutation given to your state. 
     - Then pass new mutation to your helper function.
 - **Note:** You should not do any other checks at this point. Even if you know jumping 2 steps from 9, will go beyond 10, you shouldn't add logic to skip calling the recursive function. You should just call your recursive function. Let it terminate / exit early in the **next run** of your function's base case checks. 
-  This was one of those of confusing points in recursion. I was never sure if I needed to be smart and skip calling my recursive function again. But now I know I shouldn't be smart. 
-  Basically don't mix-match the recursive calling with an exit early.
+This was one of those of confusing points in recursion. I was never sure if I needed to be smart and skip calling my recursive function again. But now I know I shouldn't be smart. 
+Basically don't mix-match the recursive calling with an exit early.
 
 
 Your overall structure should be like this: 
 
-```swift {linenos=true linenostart=1}
+```swift
 
 func findSolution(inputs: [Inputs]) {
     // call helper with empty state and first change
@@ -82,53 +102,189 @@ func helper(pathState: State, change: Mutation) -> Value {
         In the case of the how many ways, we combine the result of left & right by just adding their sum. 
     */
 }
+
 ```
-
-The two tricky parts in the above are all about figuring out what we discussed earlier: 
-- [Under what conditions do I stop tree traversal?]()
-- [So I didn't hit a base case. What then?]()
+## Figure out how to call your recursive function from your main function
+For counting the number of ways, you're starting from stair `0`. And your starting/current answer is `0`. Your desired stair is also another parameter that you need to pass...
 
 
+### Summary of steps
+So to do each of the three steps we discussed earlier: 
+1. [What information do I need to pass down for each path](): The sum of the jumps so far.
+2. [Under what conditions do I stop tree traversal?](): If I reach the targeted stair. Or if jumped passed it.
+3. [So I didn't hit a base case. What then?](): Recursively call the function. Combine the results of each node using `+`. Don't be smart: Don't try not calling your function. Let it exit any of its base cases in the next function execution.
+4. [Figure how to make the first recursive call](): Pass the right values as discussed. 
 
+## Code 1 - Simplest choice: 
 
-
-*/
-
-enum P: String {
-case open = "("
-case close = ")"
+```swift
+func howManyWays(num: Int) -> Int {
+    return helper(origin: 0, target: num, ans: 0)
 }
-func countParan(num: Int) -> [String] {
-var ans: [String] = []
-func h(diff: Int, paren: P, toc: Int, currentPath: String) {
-    //        print("diff:", diff, "currentPath:", currentPath, "total opened:", toc)
-    if diff == 0 && toc == num {
-        //            print("current:", currentPath, "newPart:", paren.rawValue)
-        ans.append(currentPath)
-    } else if diff < 0 {
-        //            return 0
-    } else if diff > num {
-        // we've opened parenthesis more than we could have
-        //            return 0
+
+/// Recursively returns the total number of steps
+/// - Parameters:
+///   - origin: arrived step/node
+///   - target: desired step/node
+///   - ans: current total number of ways
+/// - Returns: Total number of ways from a given step/node
+func helper(origin: Int, target: Int, ans: Int) -> Int {
+    if origin == target {
+        return 1
+    } else if origin > target {
+        return 0
     } else {
-        var total = 0
-        if toc < num {
-            h(diff: diff + 1, paren: .open, toc: toc + 1, currentPath: currentPath + P.open.rawValue)
-        }
-        h(diff: diff - 1, paren: .close, toc: toc, currentPath: currentPath + P.close.rawValue)
+        return ans + helper(origin: origin + 1, target: target, ans: ans) + helper(origin: origin + 2, target: target, ans: ans)
     }
 }
-//    return h(diff: 1, paren: .open) +  h(diff: -1, paren: .close)
-h(diff: 1, paren: .open, toc: 1, currentPath: "(")
-return ans
 
-// start with diff = num
-// if diff <0 exit
-// if diff == 0 ~terminate~ it actually implies start
-// if diff > 0 continue
-// if diff == n  
+print(howManyWays(num: 4))
+```
 
+## Code 2 - Pass down a computed property
+So instead of passing down both target and current, we can pass `remainingSteps`
+
+```swift
+func howManyWays(num: Int) -> Int {
+    return helper(remainingSteps: num - 0, ans: 0)
 }
-print(countParan(num: 1))
-print(countParan(num: 2))
-print(countParan(num: 3))
+
+/// Recursively returns the total number of steps
+/// - Parameters:
+///   - origin: arrived step/node
+///   - target: desired step/node
+///   - ans: current total number of ways
+/// - Returns: Total number of ways from a given step/node
+func helper(remainingSteps: Int, ans: Int) -> Int {
+    if remainingSteps == 0 {
+        return 1
+    } else if remainingSteps < 0 {
+        return 0
+    } else {
+        return ans + helper(remainingSteps: remainingSteps - 1, ans: ans) + helper(remainingSteps: remainingSteps - 2, ans: ans)
+    }
+}
+
+print(howManyWays(num: 4))
+
+```
+
+Note: Often you need the sum of 5 variables, so there's no point in passing them all down. In the above, we just needed the diff of two variables. It made our logic simpler.
+*/
+
+# Post 2. DO NOT POST IN SAME POST. LINK TO IT!!!
+
+## Another Example - How many ways can we generate well-formed parenthesis
+Let's try applying our 4 steps: 
+### Summary of steps
+So to do each of the three steps we discussed earlier: 
+1. [What information do I need to pass down for each path](): The total number of opens, the total number of closed or perhaps how many more have we opened vs closed. 
+2. [Under what conditions do I stop tree traversal?](): If I've opened more parenthesis than our target. If I've closed more than we've opened. If I've closed more than our target. 
+3. [So I didn't hit a base case. What then?](): Recursively call the function. Bifurcate into opening and closing both. Don't be smart: all code-paths at this point should call your function again. Let it exit any of its base cases in the next function execution.
+4. [Figure how to make the first recursive call](): Well we start from `0` open/close parenthesis.
+
+```swift { hl_lines=["17"]}
+enum P: String {
+    case open = "("
+    case close = ")"
+}
+func generateParen(num: Int) -> [String] {
+    var ans: [String] = []
+    func h(diff: Int, paren: P, openedCount: Int, currentPath: String) {
+        
+        if diff == 0 && openedCount == num {
+            ans.append(currentPath)
+        } else if diff < 0 {
+            // we've closed more than we've opened
+        } else if diff > num {
+            // we've opened parenthesis more than our num
+        } else {
+            if openedCount < num {
+                h(diff: diff + 1, paren: .open, openedCount: openedCount + 1, currentPath: currentPath + P.open.rawValue)
+            }
+            h(diff: diff - 1, paren: .close, openedCount: openedCount, currentPath: currentPath + P.close.rawValue)
+        }
+    }
+    h(diff: 1, paren: .open, openedCount: 1, currentPath: "(")
+    return ans
+}
+
+print(generateParen(num: 3)) // ["((()))", "(()())", "(())()", "()(())", "()()()"]
+
+```
+
+So the above is good. It's correct. However we didn't follow one of our principles. Can you guess?
+
+In the highlighted lines, is only executed if `openedCount < num`. But it's cleaner if we just allow it to be called and handle it in the base case exits. 
+
+## Cleaner solution
+In our `else`, we're just calling the recursive function. We don't have any conditions. We haven't sneaked in any base-case handling into there. 
+All our base cases are moved to the beginning of the function. 
+
+This has two advantages: 
+- Groups all the bases cases together. This makes it a lot easier to process logic.
+- Removes indentation from our code. 
+
+```swift { hl_lines=["14-17"]}
+enum P: String {
+    case open = "("
+    case close = ")"
+}
+func generateParen(num: Int) -> [String] {
+    var ans: [String] = []
+    
+    func h(remainingOpen: Int, paren: P, openedCount: Int, currentPath: String) {
+        
+        if remainingOpen == 0 && openedCount == num {
+            ans.append(currentPath)
+        } else if remainingOpen < 0 {
+            // we've closed more than we've opened
+        } else if remainingOpen > num {
+            // we've opened parenthesis more than our num
+        } else if openedCount > num {
+            // we've opened parenthesis more than our num
+        } else {
+            h(remainingOpen: remainingOpen + 1, paren: .open, openedCount: openedCount + 1, currentPath: currentPath + P.open.rawValue)
+            h(remainingOpen: remainingOpen - 1, paren: .close, openedCount: openedCount, currentPath: currentPath + P.close.rawValue)
+        }
+    }
+    h(remainingOpen: 1, paren: .open, openedCount: 1, currentPath: "(")
+    return ans    
+}
+
+print(generateParen(num: 3))
+```
+
+In the above, we have three base cases. Followed by recursive calls. It's cleaner. We clearly isolate base case exits from recursive function calls. Because we added this cleanliness, we can identify something that can be improved. 
+
+The highlighted lines above overlap, we can combine them into `if openedCount > num`. Just try out the numbers in an example and you'll see. 
+
+## Cleanest Solution - removing extra check
+
+```swift
+enum P: String {
+    case open = "("
+    case close = ")"
+}
+func countParan(num: Int) -> [String] {
+    var ans: [String] = []
+    
+    func h(remainingOpen: Int, paren: P, openedCount: Int, currentPath: String) {
+        
+        if remainingOpen == 0 && openedCount == num {
+            ans.append(currentPath)
+        } else if remainingOpen < 0 {
+            // we've closed more than we've opened
+        } else if openedCount > num {
+            // we've opened parenthesis more than our num
+        } else {
+            h(remainingOpen: remainingOpen + 1, paren: .open, openedCount: openedCount + 1, currentPath: currentPath + P.open.rawValue)
+            h(remainingOpen: remainingOpen - 1, paren: .close, openedCount: openedCount, currentPath: currentPath + P.close.rawValue)
+        }
+    }
+    h(remainingOpen: 1, paren: .open, openedCount: 1, currentPath: "(")
+    return ans    
+}
+
+print(generateParen(num: 3))
+```

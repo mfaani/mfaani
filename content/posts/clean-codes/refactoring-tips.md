@@ -38,6 +38,10 @@ Once I push up my code for code-review, I remove the todos I wrote.
         - Early User Exit State
         - Anchor Stage
         And perhaps you could have your high level / less detailed diagram made up just
+    - No diagram is perfect. You can't mold a real flow into a perfect square. At the very end there will be some rough edges. 
+        - Diagrams are just to help you see things easier. Reality is the ultimate source of truth. Diagrams are the closest possible manifestation of it. 
+        - There are diminishing results with trying to build a perfect diagram. 
+        - What you must do is to never let your diagrams go stale.
     
   You can have a more detailed diagram than this too. The note is to do it steps. Often using writing down on a paper initially makes things a whole lot easier for me.     
 

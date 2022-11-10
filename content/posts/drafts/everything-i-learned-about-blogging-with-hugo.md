@@ -8,7 +8,13 @@ draft: true
 - Google Analytics
 - SEO
 - git submodule
-- Highlighting
+- Highlighting 
+```swift { hl_lines=["16-20"]} 
+class Foo {
+    var name = "Jack"
+}
+```
+
 - Blogging vs SO
 - enter new line 
 - config file 
