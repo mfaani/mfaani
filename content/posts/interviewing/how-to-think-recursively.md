@@ -1,9 +1,12 @@
 ---
-title: "Ultimate Guide to Think Recursively"
+title: "How to Think Recursively - Part 1"
 date: 2022-10-30T17:19:37-04:00
 draft: true
+TODO: Add link for ?????
+description: "How to break down a recursive question into smaller pieces"
+category: "Interviewing"
+tags: ["Recursion", "Dynamic Programming", "Algorithmic Thinking"]
 ---
-
 
 These article are a bit about the gotchas that I faced. The logic in principle should apply to most recursive problems. 
 In this post, I will use the following question as a point of reference:
@@ -24,7 +27,7 @@ So in total it's 3 ways. To be clear:
 ## Foundational steps
 - Know what it means to travel in a DFS vs BFS. Draw diagrams for yourself. If you haven't mastered this, then it may be best to not dive deeper yet. 
     - Try what you've learned with the most simplest examples. Like the staircase example we're using in this post.
-    - Understand the term **branching factor**. That means for each node, how many different ways you can traverse to new nodes. 
+    - Understand the term **branching factor**. That means from each node, how many new nodes will become reachable.
         - If all you can do is jump one or jump three, then your branching factor is `2`. 
         - If you were able to only jump six, then your branching factor is just `1`. 
 
@@ -39,12 +42,11 @@ Because of this, the state can't be a property of a class nor a local function o
     - The _previous actions_ you took, e.g. Jumped 2, then jumped 3. Your helper function should take that as an array of previous jumps `[2,3]`
     - The _sum_ of previous jumps, e.g. jumped 8. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps as `8`.
     - Other sophisticated problems may require you to pass more complex variables down your path.
-## Under what conditions do I stop tree traversal? What do I return (or do i.e. if I was writing it using a Void function) in those cases?
+## Under what conditions do I stop tree traversal? What do I return (or do — in case of a Void function)?
 
+### Jump StairCase
 Under what condition(s) does your tree not grow / hit a leaf / end a path / terminate progression return something that's not recursive itself. Example: 
-- End if reached the top of the stairs. Or end if you jumped passed the targeted stair. 
-- If you were solving a grid problem which is more or less the same problem like the climbing stairs, but only in 2D, then you'd end if: you reached the other end of a 2D grid. Or end if you went outside the grid. 
-Try to come up with logic for this. Example:
+- End if reached the top of the stairs. Or end if you jumped passed the targeted stair. Example:
 
 ```swift
 if totalJumpSum == targetSum { return 1 }
@@ -64,7 +66,11 @@ So
 - Return 1 if you found an answer, that would increase the total count.
 - Return 0 if needed to terminate, but didn't find a good answer.
 
-As the coder you have to identify when your tree is to be cut off / reaches its target or when it has hit a wall and can't move any more in that direction.
+As the coder you have to identify when your tree should stop growing / reaches its _desired_ target. You also have to be considerate of traversing in parts of the tree/path where you know for sure that your tree will _not_ reach its desired target. 
+
+### Move in 2D Graph ???? Add link to question
+- If you were solving a grid problem which is more or less the same problem like the climbing stairs, but only in 2D, then you'd end if: you reached the other end of a 2D grid. Or end if you went outside the grid. 
+Try to come up with logic for this.
 
 ## So I didn't hit a base case. What then? 
 
@@ -82,28 +88,41 @@ Your overall structure should be like this:
 ```swift
 
 func findSolution(inputs: [Inputs]) {
-    // call helper with empty state and first change
+    /* 
+    Call helper with its current state.
+    Don't try to alter the state. 
+    */
+
+
 }
 
-func helper(pathState: State, change: Mutation) -> Value {
+func helper(pathState: State) -> Value {
     /*
-    let newState = getNewState(from: pathState, change)
-    if you hit a base / leaf (any end of a path of your tree ) / terminate: 
-        return base case value    
-    else if you hit another base case:
-        return the other base case value 
-    else if no base case hit, then we'd want to traverse down the tree: 
-        return the result of your node by just traversing your tree down further. This will ultimately and always lead to hitting a base case. It will return itself. Trust the process.
-        Note usually, you need to return the result of both left and right children together. Often you combine their results
+    if reached_base_case:
+        return base_case_value    
+    else reached_another_base_case:
+        return other_base_case_value 
+    else traverse_down_tree: 
+        - Traverse down the tree. 
+        - Update the path/stack.
+        - Return the result of both left and right children together. Each question has a different trick for combining. Example of different ways to combine:
             - With `+`
             - With `&&`
             - With `||`
+            - With `==`
             - other ways
-        In the case of the how many ways, we combine the result of left & right by just adding their sum. 
+        This will ultimately and always lead to hitting a base case i.e. stop recursing. Trust the process. 😉
+        
+        In the case of the staircase question: we combine the result of left & right simply just by adding their sum. 
     */
 }
 
 ```
+### Why does my code continue infinitely?
+It implies that either you:
+- Haven't handled all your base cases.
+- Didn't change the state upon traversing. 
+
 ## Figure out how to call your recursive function from your main function
 For counting the number of ways, you're starting from stair `0`. And your starting/current answer is `0`. Your desired stair is also another parameter that you need to pass...
 
@@ -169,12 +188,21 @@ print(howManyWays(num: 4))
 
 ```
 
-Note: Often you need the sum of 5 variables, so there's no point in passing them all down. In the above, we just needed the diff of two variables. It made our logic simpler.
-*/
-
 # Post 2. DO NOT POST IN SAME POST. LINK TO IT!!!
 
-## Another Example - How many ways can we generate well-formed parenthesis
+If you haven't read the previous post on [How to Think Recursively](http://mfaani.com/posts/interviewing/how-to-think-recursively-part1/), then first read that. 
+
+This post re-applies the steps mentioned in the previous post on a new question.
+
+## Question
+How many ways can we generate well-formed parenthesis?
+
+Examples:
+- if `n = 1` then we can only form `()`
+- if `n = 2` then we can form `(())` and `()()`
+- if `n = 3` then we can form `((()))`, `(())()`, `()(())`, `(()())`, `(), (), ()`
+
+
 Let's try applying our 4 steps: 
 ### Summary of steps
 So to do each of the three steps we discussed earlier: 

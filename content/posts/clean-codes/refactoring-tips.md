@@ -80,6 +80,9 @@ Once I push up my code for code-review, I remove the todos I wrote.
 tldr don't think of it as pure refactor, it's better to think of clean code.
 Also if you can't make sense of similar properties exist, or dead code, or something is upside down, then it may actually be for no good reason, but it also might have a reason.
 
+One other reason you're in this place and you shouldn't is likely because: 
+- You didn't allow unrelated changes get into PRs. Example a developer realized some variable name was bad. Example `existingName: Bool` is a boolean. But its name doesn't convey that. It should be refactored into `hasExistingName: Bool`. Yet PR reviewers say "to keep the PR focused, we shouldn't make this change now here". Which tbh does make sense. It's a good principle to follow. Yet the trade off is worth it. Perhaps the developer can make such changes after getting approvals for the main logical change of the PR. 
+
 ## IDE tips 
 - When you've made a big refactor, then tests will fail. 
 - Try to commit the code changes you've made. Then update the tests. This allows you to isolate the tests changes you've made. 
