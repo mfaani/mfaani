@@ -1,11 +1,9 @@
 ---
 title: "How to Think Recursively - Part 1"
-date: 2022-10-30T17:19:37-04:00
-draft: true
-TODO: Add link for ?????
+date: 2022-11-15T17:15:37-04:00
 description: "How to break down a recursive question into smaller pieces"
 category: "Interviewing"
-tags: ["Recursion", "Dynamic Programming", "Algorithmic Thinking"]
+tags: ["Recursion", "Dynamic Programming", "Algorithmic Thinking", "Climbing Stairs"]
 ---
 
 These article are a bit about the gotchas that I faced. The logic in principle should apply to most recursive problems. 
@@ -15,13 +13,13 @@ In this post, I will use the following question as a point of reference:
 
 Example if there are 3 stair cases then you can either jump: 
 
-1,1,1
-2,1
+1,1,1  
+2,1  
 1,2
 
 So in total it's 3 ways. To be clear: 
 
-1,1,2 goes beyond the desired stair.
+1,1,2 goes beyond the desired stair.  
 2,2 goes beyond the desired stair as well. 
 
 ## Foundational steps
@@ -40,13 +38,13 @@ So in total it's 3 ways. To be clear:
 Because of this, the state can't be a property of a class nor a local function of your function. It has to be a argument of the function that you pass down as you traverse the tree. In other words it's the stack's state.
 - Here are examples of things you may need to pass down depending on the question: 
     - The _previous actions_ you took, e.g. Jumped 2, then jumped 3. Your helper function should take that as an array of previous jumps `[2,3]`
-    - The _sum_ of previous jumps, e.g. jumped 8. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps as `8`.
+    - The _sum_ of previous jumps, e.g. jumped 5. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps as `5`.
     - Other sophisticated problems may require you to pass more complex variables down your path.
 ## Under what conditions do I stop tree traversal? What do I return (or do — in case of a Void function)?
 
 ### Jump StairCase
 Under what condition(s) does your tree not grow / hit a leaf / end a path / terminate progression return something that's not recursive itself. Example: 
-- End if reached the top of the stairs. Or end if you jumped passed the targeted stair. Example:
+- End if reached the top of the stairs. 
 
 ```swift
 if totalJumpSum == targetSum { return 1 }
@@ -57,7 +55,7 @@ Note: If you were dealing with another variant of the climbing stair question an
 if totalJumpSum == targetSum { answerArray += [currentJumps + lastJump] } // answerArray += [[jump2,jump5] + [jump3]
 ```
 
-Don't forget you need to stop also when you go beyond the desired target. Example:
+- Don't forget you need to stop also when you go beyond the desired target. Example:
 
 ```swift
 if totalJumpSum > targetSum { return 0 }
@@ -66,11 +64,11 @@ So
 - Return 1 if you found an answer, that would increase the total count.
 - Return 0 if needed to terminate, but didn't find a good answer.
 
-As the coder you have to identify when your tree should stop growing / reaches its _desired_ target. You also have to be considerate of traversing in parts of the tree/path where you know for sure that your tree will _not_ reach its desired target. 
+As the coder you have to identify when you should stop traversing / recursing because either you:
+- You reach the _desired_ target.  
+- You reached an _undesired_ target.
 
-### Move in 2D Graph ???? Add link to question
-- If you were solving a grid problem which is more or less the same problem like the climbing stairs, but only in 2D, then you'd end if: you reached the other end of a 2D grid. Or end if you went outside the grid. 
-Try to come up with logic for this.
+If you have reached a desired or undesired target, then you should just traverse further down the tree.
 
 ## So I didn't hit a base case. What then? 
 
@@ -92,8 +90,6 @@ func findSolution(inputs: [Inputs]) {
     Call helper with its current state.
     Don't try to alter the state. 
     */
-
-
 }
 
 func helper(pathState: State) -> Value {
@@ -110,18 +106,14 @@ func helper(pathState: State) -> Value {
             - With `&&`
             - With `||`
             - With `==`
-            - other ways
-        This will ultimately and always lead to hitting a base case i.e. stop recursing. Trust the process. 😉
+            - If you have a local property and are updating your sum/max, then you don't need to return a value. You just mutate the property of yours...
+            - Other ways
         
-        In the case of the staircase question: we combine the result of left & right simply just by adding their sum. 
+        This recursive call will ultimately always lead to hitting a base case i.e. stop recursing. Trust the process. 😉
     */
 }
 
 ```
-### Why does my code continue infinitely?
-It implies that either you:
-- Haven't handled all your base cases.
-- Didn't change the state upon traversing. 
 
 ## Figure out how to call your recursive function from your main function
 For counting the number of ways, you're starting from stair `0`. And your starting/current answer is `0`. Your desired stair is also another parameter that you need to pass...
@@ -185,134 +177,37 @@ func helper(remainingSteps: Int, ans: Int) -> Int {
 }
 
 print(howManyWays(num: 4))
-
 ```
 
-# Post 2. DO NOT POST IN SAME POST. LINK TO IT!!!
+## Triage your recursion:
 
-If you haven't read the previous post on [How to Think Recursively](http://mfaani.com/posts/interviewing/how-to-think-recursively-part1/), then first read that. 
+### Why does my code continue infinitely?
+It implies that either you:
+- Haven't handled all your base cases.
+- Didn't change the state upon traversing.
 
-This post re-applies the steps mentioned in the previous post on a new question.
+### Should I return values at the end of my recursive functions? 
+With most programming problems, you can solve it either. But often a choice becomes easier. 
 
-## Question
-How many ways can we generate well-formed parenthesis?
+### I can draw the tree and traverse it on paper. I can't do the code though. Any tips?
+As humans we normally draw our trees layer by layer (BFS). However in code, we usually go deep first, then reach a leaf. Climb back then and try the next unvisited node. In code we typically do DFS not BFS. 
 
-Examples:
-- if `n = 1` then we can only form `()`
-- if `n = 2` then we can form `(())` and `()()`
-- if `n = 3` then we can form `((()))`, `(())()`, `()(())`, `(()())`, `(), (), ()`
+Understanding that difference helps. Now try this: 
+- Draw the entire tree
+- But as you want to find an answer, just go down one path i.e. go deep. 
+- Ask yourself what causes mutation from previous node to next node in your path. 
+
+### I'm passing two many variables. What can I do? 
+If you're passing in a parameter that never changes, then that's often a variable that can be eliminated. 
+Example we don't need to pass down the desired stair. Instead we can just pass the remaining stairs left to jump.
+
+### Any last tips? 
+Add documentation to your code. It often creates a rubber ducky moment for you...
+
+## Out of scope
+- Optimization / Memoization was intentionally left out of scope.
 
 
-Let's try applying our 4 steps: 
-### Summary of steps
-So to do each of the three steps we discussed earlier: 
-1. [What information do I need to pass down for each path](): The total number of opens, the total number of closed or perhaps how many more have we opened vs closed. 
-2. [Under what conditions do I stop tree traversal?](): If I've opened more parenthesis than our target. If I've closed more than we've opened. If I've closed more than our target. 
-3. [So I didn't hit a base case. What then?](): Recursively call the function. Bifurcate into opening and closing both. Don't be smart: all code-paths at this point should call your function again. Let it exit any of its base cases in the next function execution.
-4. [Figure how to make the first recursive call](): Well we start from `0` open/close parenthesis.
+## More Reading
 
-```swift { hl_lines=["17"]}
-enum P: String {
-    case open = "("
-    case close = ")"
-}
-func generateParen(num: Int) -> [String] {
-    var ans: [String] = []
-    func h(diff: Int, paren: P, openedCount: Int, currentPath: String) {
-        
-        if diff == 0 && openedCount == num {
-            ans.append(currentPath)
-        } else if diff < 0 {
-            // we've closed more than we've opened
-        } else if diff > num {
-            // we've opened parenthesis more than our num
-        } else {
-            if openedCount < num {
-                h(diff: diff + 1, paren: .open, openedCount: openedCount + 1, currentPath: currentPath + P.open.rawValue)
-            }
-            h(diff: diff - 1, paren: .close, openedCount: openedCount, currentPath: currentPath + P.close.rawValue)
-        }
-    }
-    h(diff: 1, paren: .open, openedCount: 1, currentPath: "(")
-    return ans
-}
-
-print(generateParen(num: 3)) // ["((()))", "(()())", "(())()", "()(())", "()()()"]
-
-```
-
-So the above is good. It's correct. However we didn't follow one of our principles. Can you guess?
-
-In the highlighted lines, is only executed if `openedCount < num`. But it's cleaner if we just allow it to be called and handle it in the base case exits. 
-
-## Cleaner solution
-In our `else`, we're just calling the recursive function. We don't have any conditions. We haven't sneaked in any base-case handling into there. 
-All our base cases are moved to the beginning of the function. 
-
-This has two advantages: 
-- Groups all the bases cases together. This makes it a lot easier to process logic.
-- Removes indentation from our code. 
-
-```swift { hl_lines=["14-17"]}
-enum P: String {
-    case open = "("
-    case close = ")"
-}
-func generateParen(num: Int) -> [String] {
-    var ans: [String] = []
-    
-    func h(remainingOpen: Int, paren: P, openedCount: Int, currentPath: String) {
-        
-        if remainingOpen == 0 && openedCount == num {
-            ans.append(currentPath)
-        } else if remainingOpen < 0 {
-            // we've closed more than we've opened
-        } else if remainingOpen > num {
-            // we've opened parenthesis more than our num
-        } else if openedCount > num {
-            // we've opened parenthesis more than our num
-        } else {
-            h(remainingOpen: remainingOpen + 1, paren: .open, openedCount: openedCount + 1, currentPath: currentPath + P.open.rawValue)
-            h(remainingOpen: remainingOpen - 1, paren: .close, openedCount: openedCount, currentPath: currentPath + P.close.rawValue)
-        }
-    }
-    h(remainingOpen: 1, paren: .open, openedCount: 1, currentPath: "(")
-    return ans    
-}
-
-print(generateParen(num: 3))
-```
-
-In the above, we have three base cases. Followed by recursive calls. It's cleaner. We clearly isolate base case exits from recursive function calls. Because we added this cleanliness, we can identify something that can be improved. 
-
-The highlighted lines above overlap, we can combine them into `if openedCount > num`. Just try out the numbers in an example and you'll see. 
-
-## Cleanest Solution - removing extra check
-
-```swift
-enum P: String {
-    case open = "("
-    case close = ")"
-}
-func countParan(num: Int) -> [String] {
-    var ans: [String] = []
-    
-    func h(remainingOpen: Int, paren: P, openedCount: Int, currentPath: String) {
-        
-        if remainingOpen == 0 && openedCount == num {
-            ans.append(currentPath)
-        } else if remainingOpen < 0 {
-            // we've closed more than we've opened
-        } else if openedCount > num {
-            // we've opened parenthesis more than our num
-        } else {
-            h(remainingOpen: remainingOpen + 1, paren: .open, openedCount: openedCount + 1, currentPath: currentPath + P.open.rawValue)
-            h(remainingOpen: remainingOpen - 1, paren: .close, openedCount: openedCount, currentPath: currentPath + P.close.rawValue)
-        }
-    }
-    h(remainingOpen: 1, paren: .open, openedCount: 1, currentPath: "(")
-    return ans    
-}
-
-print(generateParen(num: 3))
-```
+See [part 2](http://mfaani.com/posts/interviewing/how-to-think-recursively-part1/) of this article. 
