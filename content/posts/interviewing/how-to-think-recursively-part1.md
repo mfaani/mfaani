@@ -1,6 +1,6 @@
 ---
 title: "How to Think Recursively - Part 1"
-date: 2022-11-15T17:15:37-04:00
+date: 2022-11-15T13:15:37-04:00
 description: "How to break down a recursive question into smaller pieces"
 category: "Interviewing"
 tags: ["Recursion", "Dynamic Programming", "Algorithmic Thinking", "Climbing Stairs"]
