@@ -29,13 +29,13 @@ So in total it's 3 ways. To be clear:
         - If all you can do is jump one or jump three, then your branching factor is `2`. 
         - If you were able to only jump six, then your branching factor is just `1`. 
 
-- Try learning about the different classic (but simple) problems that are solved using trees. Just knowing the variant kinds of problems and how they work visually will help you write your own code easier. Knowing the various applications of DFS will help you even if you can't write the code. 
+- Try learning about the different classic (but simple) problems that are solved using trees. Just knowing the various kinds of problems and how they work visually will help you write your own code easier. Knowing the various applications of DFS will help even if you can't actually write the code. All that matters is for you to be able to see how you can traverse towards the answer in a DFS mode. 
 - Use a paper and try to visually solve the question in the simplest form of a tree example (a root and two leafs).
 - Then make your tree bigger by adding one more level to your tree and try to visualize the solution again. If you struggle here, then don't go any further until you figure it out. 
 
 ## Ask yourself 'what information do I need to pass down for each path, so I can have all the variables needed to make a decision'?
 - A tree is basically made up of multiple paths. **Each** path needs to be able to maintain **its own state**. The state can't be shared amongst other paths. If things are shared across paths then a states path gets overridden. You don't want that.
-Because of this, the state can't be a property of a class nor a local function of your function. It has to be a argument of the function that you pass down as you traverse the tree. In other words it's the stack's state.
+Because of this, the state can't be a property of a class nor a local property of your function. It has to be a argument of the function that you pass down as you traverse the tree. In other words it's the stack's property.
 - Here are examples of things you may need to pass down depending on the question: 
     - The _previous actions_ you took, e.g. Jumped 2, then jumped 3. Your helper function should take that as an array of previous jumps `[2,3]`
     - The _sum_ of previous jumps, e.g. jumped 5. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps as `5`.
@@ -43,19 +43,19 @@ Because of this, the state can't be a property of a class nor a local function o
 ## Under what conditions do I stop tree traversal? What do I return (or do — in case of a Void function)?
 
 ### Jump StairCase
-Under what condition(s) does your tree not grow / hit a leaf / end a path / terminate progression return something that's not recursive itself. Example: 
+Identify condition(s) that your tree stops growing / hits a leaf / ends a path / terminates progression. Return a value. Example: 
 - End if reached the top of the stairs. 
 
 ```swift
 if totalJumpSum == targetSum { return 1 }
 ```
 
-Note: If you were dealing with another variant of the climbing stair question and needed to return the actual jumps and not just the total 'numbers'  then: 
+Note: If you needed to return the actual jumps and not just the total 'numbers' then: 
 ```swift
 if totalJumpSum == targetSum { answerArray += [currentJumps + lastJump] } // answerArray += [[jump2,jump5] + [jump3]
 ```
 
-- Don't forget you need to stop also when you go beyond the desired target. Example:
+- Don't forget you need to also stop when you go beyond the desired target. Example:
 
 ```swift
 if totalJumpSum > targetSum { return 0 }
@@ -68,18 +68,16 @@ As the coder you have to identify when you should stop traversing / recursing be
 - You reach the _desired_ target.  
 - You reached an _undesired_ target.
 
-If you have reached a desired or undesired target, then you should just traverse further down the tree.
+If you haven't reached a desired or undesired target, then you should just traverse further down the tree.
 
 ## So I didn't hit a base case. What then? 
 
 - Call your recursive function again. 
 - Pass whatever **path specific** information was needed. 
-    - You always need to apply the mutation given to your state. 
-    - Then pass new mutation to your helper function.
-- **Note:** You should not do any other checks at this point. Even if you know jumping 2 steps from 9, will go beyond 10, you shouldn't add logic to skip calling the recursive function. You should just call your recursive function. Let it terminate / exit early in the **next run** of your function's base case checks. 
-This was one of those of confusing points in recursion. I was never sure if I needed to be smart and skip calling my recursive function again. But now I know I shouldn't be smart. 
+    - You always need to mutate the previous path/state before you recurse again. 
+- **Note:** You should not do any other checks at this point. Even if you know jumping 2 steps from 2, will go beyond 3 (the desired target), you shouldn't add logic to skip calling the recursive function. You should just call your recursive function. Let it terminate / exit early in the **next run** of your function's base case checks. 
+This was a confusing point for me personally. I was never sure if I needed to be smart and skip calling my recursive function again. Now I know I shouldn't be smart.  
 Basically don't mix-match the recursive calling with an exit early.
-
 
 Your overall structure should be like this: 
 
@@ -118,13 +116,12 @@ func helper(pathState: State) -> Value {
 ## Figure out how to call your recursive function from your main function
 For counting the number of ways, you're starting from stair `0`. And your starting/current answer is `0`. Your desired stair is also another parameter that you need to pass...
 
-
 ### Summary of steps
-So to do each of the three steps we discussed earlier: 
-1. [What information do I need to pass down for each path](): The sum of the jumps so far.
-2. [Under what conditions do I stop tree traversal?](): If I reach the targeted stair. Or if jumped passed it.
-3. [So I didn't hit a base case. What then?](): Recursively call the function. Combine the results of each node using `+`. Don't be smart: Don't try not calling your function. Let it exit any of its base cases in the next function execution.
-4. [Figure how to make the first recursive call](): Pass the right values as discussed. 
+So to do each of the four steps we discussed earlier: 
+1. [What information do I need to pass down for each path](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#ask-yourself-what-information-do-i-need-to-pass-down-for-each-path-so-i-can-have-all-the-variables-needed-to-make-a-decision): The sum of the jumps so far.
+2. [Under what conditions do I stop tree traversal?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#under-what-conditions-do-i-stop-tree-traversal-what-do-i-return-or-do-in-case-of-a-void-function): If I reach the targeted stair. Or if jumped passed it.
+3. [So I didn't hit a base case. What then?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#so-i-didnt-hit-a-base-case-what-then): Recursively call the function. Combine the results of each node using `+`. Don't be smart: Don't try not calling your function. Let it exit any of its base cases in the next function execution.
+4. [Figure how to make the first recursive call](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#figure-out-how-to-call-your-recursive-function-from-your-main-function): Pass the right values as discussed. 
 
 ## Code 1 - Simplest choice: 
 
@@ -163,7 +160,7 @@ func howManyWays(num: Int) -> Int {
 /// Recursively returns the total number of steps
 /// - Parameters:
 ///   - origin: arrived step/node
-///   - target: desired step/node
+///   - remainingSteps: The number of jumps required from current node to target node
 ///   - ans: current total number of ways
 /// - Returns: Total number of ways from a given step/node
 func helper(remainingSteps: Int, ans: Int) -> Int {
@@ -187,17 +184,18 @@ It implies that either you:
 - Didn't change the state upon traversing.
 
 ### Should I return values at the end of my recursive functions? 
-With most programming problems, you can solve it either. But often a choice becomes easier. 
+With most programming problems, you can solve it by either way. At the moment I don't have tips for when one becomes the better choice. 🙃
 
 ### I can draw the tree and traverse it on paper. I can't do the code though. Any tips?
 As humans we normally draw our trees layer by layer (BFS). However in code, we usually go deep first, then reach a leaf. Climb back then and try the next unvisited node. In code we typically do DFS not BFS. 
 
 Understanding that difference helps. Now try this: 
 - Draw the entire tree
-- But as you want to find an answer, just go down one path i.e. go deep. 
+- As you want to find an answer, just go down _one_ path i.e. go deep. 
 - Ask yourself what causes mutation from previous node to next node in your path. 
+- Pass that down in your helper function.
 
-### I'm passing two many variables. What can I do? 
+### I'm passing too many variables. What can I do? 
 If you're passing in a parameter that never changes, then that's often a variable that can be eliminated. 
 Example we don't need to pass down the desired stair. Instead we can just pass the remaining stairs left to jump.
 
@@ -207,7 +205,6 @@ Add documentation to your code. It often creates a rubber ducky moment for you..
 ## Out of scope
 - Optimization / Memoization was intentionally left out of scope.
 
-
 ## More Reading
 
-See [part 2](http://mfaani.com/posts/interviewing/how-to-think-recursively-part1/) of this article. 
+See [part 2](http://mfaani.com/posts/interviewing/how-to-think-recursively-part2/) of this article. 

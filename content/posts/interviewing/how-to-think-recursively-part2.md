@@ -6,12 +6,12 @@ category: "Interviewing"
 tags: ["Recursion", "Dynamic Programming", "Algorithmic Thinking", "Generate Well-Formed Parenthesis"]
 ---
 
-If you haven't read the previous post on [How to Think Recursively](http://mfaani.com/posts/interviewing/how-to-think-recursively-part1/), then first read that. 
+Please read [How to Think Recursively](http://mfaani.com/posts/interviewing/how-to-think-recursively-part1/) before reading this post. 
 
-This post re-applies the steps mentioned in the previous post on a new question.
+This post re-applies the steps mentioned in the previous post on a more challenging question.
 
 ## Question
-How many ways can we generate well-formed parenthesis?
+Return all possible ways we can generate a well-formed parenthesis?
 
 Examples:
 - if `n = 1` then we can only form `()`
@@ -21,7 +21,6 @@ Examples:
 
 Let's try applying our 4 steps: 
 ### Summary of steps
-So to do each of the three steps we discussed earlier: 
 1. [What information do I need to pass down for each path](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#ask-yourself-what-information-do-i-need-to-pass-down-for-each-path-so-i-can-have-all-the-variables-needed-to-make-a-decision): The total number of opens, the total number of closed or perhaps how many more have we opened vs closed. 
 2. [Under what conditions do I stop tree traversal?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#under-what-conditions-do-i-stop-tree-traversal-what-do-i-return-or-do-in-case-of-a-void-function): If I've opened more parenthesis than our target. If I've closed more than we've opened. If I've closed more than our target. 
 3. [So I didn't hit a base case. What then?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#so-i-didnt-hit-a-base-case-what-then): Recursively call the function. Bifurcate into opening and closing both. Don't be smart: all code-paths at this point should call your function again. Let it exit any of its base cases in the next function execution.
@@ -67,7 +66,7 @@ All our base cases are moved to the beginning of the function.
 
 This has two advantages: 
 - Groups all the bases cases together. This makes it a lot easier to process logic.
-- Removes indentation from our code. 
+- Reduces indentation from our code. 
 
 ```swift { hl_lines=["14-17"]}
 enum P: String {
@@ -101,7 +100,7 @@ print(generateParen(num: 3))
 
 In the above, we have three base cases. Followed by recursive calls. It's cleaner. We clearly isolate base case exits from recursive function calls. Because we added this cleanliness, we can identify something that can be improved. 
 
-The highlighted lines above overlap, we can combine them into `if openedCount > num`. Just try out the numbers in an example and you'll see. 
+The highlighted lines have overlapping logic. We can combine them into `if openedCount > num`. Just try out the numbers in an example and you'll see. 
 
 ## Cleanest Solution - removing extra check
 
