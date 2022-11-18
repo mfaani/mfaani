@@ -33,11 +33,13 @@ Example: If the string _lengths_ differ by 2 or more characters, then you can ex
 - Does replacing a character make my strings equal?
 - Does inserting a character make my strings equal?
 
-3. Keep things simple. See how I avoid adding complex logic by intentionally passing the longer string to `isOneInsertAway`.
+3. Keep things simple. See how I avoid adding complex logic by intentionally passing the longer string as first parameter of `isOneInsertAway`. 
+
+4. Stop caring about things you don't need. You can find the answer without knowing which character, at which index needs to be replaced. A LOT of questions often can be resolved without knowing for a lot of things. Example if you're solving a question on knowing if there's a path between A, B. Then you don't need to care how you got to B. You just need to know if there's a path. Not caring simplifies your thought process. For this reason it's often good to **write down things that don't matter.**
 
 ### Code
 
-```swift
+```swift { hl_lines=[6, 8,10]} 
 func isOneOrZeroEditsAway(_ str1: String, _ str2: String) -> Bool { 
     let str1 = Array(str1)
     let str2 = Array(str2)
@@ -81,6 +83,8 @@ func isOneInsertAway(_ str1: [Character], _ str2: [Character]) -> Bool {
     return diffCount <= 1
 }
 ```
+
+In the above, in the highlighted lines, we don't care what the edit/remove/replacement was. We just care about its number.
 
 ### Tests
 
