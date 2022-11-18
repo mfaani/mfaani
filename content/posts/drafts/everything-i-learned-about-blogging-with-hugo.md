@@ -33,5 +33,10 @@ class Foo {
 - Description
 - Google search console
 - Try using smaller header sizes if you have too many headers. This practice is ok. I've seen books often have smaller chapter sizes. 
-- **Most important**. How can you make sure you don't have knowledge curse? Read your blog posts again after a month or two and see if it still makes sense.
-- fix url when doing local host, when doing Netlify. Not sure, but try this https://kodify.net/hugo/template/hugo-website-localhost/ But als you might want a simpler shortcode...
+- **Most important**. How can you make sure you don't have knowledge curse? Read your blog posts again after a month or two and see if it still makes sense. 
+    - Or try the 2, 2, 2, 6 rule. 2 hours. 2 days. 2 weeks. 6 months. 
+    - I just came back to two of my old posts. I actually totally forgot I had them written. It's a peculiar feeling. I found: 
+        - typos and grammatical mistakes. 
+        - I found things that I skipped without explaining them. 
+        - I found ways to explain something better. 
+    Basically the context of a fresh mind is more closer to an unbiased reader — while the context of an author's mind is like one on steroids full of pilled up knowledge.
