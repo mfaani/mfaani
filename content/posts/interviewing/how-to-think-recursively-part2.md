@@ -1,5 +1,5 @@
 ---
-title: "How to Think Recursively Part2"
+title: "How to Think Recursively Part 2"
 date: 2022-11-15T16:46:46-05:00
 description: "How to break down a recursive question into smaller pieces. Sophisticated Question."
 category: "Interviewing"
