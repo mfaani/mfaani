@@ -93,7 +93,7 @@ However if you're reading `á` then it's reverse could be either:
 
 i.e. one could argue that the palindrome of `á` is ` ́a` i.e. two codepoints can end up being palindrome with one codepoint. 
 
-Depending on how the sting/character is constructed the character count could be different —  i.e. `a` is 1 character, but `á` can be either just `á` or `a ́`. 
+Depending on how the string/character is constructed the character count could be different —  i.e. `a` is 1 character, but `á` can be either just `á` or `a ́`. 
 
 
 ### Other notes from https://unicode.org/glossary
@@ -101,7 +101,7 @@ Depending on how the sting/character is constructed the character count could be
 
 - A "glyph", also in the glossary (https://unicode.org/glossary/#glyph) which is typically used to mean "the drawn representation of graphemes".
 
-- Italic and bold don't create a different code point. If they did, then Unicode would have exploded. The grapheme plus font would create a glyph. 
+- Italic and bold don't create a different code point. If they did, then Unicode would have exploded. `grapheme + font -> glyph`
 
 ## What do I in an interview? 
 
@@ -156,7 +156,7 @@ In an empty string, `startIndex` is equal to `endIndex`.
 
 #### Why is `endIndex` "past the end" position?!
 
-If endIndex were the last valid subscript, then in an empty collection what would its value be? You can't change endIndex value only for empty arrays. You need consistency.
+If endIndex were the last valid subscript, then a question would arise as: in an empty collection what should the value of endIndex be? You can't change the logic for calculating the endIndex — only for empty arrays. You need consistency.
 
 - [first](https://developer.apple.com/documentation/swift/array/first) and [last](https://developer.apple.com/documentation/swift/array/last) return **optional** 
 values because the thing might be empty, so there is no "first" nor "last" element or index
@@ -171,8 +171,8 @@ extension String {
     }
 }
 
-let ff: String = ""
-ff.at(0)
+let ss: String = ""
+ss.at(0)
 ```
 
 This is also partly for ease of comparisons/calculations:
@@ -180,7 +180,7 @@ This is also partly for ease of comparisons/calculations:
 - An array's count is `endIndex - startIndex`
 - `isEmpty` is `startIndex == endIndex`
 
-If `endIndex` is the last index, you'd need to do extra math in there for those calculations.
+If `endIndex` was the last index, you'd need to do extra math in there for those calculations.
 
 The [docs](https://developer.apple.com/documentation/swift/string) have a nice example of putting the above together to: 
 
@@ -201,11 +201,11 @@ To check whether a string is empty, use its `isEmpty` property instead of compar
 
 ## Summary
 
-`a` has a codepoint of . It's a grapheme by itself.  
-` ́` has a codepoint of . It's a grapheme by itself.  
-Together they form a new grapheme cluster: `á`.  
-`á`, _`á`_, **`á`** are all the same grapheme, but because of the font they're different glyphs.  
-For interviewing most people that are comfortable with Swift, find it easier to convert the string to an array of Characters. Because the focus of the interview isn't on your String skills it's about your interview, algo and DS abilities. 
+- `a` has a codepoint of . It's a grapheme by itself.  
+- ` ́` has a codepoint of . It's a grapheme by itself.  
+- Together they form a new grapheme cluster: `á`.  
+- `á`, _`á`_, **`á`** are all the same grapheme, but because of the font they're different glyphs.  
+- For interviewing most people that are comfortable with Swift, find it easier to convert the string to an array of Characters. Because the focus of the interview isn't on your String skills it's about your interview, algo and DS abilities. Or at least that's what it should be.
 
 
 ## References
