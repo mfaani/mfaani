@@ -13,6 +13,7 @@ draft: true
 class Foo {
     var name = "Jack"
 }
+
 ```
 - Add two spaces to create new line after a line end. Otherwise hugo will just continue the line. This is something hard to grasp. Because of this I usually manually review my rendered post with `hugo server -D`
 - The timestamp of your posts is important. Like you may have actually started your draft 10 days ago, or might have even started the draft before a currently published post. Because of that you should adjust your current timestamp to the publish date...
@@ -33,3 +34,4 @@ class Foo {
 - Google search console
 - Try using smaller header sizes if you have too many headers. This practice is ok. I've seen books often have smaller chapter sizes. 
 - **Most important**. How can you make sure you don't have knowledge curse? Read your blog posts again after a month or two and see if it still makes sense.
+- fix url when doing local host, when doing Netlify. Not sure, but try this https://kodify.net/hugo/template/hugo-website-localhost/ But als you might want a simpler shortcode...
