@@ -6,7 +6,7 @@ category: "Interviewing"
 tags: ["Recursion", "Dynamic Programming", "Algorithmic Thinking", "Climbing Stairs"]
 ---
 
-These article are a bit about the gotchas that I faced. The logic in principle should apply to most recursive problems. 
+These articles are a bit about the gotchas that I faced when trying to think recursively. The logic in principle should apply to most recursive problems. 
 In this post, I will use the following question as a point of reference:
 
 'Count how many ways you can climb a staircase. You can jump either one step at a time or two steps at a time.'
@@ -17,33 +17,31 @@ Example if there are 3 stair cases then you can either jump:
 2,1  
 1,2
 
-So in total it's 3 ways. To be clear: 
+In total there are 3 ways. Worth mentioning that:
 
-1,1,2 goes beyond the desired stair.  
-2,2 goes beyond the desired stair as well. 
-
+1,1,2 or 2,2, go beyond the desired stair. Because they reach 4. Given that 4 is undesired. Anything after 4 is undesirable as well. 
 ## Foundational steps
-- Know what it means to travel in a DFS vs BFS. Draw diagrams for yourself. If you haven't mastered this, then it may be best to not dive deeper yet. 
+- Know what it means to travel in a DFS vs BFS. Draw trees for yourself. If you haven't mastered this, then it may be best to not dive deeper yet. 
     - Try what you've learned with the most simplest examples. Like the staircase example we're using in this post.
     - Understand the term **branching factor**. That means from each node, how many new nodes will become reachable.
         - If all you can do is jump one or jump three, then your branching factor is `2`. 
         - If you were able to only jump six, then your branching factor is just `1`. 
+        - If you were able to jump one or five, or 9, then your branching factor is `3`.
 
-- Try learning about the different classic (but simple) problems that are solved using trees. Just knowing the various kinds of problems and how they work visually will help you write your own code easier. Knowing the various applications of DFS will help even if you can't actually write the code. All that matters is for you to be able to see how you can traverse towards the answer in a DFS mode. 
+- Try learning about the different classic (but simple) problems that are solved using trees. Just knowing the various kinds of problems and how the traverse visually happens, helps you understand new challenges and makes it easier to write your own code.
 - Use a paper and try to visually solve the question in the simplest form of a tree example (a root and two leafs).
 - Then make your tree bigger by adding one more level to your tree and try to visualize the solution again. If you struggle here, then don't go any further until you figure it out. 
 
 ## Ask yourself 'what information do I need to pass down for each path, so I can have all the variables needed to make a decision'?
 - A tree is basically made up of multiple paths. **Each** path needs to be able to maintain **its own state**. The state can't be shared amongst other paths. If things are shared across paths then a states path gets overridden. You don't want that.
-Because of this, the state can't be a property of a class nor a local property of your function. It has to be a argument of the function that you pass down as you traverse the tree. In other words it's the stack's property.
+Because of this, the state can't be a property of a class nor a local property of your function. It has to be an argument of the function that you pass down as you traverse the tree. In other words it's the stack's property.
 - Here are examples of things you may need to pass down depending on the question: 
     - The _previous actions_ you took, e.g. Jumped 2, then jumped 3. Your helper function should take that as an array of previous jumps `[2,3]`
-    - The _sum_ of previous jumps, e.g. jumped 5. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps as `5`.
+    - The _computed aggregation_ of previous jumps, e.g. the aggregation of jumps is 5. You could have jumped 5 through jumping either (5) or (1,1,3) or (4,1) or (1,4) or (2,1,1,1) etc. But all you need to pass is the sum of your jumps as `5`.
     - Other sophisticated problems may require you to pass more complex variables down your path.
-## Under what conditions do I stop tree traversal? What do I return (or do — in case of a Void function)?
-
+## Under what conditions do I stop tree traversal? What do I return (or do — in case of a `Void` function)?
+Identify condition(s) that your tree stops growing / hits a leaf / ends a path / terminates progression. Return a value. Examples:
 ### Jump StairCase
-Identify condition(s) that your tree stops growing / hits a leaf / ends a path / terminates progression. Return a value. Example: 
 - End if reached the top of the stairs. 
 
 ```swift
@@ -114,14 +112,18 @@ func helper(pathState: State) -> Value {
 ```
 
 ## Figure out how to call your recursive function from your main function
-For counting the number of ways, you're starting from stair `0`. And your starting/current answer is `0`. Your desired stair is also another parameter that you need to pass...
+Probably the easiest step. You just pass your current node and whatever target you have. The recursive helper function will bifurcate and create new branches as needed.
+
+For our Count number of ways example: 
+
+You're starting from stair `0`. And your starting/current answer is `0`. You also need to pass in your desired stair
 
 ### Summary of steps
 So to do each of the four steps we discussed earlier: 
 1. [What information do I need to pass down for each path](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#ask-yourself-what-information-do-i-need-to-pass-down-for-each-path-so-i-can-have-all-the-variables-needed-to-make-a-decision): The sum of the jumps so far.
 2. [Under what conditions do I stop tree traversal?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#under-what-conditions-do-i-stop-tree-traversal-what-do-i-return-or-do-in-case-of-a-void-function): If I reach the targeted stair. Or if jumped passed it.
 3. [So I didn't hit a base case. What then?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#so-i-didnt-hit-a-base-case-what-then): Recursively call the function. Combine the results of each node using `+`. Don't be smart: Don't try not calling your function. Let it exit any of its base cases in the next function execution.
-4. [Figure how to make the first recursive call](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#figure-out-how-to-call-your-recursive-function-from-your-main-function): Pass the right values as discussed. 
+4. [Figure how to make the first recursive call](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#figure-out-how-to-call-your-recursive-function-from-your-main-function): Pass 0 as current node. Pass 3 as you desired target.
 
 ## Code 1 - Simplest choice: 
 
