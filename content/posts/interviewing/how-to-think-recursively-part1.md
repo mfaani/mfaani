@@ -6,7 +6,7 @@ category: "Interviewing"
 tags: ["Recursion", "Dynamic Programming", "Algorithmic Thinking", "Climbing Stairs"]
 ---
 
-These articles are a bit about the gotchas that I faced when trying to think recursively. The logic in principle should apply to most recursive problems. 
+These articles are about the gotchas I faced when trying to think recursively. The logic in principle should apply to most recursive problems. 
 In this post, I will use the following question as a point of reference:
 
 'Count how many ways you can climb a staircase. You can jump either one step at a time or two steps at a time.'
@@ -17,18 +17,18 @@ Example if there are 3 stair cases then you can either jump:
 2,1  
 1,2
 
-In total there are 3 ways. Worth mentioning that:
+In total there are three ways to get to the 3rd stair. It's important to mention that that:
 
-1,1,2 or 2,2, go beyond the desired stair. Because they reach 4. Given that 4 is undesired. Anything after 4 is undesirable as well. 
+1,1,2 or 2,2 go beyond the desired stair. Because they reach 4. Given that 4 is undesired. Anything after 4 is undesirable as well. 
 ## Foundational steps
 - Know what it means to travel in a DFS vs BFS. Draw trees for yourself. If you haven't mastered this, then it may be best to not dive deeper yet. 
     - Try what you've learned with the most simplest examples. Like the staircase example we're using in this post.
     - Understand the term **branching factor**. That means from each node, how many new nodes will become reachable.
         - If all you can do is jump one or jump three, then your branching factor is `2`. 
         - If you were able to only jump six, then your branching factor is just `1`. 
-        - If you were able to jump one or five, or 9, then your branching factor is `3`.
+        - If you were able to jump one or five, or nine, then your branching factor is `3`.
 
-- Try learning about the different classic (but simple) problems that are solved using trees. Just knowing the various kinds of problems and how the traverse visually happens, helps you understand new challenges and makes it easier to write your own code.
+- Try learning about the different classic (but simple) problems that are solved using trees. Just knowing the various kinds of problems and how the traverse visually happens, helps you understand other challenges.
 - Use a paper and try to visually solve the question in the simplest form of a tree example (a root and two leafs).
 - Then make your tree bigger by adding one more level to your tree and try to visualize the solution again. If you struggle here, then don't go any further until you figure it out. 
 
@@ -116,7 +116,7 @@ Probably the easiest step. You just pass your current node and whatever target y
 
 For our Count number of ways example: 
 
-You're starting from stair `0`. And your starting/current answer is `0`. You also need to pass in your desired stair
+You're starting from stair `0`. And your starting/current answer is `0`. You also need to pass in your desired stair i.e. `3`.
 
 ### Summary of steps
 So to do each of the four steps we discussed earlier: 
