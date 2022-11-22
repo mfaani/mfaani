@@ -120,7 +120,7 @@ You're starting from stair `0`. And your starting/current answer is `0`. You als
 
 ### Summary of steps
 So to do each of the four steps we discussed earlier: 
-1. [What information do I need to pass down for each path](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#ask-yourself-what-information-do-i-need-to-pass-down-for-each-path-so-i-can-have-all-the-variables-needed-to-make-a-decision): The sum of the jumps so far.
+1. [What information do I need to pass down for each path](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#ask-yourself-what-information-do-i-need-to-pass-down-for-each-path-so-i-can-have-all-the-variables-needed-to-make-a-decision): The sum of the jumps so far. This value is what differentiates each path/branch for another.
 2. [Under what conditions do I stop tree traversal?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#under-what-conditions-do-i-stop-tree-traversal-what-do-i-return-or-do-in-case-of-a-void-function): If I reach the targeted stair. Or if jumped passed it.
 3. [So I didn't hit a base case. What then?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#so-i-didnt-hit-a-base-case-what-then): Recursively call the function. Combine the results of each node using `+`. Don't be smart: Don't try not calling your function. Let it exit any of its base cases in the next function execution.
 4. [Figure how to make the first recursive call](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#figure-out-how-to-call-your-recursive-function-from-your-main-function): Pass 0 as current node. Pass 3 as you desired target.
