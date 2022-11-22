@@ -129,22 +129,21 @@ So to do each of the four steps we discussed earlier:
 
 ```swift
 func howManyWays(num: Int) -> Int {
-    return helper(origin: 0, target: num, ans: 0)
+    return helper(origin: 0, target: num)
 }
 
 /// Recursively returns the total number of steps
 /// - Parameters:
 ///   - origin: arrived step/node
 ///   - target: desired step/node
-///   - ans: current total number of ways
 /// - Returns: Total number of ways from a given step/node
-func helper(origin: Int, target: Int, ans: Int) -> Int {
+func helper(origin: Int, target: Int) -> Int {
     if origin == target {
         return 1
     } else if origin > target {
         return 0
     } else {
-        return ans + helper(origin: origin + 1, target: target, ans: ans) + helper(origin: origin + 2, target: target, ans: ans)
+        return helper(origin: origin + 1, target: target) + helper(origin: origin + 2, target: target)
     }
 }
 
@@ -156,26 +155,25 @@ So instead of passing down both target and current, we can pass `remainingSteps`
 
 ```swift
 func howManyWays(num: Int) -> Int {
-    return helper(remainingSteps: num - 0, ans: 0)
+    return helper(remainingSteps: num - 0)
 }
 
 /// Recursively returns the total number of steps
 /// - Parameters:
-///   - origin: arrived step/node
 ///   - remainingSteps: The number of jumps required from current node to target node
-///   - ans: current total number of ways
 /// - Returns: Total number of ways from a given step/node
-func helper(remainingSteps: Int, ans: Int) -> Int {
+func helper(remainingSteps: Int) -> Int {
     if remainingSteps == 0 {
         return 1
     } else if remainingSteps < 0 {
         return 0
     } else {
-        return ans + helper(remainingSteps: remainingSteps - 1, ans: ans) + helper(remainingSteps: remainingSteps - 2, ans: ans)
+        return helper(remainingSteps: remainingSteps - 1) + helper(remainingSteps: remainingSteps - 2)
     }
 }
 
-print(howManyWays(num: 4))
+print(howManyWays(num: 3))
+
 ```
 
 ## Triage your recursion:
