@@ -29,6 +29,7 @@ class Foo {
 - Netlify previews
 - Problems so far
 - Known issues...
+- Don't just post images. Post videos/gifs as well. They make your website **rich**. Example instead of screenshot of Apple's Playground, actually take a short video. 
 - Shortcodes
 - Description
 - Google search console
