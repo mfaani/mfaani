@@ -57,8 +57,18 @@ The output I got is:
 ## Why does this happen? 
 It happens because I didn't eat my vegetables. But also because:  
 Effectively `cp -r blog BLOG` is like doing `cp -r blog blog`. 
-As if when you're copying, the `cp -r` command sees new updates to what it just copied. It end up **recursively** copying the `blog` folder again. By every new copy, the next paste it does gets bigger and bigger. 🤷
+As if when you're copying, the `cp -r` command sees new updates to what it just copied. It end up **recursively** copying the `blog` folder back into itself. By every new copy, the next paste it does gets bigger and bigger. 🤷
 
 This made the source controlled project to have a directory with an identical name to the root directory. Each nested directory was also version controlled. 
 
 At the end I just ended up re-cloning my project. Only had a day of some unpushed commits, but that's the price I was willing to pay. 
+
+Additionally even with the finder, I was unable to create two folders named `Blog` and `blog`. It's because the [Apple File System (APFS)](https://support.apple.com/guide/disk-utility/file-system-formats-dsku19ed921c/mac) is case-insensitive by default.
+
+!["APFS"](/APFS.jpg "Apple File System by default is neither case sensitive nor encrypted. These are two different file systems. You can add/view from 'Disk Utility'")
+
+## What's the solution? 
+Either: 
+- Use `mv` instead to move. It will do the right thing.
+- Use `cp -r`. However give it a different name. And then manually change the name yourself. 
+- Change yor APFS to be case-sensitive. 
