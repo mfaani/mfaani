@@ -63,9 +63,20 @@ This made the source controlled project to have a directory with an identical na
 
 At the end I just ended up re-cloning my project. Only had a day of some unpushed commits, but that's the price I was willing to pay. 
 
-Additionally even with the finder, I was unable to create two folders named `Blog` and `blog`. It's because the [Apple File System (APFS)](https://support.apple.com/guide/disk-utility/file-system-formats-dsku19ed921c/mac) is case-insensitive by default.
+Additionally even with the finder, I was unable to create two folders named `Blog` and `blog`. It's because the [Apple File System (APFS)](https://support.apple.com/guide/disk-utility/file-system-formats-dsku19ed921c/mac) is case-insensitive by default. The APFS formats are: 
 
-!["APFS"](/APFS.jpg "Apple File System by default is neither case sensitive nor encrypted. These are two different file systems. You can add/view from 'Disk Utility'")
+- APFS: Uses the APFS format. Choose this option if you don’t need an encrypted or case-sensitive format. (The default)
+- APFS (Encrypted): Uses the APFS format and encrypts the volume.
+- APFS (Case-sensitive): Uses the APFS format and is case-sensitive to file and folder names. For example, folders named “Homework” and “HOMEWORK” are two different folders.
+- APFS (Case-sensitive, Encrypted): Uses the APFS format, is case-sensitive to file and folder names, and encrypts the volume. For example, folders named “Homework” and “HOMEWORK” are two different folders.
+
+You can set the format from Disk Utility like this: 
+
+!["APFS Types"](/add-apfs-volume.png)
+
+Then if you select a volume, it will show up like this.
+
+!["APFS"](/APFS.jpg "Shows the encrypted and case-sensitive formats. You can add/view from 'Disk Utility'")
 
 All of this means if you have a directory that you need opening then doing `cd Blog` or `cd blog` makes no difference. The auto-complete from ZSH treats them the same.
 
