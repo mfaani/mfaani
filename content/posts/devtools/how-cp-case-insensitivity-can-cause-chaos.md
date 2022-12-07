@@ -67,6 +67,8 @@ Additionally even with the finder, I was unable to create two folders named `Blo
 
 !["APFS"](/APFS.jpg "Apple File System by default is neither case sensitive nor encrypted. These are two different file systems. You can add/view from 'Disk Utility'")
 
+All of this means if you have a directory that you need opening then doing `cd Blog` or `cd blog` makes no difference. The auto-complete from ZSH treats them the same.
+
 ## What's the solution? 
 Either: 
 - Use `mv` instead to move. It will do the right thing.
