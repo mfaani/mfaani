@@ -37,7 +37,8 @@ I did `ls AOC` again. I saw `AOC` included again. It seemed that I somehow had m
 
 ## How can I test this out?
 
-Be sure to create a dummy folder if you wanted to test this out. Otherwise you could break an important directory in unrecoverable ways.
+Be sure to create a dummy folder if you wanted to test this out. Otherwise you could break an important directory in unrecoverable ways. SEE DISCLAIMER below before you proceed.
+
 
 Here's how you can test it. Just do: 
 
@@ -53,6 +54,18 @@ cp -r blog BLOG # notice the different cases
 The output I got is: 
 
 !["cp hell"](/cp-hell.png)
+
+### DISCLAIMER: 
+
+Once I did this, I wasn't able to easily delete the folder from the macOS bin. I was getting the follow error
+
+!["macOS bin error"](/macOS-bin-error.png)
+
+I found this [answer](https://apple.stackexchange.com/questions/412996/folder-wont-delete-from-trash-for-cant-delete-imageitems-because-its-pathn/435567#435567) that helped me figure out. I ultimately needed to do: 
+
+```bash
+sudo rm -rfv <path_of_folder_to_delete>
+```
 
 ## Why does this happen? 
 It happens because I didn't eat my vegetables. But also because:  
