@@ -104,7 +104,7 @@ Interesting. And just to be sure. Also ignore `/Pods`. Right?
 ## My altered Proposal:
 
 - Keep the `Podfile.lock` + `/Pods` folder.
-- For any any dependency in your PodSpec that's specified using teh Optimistic operator:
+- For any any dependency in your PodSpec that's specified using the Optimistic operator:
   - Ask devs to do `pod update <Optimistically-Specified-dependency>` more aggressively. You could just add this as part of your build phase, pre-commit hook etc. 
   - Add a `pod update <Optimistically-Specified-dependency>` step in our CI — before you build the Example app and run your tests. 
 - For `pod update <some-library>` to work as expected:

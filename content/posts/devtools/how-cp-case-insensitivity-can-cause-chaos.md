@@ -56,7 +56,6 @@ The output I got is:
 !["cp hell"](/cp-hell.png)
 
 ### DISCLAIMER: 
-
 Once I did this, I wasn't able to easily delete the folder from the macOS bin. I was getting the follow error
 
 !["macOS bin error"](/macOS-bin-error.png)
@@ -97,4 +96,4 @@ All of this means if you have a directory that you need opening then doing `cd B
 Either: 
 - Use `mv` instead to move. It will do the right thing.
 - Use `cp -r`. However give it a different name. And then manually change the name yourself. 
-- Change yor APFS to be case-sensitive. 
+- Change your APFS to be case-sensitive. 
