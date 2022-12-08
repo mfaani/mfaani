@@ -104,14 +104,13 @@ Interesting. And just to be sure. Also ignore `/Pods`. Right?
 ## My altered Proposal:
 
 - Keep the `Podfile.lock` + `/Pods` folder.
-- For any any dependency in your PodSpec that's specified using the Optimistic operator:
-  - Ask devs to do `pod update <Optimistically-Specified-dependency>` more aggressively. You could just add this as part of your build phase, pre-commit hook etc. 
-  - Add a `pod update <Optimistically-Specified-dependency>` step in our CI — before you build the Example app and run your tests. 
-- For `pod update <some-library>` to work as expected:
+- Ask devs to do `pod update` more aggressively. You could just add this as part of your build phase, pre-commit hook etc. 
+  - Add a `pod update` step in our CI — before you build the Example app and run your tests. 
+- For `pod update` to work as expected:
   - Avoid specifying any dependency in your `Podfile` — if it’s already specified in your `PodSpec`. Otherwise your example is restricting what you'll test. 
 - Note: In the case that you pass `--skip-tests` to your `pod lib lint` command, the linting is still needed. It checks two things:
   - If the `PodSpec` is valid.
-  - If app compiles using the **latest** dependencies specified in the `PodSpec`.
+  - If app compiles using the **latest** dependencies specified in the `PodSpec`. Since this ignores the Podfile, it will act as aggressively as possibly. Which is good. It helps you catch any breaking change that wasn't versioned correctly. 
 
   ## Final Summary
 The manner in which you maintain dependencies for a library as an owner is to be different from how you maintain dependencies for a project/app/library as a consumer. 
