@@ -124,8 +124,16 @@ However if you're more aggressive with building your app with the latest depende
 - App compiles, but behavior is different: 
   - Pod still returns an image, but it's a totally different image and you weren't expecting this
   - The function syntax is the same, however it's three times slower.
-  - The function syntax is the same, however the results are different. [Jordan Rose](https://twitter.com/uint_min), an Apple Engineer discusses this in the [Binary Frameworks in Swift - 21:33](https://developer.apple.com/videos/play/wwdc2019/416/?time=1270) session. Brings up a truly subtle but important point: 
+  - The function syntax is the same, however the results are different. [Jordan Rose](https://twitter.com/uint_min), an Apple Engineer mentions a subtle note on semantic versioning on [Binary Frameworks in Swift - 21:33](https://developer.apple.com/videos/play/wwdc2019/416/?time=1270) from the session.
 !["Semantic versioning"](/semantic-versioning.png)
+
+> I've added a new private property to the Spaceship class. And I'm using it in the Spaceship's initializer.
+>
+> Now, neither of these things are going to appear in the module interface. They're not part of your framework's public API.
+>
+> So this sort of change only requires updating the minor, or the Patch Version component.
+>
+> Keep in mind though that I did change the behavior of the initializer, and so if this was documented behavior before, then this would be a semantics breaking change, and clients would have to consider whether to update, and therefore, I should change the major version number instead. 
 
 ## Acknowledgements
 I like to thank all the CocoaPod creators and contributors. Also give special thanks to [Orta](https://twitter.com/orta) for sharing his insight and the historical context on maintaining a library.
