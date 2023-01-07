@@ -140,3 +140,12 @@ Instead do:
 (1...).prefix(5).forEach { print($0) } // 1,2,3,4,5
 
 ```
+## Note the importance of parenthesis: 
+
+`[..<(points.count - 1)`
+
+`((minY + 1)...(maxY - 1)).forEach` 
+can't do: `(minY + 1)...(maxY - 1).forEach` !!!!
+
+## Also discuss zips vs enumerated
+

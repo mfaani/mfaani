@@ -112,7 +112,7 @@ Interesting. And just to be sure. Also ignore `/Pods`. Right?
   - If the `PodSpec` is valid.
   - If app compiles using the **latest** dependencies specified in the `PodSpec`. Since this ignores the Podfile, it will act as aggressively as possibly. Which is good. It helps you catch any breaking change that wasn't versioned correctly. 
 
-  ## Final Summary
+## Final Summary
 The manner in which you maintain dependencies for a library as an owner is to be different from how you maintain dependencies for a project/app/library as a consumer. 
 As **library owners** we have very little control over what the host app does for the dependencies we've listed in our `PodSpec`. We can't tell if it's using the minimum specified or the maximum specified.
 For this reason, it's always great to not stay behind your dependencies i.e. you don't want your example app to be locked to 4.1 of your dependency while your actual host app is using the 4.9 version of your dependency. 
@@ -123,8 +123,9 @@ However if you're more aggressive with building your app with the latest depende
 - App doesn't compile. You didn't do semantic versioning correctly. 
 - App compiles, but behavior is different: 
   - Pod still returns an image, but it's a totally different image and you weren't expecting this
-  - The function syntax is the same, however the results are different.
   - The function syntax is the same, however it's three times slower.
+  - The function syntax is the same, however the results are different. [Jordan Rose](https://twitter.com/uint_min), an Apple Engineer discusses this in the [Binary Frameworks in Swift - 21:33](https://developer.apple.com/videos/play/wwdc2019/416/?time=1270) session. Brings up a truly subtle but important point: 
+!["Semantic versioning"](/semantic-versioning.png)
 
 ## Acknowledgements
 I like to thank all the CocoaPod creators and contributors. Also give special thanks to [Orta](https://twitter.com/orta) for sharing his insight and the historical context on maintaining a library.
