@@ -18,6 +18,7 @@ It's the first time I'm doing a refactor at this scale. I'm changing the logic h
 
 Once I push up my code for code-review, I remove the todos I wrote. 
 
+- The first step to refactor is to create a ticket. Then Spike. Then create more tickets. Try to break it down. 
 - If needed write down the new signature. 
 - Do refactor incrementally. 
 - The bigger the codebase is, the more time it takes for you to come up with a good architecture. Often the code-change is very little, but just coming up with the correct mindset and steps take time. Might need to re-do your refactor. It's totally fine to refactor your refactored code again. Make sure you communicate to your team members that a lot of time is needed. 
@@ -60,7 +61,7 @@ Once I push up my code for code-review, I remove the todos I wrote.
 - Add documentation. Documentation have a huge rubber-🐤 effect.
 - Add new variables
 - You shouldn't be doing similar things in different ways
-    - You shouldn't exit by calling `A.exit` and then also doing `A.b.exit`. I know you're looking at the code and are like, that's easy to grasp. 
+    - You shouldn't exit by calling `A.exit` and then also doing `A.b.exit`, unless it refers back to `A.exit`. I know you're looking at the code and are like, that's easy to grasp. 
     - It is easy to grasp. But it's not easy to reason with. 
     - It's better to have a single point of entry and single code-point of exit. 
 - Computed properties are great
@@ -68,7 +69,7 @@ Once I push up my code for code-review, I remove the todos I wrote.
 - As you do QA/unit-test you may learn new things about your architecture. If that happens then you might need to update your diagrams again. 
 - Often you'd want to 
 - Remove variables
-- Remove dead code
+- Remove dead code. Just make a commit for that. And be done with it. 
 - I really came to appreciate `typealias`. We didn't use it and now I have to change every place in where we had `(Event) -> Void` to `(CustomEvent) ->Void`. Had we used typealias, it would have been a single place. 
 - Often similar properties exist that you can merge them together. 
 - Your goals should be: 

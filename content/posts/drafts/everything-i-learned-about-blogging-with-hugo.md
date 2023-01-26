@@ -32,6 +32,8 @@ class Foo {
 - Don't just post images. Post videos/gifs as well. They make your website **rich**. Example instead of screenshot of Apple's Playground, actually take a short video. 
 - Shortcodes
 - Description
+- If the post is getting big, then split it. The key to being able to split it, is to to have good headers. 
+- Once you have good headers, then you have 4-5 drafts in parallel. They might be related. But **don't** worry about associating posts together yet. Just try to get each post contained. Like don't talk about 5-6 different compiler flags in one single post. Split them up. 
 - Google search console
 - Try using smaller header sizes if you have too many headers. This practice is ok. I've seen books often have smaller chapter sizes. 
 - **Most important**. How can you make sure you don't have knowledge curse? Read your blog posts again after a month or two and see if it still makes sense. 
