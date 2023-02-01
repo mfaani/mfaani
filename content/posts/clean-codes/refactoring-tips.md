@@ -60,10 +60,11 @@ Once I push up my code for code-review, I remove the todos I wrote.
     The point I'm trying to make is, even because you think someone's code needs a major refactor, don't think that person's insight has no value. For me it had the most.
 - Add documentation. Documentation have a huge rubber-🐤 effect.
 - Add new variables
-- You shouldn't be doing similar things in different ways
-    - You shouldn't exit by calling `A.exit` and then also doing `A.b.exit`, unless it refers back to `A.exit`. I know you're looking at the code and are like, that's easy to grasp. 
-    - It is easy to grasp. But it's not easy to reason with. 
+- You shouldn't be doing similar things in different (parallel) ways/
+    - You shouldn't exit by calling `A.exit` and then also doing `A.b.exit`, unless it refers back to `A.exit`. or calls the identical function that `A.exit` calls. I know you're looking at the code and are like, that's easy to grasp. 
+    - It is easy to grasp. But it's not easy to reason with. Tracking a single code path is easier vs. tracking two. You don't know why/where its hit. Or why you have two. 
     - It's better to have a single point of entry and single code-point of exit. 
+    - To say it differently: you shouldn't have parallel code paths that do similar things. You can start from two different points. But you need to make them join **immediately**. 
 - Computed properties are great
     - Try finding identify what was it truly that the decision was based off of. Example: You reload the home screen for a certain enum (Ex successful activation). However the real reason you reload the Home screen isn't because it's a successful response. It's because an activation resulted in **change**
 - As you do QA/unit-test you may learn new things about your architecture. If that happens then you might need to update your diagrams again. 

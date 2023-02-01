@@ -221,7 +221,10 @@ https://learn.microsoft.com/en-us/cpp/error-messages/tool-errors/linker-tools-er
 https://www.symbolcrash.com/2019/02/25/so-you-want-to-be-a-mach-o-man/
 https://lowlevelbits.org/parsing-mach-o-files/
 https://developer.apple.com/library/archive/documentation/Performance/Conceptual/CodeFootprint/Articles/MachOOverview.html
+https://developer.apple.com/videos/play/wwdc2022/110370
+https://github.com/lu15gv & https://www.youtube.com/watch?v=lGG0UPdvc54
 
+https://www.emergetools.com/blog/posts/how-xcode14-unintentionally-increases-app-size (Fantasic link!)
 ## Manual Framework creation
 1. In a project. You can do Add File. Then add an `xcodeproj` file i.e. it doesn't have to be just swift file. You can add an entire xcodeproj file itself!
 
