@@ -159,14 +159,15 @@ class ViewController: UIViewController {
 }
 ```
 
-`sub = name.sink {...}` is a subscription. It really need to return a type. It just happens to do that so:
+`sub = name.sink {...}` is a subscription. It really needs to return a type. It just happens to do that so:
 - You get a reference to it. Therefore have some level of control over how/when you can cancel the subscription.
 - Because you gave it a name. i.e. you didn't just do `name.sink {...}` or `_ = name.sink{...}` then the subscription will remain seeking events until the subscription goes out of scope. For the above example that's when `sub` property goes out of scope i.e. when the viewController deinitilizes. 
 
 ### But doesn't the subscription remain after the object is deallocated? 
 Good question. Docs on `AnyCancellable` say: 
 
-> An `AnyCancellable` instance automatically calls `Cancellable/cancel()` when deinitialized.
+> An `AnyCancellable` instance automatically calls `cancel()` when deinitialized.
+
 tldr within its `deinit` it will call `cancel`.
 
 ## Accessing value & Updating value
@@ -220,7 +221,7 @@ There's a cleaner way other than doing `let sub = name.sink {...}`
 
 You could just store the subscription using [`store(in:)`](https://developer.apple.com/documentation/combine/anycancellable/store(in:)-3hyxs)
 
-This way you don't create multiple (not really wanted) objects just so you could retain the subscription. You just store one variable and then dump all the subscriptions into it. 
+This way you don't create multiple (unwanted) objects just so you could retain the subscription. You just store one variable and then dump all the subscriptions into it. 
 
 ### Can you explain what `var subscriptions: Set<AnyCancellable> = []` is again?
 
@@ -243,7 +244,7 @@ var disposableBag: Set<AnyCancellable> = []
 var storageForAllOurSubscriptionsSoWeDon'tCreatVariablesForThem: Set<AnyCancellable> = [] 
 ```
 
-All the names above are for the same purpose. It's just that people name it differently. 
+All the names above are for the same purpose. It's just that everyone names it differently. 
 
 Beyond that, you could use it for grouping subscriptions. Example: 
 
@@ -267,7 +268,7 @@ All that said, often a single value can still be useful if you need to shorten t
 The concept of disposeBag / having a Set<AnyCancellable> variable, is not about leaking memory i.e. it’s not about ending subscriptions when an object goes out of memory. That will happen automatically. 
 
 The main purpose is to retain the subscription until the object is in memory (or until you call `cancel` yourself)
-Because if you don’t use store your subscriptions (use dispose bag), your subscriptions will go out of memory right away (hence no leaking) as shown earlier.
+Because if you don’t store your subscriptions (or use a dispose bag), your subscriptions will go out of memory right away as shown earlier. So no leaking will happen.
 
 ### Anything else about `Set<AnyCancellable>`? 
 
@@ -276,7 +277,7 @@ You almost always want it to be a `private` variable. It really has no purpose o
 ## Summary
 - Use `send` to update values. 
 - Use `print()` like `name.print("a prefix").sink{...}` to see what's happening under the hood.
-- Your subscription needs to be retained, otherwise your subscriptions would get canceled either immediately or upon exiting the current scope. 
+- Your subscription needs to be retained, otherwise your subscriptions would get cancelled either immediately or upon exiting the current scope. 
 - A subscription returns an `AnyCancelleable`. The reason for that is to give you control over the scope/duration of the subscription. It's not about leaking memory.
 - `AnyCancellable` automatically calls `cancel` when deinitialized.
 - `Set<AnyCancellable>` offers a nicer API that helps reduce clutter in your code. 
