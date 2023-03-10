@@ -1,0 +1,28 @@
+ cd /Users/mfaani/Dev/learning/iOS/Greeter
+    /Applications/Xcode13.3.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend
+    -frontend -c  /Users/mfaani/Dev/learning/iOS/Greeter/Greeter/Other.swift 
+    -primary-file /Users/mfaani/Dev/learning/iOS/Greeter/Greeter/main.swift
+    -emit-dependencies-path /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/Objects-normal/x86_64/main.d 
+    -emit-reference-dependencies-path /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/Objects-normal/x86_64/main.swiftdeps 
+    -serialize-diagnostics-path /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/Objects-normal/x86_64/main.dia 
+    -target x86_64-apple-macos12.3 
+    -enable-objc-interop -stack-check -sdk /Applications/Xcode13.3.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk 
+    -I /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Products/Debug 
+    -F /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Products/Debug 
+    -enable-testing -g -module-cache-path /Users/mfaani/Library/Developer/Xcode/DerivedData/ModuleCache.noindex 
+    -swift-version 5 -enforce-exclusivity\=checked -Onone -D DEBUG -new-driver-path /Applications/Xcode13.3.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-driver 
+    -serialize-debugging-options -Xcc -working-directory -Xcc /Users/mfaani/Dev/learning/iOS/Greeter 
+    -resource-dir /Applications/Xcode13.3.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift 
+    -enable-anonymous-context-mangled-names -Xcc -I/Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/swift-overrides.hmap 
+    -Xcc -iquote -Xcc /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/Greeter-generated-files.hmap 
+    -Xcc -I/Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/Greeter-own-target-headers.hmap 
+    -Xcc -I/Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/Greeter-all-target-headers.hmap 
+    -Xcc -iquote -Xcc /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/Greeter-project-headers.hmap 
+    -Xcc -I/Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Products/Debug/include 
+    -Xcc -I/Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/DerivedSources-normal/x86_64 
+    -Xcc -I/Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/DerivedSources/x86_64 
+    -Xcc -I/Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/DerivedSources 
+    -Xcc -DDEBUG\=1 -module-name Greeter -target-sdk-version 12.3 -o /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Build/Intermediates.noindex/Greeter.build/Debug/Greeter.build/Objects-normal/x86_64/main.o 
+    -index-unit-output-path /Greeter.build/Debug/Greeter.build/Objects-normal/x86_64/main.o 
+    -index-store-path /Users/mfaani/Library/Developer/Xcode/DerivedData/Greeter-bclcdxodwodyzxgnhzitvgaxroxw/Index/DataStore 
+    -index-system-modules

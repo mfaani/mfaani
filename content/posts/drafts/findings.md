@@ -172,6 +172,10 @@ https://stackoverflow.com/a/69163719
 https://developer.apple.com/videos/play/wwdc2021/10211/
 https://developer.apple.com/forums/thread/663920
 https://medium.com/macoclock/how-to-build-and-use-an-xcframework-40e4e7a53e2c (not imporant)
+https://bignerdranch.com/blog/it-looks-like-you-are-trying-to-use-a-framework/
+https://nerdranchighq.wpengine.com/blog/manual-swift-understanding-the-swift-objective-c-build-pipeline/
+http://blog.wilshipley.com/2005/11/frameworks-are-teh-suck-err.html
+
 
 
 ## dyld vs ld
@@ -229,3 +233,9 @@ https://www.emergetools.com/blog/posts/how-xcode14-unintentionally-increases-app
 1. In a project. You can do Add File. Then add an `xcodeproj` file i.e. it doesn't have to be just swift file. You can add an entire xcodeproj file itself!
 
 2. When creating a project, if you have another project open (or maybe it's based on directory. Not sure), you're given the option to just add it under...
+
+swiftmodule
+
+https://stackoverflow.com/questions/53416742/how-to-open-a-swiftmodule-file
+https://stackoverflow.com/users/2465073/jim-ingham & https://stackoverflow.com/questions/72727711/how-to-create-a-dsym-bundle-with-swiftmodule-in-it
+https://stackoverflow.com/users/1692151/jason-molenda & https://stackoverflow.com/questions/10044697/where-how-does-apples-gcc-store-dwarf-inside-an-executable/12827463#12827463

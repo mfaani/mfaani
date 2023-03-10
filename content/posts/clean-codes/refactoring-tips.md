@@ -1,4 +1,4 @@
----
+2---
 title: "Refactoring Tips"
 date: 2022-09-02T19:36:13-04:00
 draft: true
@@ -71,6 +71,8 @@ Once I push up my code for code-review, I remove the todos I wrote.
 - Often you'd want to 
 - Remove variables
 - Remove dead code. Just make a commit for that. And be done with it. 
+- Inconsistent code structure. Each class is coding its own way. Some use delegate, some use Combine, some use completion, some save completionHandlers, ....
+    - you can't have errors as error params, another place as enum, another as lack of model. Be consistent...
 - I really came to appreciate `typealias`. We didn't use it and now I have to change every place in where we had `(Event) -> Void` to `(CustomEvent) ->Void`. Had we used typealias, it would have been a single place. 
 - Often similar properties exist that you can merge them together. 
 - Your goals should be: 
@@ -85,9 +87,16 @@ Also if you can't make sense of similar properties exist, or dead code, or somet
 One other reason you're in this place and you shouldn't is likely because: 
 - You didn't allow unrelated changes get into PRs. Example a developer realized some variable name was bad. Example `existingName: Bool` is a boolean. But its name doesn't convey that. It should be refactored into `hasExistingName: Bool`. Yet PR reviewers say "to keep the PR focused, we shouldn't make this change now here". Which tbh does make sense. It's a good principle to follow. Yet the trade off is worth it. Perhaps the developer can make such changes after getting approvals for the main logical change of the PR. 
 
+## Half-measured docs
+- A document created server-side teams is considerate of services
+- A document created by product managers is considerate of quarterly goals. Individual tickets. User-impacts. It's not cognizant of non-surface decisions that the app or platform often make. 
+- A document created by client engineers is more like the glue of everything. It doesn't go too deep, but is more at the center. This is why the docs are best if created by a client engineer who discusses their docs with both product and platform engineers. 
+
+Often you get inspired by these docs, or extract certain parts into your own platform docs.
+
 ## IDE tips 
 - When you've made a big refactor, then tests will fail. 
 - Try to commit the code changes you've made. Then update the tests. This allows you to isolate the tests changes you've made. 
 - Often you need to fix the tests. To do that, it's first best to just get it to compile. 
     - Then find out how your IDE allows you to just jump between changes in code. 
-    - Then try to fix the change by making the test pass. 
+    - Then try to fix the change by making the test pass.
