@@ -66,3 +66,7 @@ class Foo {
     Basically the context of a fresh mind is more closer to an unbiased reader — while the context of an author's mind is like one on steroids full of pilled up knowledge.
 - Once you've published, then check all your links and images. 
 - Write things while they're fresh in your memory. Publish as soon as you'r 80% complete.
+
+- Do I need to make a pull request? 
+    - If it's a new post? No. Just add a good commit message
+    - Is it a blog structural change? A Theme change? A CSS change? Something totally different? Then yes. Add a PR

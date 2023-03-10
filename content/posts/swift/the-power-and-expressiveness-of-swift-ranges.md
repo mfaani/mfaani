@@ -233,8 +233,5 @@ The reason for this error is that there's a conditional conformance for `ClosedR
 With Characters in Swift you don't get this conformance out of the box because Swift Characters are a _cluster_. To learn more about why Swift Characters are a cluster, see my other post on [Swift Strings for iOS interviewing
 ](https://mfaani.com/posts/interviewing/string/)
 
-## Also discuss zips vs enumerated
-TBD
-
 ## Is there any other range type? 
 Yes. See [unboundedrange](https://developer.apple.com/documentation/swift/unboundedrange_/)
