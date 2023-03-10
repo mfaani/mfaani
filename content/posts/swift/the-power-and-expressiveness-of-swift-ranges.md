@@ -1,5 +1,5 @@
 ---
-title: "Ranges in Swift"
+title: "How ranges can increase the readability"
 date: 2023-03-10T09:51:10-05:00
 category: "swift"
 tags: ["swift ranges", "ranges in swift", "closedrange", "partialrange", "interviewing"]
