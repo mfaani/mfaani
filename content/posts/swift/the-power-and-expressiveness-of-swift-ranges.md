@@ -144,7 +144,7 @@ Basically the start and end are implicit here. It's based on the collection they
 
 > It is safe to use operations that put an upper limit on the number of elements they access.
 
-To be more accurate, the docs say (in full):
+To be more accurate, the [docs](https://developer.apple.com/documentation/swift/partialrangefrom) say (in full):
 
 > Because a `PartialRangeFrom` sequence counts upward indefinitely, do not use one with methods that read the entire sequence before returning, such as `map(_:)`, `filter(_:)`, or `suffix(_:)`. It is safe to use operations that put an upper limit on the number of elements they access, such as `prefix(_:)` or `dropFirst(_:)`, and operations that you can guarantee will terminate, such as passing a closure you know will eventually return true to `first(where:)`.
 
@@ -170,19 +170,9 @@ Conversely in the case of `dropFirst` it only has to adjust a finite number of i
 ```
 (1...).dropFirst(5) // good
 ```
-
-Because it will never end. 
-
+From docs again 
 > The behavior of incrementing indefinitely is determined by the type of Bound. For example, iterating over an instance of PartialRangeFrom<Int> traps when the sequence’s next value would be above `Int.max`.
 
-Instead do: 
-
-```swift
-(1...12).map { ... }
-(1...134).filter { $0 % 2 == 0 }.forEach { print($0)}
-
-(1...).prefix(5).forEach { print($0) } // 1,2,3,4,5
-```
 
 ## Where does the knowledge of ranges become useful? 
 I found it to be extremely useful during [Advent of Code](https://adventofcode.com) code challenges. I think it's also very useful for Leetcoding and Interviewing. Like instead of trying to manually skip certain bounds within an array, I just modify the range I need to access within an array. 
