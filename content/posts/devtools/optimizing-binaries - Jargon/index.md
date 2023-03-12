@@ -28,7 +28,7 @@ As the name suggests it's just 0s and 1s. It's the lowest possible language leve
     - Converts multiple `.c` files into a `.o` file. 
     - Can't be used to compile swift files. Must use `swiftc` instead.
 - `ld`: Converts `.o` files into an executable. Also known as (static) linker. 
-- `ar`: An archiving tool. Helps to bundle files together. Originally used for backups and distributions. Converts multiple `.o` files into a `.a` file
+- `ar`: An archiving tool. Helps to bundle files together. Originally used for backups and distributions. Converts multiple `.o` files into a `.a` file. The difference between `ar` and `ld` is that `ld` creates an executable, whereas `ar` just groups some files together
 - `dyld`: A runtime linker, for dynamic linking. 
 - `swiftc`: Is the command-line interface to the Swift compiler, which is responsible for compiling Swift source code into machine code that can be run on a computer. It basically does what `cc` does for `.c` files, but just for `.swift` files. It's ultimately a symlink to `swift`. For more on that see [here](https://stackoverflow.com/questions/57777091/whats-the-difference-between-swift-and-swiftc)
 - `clang`: Apple's compiler for 'C language family': C, C++, Objective-C, Objective-C++. 
