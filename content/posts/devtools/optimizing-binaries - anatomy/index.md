@@ -1,6 +1,6 @@
 ---
 title: "Optimizing Binaries - App, Archive, XCFramework, Binary anatomy"
-date: 2023-01-07T15:02:27-05:00
+date: 2023-01-07T15:06:27-05:00
 draft: true
 ---
 
@@ -12,7 +12,7 @@ As for the high level steps what you end up doing with your app is:
 ## High Level 
 1. You build your app.
 2. You create an archive of that build. Much like a compressed version of your build. Some stripping may happen in this phase. 
-3. You create ipas for different device models
+3. You create an ipa for each different device model
 4. You distribute your ipa to the App Store
 5. App Store applies some final touches to the build. This affects the app size. 
 
@@ -24,7 +24,6 @@ Not everything you build makes its way into the archive. This is why you have to
 
 An XCArchive is an archive of a product built from Xcode. It could be an iOS app, or a Mac app, or anything else. It also contains a number build results that aren’t included in an IPA, including (but not limited to) symbols.
 From an archive, you can then repeatably produce several things depending on the product — something suitable for distribution to an iPhone, or the App Store, or if you’re building a Mac app you can create notarized distributions of the app. If you’re making frameworks you can produce an .xcframework and a documentation package, etc etc etc. Notice not all of those use cases involve IPAs.
-
 
 
 You archive your app. This creates an XCArchive. (The prefix XC usually means some involvement for Xcode. Like XCBuild, xcodebuild, XCFrameworks and so on.)

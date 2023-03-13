@@ -1,6 +1,6 @@
 ---
-title: "Optimizing Binaries - high level build pipeline"
-date: 2023-01-07T15:02:27-05:00
+title: "Optimizing Binaries - High Level Xcode Build Pipeline"
+date: 2023-01-07T15:01:27-05:00
 draft: true
 category: "devtools"
 tags: ["Xcode", "compilation", "linking"]
@@ -13,6 +13,8 @@ From [WWDC 2022 - Behind the Scenes of the Xcode Build Process 4:57](https://dev
 2. Compile dependencies
 - parse all files (swift, .m, .c, .cpp files) in module. 
 - create intermediate files (object files) that the CPU can understand. 
+- Each file is compiled individually
+- The reason you need this step is because CPU does doesn't understand swift (or python, go, ruby, etc.) The compilation creates an intermediate file that makes it easier for the CPU to understand your swift code...
 3. Link all intermediate files
 - Link all the intermediate files and create a binary
 - Each dependency/module/framework/library needs to get built. So if you have 20 dependencies. Then you'll end up linking and creating 20 libraries. Also you'd have one app binary linked as well. So you have to link 21 times.
@@ -30,7 +32,11 @@ It's like laying stuff on the floor, then adding a copy of each item into your b
 
 †: Static libraries, don't have a separate binary in the final app bundle. Their code and symbols just get absorbed into app's main binary. More on that later. 
 
-Throughout these series we'll start with small examples. Discuss the tooling that Apple has to compile and linke swift files. Then we'll discuss the difference of static vs. dynamic library and their impact on App Size. 
-Then we'll segue into where/how the Xcode Build Settings affect the compilation of things. We'll further segue into CocoaPods and its faulty behavior. 
-
-Lastly we'll discuss how to inspect an app bundle and its binary and get an app store thinning report. 
+The series include:
+- Start with a small example on how to compile a single Swift file. Some detailed jargon.
+- The difference of static vs. dynamic library and their impact on App Size. What's the difference between Compilation and Linking? 
+- Where/how the Xcode Build Settings affect the compilation of things. Compiling source code vs. using pre-compiled binaries. 
+- Discuss an .app bundle anatomy and how to inspect the bundle and its binaries and get an app store thinning report. 
+- How to inspect a binary. How are symbols baked into the app. 
+- The stripping flags Apple has and what they each do and their affect on dSYM.
+- Pivot into CocoaPods and its _faulty_ stripping behavior as well. 

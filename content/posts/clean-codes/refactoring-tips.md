@@ -87,6 +87,14 @@ Also if you can't make sense of similar properties exist, or dead code, or somet
 One other reason you're in this place and you shouldn't is likely because: 
 - You didn't allow unrelated changes get into PRs. Example a developer realized some variable name was bad. Example `existingName: Bool` is a boolean. But its name doesn't convey that. It should be refactored into `hasExistingName: Bool`. Yet PR reviewers say "to keep the PR focused, we shouldn't make this change now here". Which tbh does make sense. It's a good principle to follow. Yet the trade off is worth it. Perhaps the developer can make such changes after getting approvals for the main logical change of the PR. 
 
+## Ask your question does my architecture scale? 
+- Can we easily integrate the activation of another device? 
+- Can we easily integrate an activate that starts from a certain step or skips certain steps?
+- Am I using pure functions? Are my dependencies clear? 
+- Can I re-use views, utilities, managers, helpers for different variations or everything is too specific? 
+    - Specificity makes it easy to write the code. Makes it hard to debug multiple variations of it.
+    - Reusing code might make it hard, because you have to stuff in a lot of slightly different logic into your code so you can make it generic. But if you start with a generic mindset, you can start coding differently from the beginning...
+
 ## Half-measured docs
 - A document created server-side teams is considerate of services
 - A document created by product managers is considerate of quarterly goals. Individual tickets. User-impacts. It's not cognizant of non-surface decisions that the app or platform often make. 

@@ -1,36 +1,27 @@
 ---
-title: "Optimizing Binaries - The Most simple binary"
+title: "Optimizing Binaries - How to Build The Most simple binary"
 date: 2023-01-07T15:02:27-05:00
 draft: true
+category: "devtools"
+tags: ["swiftc", "compiler", "linker", "object files", "search paths"]
 ---
-# Series
-In these series I will try to break down the build process. With the hope that you can understand the different steps of the build process and be able to answer to some of the following questions
-- What impacts App Size? 
-- What's the difference between Compilation and Linking? 
-- What's a pre-compiled library? 
-- How does an app include a library? 
-- Do we create the Binary in the Pod's project itself? Or we create it during the client app's build process? 
-- What's an archive? What's a .app file? What's a binary? 
-- What resources does Apple provide for this? 
-- How are the symbols baked into the app? How do we strip them? How do we symbolicate crash logs?
-- How to inspect a binary?
 
-In this first post, let's just try generating a binary/executable from a single swift file. 
+In this post, let's just try generating a binary/executable from a single swift file. 
 
-# Example 
+## Example 
 In the most simplest form, in order to create a binary you have to do: 
 
-## Create a Swift file
+### Create a Swift file
 
 For the sake of invoking the binary from command line, the file will take some arguments:
 
 ```swift
-// Printer.swift
+// greeter.swift
 import Foundation 
 let arguments = CommandLine.arguments
 
 if arguments.count != 3 {
-    print("Error. Use: Printer firstName lastName")
+    print("Error. Use: main firstName lastName")
     exit(1)
 }
 
@@ -40,20 +31,20 @@ let lastName = arguments[2]
 
 print("Greetings \(firstName) \(lastName)")
 ```
-## Compile the file
+### Compile the file
 
 Use [`swiftc`](https://stackoverflow.com/questions/57777091/whats-the-difference-between-swift-and-swiftc) to compile the file
 
 ```bash
-swiftc printer.swift -o printer
+swiftc greeter.swift
 ```
 
-## Invoke/run the binary
+### Invoke/run the binary
 ```
-/.printer iOS Dev 
+/.greeter iOS Dev 
 # Greetings iOS Dev
-/.printer iOS Dev Xcode
-# Error. Use: Printer firstName lastName
+/.greeter iOS Dev Xcode
+# Error. Use: greeter firstName lastName
 ```
 
 # How is a real app created? How is it different from what we just did above?
@@ -61,7 +52,8 @@ swiftc printer.swift -o printer
 An app is built in similar ways. The differences for an _app_ are:
 - There are hundreds of files from your app code.
     - Not every file is needed. So you may end up doing a selective loading and choosing only needed files and symbols.
-- Usage of dependencies. 
+- Usage of dependencies.
+    - My swift files could `import` another module. 
     - A dependency can be either pre-compiled or available to you as source code. If source code, then you have to compile before your main app code compilation.
 - More tools and file formats are used. Instead of building an app made of just swift files, you end up building an app from: 
     - Files
@@ -71,15 +63,12 @@ An app is built in similar ways. The differences for an _app_ are:
         - `.dylib` for dynamic library
         - `.framework` for frameworks
     - Tools
-        - Linker. Linker is the ultimate tool that combines several object files and libraries, resolves references, and produces an output file†.
-
-
-†: Output File such as: 
-- Binary
-- dylib
-- bundle
-    - `.app` (Safari, Xcode, Chrome, Outlook). On your mac, you can find them within `/Applications`
-    - `.framework` (Message.framework, WebKit.framework, System.framework, CoreImage.framework, Kernel.framework, etc.). On your mac you can find them within `/System/Library/Frameworks`
+        - Linker: Linker is the ultimate tool that combines several object files and libraries, resolves references, and produces an output file. Examples: 
+            - Binary
+            - dylib
+        - Xcode: Creates bundle directories. And stuffs things at the right place. 
+            - `.app` (Safari, Xcode, Chrome, Outlook). On your mac, you can find them within `/Applications`
+            - `.framework` (Message.framework, WebKit.framework, System.framework, CoreImage.framework, Kernel.framework, etc.). On your mac you can find them within `/System/Library/Frameworks`
 
 At the heart of everything is the linker. It's paramount to understand how it works. `ld` is the tool that gets used to link files together. You can also do `man ld` to learn more.
 
@@ -95,6 +84,7 @@ The general idea is that if you have `main.swift`, `foo.swift`, `bar.swift`, `un
 `qux.swift` -> `qux.o`
 
 All files get compiled. To compile a file, all other files in the module will get parsed — if needed. 
+Object files are machine code. However because they only make sense once they're all stitched together, they're considered as _intermediate_ files. You can run a single object file just like how a puzzle isn't complete without all its parts. Once you link all the object files together, then you have a binary which you can run/execute. 
 
 ### Linking Step 
 
@@ -125,7 +115,7 @@ This is why in Xcode you often search path errors.
 # Summary
 - Learned how to compile a single file using `swiftc`. For a deeper dive on that see this amazing post: [The Swift compiler for beginners
 ](https://theswiftdev.com/the-swift-compiler-for-beginners/)
-- To build your app, your app doesn't just compile. It compiles and links. 
+- To build your app, your app doesn't just compile. It compiles, links and copies things into certain part of an .app directory. 
 - Compiling goes from a .swift file to a .o file. See same link as above.
 - Linker goes from a number of `.o` files and other file types to an executable. 
 - Linker uses the same concept of search path as your mac does. See `man ld` for more.
