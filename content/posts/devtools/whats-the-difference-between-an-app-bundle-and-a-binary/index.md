@@ -51,6 +51,8 @@ By passing `-p` you can turn it into a package. When Xcode builds your app, it d
 1. Create all dependent targets
 2. Create your app wrapper/directory and then place everything in the right place. 
 
+🔍: Make sure you go and inspect the app bundle and see its content. You can even do this for your `/Applications` directory of your macos as well.
+
 For Example if had an app named `Cool` and it had the following dependencies: 
 - `Auth.a` (static library)
 - `Core.framework` (dynamic library)
