@@ -49,7 +49,7 @@ If you want to create an app _wrapper_ then all you have to do is: `mkdir -p Coo
 
 By passing `-p` you can turn it into a package. When Xcode builds your app, it does it in a two step process: 
 1. Create all dependent targets
-2. Create your app wrapper/directory and then place everything in the right place. 
+2. Create your app wrapper/directory and then copy everything in the right place. To use Xcode jargon, the frameworks will get **Embedded** into the app bundle/wrapper. 
 
 🔍: Make sure you go and inspect the app bundle and see its content. You can even do this for your `/Applications` directory of your macos as well.
 
