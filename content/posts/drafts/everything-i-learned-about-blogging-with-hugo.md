@@ -6,6 +6,9 @@ draft: true
 tags: ["hugo", "content-creation", "blogging"]
 ---
 
+- Instead of just sharing a link or what originated, share a good teaser of your post and just add a link. That way you at least get traction from where you posted it (Twitter, Slack). If anyone was interested they'll click to see more.
+- Don't over explain things. Or at least don't over explain too many things in a blog post. Maybe just go deep for a single thing. Not 5 things at once. Or if someone has already done it, then you don't need to re-say it. Just link to theirs. 
+tldr it's hard to have breadth and depth in the same post...
 - Google Analytics
 - SEO
 - git submodule

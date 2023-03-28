@@ -14,7 +14,7 @@ As for the high level steps what you end up doing with your app is:
 2. You create an archive of that build. Much like a compressed version of your build. Some stripping may happen in this phase. 
 3. You create an ipa for each different device model
 4. You distribute your ipa to the App Store
-5. App Store applies some final touches to the build. This affects the app size. 
+5. App Store applies some final touches to the build. This affects the app size. {{ .Params.date }}
 
 ## Low Level
 

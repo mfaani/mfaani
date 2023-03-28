@@ -76,4 +76,4 @@ from [Big Nerd Ranch](https://bignerdranch.com/blog/it-looks-like-you-are-trying
 
 Suppose you need a single function from a library named `foo.a`. You end up consuming space for every other variable, function, type in library `foo`. 
 
-What can you do resolve this? See the next post on [How does the linker help reduce app size? What are the different linker types?]() @self todo: "add link"
+What can you do resolve this? See the next post on [How does the linker help reduce app size? What are the different linker types?]()

@@ -24,10 +24,12 @@ From [WWDC 2022 - Behind the Scenes of the Xcode Build Process 4:57](https://dev
     1. All frameworks get created in the _build_ directory.
     2. Frameworks get copied into the final linked product.
 It's like laying stuff on the floor, then adding a copy of each item into your backpack. Your backpack is the final linked product. 
-5. Post Processing and Archiving 
+5. Post Processing
     - stripping symbols (from each binary) and creating dSYMs.
     - code-signing
-    - compressing the build
+6. Archiving 
+ - Compresses/archives the Product
+ - Places the dSYMs in the archive. They're already generated during the compilation step
 6. Distribution
 
 †: Static libraries, don't have a separate binary in the final app bundle. Their code and symbols just get absorbed into app's main binary. More on that later. 

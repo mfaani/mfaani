@@ -17,6 +17,7 @@ It's the first time I'm doing a refactor at this scale. I'm changing the logic h
 ```
 
 Once I push up my code for code-review, I remove the todos I wrote. 
+For any TODO that you won't remove, link it to tickets so you'd do them later. Otherwise you'd forget about it totally. Obviously once you've committed, then it's a bit difficult to enforce it...
 
 - The first step to refactor is to create a ticket. Then Spike. Then create more tickets. Try to break it down. 
 - If needed write down the new signature. 
@@ -86,6 +87,8 @@ Also if you can't make sense of similar properties exist, or dead code, or somet
 
 One other reason you're in this place and you shouldn't is likely because: 
 - You didn't allow unrelated changes get into PRs. Example a developer realized some variable name was bad. Example `existingName: Bool` is a boolean. But its name doesn't convey that. It should be refactored into `hasExistingName: Bool`. Yet PR reviewers say "to keep the PR focused, we shouldn't make this change now here". Which tbh does make sense. It's a good principle to follow. Yet the trade off is worth it. Perhaps the developer can make such changes after getting approvals for the main logical change of the PR. 
+
+- Bad Identation makes it hard to read. Adds more load to the brain. Imagine 4 items in an array. Each a complex object. If you have them aligned you can see their difference easier.  
 
 ## Ask your question does my architecture scale? 
 - Can we easily integrate the activation of another device? 

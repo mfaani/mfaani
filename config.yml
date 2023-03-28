@@ -4,6 +4,8 @@ title: TIL with Mohammad
 theme: paperMod
 googleAnalytics: G-Z3VBFH9DKH
 env: production
+uuu: "${URL}"
+ddd: "${DOMAIN}"
 
 params:
   ShowReadingTime: true
