@@ -45,13 +45,13 @@ If two identical pieces of a puzzle exist, then the linker throw you the 'multip
 
 ## OK. So what's an app? 
 An app is just a structured directory, containing the binary and some other files. 
-If you want to create an app _wrapper_ then all you have to do is: `mkdir -p CoolApp.app`. 
+If you want to create an app _wrapper_ then all you have to do is: `mkdir Cool.app`. 
 
-By passing `-p` you can turn it into a package. When Xcode builds your app, it does it in a two step process: 
-1. Create all dependent targets
+When Xcode builds your app, it does it in a two step process: 
+1. Build all targets that your app depends on.
 2. Create your app wrapper/directory and then copy everything in the right place. To use Xcode jargon, the frameworks will get **Embedded** into the app bundle/wrapper. 
 
-🔍: Make sure you go and inspect the app bundle and see its content. You can even do this for your `/Applications` directory of your macos as well.
+🔍: Make sure you go and inspect the app bundle and see its content. You can even do this for your `/Applications` directory of your macos as well. You can also ditch Xcode and make your app without it. For more on that see [Building osx app bundle](https://stackoverflow.com/questions/1596945/building-osx-app-bundle)
 
 For example if an app named `Cool` had the following dependencies: 
 - `Auth.a` (static library)
