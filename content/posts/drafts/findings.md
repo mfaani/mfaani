@@ -115,7 +115,8 @@ Deployment Postprocessing
 If enabled, indicates that binaries should be stripped and file mode, owner, and group information should be set to standard values.
 
 Project & Target: NO
-See: https://github.com/Carthage/Carthage/issues/2485
+See: https://github.com/Carthage/Carthage/issues/2485 & https://github.com/Carthage/Carthage/issues/2485#issuecomment-396978715 (GREAT FANTASTIC DISCUSSION)
+
 
 
 Strip Style
@@ -239,3 +240,11 @@ swiftmodule
 https://stackoverflow.com/questions/53416742/how-to-open-a-swiftmodule-file
 https://stackoverflow.com/users/2465073/jim-ingham & https://stackoverflow.com/questions/72727711/how-to-create-a-dsym-bundle-with-swiftmodule-in-it
 https://stackoverflow.com/users/1692151/jason-molenda & https://stackoverflow.com/questions/10044697/where-how-does-apples-gcc-store-dwarf-inside-an-executable/12827463#12827463
+
+Apple on Swift Driver
+https://swiftpackageindex.com/apple/swift-driver
+https://github.com/apple/swift/blob/main/docs/CompilerPerformance.md
+https://github.com/apple/swift/blob/main/docs/Driver.md
+
+`STRIP_SWIFT_SYMBOLS` FANTASTIC LINK AND COMMENTS
+https://stackoverflow.com/questions/46077700/what-does-strip-swift-symbols-in-xcode-actually-do

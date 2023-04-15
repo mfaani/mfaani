@@ -149,6 +149,33 @@ git diff --name-only 887bbeab6...branch32A
 
 The 👆 are allowed, because both a tag and branch point to a specific commit, so they both satisfy as a `<commit>`. 
 
+### Fifth Example
+
+```
+git log [<options>] [<revision-range>] [[--] <path>...]
+```
+Translates to: 
+- `git log`
+- Any number of options. This is an odd one, because it's not marked with `...`, but the placeholder itself conveys that there can be multiple options. Typically options can be multiple.
+- a commit (SHA)
+- revision-range: Git allows you to refer to a single commit, set of commits, or range of commits in a number of ways. They aren’t necessarily obvious but are helpful to know. For more on that see [here](https://git-scm.com/docs/git-log#Documentation/git-log.txt-ltrevision-rangegt) and [here](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection). When no `<revision-range>` is specified, it defaults to `HEAD` (i.e. the whole history leading to the current commit). `origin..HEAD` specifies all the commits reachable from the current commit (i.e. `HEAD`), but not from `origin`. 
+- `--` is just a separator added — if you want to specify one or more paths. You don't need need it unless git needs it to disambiguate your command. Zero or more paths.
+
+Meaning the following is allowed: 
+
+```bash
+git log
+git log -10
+git log cj0ds9232..adfs923kcv 
+git log -S "plus sign" -- Documentation/git-branch.txt
+```
+It bit explanation for the last item:
+The []`-S`](https://git-scm.com/docs/git-log#Documentation/git-log.txt--Sltstringgt): 
+
+> It is useful when you’re looking for an exact block of code (like a struct), and want to know the history of that block since it first came into being
+
+Ultimately what this does is, searches in all your commits at the given path and tries to find mentions of "plus sign" in the contents of your commit. Hat tip to user Torek. See [here](https://stackoverflow.com/questions/73486442/why-does-git-branch-annotate-a-branch-with-and-another-with/73486443#comment129808004_73486443)
+
 ## Other notes:
 
 - To familiarize yourself more with jargon used in the pages. See [git glossary](https://git-scm.com/docs/gitglossary) 📖. 
