@@ -1,7 +1,6 @@
 ---
 title: "Optimizing Binaries - High Level Xcode Build Pipeline"
 date: 2023-05-03T15:01:27-05:00
-draft: true
 category: "devtools"
 tags: ["Xcode", "Build Process", "compilation", "linking", "dSYM", "stripping"]
 description: "Ever thought what happens under the hood when you build your app?"
@@ -10,6 +9,8 @@ editPost:
     Text: Suggest Changes
     appendFilePath: true
 ---
+
+This the first post of a series I'm doing on how to optimize your app's binaries. The post is more of a high level intro. 
 
 Depending on the action (build, run, test, profile, analyze, archive) of your scheme, the  process will have all or some of the following steps:
 1. Dependency analyzing
