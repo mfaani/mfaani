@@ -73,3 +73,4 @@ class Foo {
 - Do I need to make a pull request? 
     - If it's a new post? No. Just add a good commit message
     - Is it a blog structural change? A Theme change? A CSS change? Something totally different? Then yes. Add a PR
+- add a link to your website for EVERY image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
