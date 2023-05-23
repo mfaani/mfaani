@@ -1,8 +1,8 @@
+---
 title: "linking object files using ld"
 date: 2023-05-08T21:49:50-04:00
 draft: true
-Problem
-- 
+---
 
 I have two swift files. main.swift and other.swift.
 I compile them as such
