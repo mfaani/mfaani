@@ -127,7 +127,7 @@ Essentially all three are different form of dependencies of your app's main exec
 Xcode will see that your Cool.app depends on its libraries. 
 
 In my example the Cool app depends on Core (dynamic) library and Auth (static) Library 
-### 2 - Compile libraries
+### 2 - Compile dependencies
 ```
 Model.swift -> `swiftc` -> Model.o
                                     Model.o + Controller.o -> `ld` -> Core (dylib a.k.a Dynamic library) 
