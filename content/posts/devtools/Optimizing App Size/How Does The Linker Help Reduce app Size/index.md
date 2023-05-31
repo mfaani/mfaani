@@ -9,15 +9,17 @@ tags: ["Static Linking", "Dynamic Linking", "Static vs Dynamic Linking", ld, dyl
 In the previous post we talked about a problem with the linker. Where to link a single function from a library you have to link to the entire library. This creates a lot of bloat. 
 Some more enhancements were made to linker. 
 
+But before we dive deeper, it's critical that I note something. To understand 'Static' vs 'Dynamic'. Don't try to compare 'Static Library' vs 'Dynamic Library'. Instead try to compare "Static Linking' vs. 'Dynamic Linking'. 
+
 ## Selective Loading
 
 In a nutshell if you have the following code: 
 
-!["images/Static Linking"](images/static-linking-example.png)
+!["images/Static Linking"](static-linking-example.png)
 
-Notice that the keyword `extern` means that the function is coming from an external file. 
+`extern` means that the function is coming from an external file. Without the individual file won't compile.  
 
-### Scenario
+### File Structure
 - In main.c, there's a function called "main" that calls a function "foo". 
 - In foo.c, there is foo which calls bar. In bar.c, there is the implementation of bar but also an implementation of another function which happens to be unused. 
 - Lastly, in baz.c, there is a function baz which calls a function named undef. 
@@ -44,7 +46,9 @@ The linker moves on to its next phase, and assigns addresses to all the function
 # Questions
 
 ### When does the linker finish/stop?
-As soon as they're no longer any undefined symbols. 
+As soon as they're no longer any undefined symbols. The linker is much like fixing a puzzle. You start with a piece, its edges need other pieces to complete. You keep on adding more pieces. You stop when the last piece is added. Since there's nothing more to add. (Linker) Errors may arise if: 
+- A piece of the puzzle is missing
+- You have two identical pieces for a single position in the puzzle. 
 
 ### How are the compiler and linker different? 
 The compiler needs to know what the other symbols are in order to compile code that uses them.  
@@ -80,30 +84,19 @@ The Linker will only link object files that are needed. If a certain object file
 - Use a library and import everything within it.
 - Have a language construct along with certain build tools that understand how your code is to be packaged as a module. That is why you don't need to include a header, or mark as extern. The compiler just knows that foo, bar, baz are all part of the same module. Hence have access to the _internal_ symbols. This is how Swift works. You don't need to import/include the header file of another file in your same module. 
 
-### Is linking and loading the same thing? 
-- For Static Linking: Linking to a function is immediately followed by loading the function into the executable.
-- For Dynamic Linking: You only link to the promise (interface of a function) during build. The loading of the function's implementation is delayed until the function is needed.
+## So what problems exist with Static Linking?
+- You'd have to link every library. This means if app A, app B, app C, all need library Foo, then all need to link to it. Which means you end up adding the Foo library 3 times. What if there was a way where you could have a single Foo library in memory, but end up linking from all your different apps. This has two main benefits:
+- You end up saving space. Because you only need it once on the OS. Others can just share
+- You can often use a shared library that's already loaded in OS memory. Example your app won't need to load a library for making network calls. It will just use the library in memory, because another app needed it before you. This reduces the load onto your OS memory.
 
-@self: maybe put this after static vs dynamic is fully explained...
-### What's the difference between a framework and a (dynamic) library?
-- A dynamic library is just a single file. 
-    - Its file type is either: `.a` or `.dylib`. They're a binary. 
-    - Unlike a static library where it's linked during the build time, a dynamic library is linked at runtime.
-- Framework is a set of files bundle/packaged together. Usually contains some other resource such as: storyboards, nibs, headers, localization files. The most important resource that's included is the actual dylib.  
-A framework can be signed. 
-    - Its file type is `.framework` which is in fact a folder. The folder has a certain structure.
-    - After linking the framework will still exist within the `.app` package of your app. The framework can be found under `/Frameworks` directory of your app bundle. 
 
-**Note: If you select a Framework target in Xcode, you get a lot more options than what you get for a library target.**
-
-{{< rawhtml >}}<sub>My understanding is that there's a lot more difference that I haven't been able to cover, but this is as far as I could get so far.</sub>{{</rawhtml >}}
 
 ## Comparison of Static vs Dynamic
 
-| Linking Type | Build Time | Launch Time | Selective Loading  | format | 
+| Linking Type | Reason behind Naming | Build Time | Launch Time | Selective Loading  | format | 
 | ------------ | -----------| ----------- | ------------------ | ------ |
-| Static Linking |  Linked into the app's main executable. This leads to slightly slower build time. | No Impact | only symbols that are needed get linked | .a | 
-| Dynamic Linking | It's not linked into the app binary. Has its own binary | It will get linked later — during **launch** time. This can lead to slightly slower launch time. | All symbols of the framework will get linked at launch time. There is no selective loading. | `.dylib` or `.framework` | 
+| Static Linking | The code (0s and 1s) of the library are all linked statically (at compile time) | Linked into the app's main executable. This leads to slightly slower build time. | No Impact | only symbols that are needed get linked | .a | 
+| Dynamic Linking | The code (0s and 1s) of linking the library are deferred until app launch. Libraries get loaded on the fly. Hence the name dynamic. | It's not linked into the app binary. Has its own binary | It will get linked later — during **launch** time. This can lead to slightly slower launch time. | All symbols of the framework will get linked at launch time. There is no selective loading. | `.dylib` or `.framework` | 
 
 | Linking Type  | location | sharing | dSYM |
 | ------------- | -------- | ------- | ---- |

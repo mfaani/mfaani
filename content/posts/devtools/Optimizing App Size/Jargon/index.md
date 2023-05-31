@@ -1,47 +1,72 @@
 ---
-title: "Optimizing Binaries - Jargon"
-date: 2023-01-07T15:03:27-05:00
-draft: true
+title: "Optimizing Binaries - Build Pipeline Jargon"
+date: 2023-05-31T9:03:27-05:00
+ShowToc: true
+category: "devtools"
+tags: ["Xcode", "Build Process", "compilation", "linking", "incremental build", "Report Navigator"]
+description: "Jargons and Examples of the Xcode Build Pipeline"
+editPost:
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
+    Text: Suggest Changes
+    appendFilePath: true
+cover: 
+    image: "images/puzzle.jpg"
 ---
 
-To understand this post, I highly recommend everyone watches the [WWDC 2022 - Link fast: Improve build and launch times](https://developer.apple.com/videos/play/wwdc2022/110362) and [WWDC 2018 - Behind the Scenes of the Xcode Build Process](https://developer.apple.com/videos/play/wwdc2018/415/). They're of the best talks I've seen. 
+To understand this post, I highly recommend everyone to watch the [WWDC 2022 - Link fast: Improve build and launch times](https://developer.apple.com/videos/play/wwdc2022/110362) and [WWDC 2018 - Behind the Scenes of the Xcode Build Process](https://developer.apple.com/videos/play/wwdc2018/415/). They're of the best talks I've ever seen. 
 
-Some jargon and history I learned from watching: 
+This post covers some of the jargon and how it all comes together. And even though I love making puzzles, I'll justify why I picked it as my cover. 
 
 ## Files
 - `.c`: A source code file written in C programming language.
 - `.swift`: A source code file written in Swift programming language.
 - `.o`: An intermediate object file. Also known as an object file.
 - `.a`: An archive file. Made up from multiple `.o` files. Also known as a **Static Library** or **Archive**.
-- `.dylib`: Linked with the app’s executable at runtime, but not copied into it. As a result, the executable is smaller and, because the code is loaded only when it is needed, the startup time is typically faster. Also known as **Dynamic Library**.
-- ` ` : (empty file type). A binary. An executable. Executables usually don't have a file type. They're the end product, the program that gets ran/executed. 
+- `.h`: A file that doesn't contain implementation. But only the interface. 
+- `.dylib`: A separate binary, from the main executable. Gets linked with the app’s executable at runtime. Gets copied into the app wrapper. As a result, the main executable is smaller and, because the code is loaded only when it is needed, the build time is typically faster. Also known as **Dynamic Library**. Often they also have an empty file type. 
+- ` ` : (commonly with empty file types). A binary. For the scope of our discussions our focus is mostly on dylibs or app executables. Binaries in the Apple world (OSX and iOS) usually don't have a file type. They're the end product, the program that gets ran/executed. 
 As the name suggests it's just 0s and 1s. It's the lowest possible language level. You can't get any lower than that. Some examples of an executable are: 
     - An iOS app's main executable: An app you open on your iPhone, ends up calling the app's executable. Example the Safari app on your iPhone has a `Safari` executable. 
     - Other Examples - macOS binaries: Some examples that you use in the command line are: `ls`, `cp`, `mkdir`, `pwd` . Every time you do `ls`, you're calling a binary somewhere in your macos. Executables are also known as binaries. See [docs](http://www.linfo.org/bin.html) on `/bin`. Also see the `/bin` directory below:
-
 !["/bin directory"](images/binaries.png "If you do `which ls` then you'll get to see the path to the binary that is used")
 
+- 'main app executable': An app may have multiple executables. Examples of this happening: 
+    - An iOS app that has app extensions. App extensions are also executable. But aren't the _main_ executable. 
+    - A command line interface that has. Users won't have to call your other executables. But your main app will likely call the other executables. 
+
+## Syntax
+- `extern` A C concept. Doesn't exist in Swift. It's an instruction/promise to the compiler which tells it that a given symbol is defined in _another_ file. Without it, the compilation of the file which depends on an external symbol (function/variable) will fail. 
+
+Other languages have _header files_ which they include. Swift is made more simple. It just compiles a module entirely. So as long as what you need is declared in the same module, then things will compile without having a need to import/include. If it's declared in _another_ module, then you just need to import that module. You don't need to single out a file. This is a convenience made by swift. 
+
+## Bundles (Structured directories)
+- `.framework`: A bundle directory. If you've seen my previous post on [Whats the Difference Between an App (bundle) and a Binary](https://mfaani.com/posts/devtools/whats-the-difference-between-an-app-bundle-and-a-binary/), then a framework is much like a wrapper, but for a dylib.
+- `.app`: A bundle directory. See my previous post on [Whats the Difference Between an App (bundle) and a Binary](https://mfaani.com/posts/devtools/whats-the-difference-between-an-app-bundle-and-a-binary/).
+ 
 ## Tools:
 - `cc`: Compiler
     - Converts a `.c` file to an executable. 
     - Converts multiple `.c` files into a `.o` file. 
     - Can't be used to compile swift files. Must use `swiftc` instead.
-- `ld`: Converts `.o` files into an executable. Also known as the (static) linker. This is a very important part of the whole build process.
-- `ar`: An archiving tool. Helps to combine files together. Originally used for backups and distributions. Converts multiple `.o` files into a `.a` file. The difference between `ar` and `ld` is that `ld` creates an executable, whereas `ar` just groups object files together. The linker was later enhanced to know how to read .o files from an archive file. 
-- `dyld`: A runtime linker, for dynamic linking. 
-
-All the above tools are universal and exist outside the Apple world. The following tools are Apple specific. 
-
-- `clang`: Apple's compiler for 'C language family': C, C++, Objective-C, Objective-C++. 
+- `clang`: Apple's compiler for the C family language (C, C++, Objective-C, Objective-C++). `cc` is more of a universal term. 
+- `swiftc`: Apple's compiler for the Swift language. 
+- `ld`: The Linker. Converts `.o` files into an executable. Also known as the Static linker. This is a very important part of the whole build process.
+- `ar`: An archiving tool. Helps to combine files together. Originally used for backups and distributions. Converts multiple `.o` files into a `.a` file. The difference between `ar` and `ld` is that:
+    - `ar` just groups together object files. The product of that is a static library. 
+    - `ld` creates an app or a dylib. And can do such with some (stripping related) optimizations. 
+- `dyld`: The runtime linker, for dynamic linking. 
 - `swiftc`: Is the command-line interface to the Swift compiler, which is responsible for compiling Swift source code into machine code that can be run on a computer. It basically does what `cc` does for `.c` files, but just for `.swift` files. It's ultimately a symlink to `swift`. For more on that see [here](https://stackoverflow.com/questions/57777091/whats-the-difference-between-swift-and-swiftc)
 
-### How do all the tools and files work together?
+## Concepts
+- Compilation: Converting source code within a single file into machine code. 0s and 1s. The output of compiling a single file is a single object file. 
+- Linking: Piecing different object files together to create a binary. 
+
+## Quick Summary - How do all the tools and files work together? 
 1. All source files are compiled into an intermediate file known as object code/file (.o file)
-2. Any needed object file will get linked together. Often you link source code and libraries together. Certain tools are used to create libraries. 
+2. Any needed object file will get linked together. Often you link source code and libraries together. 
 
-The compiler creates an object file. But a file by itself is useless by itself. They're like a piece of a puzzle. 
-The linker links all necessary object files and creates the final binary. 
-
+The compiler creates an object file. But a file by itself is useless. They're like a piece of a puzzle. 
+The linker links all necessary object files, and creates the final binary. Similar to how a puzzle maker places all the puzzle pieces in place. 
 
 ## Xcode Jargon
 
@@ -58,22 +83,119 @@ The order:
 - Build Phase Dependencies
 - Scheme order Dependencies 
 
-### Incremental Build
+### [Incremental Build](https://developer.apple.com/videos/play/wwdc2018/415/?time=407)
 
-And of course the bigger your project, the longer the build process will take. So you don't want to run all of these tasks every single time you build.
+"The bigger your project, the longer the build process will take. So you don't want to run all of these tasks every single time you build.
 Instead, the build system might only execute a subset of the tasks on the graph. Depending on the changes you've made to your project since the previous build.
-We refer to this as an incremental build and having accurate dependency information is very important in order for incremental builds to work correctly and efficiently. Now we talked about how changes affect the build system, and how they relate to incremental builds. So how does the build system actually detect changes? Each task in the build process has an associate signature which is the sort of hash that's computed from various information related to that task.
-This information includes the stat of the task's inputs like file paths and modification time stamps. The command line indication used to actually perform the command. And other task-specific metadata such as the version of the compiler that's being used.
-The build system keeps track of the signatures of tasks in both the current and the previous build. So that it knows whether to rerun a task each time a build is performed.
+We refer to this as an 'incremental build' and having **accurate dependency information** is very important in order for incremental builds to work correctly and efficiently. 
 
-### Embedded Binaries 
+Now we talked about how changes affect the build system, and how they relate to incremental builds. So how does the build system actually detect changes? Each _task_ in the build process has an _associate signature_ which is the sort of _hash_ that's computed from various information related to that task.
+This information includes the stat of the task's _inputs_ like:
+- File paths
+- Modification time stamps. 
+- The _command line indication_ used to actually perform the command.
+- Other task-specific metadata such as the _version of the compiler_ that's being used.
 
-Embed, means to add a copy of that framework into your application bundle under the `/Frameworks` directory by default. Your application won’t be able to do anything with that Framework unless it links to it. Xcode takes the liberty of doing this for you. (System frameworks are already present on either iOS or macOS so you can safely link to these at the absolute path that they are kept on the system. Your own custom frameworks won’t be present on a user’s system, and therefore they have to be embedded in the application bundle.)
-Linking and embedding indirectly imply dynamic and/or static linking. We now know that embedding wouldn’t make any sense for a static library because the symbols from the static library are compiled into the executable, so Xcode won’t let you drop a static library under the Embed section. It will however, let you embed a framework with static libraries. This is an inefficient use of frameworks.
-from [Big Nerd Ranch](https://bignerdranch.com/blog/it-looks-like-you-are-trying-to-use-a-framework/)
+The build system keeps track of the signatures of tasks in both the current and the previous build. So that it knows whether to rerun a task each time a build is performed."
 
-# Problem - A big final program
+Ultimately what this means is that every time you click build, Xcode won't necessarily re-compile everything from scratch. 
 
-Suppose you need a single function from a library named `foo.a`. You end up consuming space for every other variable, function, type in library `foo`. 
+Things get compiled depending on: 
+1. What's already compiled and exists in the build directory.
+2. What's changed in source code or compilation instructions.  
 
-What can you do resolve this? See the next post on [How does the linker help reduce app size? What are the different linker types?]()
+If you didn't change the interface of a function then all you have to do is recompile its file and you're good. But if you did change a function's interface, then you need to recompile that file and all its other dependencies. 
+
+To see what steps were performed for your recent build you can use the [Report Navigator](https://help.apple.com/xcode/mac/current/#/devb7cf06445). Then just click on Build with the appropriate timestamp. Some suggestions for what keywords to search for are: 
+- Compile
+- Link
+- Create Directory
+- Copy
+
+!["Report Navigator All vs Recent](images/incremental-builds.png "Compare the messages in All vs Recent.")
+
+### Frameworks, Libraries, and Embedded Content 
+
+- Frameworks: is just a different packaging for dylibs. **adds a copy of that framework into your application bundle under the `Frameworks` directory by default**. For more see [Big Nerd Ranch](https://bignerdranch.com/blog/it-looks-like-you-are-trying-to-use-a-framework/)
+- Libraries: Static Libraries. The object files get absorbed into the main app's executable.
+- Emebedded Content: App Extensions. There's no linking involved. Yet you have to copy them into your app bundle. 
+
+Essentially all three are different form of dependencies of your app's main executable. 
+## Summary
+
+### 1 - Dependency Order
+Xcode will see that your Cool.app depends on its libraries. 
+
+In my example the Cool app depends on Core (dynamic) library and Auth (static) Library 
+### 2 - Compile libraries
+```
+Model.swift -> `swiftc` -> Model.o
+                                    Model.o + Controller.o -> `ld` -> Core (dylib a.k.a Dynamic library) 
+Controller.swift -> `swiftc` -> Controller.o
+```
+---
+```
+Auth.swift -> `swiftc` -> Auth.o
+                                        Auth.o + Token.o -> `ar` -> libAuth.a (a Static library)
+Token.swift -> `swiftc` -> Token.o
+```
+### 3 - Create App Wrapper
+```
+mkdir Cool.App
+```
+
+### 4 - Compile App code
+```
+Foo.swift -> `swiftc` ->  Foo.o
+                                 Foo.o + Bar.o + libAuth.a + Core (dylib) -> `ld` -> cool - a binary that's made up of Foo.o, Bar.o and object files from within libAuth.a                                                                          
+Bar.Swift -> `swiftc` -> Bar.o
+```
+
+`cool` executable is placed within `Cool.App` directory. 
+### 5 - Embed/Copy binaries into the App Wrapper
+
+- Copy `Family` dylib within `Cool.App/Frameworks` directory.
+
+### The app wrapper will be similar to: 
+```
+cool.app (an app wrapper)
+    - cool - a binary that's made up of Foo.o, Bar.o and Vehicle.a
+    - /Frameworks
+        - Family.framework
+            - Family (dylib)
+```
+
+### 6 - App Launch
+- User taps on cool.app
+- cool binary is loaded into memory
+- `dyld` loads the dependencies of cool binary -> Family dylib is loaded into memory. 
+- App is ready to use. 
+
+## Where can things go wrong? 
+
+### Dependency Order
+- App binary is getting compiled before library is compiled. 
+- App binary is compiled with old compiled library code. This can happen when 'Find Implicit Dependencies' is disabled in Scheme's Build action. 
+
+### Compilation
+- Typo in your symbols
+- Missing a `{`, `:` , `]`, etc
+- Not importing a library
+- etc.
+
+### Linking
+- Library is in the same Xcode workspace. However there's no linkage defined between the app binary and the library.
+- The implementation of something you linked to is missing. 
+- Two implementations exist for a given symbol. 
+
+### Loading
+- The dynamic library isn't copied into the /Frameworks directory.
+- The name of the dynamic library doesn't match with what's expected.
+- The dynamic library is moved from its location. 
+- The dynamic library is stripped of all its global symbols. Hence the main app can't communicate with the dylib. 
+### A big final program
+
+Suppose you need a single function from a library named `foo.a`. You might end up consuming space for every other variable, function, type in library `foo`. 
+
+What can you do resolve this? Hopefully I'll discuss this in my next upcoming post
+

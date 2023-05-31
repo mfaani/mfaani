@@ -74,4 +74,5 @@ class Foo {
     - If it's a new post? No. Just add a good commit message
     - Is it a blog structural change? A Theme change? A CSS change? Something totally different? Then yes. Add a PR
 - add a link to your website for EVERY image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
-- Be wary about accidentally publishing a post.  
+- Be wary about accidentally publishing a post. 
+- If you don't include `---` at the top of your post, then none of frontmatter will get processed. And you'd have a messed up title + if it's a draft, it will get published. 
