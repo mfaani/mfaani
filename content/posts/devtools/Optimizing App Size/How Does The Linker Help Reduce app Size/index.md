@@ -124,7 +124,7 @@ Both link with Foo library statically. Assume both need all symbols in Foo libra
 
 
 
-†: You can not share dylibs with apps outside your app container. Example The Meta App and Facebook can't use the same dylib, even though they're from the same company. 
+†: You can not share dylibs with apps outside your app container. Example The Facebook app and its Messenger app can't use the same dylib, even though they're from the same company. 
 
 Note: Apple Frameworks are special. 
 - **OS doesn't get bloated:** You link to them, but don't copy them. Also they can be shared between different apps of different companies. Example: The Uber and Lyft apps can use `MapKit.framework` without needing it to be included on the OS twice. Like imagine if there was a `Networking.framework` where app apps needed it for networking operations and since it couldn't be shared, all apps had to include a copy. That mean you'd have to store that framework as your apps.
