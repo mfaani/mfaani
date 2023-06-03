@@ -6,10 +6,10 @@ category: "Devtools"
 tags: ["Static Linking", "Dynamic Linking", "Static vs Dynamic Linking", ld, dyld]
 ---
 
-In the previous post we talked about a problem with the linker. Where to link a single function from a library you have to link to the entire library. This creates a lot of bloat. 
+In the previous post we talked about a problem with the linker: Linking a single function from a library could link to the _entire_ library. This creates a lot of bloat. 
 Some more enhancements were made to linker. 
 
-But before we dive deeper, it's critical that I note something. To understand 'Static' vs 'Dynamic'. Don't try to compare 'Static Library' vs 'Dynamic Library'. Instead try to compare "Static Linking' vs. 'Dynamic Linking'. 
+But before we dive deeper, it's critical that I note something. To understand 'Static' vs 'Dynamic'. Don't try to compare 'Static Library' vs 'Dynamic Library'. Instead try to compare "Static Linking' vs. 'Dynamic Linking'. If you understand that then you understand everything else. 
 
 ## Selective Loading
 
@@ -17,7 +17,7 @@ In a nutshell if you have the following code:
 
 !["images/Static Linking"](static-linking-example.png)
 
-`extern` means that the function is coming from an external file. Without the individual file won't compile.  
+`extern` means that the function is coming from an external file. Without it the individual file won't compile.  
 
 ### File Structure
 - In main.c, there's a function called "main" that calls a function "foo". 
@@ -43,65 +43,85 @@ At that point there are no longer any undefined symbols, so the linker stops pro
 
 The linker moves on to its next phase, and assigns addresses to all the functions and data that will be in the program. Then it copies all the functions and data to the output file. Et voila! You have your output program.
 
-# Questions
+## Still confused. Let's try answering some common questions:
 
-### When does the linker finish/stop?
-As soon as they're no longer any undefined symbols. The linker is much like fixing a puzzle. You start with a piece, its edges need other pieces to complete. You keep on adding more pieces. You stop when the last piece is added. Since there's nothing more to add. (Linker) Errors may arise if: 
-- A piece of the puzzle is missing
-- You have two identical pieces for a single position in the puzzle. 
+### When does the linker finish?
+As soon as they're no longer any undefined symbols. The linker is much like fixing a puzzle. You start with a piece, its edges need other pieces to complete. You keep on adding more pieces. You stop when the last piece is added. Since there's nothing more to add. 
 
 ### How are the compiler and linker different? 
 The compiler needs to know what the other symbols are in order to compile code that uses them.  
 The linker combines these object code files into an executable. The linker needs to know where the other symbols are in order to link code objects that use them.
 
-Many IDEs invoke them in succession, so you never actually see the linker at work. Some languages/compilers do not have a distinct linker and linking is done by the compiler as part of its work.
+FWIW many IDEs invoke them in succession, so you never actually see the linker at work. Some languages/compilers do not have a distinct linker and linking is done by the compiler as part of its work. 
 
+With Xcode you use:
+ - `swiftc` which ends up calling `swift-frontend` to compile Swift files
+ - `clang` to compile C family of code. 
+ - `ld` or `clang` to link object files. 
 
 A bit more about the Linker:
 > It's one of the final processes in the build. And what we do is we combine all of these .o files that have been built by the two compilers (clang and swift) into an executable.
 > All it does is move and patch code. It cannot create [object] code, and this is important and I will show that in the example. 
-> But we take these two kinds of input files. The first one being object files. Which are what come out of your build process. And the second one being libraries which consist of several types including dylibs, tbd's, and .a files (or static archives).
+> But we take these two kinds of input files. The first one being object files. Which are what come out of your build process. And the second one being libraries which consist of several types including dylibs, [tbd's](https://developer.apple.com/videos/play/wwdc2018/415/?time=2858), and .a files (or static archives).
 >
 > So what are symbols? A symbol is just a name to refer to a fragment of code or data.
 > These fragments may refer to other symbols which you would see if you write a function that calls another function.
 > Symbols can have attributes on them that affect how the linker behaves. And there are a lot of these. I'm just going to give you one example which is a _weak_ symbol. So a weak symbol is an annotation on a symbol that says it might not be there when we run the executable on the system. This is what all the availability markup that says this API is available on iOS 12. And this API's available on the iOS 11. This, that's what it all boils down to by the time it gets to the linker. So the linker can determine what symbols are definitely going to be there versus what symbols it may have to deal with at runtime.
 >
 > from [here](https://developer.apple.com/videos/play/wwdc2018/415/?time=2673)
-
-The compiler doesn't generate an executable
+#### Who generates the binary?
+The compiler doesn't generate an executable.
 The linker does that. 
 
-Compilation is done in parallel.  
-Linking is done after all compilation is done.  
+#### Are they done in parallel? 
+Compilation is done in parallel.
+Linking is done serially — after all compilation is done. 
+
+#### What's the input/output of each?
 The input of the compiler is source code. Its output are object files.
 The input of the linker are object files. Its output is some binary (dylib or an app binary).
 Compiler will compile every piece of source code. 
 The Linker will only link object files that are needed. If a certain object file / symbol isn't needed then it won't get linked. 
 
-### How do access symbols from another file?
+#### Does Compilation take more time or linking?
+Usually compilation takes a lot more time, because there's a lot of static analysis that your compiler needs to do to validate everything. And while developers don't care if their build time took a couple seconds longe,  users certainly care significantly if the app launch took a few seconds. This is why finding the right balance between the right amount dynamic and static libraries is critical. 
+
+#### How do you access symbols from another file?
 - Declare a header file. Include the header file where needed.
 - Use `extern` to mark a symbol as external to the current file. It will get resolved at link time. Swift doesn't use `extern`
 - Use a library and import everything within it.
 - Have a language construct along with certain build tools that understand how your code is to be packaged as a module. That is why you don't need to include a header, or mark as extern. The compiler just knows that foo, bar, baz are all part of the same module. Hence have access to the _internal_ symbols. This is how Swift works. You don't need to import/include the header file of another file in your same module. 
 
+
+#### Do you ever link a static library into a dynamic library? 
+HELL NO!
+
+You only link statically into an executable. If we have the possibility of linking the same (static) library with all dynamic libraries that need it. What happens instead is that each dynamic library also links back to other dynamic libraries within your app container. 
+
 ## So what problems exist with Static Linking?
-- You'd have to link every library. This means if app A, app B, app C, all need library Foo, then all need to link to it. Which means you end up adding the Foo library 3 times. What if there was a way where you could have a single Foo library in memory, but end up linking from all your different apps. This has two main benefits:
-- You end up saving space. Because you only need it once on the OS. Others can just share
-- You can often use a shared library that's already loaded in OS memory. Example your app won't need to load a library for making network calls. It will just use the library in memory, because another app needed it before you. This reduces the load onto your OS memory.
+Other than slower build times: 
 
+- You'd have to link a library with all executables. This means if apps and app extension (appex) both need library Foo, then both need to link to it. As a result you end up patching Foo library 2 times. 
+- app code without the library is 20MB
+- appex code without the library is 10MB
 
-
+Both link with Foo library statically. Assume both need all symbols in Foo library and Foo library is 5MB. 
 ## Comparison of Static vs Dynamic
 
-| Linking Type | Reason behind Naming | Build Time | Launch Time | Selective Loading  | format | 
-| ------------ | -----------| ----------- | ------------------ | ------ |
-| Static Linking | The code (0s and 1s) of the library are all linked statically (at compile time) | Linked into the app's main executable. This leads to slightly slower build time. | No Impact | only symbols that are needed get linked | .a | 
-| Dynamic Linking | The code (0s and 1s) of linking the library are deferred until app launch. Libraries get loaded on the fly. Hence the name dynamic. | It's not linked into the app binary. Has its own binary | It will get linked later — during **launch** time. This can lead to slightly slower launch time. | All symbols of the framework will get linked at launch time. There is no selective loading. | `.dylib` or `.framework` | 
+|        Feature                | Static Linking | Dynamic Linking |
+|  ---------------------------- | -------------- | --------------- |
+|           Naming              | The linking is done at compile time. Compile time is a _static_ concept. | The linking is done at runtime. Runtime is a _dynamic_ concept  |
+|       Build Duration          | Linked into the app's main executable during static linking. This leads to slightly slower build time. | It's not linked into the app binary. Has its own binary |
+|       Launch Duration         | Everything is already linked. You incurred the linkage cost during build time | It will get linked later — during **launch** time. This can lead to slightly longer launch times. |
+|      Selective Loading        | Only symbols that are needed get linked | All symbols of the framework will get linked at launch time. There is no selective loading. |
+|           Format              | `.a` | `.dylib` or more commonly `.framework` |
+|    Location in App Wrapper    | It becomes part of the app's main executable binary |  Within the `.app` bundle under the `/Frameworks`. e.g. `/Frameworks/fun.Framework/fun` (along with other needed resources) |
+|   Ability to Share            | Since it's indistinguishable from the app's binary it can't be shared with another binary/process | The binary can get shared with other processes or dylibs within the app container. You can share a framework between your app and all extensions.† |
+|       dSYM location           | its debug symbols will be part of the app's main executable | its debug symbols will separate from the app's main executable |
+|       tool used to link       | `ld` | `ld` during compilation. `dyld` at runtime |
+|       tool used to create     | `ar` the archiver | `ld` the linker |
+|       How to strip            | Will use same stripping flags main app's executable | must be stripped individually |
 
-| Linking Type  | location | sharing | dSYM |
-| ------------- | -------- | ------- | ---- |
-| Static Linking | It becomes part of the the app's main executable binary | Since it's indistinguishable from the app's binary it can't be extracted/shared with another binary/process nor with an app extension | its debug symbols will be part of the app's main executable |
-| Dynamic Linking | within the `.app` bundle under the `/Frameworks`. e.g. `/Frameworks/fun.Framework/fun` (along with other needed resources) | given that the binary sits outside the main app binary, then the binary can get shared with other processes within the app container. You can share the same framework or dylib with your Messages App Extension or with your Notification Service Extension. This can reduce total app bundle size†| its debug symbols will separate from the app's main executable |
 
 
 †: You can not share dylibs with apps outside your app container. Example The Meta App and Facebook can't use the same dylib, even though they're from the same company. 

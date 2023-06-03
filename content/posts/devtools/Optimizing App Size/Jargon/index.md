@@ -20,7 +20,7 @@ This post covers some of the jargon and how it all comes together. And even thou
 ## Files
 - `.c`: A source code file written in C programming language.
 - `.swift`: A source code file written in Swift programming language.
-- `.o`: An intermediate object file. Also known as an object file.
+- `.o`: A machine code interpretation of the source code. An intermediate file. Also known as an object file. Named as such, because it's the object/goal of our source code.
 - `.a`: An archive file. Made up from multiple `.o` files. Also known as a **Static Library** or **Archive**.
 - `.h`: A file that doesn't contain implementation. But only the interface. 
 - `.dylib`: A separate binary, from the main executable. Gets linked with the app’s executable at runtime. Gets copied into the app wrapper. As a result, the main executable is smaller and, because the code is loaded only when it is needed, the build time is typically faster. Also known as **Dynamic Library**. Often they also have an empty file type. 
@@ -180,7 +180,9 @@ cool.app (an app wrapper)
 ### Compilation
 - Typo in your symbols
 - Missing a `{`, `:` , `]`, etc
-- Not importing a library
+- Not declaring a variable
+- Not matching the interface of a function or not conforming to the protocol interface.
+- Not importing a needed library
 - etc.
 
 ### Linking
