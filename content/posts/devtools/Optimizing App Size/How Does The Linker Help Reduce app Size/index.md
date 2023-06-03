@@ -108,37 +108,25 @@ Other than slower build times:
 Both link with Foo library statically. Assume both need all symbols in Foo library and Foo library is 5MB. 
 ## Comparison of Static vs Dynamic
 
-|        Feature                | Static Linking | Dynamic Linking |
-|  ---------------------------- | -------------- | --------------- |
-|           Naming              | The linking is done at compile time. Compile time is a _static_ concept. | The linking is done at runtime. Runtime is a _dynamic_ concept  |
-|       Build Duration          | Linked into the app's main executable during static linking. This leads to slightly slower build time. | It's not linked into the app binary. Has its own binary |
-|       Launch Duration         | Everything is already linked. You incurred the linkage cost during build time | It will get linked later — during **launch** time. This can lead to slightly longer launch times. |
-|      Selective Loading        | Only symbols that are needed get linked | All symbols of the framework will get linked at launch time. There is no selective loading. |
-|           Format              | `.a` | `.dylib` or more commonly `.framework` |
-|    Location in App Wrapper    | It becomes part of the app's main executable binary |  Within the `.app` bundle under the `/Frameworks`. e.g. `/Frameworks/fun.Framework/fun` (along with other needed resources) |
-|   Ability to Share            | Since it's indistinguishable from the app's binary it can't be shared with another binary/process | The binary can get shared with other processes or dylibs within the app container. You can share a framework between your app and all extensions.† |
-|       dSYM location           | its debug symbols will be part of the app's main executable | its debug symbols will separate from the app's main executable |
-|       tool used to link       | `ld` | `ld` during compilation. `dyld` at runtime |
-|       tool used to create     | `ar` the archiver | `ld` the linker |
-|       How to strip            | Will use same stripping flags main app's executable | must be stripped individually |
-
-
+!["Static vs Dynamic Linking Comparison"](images/static-vs-dynaminc-linking.png)
 
 †: You can not share dylibs with apps outside your app container. Example The Facebook app and its Messenger app can't use the same dylib, even though they're from the same company. 
 
-Note: Apple Frameworks are special. 
+#### Note: Apple Frameworks are special. Reasons:
+
 - **OS doesn't get bloated:** You link to them, but don't copy them. Also they can be shared between different apps of different companies. Example: The Uber and Lyft apps can use `MapKit.framework` without needing it to be included on the OS twice. Like imagine if there was a `Networking.framework` where app apps needed it for networking operations and since it couldn't be shared, all apps had to include a copy. That mean you'd have to store that framework as your apps.
 - **Your app gets new OS features without needing you needing to go through the distribution process again:** Apple Frameworks change with every iOS update. However we don't have to compile our apps again with with the newer iOS version. This is because the newer iOS versions almost never make breaking changes. Apple just dynamically links our app with a newer version of `MapKit.framework`, a newer version of `Networking.framework` and voila! Things just work. 
-- **Apps become faster:** Because you can use a shared System framework that's already in memory. Fun fact, after an OS reboot, a lot of the system frameworks haven't been put on the memory. The OS incrementally adds them. The first app you launch after a reboot, usually loads slower, because you need to load a lot of system frameworks. Subsequent apps load a bit faster because their dependencies have been already put into memory either by the OS or some other app. For more on that see [What's the difference between cold launch, warm launch?](https://stackoverflow.com/questions/69623550/whats-the-difference-between-cold-launch-warm-launch).
+- **Apps loads faster:** Because you can use a shared System framework that's already in memory. Fun fact, after an OS reboot, a lot of the system frameworks haven't been put on the memory. The OS incrementally adds them. The first app you launch after a reboot, usually loads slower, because you need to load a lot of system frameworks. Subsequent apps load a bit faster because their dependencies have been already put into memory either by the OS or some other app. For more on that see [What's the difference between cold launch, warm launch?](https://stackoverflow.com/questions/69623550/whats-the-difference-between-cold-launch-warm-launch).
 
 Had Apple made their system libraries static then every app would have needed to: 
 - Link them into the binary -> Apps would get repeatedly bloated for the same binary
 - Re-link upon any change in a framework. -> A whole lot more app distribution overhead. 
 - Apps will launch slightly slower because instead of using a _shared_ `Network.framework` already in memory, they now have a bigger binary that takes more time to load.
 
-To better understand static and dynamic libraries, I highly recommend going through this [fantastic tutorial](https://medium.com/karlmax-berlin/sub-modules-for-xcode-acb6b1e5f567) written by [Ralph Bergmann](https://twitter.com/Ralph__Bergmann) for how to create your own dynamic frameworks or static libraries. Going through that tutorial helped me see: 
-1. How I can simply create libraries without CocoaPods. 
-2. Then I inspected each build folder along with the Products folder.
+To better understand static and dynamic libraries, I highly recommend going through this [fantastic tutorial](https://medium.com/karlmax-berlin/sub-modules-for-xcode-acb6b1e5f567) written by [Ralph Bergmann](https://twitter.com/Ralph__Bergmann) for how to create your own dynamic frameworks or static libraries. Going through the tutorial helped me see: 
+1. How I can simply create libraries **without CocoaPods**. 
+3. Then I inspected each build folder along with the Products folder.
+2. The drastic differences between the Xcode setup between a static library vs a framework. 
 
 ### What's the difference between build folder and Product folder? 
 When you want to make a cake, you need flour, milk, sugar, cream, eggs, etc. All of those are intermediate like objects. Anything intermediate goes into the build folder. 

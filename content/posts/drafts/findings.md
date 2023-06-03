@@ -248,3 +248,19 @@ https://github.com/apple/swift/blob/main/docs/Driver.md
 
 `STRIP_SWIFT_SYMBOLS` FANTASTIC LINK AND COMMENTS
 https://stackoverflow.com/questions/46077700/what-does-strip-swift-symbols-in-xcode-actually-do
+
+
+|        Feature                | Static Linking | Dynamic Linking |
+|  ---------------------------- | -------------- | --------------- |
+|           Naming              | The linking is done at compile time. Compile time is a _static_ concept. | The linking is done at runtime. Runtime is a _dynamic_ concept  |
+|       Build Duration          | Linked into the app's main executable during static linking. This leads to slightly slower build time. | It's not linked into the app binary. Has its own binary |
+|       Launch Duration         | Everything is already linked. You incurred the linkage cost during build time | It will get linked later — during **launch** time. This can lead to slightly longer launch times. |
+|      Selective Loading        | Only symbols that are needed get linked | All symbols of the framework will get linked at launch time. There is no selective loading. |
+|           Format              | `.a` | `.dylib` or more commonly `.framework` |
+|    Location in App Wrapper    | It becomes part of the app's main executable binary |  Within the `.app` bundle under the `/Frameworks`. e.g. `/Frameworks/fun.Framework/fun` (along with other needed resources) |
+|   Ability to Share            | Since it's indistinguishable from the app's binary it can't be shared with another binary/process | The binary can get shared with other processes or dylibs within the app container. You can share a framework between your app and all extensions.† |
+|       dSYM location           | its debug symbols will be part of the app's main executable | its debug symbols will separate from the app's main executable |
+|       tool used to link       | `ld` | `ld` during compilation. `dyld` at runtime |
+|       tool used to create     | `ar` the archiver | `ld` the linker |
+|       How to strip            | Will use same stripping flags main app's executable | must be stripped individually |
+---------
