@@ -50,6 +50,8 @@ At that point there are no longer any undefined symbols, so the linker stops pro
 
 The linker moves on to its next phase, and assigns addresses to all the functions and data that will be in the program. Then it copies all the functions and data to the output file. Et voila! You have your output program.
 
+FWIW in modern (iOS) apps, you don't just have a single _main_ entry. You can have multiple entries from OS callbacks. Example when a user taps or reacts to a push notification, if you receive a VOIP call, etc. These are all different entries from a simple app launch. 
+
 !["images/Static Linking"](images/static-linking-example-linked-object-files.png "The object files within the blue container are linked. The function named 'unused' is also linked. It's because its containing object file was needed because of the bar function")
 
 ### Summary of Static Library
