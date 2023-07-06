@@ -260,7 +260,18 @@ https://stackoverflow.com/questions/46077700/what-does-strip-swift-symbols-in-xc
 |    Location in App Wrapper    | It becomes part of the app's main executable binary |  Within the `.app` bundle under the `/Frameworks`. e.g. `/Frameworks/fun.Framework/fun` (along with other needed resources) |
 |   Ability to Share            | Since it's indistinguishable from the app's binary it can't be shared with another binary/process | The binary can get shared with other processes or dylibs within the app container. You can share a framework between your app and all extensions.† |
 |       dSYM location           | its debug symbols will be part of the app's main executable | its debug symbols will separate from the app's main executable |
-|       tool used to link       | `ld` | `ld` during compilation. `dyld` at runtime |
-|       tool used to create     | `ar` the archiver | `ld` the linker |
+|       Tool used to link       | `ld` | `ld` during compilation. `dyld` at runtime |
+|       Tool used to create     | `ar` the archiver | `ld` the linker |
 |       How to strip            | Will use same stripping flags main app's executable | must be stripped individually |
----------
+|      tldr                     | Linked at compile time. Faster Launch Times. Absorbed into main executable. Hence unshareable across binaries | Linked at runtime. Faster Build Times. Usually upon launch. Is its own binary. Hence shareable with other binaries within the _same_ app. Apple is special and can even share OS libraries between apps. |
+
+†: You can not share dylibs with apps outside your app container. Example The Facebook app and its Messenger app can't use the same dylib, even though they're from the same company.                           
+                                                                                                                     **Mohammad Faani    |   mfaani.com** 
+
+
+> So what are symbols? A symbol is just a name to refer to a fragment of code or data.
+> These fragments may refer to other symbols which you would see if you write a function that calls another function.
+> Symbols can have attributes on them that affect how the linker behaves. And there are a lot of these. I'm just going to give you one example which is a _weak_ symbol. So a weak symbol is an annotation on a symbol that says it might not be there when we run the executable on the system. This is what all the availability markup that says this API is available on iOS 12. And this API's available on the iOS 11. This, that's what it all boils down to by the time it gets to the linker. So the linker can determine what symbols are definitely going to be there versus what symbols it may have to deal with at runtime.
+>
+
+

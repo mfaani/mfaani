@@ -50,7 +50,7 @@ Other languages have _header files_ which they include. Swift is made more simpl
     - Can't be used to compile swift files. Must use `swiftc` instead.
 - `clang`: Apple's compiler for the C family language (C, C++, Objective-C, Objective-C++). `cc` is more of a universal term. 
 - `swiftc`: Apple's compiler for the Swift language. 
-- `ld`: The Linker. Converts `.o` files into an executable. Also known as the Static linker. This is a very important part of the whole build process.
+- `ld`: The Linker. Converts `.o` files into an executable. Also known as the Static linker. This is an extremely important part of the whole build process.
 - `ar`: An archiving tool. Helps to combine files together. Originally used for backups and distributions. Converts multiple `.o` files into a `.a` file. The difference between `ar` and `ld` is that:
     - `ar` just groups together object files. The product of that is a static library. 
     - `ld` creates an app or a dylib. And can do such with some (stripping related) optimizations. 
@@ -59,7 +59,18 @@ Other languages have _header files_ which they include. Swift is made more simpl
 
 ## Concepts
 - Compilation: Converting source code within a single file into machine code. 0s and 1s. The output of compiling a single file is a single object file. 
+- Machine Code: Anything that's written in zeros and ones. So the CPU can understand them. You may compile a single file into machine code, but that doesn't mean that the single machine code instructions is enough to execute something. Often you need multiple machine code instructions to be able to complete some basic operations. 
 - Linking: Piecing different object files together to create a binary. 
+
+To put all these concepts together. See the following images: 
+
+### High Level
+!["/Short and High Level Build Pipeline"](images/high-level.png "Every file is compiled into Machine Code. Then Linker links the necessary object files together.")
+### 1. Compilation
+!["/Short and High Level Build Pipeline"](images/compilation.png "Every file is compiled into Machine Code. An individual Object file is useless. It needs all its other missing pieces to create a functioning application.")
+### 2. Linking
+!["/Short and High Level Build Pipeline"](images/linking.png "The linker starts from a point of entry, usually the main function and then tries to find all its undefined dependencies (any function/variable that's not defined in main). For each of those dependencies it has find their depenedencies as well. Once all are find, it stops linking. The product of linking all object files together is your app (or depending on your need your dynamic library's) binary.")
+
 
 ## Quick Summary - How do all the tools and files work together? 
 1. All source files are compiled into an intermediate file known as object code/file (.o file)
@@ -121,6 +132,21 @@ To see what steps were performed for your recent build you can use the [Report N
 - Emebedded Content: App Extensions. There's no linking involved. Yet you have to copy them into your app bundle. 
 
 Essentially all three are different form of dependencies of your app's main executable. 
+
+### What's the difference between 'Build folder' and 'Product folder'? 
+When you want to make a cake, you need flour, milk, sugar, cream, eggs, chocolate chips, oven, mixer, etc. All of those are intermediary objects. Anything intermediate goes into the build folder. 
+The final product, the cake is what goes in the Product folder. The final cake has the flour, milk, sugar and all, but its glued together in a certain structure. Thought the chocolate chips are distinguishable from the cake. The rest are not. 
+
+Building an app is similar to that. In the build folder you'd see the built static and dynamic libraries.  
+However in the Products folder, you see the app's main executable and its dynamic library. The static libraries are already merged into the app's main executable. 
+
+If you deleted the Build Folder, then app will still get ran on the device/simulator. However if you deleted the Products folder, then you need to produce those again. The Product is what's needed to _run_ the app. The build folder is what's needed to just _build_. Real world users when they unpack the app, they end up with something very similar to what we have in the Products folder. 
+
+Why is this important? It's important to understand because if you ever need to dig into the products folder to find your static library, well you'll _never_ find it. You have to go looking for it in the Build folder as static libraries get merged into the app's executable. 
+ 
+
+FYI Apple has some pre-defined structures like app bundle or framework bundle. For more on the details of those structures see docs on [Placing Content in a Bundle](https://developer.apple.com/documentation/bundleresources/placing_content_in_a_bundle).
+
 ## Summary
 
 ### 1 - Dependency Order

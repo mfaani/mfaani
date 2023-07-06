@@ -6,6 +6,8 @@ draft: true
 tags: ["hugo", "content-creation", "blogging"]
 ---
 
+- Add `ShowToc: true` to your frontmatter to show table of content. But its UX can be significantly improved. 
+- Links can die. Like Apple can remove its WWDC video. So make sure you annotate the link as much as possible. Example, don't just share the link to the session. Share the link and the name, year and minute of the session. That way folks can perhaps google it and find it. 
 - Instead of just sharing a link or what originated, share a good teaser of your post and just add a link. That way you at least get traction from where you posted it (Twitter, Slack). If anyone was interested they'll click to see more.
 - Don't over explain things. Or at least don't over explain too many things in a blog post. Maybe just go deep for a single thing. Not 5 things at once. Or if someone has already done it, then you don't need to re-say it. Just link to theirs. 
 tldr it's hard to have breadth and depth in the same post...
