@@ -117,10 +117,20 @@ We're not always cutting the array/section in half.
 
 👆 isn't to make you think how many you're dropping. It's just once you realize you're not always cutting in half, things actually start to make more sense. 
 
-### Conclusion
+## Conclusion
 
 Don't think of middle index as the absolute middle index. Think of it more as a pivot point. 
 Things just work as long as you have correct logic to handle all varying cases (less than, equal to, greater than)
+
+### Concluding strategy is: 
+- Find the range
+- Find a pivot. Don't think of it has a middle index.
+- Have appropriate logic to process all the following cases:
+  - Before pivot
+  - The pivot itself
+  - After pivot
+- Find new range. Then Find new Pivot. 
+- Repeat steps again
 
 ### Acknowledgments
 
