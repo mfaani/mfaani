@@ -29,6 +29,7 @@ As the name suggests it's just 0s and 1s. It's the lowest possible language leve
     - An iOS app's main executable: An app you open on your iPhone, ends up calling the app's executable. Example the Safari app on your iPhone has a `Safari` executable. 
     - Other Examples - macOS binaries: Some examples that you use in the command line are: `ls`, `cp`, `mkdir`, `pwd` . Every time you do `ls`, you're calling a binary somewhere in your macos. Executables are also known as binaries. See [docs](http://www.linfo.org/bin.html) on `/bin`. Also see the `/bin` directory below:
 !["/bin directory"](images/binaries.png "If you do `which ls` then you'll get to see the path to the binary that is used")
+- `.dSYM`: In short, it's a debug information file. For more see [here](https://stackoverflow.com/a/48548774/5175709)
 
 - 'main app executable': An app may have multiple executables. Examples of this happening: 
     - An iOS app that has app extensions. App extensions are also executable. But aren't the _main_ executable. 
@@ -56,6 +57,18 @@ Other languages have _header files_ which they include. Swift is made more simpl
     - `ld` creates an app or a dylib. And can do such with some (stripping related) optimizations. 
 - `dyld`: The runtime linker, for dynamic linking. 
 - `swiftc`: Is the command-line interface to the Swift compiler, which is responsible for compiling Swift source code into machine code that can be run on a computer. It basically does what `cc` does for `.c` files, but just for `.swift` files. It's ultimately a symlink to `swift`. For more on that see [here](https://stackoverflow.com/questions/57777091/whats-the-difference-between-swift-and-swiftc)
+- `strip`: Used to strip symbols of all kinds from binaries. You can strip various kinds of symbols
+    - Debug Symbols
+    - Swift Symbols
+    - Global Symbols
+    - Non-Global Symbols
+    - All Symbols
+    - etc.  
+    <!-- -->
+    Stripping basically does two things for you:  
+    - It removes access to a certain symbol. 
+    - It removes the code for that symbol.
+- `dysmutil`: Is applied against a non-stripped binary. It links all DWARF and debug information into a binary and creates the dSYM. 
 
 ## Concepts
 - Compilation: Converting source code within a single file into machine code. 0s and 1s. The output of compiling a single file is a single object file. 
@@ -69,7 +82,7 @@ To put all these concepts together. See the following images:
 ### 1. Compilation
 !["/Short and High Level Build Pipeline"](images/compilation.png "Every file is compiled into Machine Code. An individual Object file is useless. It needs all its other missing pieces to create a functioning application.")
 ### 2. Linking
-!["/Short and High Level Build Pipeline"](images/linking.png "The linker starts from a point of entry, usually the main function and then tries to find all its undefined dependencies (any function/variable that's not defined in main). For each of those dependencies it has find their depenedencies as well. Once all are find, it stops linking. The product of linking all object files together is your app (or depending on your need your dynamic library's) binary.")
+!["/Short and High Level Build Pipeline"](images/linking.png "The linker starts from a point of entry, usually the main function and then tries to find all its undefined dependencies (any function/variable that's not defined in main). For each of those dependencies it has find their dependencies as well. Once all are find, it stops linking. The product of linking all object files together is your app (or depending on your need your dynamic library's) binary.")
 
 
 ## Quick Summary - How do all the tools and files work together? 
@@ -221,7 +234,11 @@ cool.app (an app wrapper)
 - The name of the dynamic library doesn't match with what's expected.
 - The dynamic library is moved from its location. 
 - The dynamic library is stripped of all its global symbols. Hence the main app can't communicate with the dylib. 
-### A big final program
+
+## Any last notes?
+
+A big help in figuring these things out was just simply looking into the man (or help) pages of `ld`, `dyld`, `clang`, `swiftc`, `strip`, `dsymutil`. Make sure you look into for more. 
+## A big final program
 
 Suppose you need a single function from a library named `foo.a`. You might end up consuming space for every other variable, function, type in library `foo`. 
 
