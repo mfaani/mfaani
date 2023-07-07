@@ -63,7 +63,11 @@ Other languages have _header files_ which they include. Swift is made more simpl
     - Global Symbols
     - Non-Global Symbols
     - All Symbols
-    - etc.
+    - etc.  
+    <!-- -->
+    Stripping basically does two things for you:  
+    - It removes access to a certain symbol. 
+    - It removes the code for that symbol.
 - `dysmutil`: Is applied against a non-stripped binary. It links all DWARF and debug information into a binary and creates the dSYM. 
 
 ## Concepts
