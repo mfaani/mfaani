@@ -34,11 +34,11 @@ After that, you typically just need logic that handles all three cases of before
 [0,0,2,2] -> [2,2,0,0]
 ```
 
-The general way to calculate the pivot index is: 
+The general way to calculate the pivot index is either: 
 
 ```
 let pivotIndex = (lower + upper) / 2 
-let pivotIndex = lower + (upper - lower) / 2 // This approach helps avoid integer overflow. In swift we get the rounded number automatically.
+let pivotIndex = lower + (upper - lower) / 2 # This approach helps avoid integer overflow. In swift we get the integer number which is automatically rounded down.
 ```
 
 ```
@@ -54,20 +54,19 @@ pivot index = (0 + 3) / 2 = 1
 ```
 
 - indexes before pivot: swap 
-- indexes equal to pivot: swap 
-- indexes after pivot: ignore, as they're already swapped
+- indexes equal to pivot: swap (when the range is odd, this would be a no op)
+- indexes after pivot: ignore, as they were swapped with indexes before pivot.
 
 ### Example - Binary Search
 
-#### Ask
+#### Question - Find 99 in the following array
 ```
 [2, 7, 20, 24, 40, 99]
 ```
 
-find 99
-
 #### 1st Iteration
-pivot index = (0 + 5) / 2 = 2
+pivot range = 0 -> 5  
+pivot index = (0 + 5) / 2 = 2.5 -> pivot is 2
 
 ```
 [2, 7, 20, 24, 40, 99]
@@ -76,7 +75,8 @@ left  pivot      right
 ```
 
 #### 2nd Iteration
-pivot is now `index: 4`. It's now actually the middle of its range. 
+pivot range = 3 -> 5  
+pivot index = 4. It's now actually the middle of its range. 
 
 ```
 [2, 7, 20, 24, 40, 99]
@@ -84,7 +84,8 @@ pivot is now `index: 4`. It's now actually the middle of its range.
         left pivot right
 ```
 #### 3rd Iteration
-pivot is now `index: 5`. left and right index are also `index: 5`
+pivot range = 5 -> 5  
+pivot index = 5. left and right index are also index 5
 
 ```
 [2, 7, 20, 24, 40, 99]
@@ -114,7 +115,7 @@ We're not always cutting the array/section in half.
 - You will drop three items: `(2, 7, 20)` if you’re looking for `24`, `40`, `99`.  
 - You will drop five items: `(2, 7, 24, 40, 99)` if you’re looking for `20`.
 
-👆 isn't to tell you think how many you're dropping. It's just once you realize you're not always cutting in half, things actually start to make more sense. Personally it helped me visualize what’s happening easier…
+👆 isn't to make you think how many you're dropping. It's just once you realize you're not always cutting in half, things actually start to make more sense. 
 
 ### Conclusion
 
