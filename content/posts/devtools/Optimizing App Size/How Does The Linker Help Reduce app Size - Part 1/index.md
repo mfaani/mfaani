@@ -1,10 +1,10 @@
 ---
 title: "Optimizing Binaries - How Does the Linker Help Reduce App Size? What are the different types of linking - Part 1"
 date: 2023-07-04T15:04:27-05:00
-draft: true
 category: "Devtools"
-tags: ["Static Linking", "Dynamic Linking", "Static vs Dynamic Linking", ld, dyld]
+tags: ["Static Linking", "Dynamic Linking", "Static vs Dynamic Linking", ld, dyld, App Size]
 ShowToc: true
+description: "In this post I extract all the good chunks from Apple's fantastic session on linker and how it does things to reduce app size. I also discuss some of the difference between Compiler and Linker" 
 ---
 
 In the [previous post](https://mfaani.com/posts/devtools/optimizing-app-size/jargon/#a-big-final-program) we talked about a problem with the linker: Linking a single function from a library could link to the _entire_ library. This creates a lot of bloat. 
@@ -65,7 +65,8 @@ With that said, the level of control for selecting source code is not the 'type 
 As soon as they're no longer any undefined symbols. The linker is much like fixing a puzzle. You start with a piece, its edges need other pieces to complete. You keep on adding more pieces. You stop when the last piece is added. Anything remaining is redundant.
 
 ### How are the compiler and linker different? 
-See my previous post on [Optimzing App Size - Jargon#Concepts](http://localhost:1313/posts/devtools/optimizing-app-size/jargon/#concepts)
+See my previous post on [Optimzing App Size - Jargon#Concepts](http://localhost:1313/posts/devtools/optimizing-app-size/jargon/#concepts). It explains things at the high level.  
+
 The compiler needs to know what the other symbols are in order to compile code that uses them.  
 The linker combines these object code files into an executable. The linker needs to know where the other symbols are in order to link code objects that use them.
 
@@ -208,4 +209,8 @@ Had Apple made their system libraries static then every app would have needed to
 To better understand static and dynamic libraries, I highly recommend going through this [fantastic tutorial](https://medium.com/karlmax-berlin/sub-modules-for-xcode-acb6b1e5f567) written by [Ralph Bergmann](https://twitter.com/Ralph__Bergmann) for how to create your own dynamic frameworks or static libraries. Going through the tutorial helped me see: 
 1. How I can simply create libraries **without CocoaPods**. 
 3. Then I inspected each build folder along with the Products folder.
-2. The drastic differences between the Xcode setup between a static library vs a framework. 
+2. The drastic differences between the Xcode setup between a static library vs a framework.
+
+## Any Problems with Static Linking? 
+
+Yes there are a few. Mainly when it comes to sharing libraries between an app and its app extensions. For more on that see [part 2](https://mfaani.com/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-2/) of this post. 
