@@ -18,7 +18,7 @@ In a nutshell if you have the following source code written in C:
 
 !["images/Static Linking"](images/static-linking-example.png)
 
-`extern` means that the function is coming from an external file. Without mentioning `extern` the individual file won't compile. 
+`extern` means that the function is coming from an external file.
 
 ### File Structure
 

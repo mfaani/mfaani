@@ -36,7 +36,7 @@ As the name suggests it's just 0s and 1s. It's the lowest possible language leve
     - A command line interface that has. Users won't have to call your other executables. But your main app will likely call the other executables. 
 
 ## Syntax
-- `extern` A C concept. Doesn't exist in Swift. It's an instruction/promise to the compiler which tells it that a given symbol is defined in _another_ file. Without it, the compilation of the file which depends on an external symbol (function/variable) will fail. 
+- `extern` A C concept. Doesn’t exist in Swift. It’s an instruction/promise to the compiler which tells it that a given symbol is defined in _another_ file. When the linker sees extern before function declaration, it looks for the definition in another C file.
 
 Other languages have _header files_ which they include. Swift is made more simple. It just compiles a module entirely. So as long as what you need is declared in the same module, then things will compile without having a need to import/include. If it's declared in _another_ module, then you just need to import that module. You don't need to single out a file. This is a convenience made by swift. 
 
