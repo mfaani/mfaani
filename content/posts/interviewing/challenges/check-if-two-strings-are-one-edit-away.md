@@ -35,7 +35,7 @@ Example: If the string _lengths_ differ by 2 or more characters, then you can ex
 
 3. Keep things simple. See how I avoid adding complex logic by intentionally passing the longer string as first parameter of `isOneInsertAway`. 
 
-4. Stop caring about things you don't need. You can find the answer without knowing which character, at which index needs to be replaced. A LOT of questions often can be resolved without knowing for a lot of things. Example if you're solving a question on knowing if there's a path between A, B. Then you don't need to care how you got to B. You just need to know if there's a path. Not caring simplifies your thought process. For this reason it's often good to **write down things that don't matter.**
+4. Stop caring about things you don't need. You can find the answer without knowing which character, at which index needs to be replaced. A LOT of questions often can be resolved without caring for a lot of things. Example if you're solving a question on knowing if there's a path between A, B. Then you don't need to care how you got to B. You just need to know if there's a path. Not caring simplifies your thought process. For this reason it's often good to **write down things that don't matter.**
 
 ### Code
 
