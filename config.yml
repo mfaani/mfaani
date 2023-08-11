@@ -19,18 +19,24 @@ languages:
     weight: 1
     menu:
       main:
-        - name: Blog
+        - name: ✍️ Blog
           url: archives/
           weight: 5
-        - name: About
+        - name: 👨🏼‍💻 About
           url: about/
           weight: 10
-        - name: Search
-          url: search/
+        - name: 🛠️ Devtools 
+          url: posts/devtools
           weight: 15
-        - name: Tags
-          url: tags/
+        - name: 📝 iOS interviewing 
+          url: posts/interviewing
           weight: 20
+        - name: 🔍 Search
+          url: search/
+          weight: 25
+        - name: 🏷️ Tags
+          url: tags/
+          weight: 30
   # fa:
   #     languagedirection: rtl
   #     weight: 3
