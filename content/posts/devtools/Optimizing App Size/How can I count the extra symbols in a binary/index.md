@@ -143,4 +143,4 @@ This doesn't mean you're currently doing things wrong and will save 30% now. Rat
 
 ## Acknowledgements
 
-Major shout out to [Mark Rowe](https://twitter.com/bdash) who answered a lot of my questions about `nm` so I can put together this post. His [RTFM](https://en.wikipedia.org/wiki/RTFM) was extremely helpful for figuring out how `nm` and `strip` work.
+Major shout out to [Mark Rowe](https://twitter.com/bdash) who answered a lot of my questions about `nm` so I can put together this post. His exceptional [RTFM](https://en.wikipedia.org/wiki/RTFM) abilities was helpful for figuring out how to make `nm` and `strip` commands work.
