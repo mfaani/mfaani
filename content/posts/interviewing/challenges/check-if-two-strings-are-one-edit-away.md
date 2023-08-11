@@ -2,7 +2,7 @@
 title: "Check if Two Strings Are One Edit Away"
 date: 2022-06-15T06:26:52-04:00
 category: "interviewing"
-tags: ["string", "string-comparison", "swift"]
+tags: ["interviewing", "string", "string comparison", "swift", "edit distance"]
 description: "Learn how to break down a question into smaller pieces"
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
@@ -100,3 +100,7 @@ print(isOneOrZeroEditsAway("like", "lion")) // false
 ### Complexity
 
 Obviously `O(n)` where `n` is the length of the **shorter** string.
+
+### Related
+
+This question falls under the category of [Edit Distance](https://en.wikipedia.org/wiki/Edit_distance)
