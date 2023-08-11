@@ -141,3 +141,6 @@ This could lead to a ginormous 30% size saving as mentioned [here](https://githu
 ## Summary 
 This doesn't mean you're currently doing things wrong and will save 30% now. Rather it's just a way to be able inspect things. Often Dependency tools such as Cocoapods, Carthage, make minor mistakes that are hard to find or even a small change in an Xcode update ([Emerge Tools - How Xcode 14 unintentionally increases app size](https://www.emergetools.com/blog/posts/how-xcode14-unintentionally-increases-app-size)) might tweak things that are incompatible with your current setup and create issues that are hard for you to figure out. The tips above might help you narrow it down easier. 
 
+## Acknowledgements
+
+Major shout out to [Mark Rowe](https://twitter.com/bdash) who answered a lot of my questions about `nm` so I can put together this post. His [RTFM](https://en.wikipedia.org/wiki/RTFM) was extremely helpful for figuring out how `nm` and `strip` work.
