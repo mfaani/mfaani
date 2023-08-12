@@ -7,7 +7,7 @@ ShowToc: true
 description: "Learn how to use nm and more importantly count symbols" 
 ---
 
-In the previous posts we talked about [Build Pipeline](http://localhost:1313/posts/devtools/optimizing-app-size/build-pipeline/), [Jargon](http://localhost:1313/posts/devtools/optimizing-app-size/jargon/), [Static Linker](http://localhost:1313/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-1/) vs [Dynamic Linker](http://localhost:1313/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-2/). In this post we'll use the knowledge gained about the app wrapper's folder structure and the placement of all the different binaries (frameworks and main app's executable) to know _where_ to look for and _how to use `nm` to inspect_ each binary.
+In the previous posts we talked about [Build Pipeline](http://localhost:1313/posts/devtools/optimizing-app-size/build-pipeline/), [Jargon](http://localhost:1313/posts/devtools/optimizing-app-size/jargon/), [Static Linker](http://localhost:1313/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-1/) vs [Dynamic Linker](http://localhost:1313/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-2/). In this post we'll benefit from the knowledge gained about the app wrapper's folder structure and the placement of all the different binaries (frameworks and main app's executable) to know _where_ to look for. New in this post is learning _how to use the `nm` command to inspect and count the number of symbols of_ each binary.
 
 ## Symbols
 
@@ -84,9 +84,9 @@ This post isn't to say what's expected to seen. More on how to inspect symbols. 
 
 You might think well I have to go through the entire app archive process and that's a lengthy process. You might have to do that ultimately. But an alternate way is to just compile things with `swiftc` and pass different commands e.g. try passing `-g` to create the dSYM. Then record the count of the Debug Symbols and Swift Symbols. After recording, attempt to strip the binary. Then record the count of Debug Symbols and Swift Symbols again and compare it with before stripping. For a super small swift file I did this. The results were as such: 
 
-### Example
+### Examples
 
-#### File
+#### File 1
 ```swift
 import Foundation 
 let arguments = CommandLine.arguments
@@ -99,13 +99,16 @@ if arguments.count != 3 {
 /// -Note: The value of arguments[0] is the name of the binary
 let firstName = arguments[1]
 let lastName = arguments[2]
-print("Greetings folks \(firstName) \(lastName)")
+print("Greetings \(firstName) \(lastName)")
 ```
 
 #### Compiling and inspecting WITHOUT debug information
 ```yaml
 # Build
 swiftc main.swift # creates a binary named 'main'
+
+# Execute
+./main Ethan Hawk # Greetings Ethan Hawk
 
 # Inspect
 nm -a main | wc -l # 43. Total number of symbols. 
@@ -136,6 +139,63 @@ nm -a main | grep '_$s' | wc -l # 0 Swift symbols.
 ```
 
 This could lead to a ginormous 30% size saving as mentioned [here](https://github.com/CocoaPods/CocoaPods/issues/10277).
+
+#### File 2
+
+```
+public struct Home {
+    var city: String
+    public var streetAddress: String
+
+    static let planet = "Earth"
+
+    func turnOn() {}
+}
+```
+
+Using `nm` slightly different: 
+
+```
+swiftc Home.swift -o Home
+nm -am Home | xcrun swift-demangle
+```
+
+- The `xcrun` helps the OS figure out which Xcode version is required to be used. 
+- `swift-demangle` helps with demangling mangled symbols. 
+
+Typically the structure of an `nm` result would be like: 
+
+
+- Symbol value.
+- Symbol type.
+- Symbol name.
+
+If the `nm`` command was to add column names for its output, I think the following column names would be appropriate:
+
+**Address:** The symbol value in hexadecimal.
+**Type:** The symbol type.
+**Name:** The symbol name.
+The Address column would be useful for identifying the location of the symbol in the object file. The Type column would be useful for understanding the nature of the symbol, such as whether it is a global or local symbol, or whether it is initialized or uninitialized data, external vs non-external. The Name column would be useful for identifying the symbol and its purpose.
+
+I've selected a few of the lines from `nm - am <binary> | xcrun swift-demangle`
+
+```
+Address                       Type                    Name
+0000000100003868      (__TEXT,__text) external      Home.Home.streetAddress.setter : Swift.String
+
+00000001000037ac      (__TEXT,__text) non-external (was a private external) Home.Home.city.getter : Swift.String
+
+0000000100008008 (__DATA,__common) non-external (was a private external) static Home.Home.planet : Swift.String
+```
+
+
+Export to Sheets
+The Address column would show that the symbol is located at address 0x00000001000038b4. The Type column would show that the symbol is a non-external symbol, which means that it is not accessible to other objects. The Name column would show that the symbol is named _$s4HomeAAV13streetAddressSSvM.
+
+
+
+
+
 
 
 ## Summary 
