@@ -41,6 +41,7 @@ gem install bundler -v "2.3.3"
 bundle install
 pod lib lint
 ```
+
 Line 1 only installs ruby if it's not installed.  
 Lines 2 & 3 only install packages once. The `bundle` and `gem` commands have have logic internally to exit early if the dependencies are installed already.  
 Line 4 can then safely execute.

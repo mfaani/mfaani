@@ -15,7 +15,7 @@ This the first post of a series I'm doing on how to optimize your app's binaries
 Depending on the action (build, run, test, profile, analyze, archive) of your scheme, the  process will have all or some of the following steps:
 1. Dependency analysis
 > What happens when you press build? So the first step is for the build system to take the build description, your Xcode project file. Parse it, take into account all the files in your project, your targets and the dependency relationships. Your build settings, and turn it into a tree-like structure called a directed graph. And this represents all the dependencies between the input and output files in your project and the tasks that will be executed to process them. Next the low-level execution engine processes this graph, looks at the dependency specifications and figures out which tasks to execute. The sequence or order in which they must be run and which tasks can be run in parallel. Then proceeds to execute them.
-From [WWDC 2022 - Behind the Scenes of the Xcode Build Process 4:57](https://developer.apple.com/videos/play/wwdc2018/415/?time=297)
+From [WWDC 2018 - Behind the Scenes of the Xcode Build Process 4:57](https://developer.apple.com/videos/play/wwdc2018/415/?time=297)
 2. Compile dependencies
 - Parse all files (swift, .m, .c, .cpp files) in module. 
 - Create object (intermediate) files  that the CPU can understand. 

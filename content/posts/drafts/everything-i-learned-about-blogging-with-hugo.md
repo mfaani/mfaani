@@ -21,6 +21,16 @@ class Foo {
 }
 
 ```
+
+or I can do: 
+
+```bash {linenos=true linenostart=1}
+rvm use ruby-2.5.1 || rvm install ruby-2.5.1
+gem install bundler -v "2.3.3" 
+bundle install
+pod lib lint
+```
+
 - Add two spaces to create new line after a line end. Otherwise hugo will just continue the line. This is something hard to grasp. Because of this I usually manually review my rendered post with `hugo server -D`
 - The timestamp of your posts is important. Like you may have actually started your draft 10 days ago, or might have even started the draft before a currently published post. Because of that you should adjust your current timestamp to the publish date...
 - With images, overtime your static folder will turn into a big graveyard. So it's best that you re-structure your posts into 
