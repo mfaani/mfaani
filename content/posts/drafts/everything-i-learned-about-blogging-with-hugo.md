@@ -5,7 +5,7 @@ category: 'content-creation'
 draft: true
 tags: ["hugo", "content-creation", "blogging"]
 ---
-
+- Create drafts as soon as you have an idea. or started learning something. Otherwise you'll forget things 6 months down the road. 
 - Add `ShowToc: true` to your frontmatter to show table of content. But its UX can be significantly improved. 
 - Links can die. Like Apple can remove its WWDC video. So make sure you annotate the link as much as possible. Example, don't just share the link to the session. Share the link and the name, year and minute of the session. That way folks can perhaps google it and find it. 
 - Instead of just sharing a link or what originated, share a good teaser of your post and just add a link. That way you at least get traction from where you posted it (Twitter, Slack). If anyone was interested they'll click to see more.
