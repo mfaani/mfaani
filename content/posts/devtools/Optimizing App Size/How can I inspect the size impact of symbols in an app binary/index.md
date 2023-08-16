@@ -2,7 +2,7 @@
 title: "How Can I Inspect the Size Impact of Symbols in an App Binary: A Practical Guide for Apple Developers"
 date: 2023-08-11T16:21:06-04:00
 category: "Devtools"
-tags: [nm, symbols, App Size, iOS, macOS, swiftc, dSYM, strip]
+tags: [nm, symbols, App Size, iOS, macOS, swiftc, dSYM, strip, debug symbols, ]
 ShowToc: true
 description: "Learn how to use nm to count extra symbols that impact App Size" 
 ---
@@ -42,12 +42,12 @@ They get generated within an [object file](https://mfaani.com/posts/devtools/opt
 - Think of global symbols as the public interface. For frameworks this should not get stripped. For apps you can strip them as long as you don't need the public interface for unit-testing. If you strip the global symbols for a framework then you're not exposing the binary's interface to others binaries that need to communicate with your binary. 
 - Undefined symbols are symbols that don't exist within the binary. They're a dependency of the current binary. They should NOT be stripped. Otherwise the linker expects them to exist and things would fail. 
 - Debug symbols are used to generate the dSYM. They must get stripped (only after you've extracted the dSYM). Otherwise it would cause bloat in your binary. Xcode should handle this correctly but often things get messed up. 
-- Swift symbols are used to make things compile. Think of them more as scaffolding. Once the binary is compiled, they must get stripped. Otherwise it would cause bloat in your binary. Xcode should handle this correctly but often things get messed up. 
+- Swift symbols are used to make things compile. Think of them more as scaffolding. Once the binary is compiled, most of them can be stripped. Otherwise it would cause bloat in your binary. Xcode should handle this correctly but often things get messed up. 
 
 NOTE: The stripping of these symbols are governed by Xcode Build Settings. But it's beyond the scope of this article. The focus of this article is to examine a binary after it's been made ready for the App Store. 
 
 ### So some symbols need to get stripped? 
-Yes. Some. Debug symbols should get stripped after you have the dSYM created. Swift symbols should get stripped after compilation as well. They're both redundant. 
+Yes. Some. Debug symbols should get stripped only after you have the dSYM created. Most swift symbols should get stripped after compilation as well.  
 
 Xcode strips Release builds for you. So you usually don't have to care unless things are misconfigured.
 
@@ -59,7 +59,7 @@ That's where the `nm` command becomes useful.
 
 ### What does the nm command do?
 
-`nm` is short for names. Names refers to the name/symbol of each address. 
+`nm` is short for 'Name Mangling'. Name refers to the name/symbol of each address. 
 
 Just pick any [binary](https://mfaani.com/posts/devtools/whats-the-difference-between-an-app-bundle-and-a-binary/) and just do:
 
@@ -201,4 +201,4 @@ My post isn't meant to say you're doing things wrong nor that by following its s
 
 ## Acknowledgements
 
-Major shout out to [Mark Rowe](https://twitter.com/bdash) who answered a lot of my questions about `nm` so I can put together this post. His exceptional [RTFM](https://en.wikipedia.org/wiki/RTFM) abilities was helpful for figuring out how to make `nm` and `strip` commands work.
+Major shout out to [Mark Rowe](https://twitter.com/bdash) who answered a lot of my questions about `nm` so I can put together this post. His exceptional [RTFM](https://en.wikipedia.org/wiki/RTFM) abilities was helpful for figuring out how to make `nm` and `strip` commands work. Shout outs to [Saagar Jha](https://saagarjha.com) as well for helping through out these series and reviewing this post. 
