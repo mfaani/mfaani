@@ -21,8 +21,8 @@ This post covers some of the jargon and how it all comes together. And even thou
 - `.c`: A source code file written in C programming language.
 - `.swift`: A source code file written in Swift programming language.
 - `.o`: A machine code interpretation of the source code. An intermediate file. Also known as an object file. Named as such, because it's the object/goal of our source code.
-- `.a`: An archive file. Made up from multiple `.o` files. Also known as a **Static Library** or **Archive**.
-- `.h`: A file that doesn't contain implementation. But only the interface. 
+- `.h`: A file that doesn't contain implementation. But only the interface.
+- `.a`: An archive file. Made up from multiple `.o` files. Also known as a **Static Library** or **Archive**. 
 - `.dylib`: A separate binary, from the main executable. Gets linked with the app’s executable at runtime. Gets copied into the app wrapper. As a result, the main executable is smaller and, because the code is loaded only when it is needed, the build time is typically faster. Also known as **Dynamic Library**. Often they also have an empty file type. 
 - ` ` : (commonly with empty file types). A binary. For the scope of our discussions our focus is mostly on dylibs or app executables. Binaries in the Apple world (OSX and iOS) usually don't have a file type. They're the end product, the program that gets ran/executed. 
 As the name suggests it's just 0s and 1s. It's the lowest possible language level. You can't get any lower than that. Some examples of an executable are: 
@@ -55,7 +55,7 @@ Other languages have _header files_ which they include. Swift is made more simpl
 - `ar`: An archiving tool. Helps to combine files together. Originally used for backups and distributions. Converts multiple `.o` files into a `.a` file. The difference between `ar` and `ld` is that:
     - `ar` just groups together object files. The product of that is a static library. 
     - `ld` creates an app or a dylib. And can do such with some (stripping related) optimizations. 
-- `dyld`: The runtime linker, for dynamic linking. 
+- `dyld`: The runtime linker, for dynamic linking a.k.a. 'dynamic link editor'.
 - `swiftc`: Is the command-line interface to the Swift compiler, which is responsible for compiling Swift source code into machine code that can be run on a computer. It basically does what `cc` does for `.c` files, but just for `.swift` files. It's ultimately a symlink to `swift`. For more on that see [here](https://stackoverflow.com/questions/57777091/whats-the-difference-between-swift-and-swiftc)
 - `strip`: Used to strip symbols of all kinds from binaries. You can strip various kinds of symbols
     - Debug Symbols

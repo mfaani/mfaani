@@ -40,7 +40,7 @@ They get generated within an [object file](https://mfaani.com/posts/devtools/opt
 
 ### Can you explain the above symbols a bit more? 
 - Think of global symbols as the public interface. For frameworks this should not get stripped. For apps you can strip them as long as you don't need the public interface for unit-testing. If you strip the global symbols for a framework then you're not exposing the binary's interface to others binaries that need to communicate with your binary. 
-- Undefined symbols are symbols that don't exist within the binary. They're a dependency of the current binary. They should NOT be stripped. Otherwise the linker expects them to exist and things would fail. 
+- Undefined symbols are symbols that are not defined within the binary. They’re dependencies of the current binary. They can’t be stripped, because the linker needs them.
 - Debug symbols are used to generate the dSYM. They must get stripped (only after you've extracted the dSYM). Otherwise it would cause bloat in your binary. Xcode should handle this correctly but often things get messed up. 
 - Swift symbols are used to make things compile. Think of them more as scaffolding. Once the binary is compiled, most of them can be stripped. Otherwise it would cause bloat in your binary. Xcode should handle this correctly but often things get messed up. 
 
