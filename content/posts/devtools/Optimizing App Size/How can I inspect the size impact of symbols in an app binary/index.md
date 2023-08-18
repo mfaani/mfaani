@@ -69,7 +69,7 @@ nm -g <your binary> # List all globals in a binary (anything that's made public)
 nm -u <your binary> # List only undefined symbols in a binary. (any symbol which you import)
 ```
 
-
+Like you can try this on anything. Examples: commands like `ls`, `cp`, `mkdir`, or binaries within macOS apps such as Safari, Terminal, or binaries within the app wrapper of an app you're developing. 
 ### What are some ways to get a more granular view into the symbols? 
 
 Get count of **Debug** symbols:
