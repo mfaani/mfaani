@@ -148,7 +148,7 @@ To be more accurate, the [docs](https://developer.apple.com/documentation/swift/
 
 > Because a `PartialRangeFrom` sequence counts upward indefinitely, do not use one with methods that read the entire sequence before returning, such as `map(_:)`, `filter(_:)`, or `suffix(_:)`. It is safe to use operations that put an upper limit on the number of elements they access, such as `prefix(_:)` or `dropFirst(_:)`, and operations that you can guarantee will terminate, such as passing a closure you know will eventually return true to `first(where:)`.
 
-Meaning the following have to process the **entire** before the application of `map` or `filter` is finishes. 
+Meaning the following have to process the **entire** range, before the application of `map` or `filter` finishes. 
 
 ```swift
 (1...).map { $0 * 2 } // 💣💥
