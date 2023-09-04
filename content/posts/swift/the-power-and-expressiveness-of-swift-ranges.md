@@ -226,5 +226,5 @@ With Characters in Swift you don't get this conformance out of the box because S
 ## Any last words?
 
 - Often usage of ranges can be difficult. Because you might need to convert a `Range` into `ClosedRange` or vice versa and it's not very straightforward. 
-- You might have to handle bounds. Example `0...array.count - 1` when the array is empty will result in a range that creates `0...-1` which results in a crash/error. Or you might have a left and right range where you range shrinks every time, this could lead to  a range of 0, 1, or often negative. So you have to be considerate of all those. 
+- You might have to handle bounds. Example `0...array.count - 1` when the array is empty will result in a range that creates `0...-1` which results in a crash/error. Or you might have a left and right range where you range shrinks every time, this could lead to  a range of 0, 1, or often negative. So you have to be considerate of all those. As a result you must always have **safety checks** in your ranges, otherwise your app will crash.
 - There's another range type that we didn't discuss. See [unboundedrange](https://developer.apple.com/documentation/swift/unboundedrange_/)
