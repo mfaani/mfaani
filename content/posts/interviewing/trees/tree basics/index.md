@@ -206,11 +206,11 @@ Go back to Example 1 above. Ask yourself how is the in-order & level-order trave
 ### What's the benefit of a balanced Tree?
 - A balanced tree will allow you to cut the tree into half by having half on its left and the other half on its right. Unlike a degenerate tree where 100% of the remaining nodes is still on the same side. Degenerate trees are bad for doing a binary search tree. They're more similar to a Linked List or an array. 
 
-## Major Helper functions
+## Helper functions
 - Tree Printer. See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L40-L60)
 - Array to 'Balanced Height Binary Tree Search' Convertor
-  - level-ordered array to tree. See [here](https://medium.com/nerd-for-tech/swift-leetcode-series-binary-tree-level-order-traversal-db7603af1bb3). Algorithm works only if  
-  - in-order array to tree: See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L62-L79)
+  - level-ordered array to tree. See [here](https://medium.com/nerd-for-tech/swift-leetcode-series-binary-tree-level-order-traversal-db7603af1bb3). Creates a tree exactly based on its input. 
+  - in-order array to tree: See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L62-L79). Only creates a heigh balanced tree. Won't create any other representation of the tree. 
 - Traversals. See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L23-L36)
 
 ## Summary
@@ -218,7 +218,7 @@ Go back to Example 1 above. Ask yourself how is the in-order & level-order trave
 
 - A balanced binary search tree is best for searching because you can cut in half. 
 
-- Contrary to a level-order traversal has a 1:1 relationship with its tree visualization, an in-order traversal doesn't have a 1:1 relationship with its tree visualization. This is because of the different insertion orders. This means a level-order traversal is capable of reflecting the positions of all nodes. However an in-order traversal algorithm can't be reverse mapped to its original tree. So choose your algorithms wisely. 
+- Contrary to a level-order traversal has a 1:1 relationship with its tree visualization, an in-order traversal doesn't have a 1:1 relationship with its tree visualization. This is because of the different insertion orders. This means a level-order traversal is capable of reflecting the positions of all nodes. However an in-order traversal algorithm can't be reverse mapped to its original tree. So choose your algorithms wisely. Also level-order is more generic and applicable to non-binary trees as well whereas in-order traversal is only applicable to binary search trees. 
 
 Example: 
 
