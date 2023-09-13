@@ -88,3 +88,12 @@ pod lib lint
 - add a link to your website for EVERY image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
 - Be wary about accidentally publishing a post. 
 - If you don't include `---` at the top of your post, then none of frontmatter will get processed. And you'd have a messed up title + if it's a draft, it will get published. 
+- Have expandable section. You can default it to open. See [here](https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab). Example:
+
+```
+<details>
+  <summary>See answer</summary>
+  - in-order traversal for all will be: `[1,2,3,4]`
+  - level-order would be different for each. 
+</details>
+```
