@@ -22,9 +22,6 @@ languages:
         - name: ✍️ Blog
           url: archives/
           weight: 5
-        - name: 👨🏼‍💻 About
-          url: about/
-          weight: 10
         - name: 🛠️ Devtools 
           url: posts/devtools
           weight: 15
@@ -37,6 +34,9 @@ languages:
         - name: 🏷️ Tags
           url: tags/
           weight: 30
+        - name: 👨🏼‍💻 About
+          url: about/
+          weight: 35
   # fa:
   #     languagedirection: rtl
   #     weight: 3
