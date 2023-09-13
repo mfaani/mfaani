@@ -202,6 +202,8 @@ Go back to Example 1 above. Ask yourself how is the in-order & level-order trave
   - A complete binary tree: A binary tree in which every level, except possibly the last level, is completely filled, and all nodes in the last level are as far left as possible.
   - A Degenerate tree: Every non-leaf node has just one child in a binary tree known as a Degenerate Binary tree. Example 1, the A,E trees are degenerate and considered not efficient for sorting.
 
+  See [here](https://towardsdatascience.com/5-types-of-binary-tree-with-cool-illustrations-9b335c430254) for more.
+
 ### What's the benefit of a balanced Tree?
 - A balanced tree will allow you to cut the tree into half by having half on its left and the other half on its right. Unlike a degenerate tree where 100% of the remaining nodes is still on the same side. Degenerate trees are bad for doing a binary search tree. They're more similar to a Linked List or an array. 
 
@@ -233,6 +235,5 @@ nil    3
 
 I was confusing the two traversals and lost a tremendous amount of time, hence this blog post. 
 
-## References and Acknowledgements
-- Shout out to [Josh Caswell](https://github.com/woolsweater) and [Tim Vermeulen](https://github.com/timvermeulen) for answering some of my questions.
-- [Different Types of Binary Tree with colourful illustrations](https://towardsdatascience.com/5-types-of-binary-tree-with-cool-illustrations-9b335c430254) by [Anand K Parmar](https://medium.com/@anandkparmar)
+## Acknowledgements
+Shout out to [Josh Caswell](https://github.com/woolsweater) and [Tim Vermeulen](https://github.com/timvermeulen) for answering some of my questions.
