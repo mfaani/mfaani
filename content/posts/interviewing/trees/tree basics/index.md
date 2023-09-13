@@ -3,8 +3,7 @@ title: "Tree Basics and some Swift helpers for leetcode"
 date: 2023-09-11T11:16:01-04:00
 category: [Interviewing]
 tags: ['interviewing','trees', 'binary trees', 'binary search tree', 'tree traversal', 'in-order traversal', 'level-order traversal', 'swift',]
-description: "Some gotchas with different kinds of trees and traversals"
-draft: true
+description: "Some gotchas with different kinds of trees, tree mappings and traversals"
 ---
 
 I do leetcoding every once a while, but keep forgetting some tree basics. This post here it to help with that. 
