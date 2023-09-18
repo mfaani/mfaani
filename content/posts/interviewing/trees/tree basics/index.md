@@ -217,8 +217,11 @@ Go back to Example 1 above. Ask yourself how is the in-order & level-order trave
 - There are different kinds of trees that shouldn't be confused with one another. When it comes to binary trees, you may question why the in-order of different trees ends up the same. It's due to the insertion order. 
 
 - A balanced binary search tree is best for searching because you can cut in half. 
-
-- Contrary to a level-order traversal has a 1:1 relationship with its tree visualization, an in-order traversal doesn't have a 1:1 relationship with its tree visualization. This is because of the different insertion orders. This means a level-order traversal is capable of reflecting the positions of all nodes. However an in-order traversal algorithm can't be reverse mapped to its original tree. So choose your algorithms wisely. Also level-order is more generic and applicable to non-binary trees as well whereas in-order traversal is only applicable to binary search trees. 
+- Differences of level-order vs in-order traversal:
+  - level-order maintains a 1:1 relationship with its tree visualization. It's agnostic to order. And is just all about position. In-order is considerate of order, which is derived off of position and logic. 
+  - level-order can map `nil` elements in an array back to its original position. In-order isn't capable of properly mapping nil elements, because then a nil node will not have left/right elements. Think of our `[1,nil,3]` tree. If root is `nil` then its left and right nodes wouldn't exist. So you have to remove any `nil` element before mapping back.
+  - Level-order is more generic and applicable to non-binary trees as well whereas in-order traversal is only applicable to binary search trees.  
+  So choose your traversal/mapping algorithm wisely.‍
 
 Example: 
 
