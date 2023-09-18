@@ -86,7 +86,7 @@ All the above are a BST made of 1,2,3,4. Because all conform to the two rules. Y
 
 ## Tree Traversal
 - [Breadth First Search](https://en.wikipedia.org/wiki/Breadth-first_search) (BFS). Also known as level-order traversal. 
-- [Depth First Search](https://en.wikipedia.org/wiki/Depth-first_search) (DFS)
+- [Depth First Search](https://en.wikipedia.org/wiki/Depth-first_search) (DFS).
 
 ### Binary Search Traversal
 
@@ -165,7 +165,7 @@ nil    2    nil   6
 In-order array: `[nil,1,nil,2,nil,3,nil,5,nil,6,nil]`  
 Level-order traversal: `[3,1,5,nil,2,nil,6,nil,nil,nil,nil]`
 
-### Question``
+### Question
 Go back to Example 1 above. Ask yourself how is the in-order & level-order traversal among all variations of `[1,2,3,4]` different from each other?
 
 {{< details "Click to see answer 👇" >}}
@@ -235,4 +235,4 @@ nil    3
 I was confusing the two traversals and lost a tremendous amount of time, hence this blog post. 
 
 ## Acknowledgements
-Shout out to [Josh Caswell](https://github.com/woolsweater) and [Tim Vermeulen](https://github.com/timvermeulen) for answering some of my questions.
+Shout out to [Josh Caswell](https://github.com/woolsweater) and [Tim Vermeulen](https://github.com/timvermeulen) for answering my questions so I was able to put this post together. 
