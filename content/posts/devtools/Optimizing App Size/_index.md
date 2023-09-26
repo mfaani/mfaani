@@ -1,5 +1,5 @@
 ---
-Title: '⚡️ SERIES -  Optimizing App Sized'
+Title: '⚡️ SERIES -  Optimizing App Size'
 weight: 1000
 date: 2023-09-11T16:21:06-04:00
 category: "Devtools"
