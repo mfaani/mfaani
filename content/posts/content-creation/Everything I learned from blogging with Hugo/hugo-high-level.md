@@ -7,7 +7,7 @@ tags: ["hugo", "content-creation", "blogging"]
 ---
 
 
-## Why Hugo?
+# Why Hugo?
 
 - [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/). Unlike other tools, there is no `npm` or `ruby` hell that you have to deal with. 
 - It's super fast.
@@ -15,10 +15,10 @@ tags: ["hugo", "content-creation", "blogging"]
   - You can add `tags: [swift, json, network call]` and it will then add the tags to your post. 
   - Add `showToc: true` and will show a table of contents for your post.
 
-## Hugo High Level
+# Hugo High Level
 
 - I highly suggest you go through [this](https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/) post. It's about how to create a hugo theme from scratch.
-- Each theme has certain pre-configured layouts. In Hugo a layout is a structure for a webpage. You can have layouts that inherit from a sort of base class. In Hugo the base/root structure that all others inherit from is named: `baseof.html`. Every kind of screen inherits from its layout structure. Every Hugo theme must have a `baseof.html` file. Then it also most have two main layouts as well. 
+- Each theme has certain pre-configured layouts. In Hugo a layout is a structure for a webpage. You can have layouts that inherit from a sort of base class. In Hugo the base/root structure that all others inherit from is named: `baseof.html`. Every screen inherits from its layout structure. Every Hugo theme must have a `baseof.html` file. Then it also most have two main layouts as well. 
     - `single.html`: A layout for a single post.
     - `list.html`: A layout for a page that lists multiple posts.
   
@@ -28,13 +28,15 @@ Now let's just try _not_ to think in the context of Hugo, but just in the contex
  - mfaani.com/posts/first-post (a post)
  - mfaani.com/posts/second-post (a post)
  - mfaani.com (homepage)
- - mfaani.com/devtools/optimizing-app-size/ (a directory)
+ - mfaani.com/posts/devtools (a directory)
  - mfaani.com/about (a page)
 
-Both first-post and second-post use the `single.html` layout. They just query different posts. 
-Both homepage and optimizing-app-size directory use the `list.html` layout. They just query different ranges of posts.
+Both first-post, second-post and about page use the `single.html` layout. They just query different posts. 
+Both homepage and /devtools directory use the `list.html` layout. They just query different ranges of posts. 
+- Homepage queries all posts. 
+- /devtools directory queries only posts under that directory
 
-ATTENTION: For the homepage, you can an `index.html` in the layouts directory. It takes precedence instead of using `list.html` layout. 
+ATTENTION: For the homepage, you can add an  `index.html` in the layouts directory. It takes precedence instead of using `list.html` layout. 
 
  So for mosts sites you'd have `single.html`, `list.html` and a `index.html`. My blog doesn't have an `index.html` layout.
 
@@ -52,6 +54,49 @@ ATTENTION: For the homepage, you can an `index.html` in the layouts directory. I
      ShowCodeCopyButtons: true
    ```
   - The values of the config.yml file can often be overridden in the fronmatter of an individual post. 
+
+### Summary
+- Every theme has something like a base class named `baseof.html`.  
+- Single pages have a layout defined in `single.html`
+- List pages have a a layout defined in `list.html`
+- All of the above are within the theme. 
+
+How Hugo decides to use which layout is merely based on whether it needs to render a single post or a page that lists multiple posts together. 
+
+## Special files
+
+- **index.md:** it's better to explain with an example. 
+
+  ```
+  content 
+     posts 
+       hugo findings
+          imageA.jpg
+          imageB.png
+          index.md
+       third-post.md
+  ```
+  If I all I had was the above, then it means I have two blog posts named: 
+  - myblog.com/posts/hugo-finidings
+  - myblog.com/posts/third-post
+
+  `index.md` just makes things cleaner in a folder. Allows me to group a post and its images in a directory. 
+- **_index.md** allows us to add frontmatter to a directory. It's not a post. But just information to Hugo so it knows how to render a list page. Example if I had: 
+
+ ```
+  content 
+     posts 
+       hugo findings
+          postA.md
+          postB.md
+          postC.md        
+          _index.md
+       postD.md
+  ```
+then because I added `_index.md` then the I can access myblog/posts/hugo-findings/ and see a list of all posts that are under the name of that directory. 
+
+In Hugo's terminology, /hugo-findings is known as a section. 
+You can add frontmatter to the post much like another post. For more on that see [here](https://stackoverflow.com/questions/76884002/how-can-i-setup-my-hugo-url-so-i-can-list-all-desired-urls-under-a-certain-url-p/76885448#76885448)
 
 ## Other notes
 - Blogging vs SO
