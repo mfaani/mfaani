@@ -81,7 +81,7 @@ How Hugo decides to use which layout is merely based on whether it needs to rend
   - myblog.com/posts/third-post
 
   `index.md` just makes things cleaner in a folder. Allows me to group a post and its images in a directory. 
-- **_index.md** allows us to add frontmatter to a directory. It's not a post. But just information to Hugo so it knows how to render a list page. Example if I had: 
+- **_index.md** allows us to add metadata (frontmatter) to a directory. It's not a post. But just information to Hugo so it knows how to render a list page. Example if I had: 
 
  ```
   content 
@@ -93,10 +93,10 @@ How Hugo decides to use which layout is merely based on whether it needs to rend
           _index.md
        postD.md
   ```
-then because I added `_index.md` then the I can access myblog/posts/hugo-findings/ and see a list of all posts that are under the name of that directory. 
+then because I added `_index.md` then the I can access myblog/posts/hugo-findings/ and see a list of all posts that are under the name of that directory. Without adding `_index.md` opening myblog/posts/hugo-findings/ would result in a 404 error. 
 
 In Hugo's terminology, /hugo-findings is known as a section. 
-You can add frontmatter to the post much like another post. For more on that see [here](https://stackoverflow.com/questions/76884002/how-can-i-setup-my-hugo-url-so-i-can-list-all-desired-urls-under-a-certain-url-p/76885448#76885448)
+You can add frontmatter to the `_index.md_` much like any other post. For more on that see [here](https://stackoverflow.com/questions/76884002/how-can-i-setup-my-hugo-url-so-i-can-list-all-desired-urls-under-a-certain-url-p/76885448#76885448). Your blog can have as many _index.md as the number of directories within your `posts` directory. 
 
 ## Other notes
 - Blogging vs SO

@@ -35,7 +35,7 @@ I just came back to two of my old posts. I actually totally forgot I had them wr
   - I found things that I skipped without explaining them. 
   - I found ways to explain something better. 
 Basically, the context of a fresh mind (who might have forgotten some things) is closer to that of a reader with a blank slate — while the context of an author's mind is like one on steroids full of knowledge and context.
-- Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it. 
+- Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it.   
 
 ## Do I need to make a pull request for each post?
 - If it's a new post? No. Just add a good commit message
