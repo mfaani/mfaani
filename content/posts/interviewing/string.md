@@ -204,8 +204,8 @@ To check whether a string is empty, use its `isEmpty` property instead of compar
 
 ## Summary
 
-- `a` has a codepoint of . It's a grapheme by itself.  
-- ` ́` has a codepoint of . It's a grapheme by itself.  
+- `a` has a codepoint of 97. It's a grapheme by itself.  
+- ` ́` has a codepoint of 769. It's a grapheme by itself.  
 - Together they form a new grapheme cluster: `á`.  
 - `á`, _`á`_, **`á`** are all the same grapheme, but because of the font they're different glyphs.  
 - For interviewing most people that are comfortable with Swift, find it easier to convert the string to an array of Characters. Because the focus of the interview isn't on your String skills it's about your interview, algo and DS abilities. Or at least that's what it should be.
