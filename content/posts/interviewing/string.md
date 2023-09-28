@@ -30,9 +30,10 @@ print(String(describing: lowercaseA.asciiValue)) // nil
 
 ### Unicode
 Then came Unicode. It was roomy. Currently Unicode has `144,697` characters. 
+- Unlike ASCII where it only supported English, Unicode supports characters in most languages.
 - It has the same concept of mapping in ASCI. 
 - Anything is asci will have the same value it did in Unicode. This helps backwards compatibility.
-- However it also has combining logic. Examples: 
+- Has combining logic. Examples: 
     - `"a"` + `" ́"` together will create `"á"`.  You'd have to write it as such: `"a\u{301}"`. `\u{codepoint}`
     - `🇺` + `🇸` together will create 🇺🇸 . For more on that see https://en.wikipedia.org/wiki/Regional_indicator_symbol 
 
