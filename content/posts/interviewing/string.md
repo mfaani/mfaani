@@ -102,9 +102,11 @@ Depending on how the string/character is constructed the character count could b
 
 - A "glyph", also in the glossary (https://unicode.org/glossary/#glyph) which is typically used to mean "the drawn representation of graphemes".
 
-- Italic and bold don't create a different code point. If they did, then Unicode would have exploded. `grapheme + font -> glyph`
+- Italic and bold don't create a different code point. If they did, then Unicode would have exploded. Basically:
+  - `grapheme + (italic) font -> (italic) glyph`
+  - `grapheme + (bold) font -> (bold) glyph`
 
-## What do I in an interview? 
+## What should you do in interviews? 
 
 If all you want is **looping** then do: 
 
