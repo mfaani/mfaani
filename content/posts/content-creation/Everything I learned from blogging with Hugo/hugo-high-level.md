@@ -113,35 +113,19 @@ Make sure you see [here](https://stackoverflow.com/questions/76884002/how-can-i-
 ### 
 
 ## Other notes
-- Blogging vs SO
-
 - css basics
 - css variables
 - marketing your posts. Slack, Twitter, Stackoverflow. Promoting others...
 - fun learning curve
 - when to post? 
 - Spell check
-- Netlify previews
 
 - Google search console
 - If you make a change in your css stuff, then add images. For someone who's not a web developer, it becomes pretty difficult to understand which parameter I've changed...
     - or even explain what you learned in terms of `css`. Like for example if you learned how `>` works in CSS...
 - Try using smaller header sizes if you have too many headers. This practice is ok. I've seen books often have smaller chapter sizes. 
-- **Most important**. How can you make sure you don't have knowledge curse? Read your blog posts again after a month or two and see if it still makes sense. 
-    - Or try the 2, 2, 2, 6 rule. 2 hours. 2 days. 2 weeks. 6 months. 
-    - I just came back to two of my old posts. I actually totally forgot I had them written. It's a peculiar feeling. I found: 
-        - typos and grammatical mistakes. 
-        - I found things that I skipped without explaining them. 
-        - I found ways to explain something better. 
-    Basically the context of a fresh mind is more closer to an unbiased reader — while the context of an author's mind is like one on steroids full of pilled up knowledge.
-- Once you've published, then check all your links and images. 
-- Write things while they're fresh in your memory. Publish as soon as you'r 80% complete.
-- Do I need to make a pull request? 
-    - If it's a new post? No. Just add a good commit message
-    - Is it a blog structural change? A Theme change? A CSS change? Something totally different? Then yes. Add a PR
+ 
 
-- add a link to your website for EVERY image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
-- Be wary about accidentally publishing a post. 
 - If you don't include `---` at the top of your post, then none of frontmatter will get processed. And you'd have a messed up title + if it's a draft, it will get published. 
 
 What's the difference of Hugo vs doing things on my own with HTML, CSS? See: https://g.co/bard/share/03eabb77a4f5
