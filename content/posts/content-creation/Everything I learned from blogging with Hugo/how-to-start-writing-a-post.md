@@ -56,3 +56,4 @@ Basically, the context of a fresh mind (who might have forgotten some things) is
 - Add your website's URL at the bottom of every image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
 - Be wary about accidentally publishing a post. This is why it's good to check your website every once a while and not just the homepage, but go through all your posts to make sure no post has actually sneaked in. Often you miss 
 
+- Blogging vs SO
