@@ -95,6 +95,10 @@ And this something difficult to anticipate. Hence it's better to just avoid stat
 
 !["Static vs Dynamic Linking Comparison"](images/static-vs-dynaminc-linking.png)
 
+#### Similarities between Static and Dynamic Linking
+
+To be perfectly clear, they have a lot of similarities as well. Both have to get compiled, linked, and increase size. Both have their code absorbed into the app. Yet the manner which they get linked linked, compiled and placed into the app is still different. Both need to get stripped, have a presence in dSYMs but the manner in which they get stripped is somewhat different, and so is the placement of their dSYMs. 
+
 
 ### Note: Apple Frameworks are special. Reasons:
 
