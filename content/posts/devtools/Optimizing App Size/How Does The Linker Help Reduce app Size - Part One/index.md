@@ -1,10 +1,12 @@
 ---
-title: "Optimizing Binaries - How Does the Linker Help Reduce App Size? What are the different types of linking - Part 1"
+title: "Optimizing Binaries - How Does the Linker Help Reduce App Size? What are the different types of linking - Part One"
 date: 2023-07-04T15:04:27-05:00
 category: "Devtools"
 tags: ["Static Linking", "Dynamic Linking", "Static vs Dynamic Linking", ld, dyld, App Size]
 ShowToc: true
 description: "In this post I extract all the good chunks from Apple's fantastic session on linker and how it does things to reduce app size. I also discuss some of the difference between Compiler and Linker" 
+aliases:
+- how-does-the-linker-help-reduce-app-size-part-1
 ---
 
 In the [previous post](https://mfaani.com/posts/devtools/optimizing-app-size/jargon/#a-big-final-program) we talked about a problem with the linker: Linking a single function from a library could link to the _entire_ library. This creates a lot of bloat. 

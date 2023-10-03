@@ -1,10 +1,12 @@
 ---
-title: "Optimizing Binaries - How Does the Linker Help Reduce App Size? What are the different types of linking - Part 2"
+title: "Optimizing Binaries - How Does the Linker Help Reduce App Size? What are the different types of linking - Part Two"
 date: 2023-07-04T15:04:28-05:00
 category: "Devtools"
 tags: ["Static Linking", "Dynamic Linking", "Static vs Dynamic Linking", ld, dyld, CocoaPods, App Size]
 ShowToc: true
 description: "In this post I go through some of differences between the two linkers, their impact on app size and how we should be considerate of stripping symbols"
+aliases:
+- how-does-the-linker-help-reduce-app-size-part-2
 ---
 
 In the [previous post](https://mfaani.com/posts/devtools/optimizing-app-size/jargon/#a-big-final-program) we talked about how the linker's selective loading helps solve the bloat issue. But there are some other limitations to static linking. Because of those limitations software engineers created Dynamic libraries and the Dynamic Linker. In this post we'll go through some of those limitations and discuss the trade-offs between the two ways of linking and their sizing impact.
