@@ -14,6 +14,9 @@ tags: ["hugo", "content-creation", "blogging"]
 - Hugo has a semi easy building block system. Each theme has certain abilities that can be enabled as long as you add its appropriate metadata values. These metadata values are known as [frontmatter](https://gohugo.io/content-management/front-matter/). Examples:
   - You can add `tags: [swift, json, network call]` and it will then add the tags to your post. 
   - Add `showToc: true` and will show a table of contents for your post.
+  - Hugo automatically takes the first 70 words of your content as its summary and stores it into the `.Summary` variable
+    - Instead, you can manually define where the summary ends with a <!--more--> divider
+    - Alternatively, you can add a `summary` to the front matter if you don’t want your summary to be the beginning of your post
 
 # Hugo High Level
 
@@ -21,8 +24,9 @@ tags: ["hugo", "content-creation", "blogging"]
 - Each theme has certain pre-configured layouts. In Hugo a layout is a structure for a webpage. You can have layouts that inherit from a sort of base class. In Hugo the base/root structure that all others inherit from is named: `baseof.html`. Every screen inherits from its layout structure. Every Hugo theme must have a `baseof.html` file. Then it also most have two main layouts as well. 
     - `single.html`: A layout for a single post.
     - `list.html`: A layout for a page that lists multiple posts.
+- To be clear, you don't have to specify which layout you need to use. Hugo will just know based on the location and naming conventions of your markdown file. 
   
-  ### Quiz
+### Quiz
 Now let's just try _not_ to think in the context of Hugo, but just in the context of a website. What do you think each of the following links should represent?
 
  - mfaani.com/posts/first-post (a post)
@@ -81,7 +85,7 @@ It's better to explain with an example.
   - myblog.com/posts/hugo-finidings
   - myblog.com/posts/third-post
 
-  `index.md` just makes things cleaner in a folder. Allows me to group a post and its images in a directory. 
+  `index.md` just makes things cleaner in a folder. Allows me to group a post and its resources (images, pdfs) in a directory. For more on that see [Hugo - Page resources](https://gohugo.io/content-management/page-resources/)
 ### _index.md
 Allows us to add metadata (frontmatter) to a directory. It's not a post. But just information to Hugo so it knows how to render a list page. Example if I had: 
 
@@ -95,7 +99,7 @@ Allows us to add metadata (frontmatter) to a directory. It's not a post. But jus
           _index.md
        postD.md
 ```
-then because I added `_index.md` then the I can access myblog/posts/hugo-findings/ and see a list of all posts that are under the name of that directory. Without adding `_index.md` opening myblog/posts/hugo-findings/ would result in a 404 error. 
+then because I added `_index.md` then the I can access `myblog/posts/hugo-findings/` and see a list of all posts that are under the name of that directory. Without adding `_index.md` opening `myblog/posts/hugo-findings/` would result in a 404 error. 
 
 In Hugo's terminology, /hugo-findings is known as a section. 
 You can add frontmatter to the `_index.md_` much like any other post. Sample of `_index.md`:
@@ -103,6 +107,7 @@ You can add frontmatter to the `_index.md_` much like any other post. Sample of 
 ```
 ---
 Title: '⚡️ SERIES -  Optimizing App Size'
+date: 2022-04-23T04:17:58-04:00
 ---
 
 In this series I'll take about my struggles on how to be a better an iOS teacher, make better slides and what resources Apple provides. The series contains 10 posts. 
@@ -110,22 +115,19 @@ In this series I'll take about my struggles on how to be a better an iOS teacher
 
 Make sure you see [here](https://stackoverflow.com/questions/76884002/how-can-i-setup-my-hugo-url-so-i-can-list-all-desired-urls-under-a-certain-url-p/76885448#76885448). Your blog can have as many   `_index.md` as the number of directories within your `posts` directory. 
 
-### 
+#### What's the difference between `_index.md` and `index.md`?
 
-## Other notes
-- css basics
-- css variables
-- marketing your posts. Slack, Twitter, Stackoverflow. Promoting others...
-- fun learning curve
-- when to post? 
-- Spell check
+| Syntax      | groups together | uses | creates |
+| ----------- | --------------- | ---- | ------- |
+| `index.md`      | a post and the resources referenced from its frontmatter and accessible to its directory  | `single.html` | a post |
+| `_index.md`   | all posts and the resources referenced from its frontmatter and accessible to its directory        | `list.html` | a list page |
 
-- Google search console
-- If you make a change in your css stuff, then add images. For someone who's not a web developer, it becomes pretty difficult to understand which parameter I've changed...
-    - or even explain what you learned in terms of `css`. Like for example if you learned how `>` works in CSS...
-- Try using smaller header sizes if you have too many headers. This practice is ok. I've seen books often have smaller chapter sizes. 
+
+#### Can I use both an `_index.md` and an `index.md` file in the same directory?
+
+From my experience you can't. It because unclear to Hugo if it has to process the `index.md` and make a post for the blog and use the `single.html` layout or if needs to process the `_index.md` and make a section/directory and use the `list.html` layout. For more on their differences see [here](https://gohugo.io/content-management/page-bundles/#readout)
  
-
+## Other notes
 - If you don't include `---` at the top of your post, then none of frontmatter will get processed. And you'd have a messed up title + if it's a draft, it will get published. 
 
 What's the difference of Hugo vs doing things on my own with HTML, CSS? See: https://g.co/bard/share/03eabb77a4f5
@@ -136,11 +138,10 @@ https://g.co/bard/share/6ccf01f1f0b0
 
 > Partials are small, context-aware components that can be used economically to keep your templating DRY.
 
-_context-aware_ is the more technical term that implies that `.Title` has a different meaning for each post or at the global level vs post level...
+_context-aware_ is the more technical term that implies that `.Title` has a different meaning for each post or at the global level vs post level. At the post level, `.Title` is the title of the post. At the global level, `.Title` is the title of the website.
 
-I think also as long as you create certain layouts then Hugo knows how to stich them up all together. 
 
-- Go through this tutorial as well. It will help a lot. Seeing this tree structure was very helpful: 
+- Going through [this](https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/) this tutorial helped me signifcantly. Seeing this tree structure and the interlals of `baseof.html`, `single.html`, `list.html` was very helpful. Unlike real themes, the tutorial is barebone and simple to understand.
 
 ```
 .
@@ -178,18 +179,12 @@ I think also as long as you create certain layouts then Hugo knows how to stich 
 ```
 
 from: https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/
-- Hugo automatically takes the first 70 words of your content as its summary and stores it into the .Summary variable
-- Instead, you can manually define where the summary ends with a <!--more--> divider
-- Alternatively, you can add a summary to the front matter if you don’t want your summary to be the beginning of your post
 
-- Adding `_index.md` at any directory will list that directory for you with its URL. 
- - You can do this for any directory, either top directory or anything
- - You can add extra text or html at the top as well...
+# Summary
 
- Explain Hugo without using its own jargon. 
-
- You can have a partial for Next Prev pages. See https://youtu.be/ZFL09qhKi5I?t=1962
-
- and your next could be the next page in all your posts or just next in the current section 
-- SEO
- ## Pain points
+- Use the config for global configuration of your theme
+- Use frontmatter to configure your posts
+- Hugo has distinct layouts for single pages vs pages that are a list of pages
+- Each layout is made up of multiple templates. Templates are things like header, footer, head, etc. 
+- Use `index.md` to bundle/group resources with a page
+- Use `_index.md` to bundle/group resources with pages of a directory

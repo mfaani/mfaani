@@ -6,7 +6,12 @@ draft: true
 tags: ["hugo", "content-creation", "Hugo Formatting", "Hugo Frontmatter"]
 ---
 
-- Add `ShowToc: true` to your frontmatter to show table of content. Your theme my not have the `ShotToc` frontmatter
+Examples:
+  - You can add `tags: [swift, json, network call]` and it will then add the tags to your post. 
+  - Add `showToc: true` and will show a table of contents for your post.
+  - Hugo automatically takes the first 70 words of your content as its summary and stores it into the `.Summary` variable
+    - Instead, you can manually define where the summary ends with a <!--more--> divider
+    - Alternatively, you can add a `summary` to the front matter if you don’t want your summary to be the beginning of your post
 - Customize `Description`. The value of this field is used as an abstract in your front page and link previews.
 - Add two spaces to create new line after a line end. Otherwise hugo will just continue the line. This is something hard to grasp. Because of this I usually manually review my rendered post with `hugo server -D`
 
