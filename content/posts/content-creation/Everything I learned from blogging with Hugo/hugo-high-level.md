@@ -11,12 +11,7 @@ tags: ["hugo", "content-creation", "blogging"]
 
 - [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/). Unlike other tools, there is no `npm` or `ruby` hell that you have to deal with. 
 - It's super fast.
-- Hugo has a semi easy building block system. Each theme has certain abilities that can be enabled as long as you add its appropriate metadata values. These metadata values are known as [frontmatter](https://gohugo.io/content-management/front-matter/). Examples:
-  - You can add `tags: [swift, json, network call]` and it will then add the tags to your post. 
-  - Add `showToc: true` and will show a table of contents for your post.
-  - Hugo automatically takes the first 70 words of your content as its summary and stores it into the `.Summary` variable
-    - Instead, you can manually define where the summary ends with a <!--more--> divider
-    - Alternatively, you can add a `summary` to the front matter if you don’t want your summary to be the beginning of your post
+- Hugo has a semi easy building block system. Each theme has certain abilities that can be enabled as long as you add its appropriate metadata values. These metadata values are known as [frontmatter](https://gohugo.io/content-management/front-matter/). For more on that see the next post. 
 
 # Hugo High Level
 
@@ -85,7 +80,9 @@ It's better to explain with an example.
   - myblog.com/posts/hugo-finidings
   - myblog.com/posts/third-post
 
-  `index.md` just makes things cleaner in a folder. Allows me to group a post and its resources (images, pdfs) in a directory. For more on that see [Hugo - Page resources](https://gohugo.io/content-management/page-resources/)
+- `index.md` just makes things cleaner in a folder. Allows me to group a post and its resources (images, pdfs) in a directory. For more on that see [Hugo - Page resources](https://gohugo.io/content-management/page-resources/)
+- If you don't use `index.md` then you can't reference to images in its directory. Only way to reference images is if your file is named `index.md` or `_index.md`. Only these two special files have the ability to group/bundle up resources with markdown files. 
+
 ### _index.md
 Allows us to add metadata (frontmatter) to a directory. It's not a post. But just information to Hugo so it knows how to render a list page. Example if I had: 
 
@@ -138,7 +135,6 @@ https://g.co/bard/share/6ccf01f1f0b0
 
 > Partials are small, context-aware components that can be used economically to keep your templating DRY.
 
-_context-aware_ is the more technical term that implies that `.Title` has a different meaning for each post or at the global level vs post level. At the post level, `.Title` is the title of the post. At the global level, `.Title` is the title of the website.
 
 
 - Going through [this](https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/) this tutorial helped me signifcantly. Seeing this tree structure and the interlals of `baseof.html`, `single.html`, `list.html` was very helpful. Unlike real themes, the tutorial is barebone and simple to understand.

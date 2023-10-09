@@ -1,12 +1,12 @@
 ---
 title: "Hugo Post Formatting Basics"
-date: 2022-04-23T04:17:58-04:00
+date: 2023-10-05T04:17:58-04:00
 category: 'content-creation'
 draft: true
 tags: ["hugo", "content-creation", "Hugo Formatting", "Hugo Frontmatter"]
 ---
 
-Examples:
+## Frontmatter
   - You can add `tags: [swift, json, network call]` and it will then add the tags to your post. 
   - Add `showToc: true` and will show a table of contents for your post.
   - Hugo automatically takes the first 70 words of your content as its summary and stores it into the `.Summary` variable
@@ -14,6 +14,8 @@ Examples:
     - Alternatively, you can add a `summary` to the front matter if you don’t want your summary to be the beginning of your post
 - Customize `Description`. The value of this field is used as an abstract in your front page and link previews.
 - Add two spaces to create new line after a line end. Otherwise hugo will just continue the line. This is something hard to grasp. Because of this I usually manually review my rendered post with `hugo server -D`
+
+## Syntax Formatting
 
 - Highlighting individual code lines. Example:
 ```swift { hl_lines=["16-20"]} 
@@ -31,6 +33,8 @@ gem install bundler -v "2.3.3"
 bundle install
 pod lib lint
 ```
+
+## Resource management
 
 - With images, overtime your static folder will turn into a big graveyard. So it's best that you re-structure your posts into
    - Bad way:
@@ -51,7 +55,7 @@ pod lib lint
                 - images
                     - imageB
 
-- `.Title` at the top level of a layout page means website's title. But if nested within the context of a blog post, then `.Title` means the posts's title. See [here](https://youtu.be/w6_cQsTwd3Q?t=412) for more.
+_context-aware_ is the more technical term that implies that `.Title` has a different meaning for each post or at the global level vs post level. At the post level, `.Title` is the title of the post. At the global level, `.Title` is the title of the website. See [here](https://youtu.be/w6_cQsTwd3Q?t=412) for more.
 - Have expandable section. You can default it to open. See [here](https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab). Example:
 
 ```
@@ -61,9 +65,33 @@ pod lib lint
   - level-order would be different for each. 
 </details>
 ```
-- Shortcodes
-## Hugo Theme
+## Making changes to your theme
 
-- git submodule
+If you ever needed to make changes to your shortcodes, then you have to: 
+1. Fork the theme
+2. Change directory to your theme's repo. This is a subdirectory from the main repo that uses your theme. 
+3. Make changes locally to the theme. 
+4. Push the commit to your fork
+5. Change directory to your website's directory. Then if you do a `git status` you'd see a change in the SHA of your submodule. Commit the SHA. 
+6. Then once you push to Netlify, Netlify will checkout the correct commit using the SHA of the submodule.
 
-- The timestamp of your posts is important. Like you may have actually started your draft 10 days ago, or might have even started the draft before a currently published post. Because of that you should adjust your current timestamp to the publish date...
+## Shortcodes
+
+It's a way for you to do custom HTML within markdown. Think of writing the html cusomization in shortcode. Then naming that customization. Then invoking it in markdown. Example see here:
+
+### Usage of shortcode
+
+!["shortcode usage"](shortcode-syntax.png "I purpose used a screenshot otherwise Hugo would have rendered the shortcode and not shown the syntax.")
+
+### Shortcode definition
+
+```
+<audio controls>
+  <source src="/{{.Get "audio-name"}}.{{.Get "audio-type"}}" type="audio/{{.Get "audio-type"}}"> Your browser does
+  not support the audio element.
+</audio>
+```
+
+### Shortcode visualization
+
+!["shortcode visualization"](shortcode-visualization.png "Fidelity Account List. The list remains there for some screens.")
