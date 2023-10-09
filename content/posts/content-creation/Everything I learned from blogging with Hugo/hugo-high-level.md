@@ -1,6 +1,6 @@
 ---
-title: "Everything I Learned About Blogging With Hugo"
-date: 2022-04-23T04:17:58-04:00
+title: "Hugo High Level"
+date: 2023-10-02T04:17:58-04:00
 category: 'content-creation'
 draft: true
 tags: ["hugo", "content-creation", "blogging"]
@@ -81,7 +81,7 @@ It's better to explain with an example.
   - myblog.com/posts/third-post
 
 - `index.md` just makes things cleaner in a folder. Allows me to group a post and its resources (images, pdfs) in a directory. For more on that see [Hugo - Page resources](https://gohugo.io/content-management/page-resources/)
-- If you don't use `index.md` then you can't reference to images in its directory. Only way to reference images is if your file is named `index.md` or `_index.md`. Only these two special files have the ability to group/bundle up resources with markdown files. 
+- If you don't use `index.md` then you can't reference to images in its directory. Only way to reference images is if your file is named `index.md` or `_index.md`. Only these two special files _have the ability to group/bundle up resources with markdown files. 
 
 ### _index.md
 Allows us to add metadata (frontmatter) to a directory. It's not a post. But just information to Hugo so it knows how to render a list page. Example if I had: 

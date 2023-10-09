@@ -1,6 +1,6 @@
 ---
-title: "Everything I Learned About Blogging With Hugo"
-date: 2022-04-23T04:17:58-04:00
+title: "Tips for bettering post creation"
+date: 2023-10-01T04:17:58-04:00
 category: 'content-creation'
 draft: true
 tags: ["hugo", "content-creation", "blogging"]

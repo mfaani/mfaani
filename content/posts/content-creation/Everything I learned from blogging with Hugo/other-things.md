@@ -1,6 +1,6 @@
 ---
-title: "Hugo Post Formatting Basics"
-date: 2022-04-23T04:17:58-04:00
+title: "Lesser known things about blogging"
+date: 2023-10-04T04:17:58-04:00
 category: 'content-creation'
 draft: true
 tags: ["hugo", "content-creation", "Hugo Formatting", "Hugo Frontmatter"]
