@@ -6,96 +6,29 @@ draft: true
 tags: ["hugo", "content-creation", "Hugo Formatting", "Hugo Frontmatter"]
 ---
 
+# Blogging vs posting on Stackoverflow
 
-## Other notes
-- Blogging vs SO
+- Scope: A blog post can be extremely broad and open ended. A Stackoverflow question is highly focused. Usually there's a code that doesn't work. Yet a blog post can be Fastline or about a simple tutorial on how to use URLSession, but then URLSession has soooo many things to demo. 
+- Style: You can use your own theme with your blog. Modify the layout to your need. With Stackoverflow the layout hasn't changed for years. 
+- Reach: I think I've had maybe around 7K visits from 2yrs of blogging. With Stackoverflow I think I've had 1M visits on my posts in the same time frame.
+- Social: No one can really comment on my blog posts. I try to market my posts on Twitter/Slack. Occasionally I get a like or two. With Stackoverflow I can end up getting 0-3 upvotes a day or some replies (questions, feedback, correction, edits). Each time that happens on Stackoverflow it rekindles my memory on the subject. It's far less the same with blogging. 
+- Effort: With my blog, I have to figure out the design, push to GitHub and pay for Netlify, hosting. With Stackoverflow, there isn't any ownership. Yet there's moderation. I can't post a broad question. 
+- Prestige: Stackoverflow has a certain amount of prestige. But not as much. A blog post implies more ownership. A GitHub repo that is highly liked/forked implies more. 
+- SEO: It's complicated. I can't fully claim to say that my blog is indexed by Google in a timely manner (less than 3-4 weeks).  Yet with Stackoverflow, your questions or answers get indexed almost by the hour. A blog post of mine may not show up for a week or it actually never ends up showing. 
 
-- css basics
-- css variables
-- marketing your posts. Slack, Twitter, Stackoverflow. Promoting others...
-- fun learning curve
-- when to post? 
-- Spell check
-- Netlify previews
-
-- Google search console
-- If you make a change in your css stuff, then add images. For someone who's not a web developer, it becomes pretty difficult to understand which parameter I've changed...
-    - or even explain what you learned in terms of `css`. Like for example if you learned how `>` works in CSS...
-- Try using smaller header sizes if you have too many headers. This practice is ok. I've seen books often have smaller chapter sizes. 
-
-- If you don't include `---` at the top of your post, then none of frontmatter will get processed. And you'd have a messed up title + if it's a draft, it will get published. 
-
-What's the difference of Hugo vs doing things on my own with HTML, CSS? See: https://g.co/bard/share/03eabb77a4f5
-
-What's the difference between partial template and layout? See https://g.co/bard/share/2b83038a649a
-
-https://g.co/bard/share/6ccf01f1f0b0
-
-> Partials are small, context-aware components that can be used economically to keep your templating DRY.
-
-_context-aware_ is the more technical term that implies that `.Title` has a different meaning for each post or at the global level vs post level...
-
-I think also as long as you create certain layouts then Hugo knows how to stich them up all together. 
-
-- Go through this tutorial as well. It will help a lot. Seeing this tree structure was very helpful: 
-
-```
-.
-├── archetypes
-│   └── default.md
-├── config.toml
-├── content
-├── data
-├── layouts
-├── resources
-│   └── _gen
-│       ├── assets
-│       └── images
-├── static
-└── themes
-    └── exampleTheme
-        ├── LICENSE
-        ├── archetypes
-        │   └── default.md
-        ├── layouts
-        │   ├── 404.html
-        │   ├── _default
-        │   │   ├── baseof.html
-        │   │   ├── list.html
-        │   │   └── single.html
-        │   ├── index.html
-        │   └── partials
-        │       ├── footer.html
-        │       ├── head.html
-        │       └── header.html
-        ├── static
-        │   ├── css
-        │   └── js
-        └── theme.toml
-```
-
-from: https://retrolog.io/blog/creating-a-hugo-theme-from-scratch/
-- Hugo automatically takes the first 70 words of your content as its summary and stores it into the .Summary variable
-- Instead, you can manually define where the summary ends with a <!--more--> divider
-- Alternatively, you can add a summary to the front matter if you don’t want your summary to be the beginning of your post
-
-- Adding `_index.md` at any directory will list that directory for you with its URL. 
- - You can do this for any directory, either top directory or anything
- - You can add extra text or html at the top as well...
-
- Explain Hugo without using its own jargon. 
-
- There
-
-
-
- You can have a partial for Next Prev pages. See https://youtu.be/ZFL09qhKi5I?t=1962
-
- and your next could be the next page in all your posts or just next in the current section 
-- SEO
+## What's the difference of Hugo vs doing things on my own with HTML, CSS? See: https://g.co/bard/share/03eabb77a4f5
+With both you have to come up with some base layout that all will use. Yet with Hugo you can:
+- Override the base layout.
+- Pass parameters down.
+- Use markdown, shortcode, frontmatter, config file, special files (inde.md, _index.md) to format posts. 
 
 ## Design
 Tweaking your own theme or using your theme to its extreme is a great way to improve the design of your blog. It can also be fun to learn. With that said, often asking a professional web-developer to tweak and improve your blog's design, css can drastically improve the UX of your blog. Don't shy away from it.
 
- ## Pain points
+ ## Final thoughts
+- Because a blog post isn't focused, you can end up going very deep, or try to perfect your blog post 100 times. When you're on stackoverflow often you might need to get your answer published quicker, just for the sake of more points. With blogging I've had posts that have took me 5 months to write or posts that I wrote for 1-2 months but then never published. Yet this can also be a blessing. The freeform nature of writing things down has helped me to be better at organizing things
+- I've built a better sense of ownership. I have interlinked blog post/series. Feel pround in that regard. 
+- I get to learn about web development. A tiny bit of CSS and a whole lot of Hugo.
+- I've written blog posts that I forgot I ever wrote them. I've came back to my blog posts a few times and re-learned things in it. It felt great!
+
 
