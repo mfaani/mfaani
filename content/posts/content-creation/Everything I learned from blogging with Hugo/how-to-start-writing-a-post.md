@@ -1,5 +1,5 @@
 ---
-title: "Tips for bettering post creation"
+title: "Tips for post creation"
 date: 2023-10-01T04:17:58-04:00
 category: 'content-creation'
 tags: ["hugo", "content-creation", "blogging"]
