@@ -31,6 +31,7 @@ Each and every one of us engineers have dealt with unique career paths, apps, te
   - Be confident to post on topics that others have posted on before. Why?
     - Your tone, way of explaining or putting things together is unique.
     - They might have missed some details.
+    - Things might have changed. Example how we automate things on GitHub is a forever changing subject.
     - Writing a post is the best way to learn about things. 
   - But also try to go for novel topics as well. Like some of my most read topics are on 'Cocoapods manfiest.lock file' or on 'Why can't Xcode show the caller?'
 - **Use rich media.** Post videos/gifs as well. They make your website **rich**. Example, instead of a screenshot of Apple's Playground, actually take a short video and demo it. Videos have audio, show UX far easier, quicker. You don't need to use them in every post, but just that you shouldn't shy away from them. If you end up with rich media, then make sure it's just 5-60 seconds long. 
