@@ -5,4 +5,4 @@ category: "Content Creation"
 tags: [Hugo, blogging, Static Site Generator, Content Creation]
 ---
 
-In this series I talk about why blogging is different from pubilshing on other mediums and the movitivation behind it. How Hugo works and its high level. How to style your post with Hugo and lesser discussed notes on blogging. 
+In this series I talk about why blogging is different from pubilshing on other mediums and the movitivation behind it. How Hugo works and its high level. How to style your post with Hugo and lesser discussed notes about blogging. 
