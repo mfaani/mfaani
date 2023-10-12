@@ -34,7 +34,8 @@ Each and every one of us engineers have dealt with unique career paths, apps, te
     - Things might have changed. Example how we automate things on GitHub is a forever changing subject.
     - Writing a post is the best way to learn about things. 
   - But also try to go for novel topics as well. Like some of my most read topics are on 'Cocoapods manfiest.lock file' or on 'Why can't Xcode show the caller?'
-- **Use rich media.** Post videos/gifs as well. They make your website **rich**. Example, instead of a screenshot of Apple's Playground, actually take a short video and demo it. Videos have audio, show UX far easier, quicker. You don't need to use them in every post, but just that you shouldn't shy away from them. If you end up with rich media, then make sure it's just 5-60 seconds long. 
+- **Use rich media** Post videos/gifs as well. They make your website **rich**. Example, instead of a screenshot of Apple's Playground, actually take a short video and demo it. Videos have audio, show UX far easier, quicker. You don't need to use them in every post, but just that you shouldn't shy away from them. If you end up with rich media, then make sure it's just 5-60 seconds long. 
+- **Use correct dates:** If you stared the draft two months ago, but published today, then make sure the date readers see assocaited with the post on your blog is the 'publish date'. Otherwise they might think the post was from two months ago and feel its dated. 
 
 ## Benefits of getting early feedback 
 
