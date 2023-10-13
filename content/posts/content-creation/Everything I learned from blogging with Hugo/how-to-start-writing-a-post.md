@@ -6,7 +6,7 @@ tags: ["hugo", "content-creation", "blogging"]
 description: "Discussion about when you should start blogging, the importance of getting early feedback and how to get it, how to market your posts and more"
 ---
 
-I started blogging in Dec 2021. It's been a wonderful journey. Has abled me to gather my thoughts in a far more structured way. The series contains things I learned in terms of Hugo knowledge, how to write a blog post and more.
+I started blogging in Dec 2021. It's been a wonderful journey. Has enabled me to gather my thoughts in a far more structured way. The series contains things I learned in terms of Hugo knowledge, how to write a blog post and more.
 
 ## When should you start creating a blog? 
 
@@ -26,7 +26,7 @@ Each and every one of us engineers have dealt with unique career paths, apps, te
   - Instead of writing one gigantic post >> write five small posts on different concepts. Then write a sixth post that summarizes and pieces it all together.
   - Often when I split a single post into multiple, I can rationalize about the post a lot easier, because our brains can only cache a certain amount of context at once.
   - The key to being able to split it, is to to have good headers.
-- **Size matters:**: The bigger a post gets, the more refactoring, re-reviewing your code is required. Something that helps me to see the big picture all at once is adding a table content to my post. Often I might opt of out using the table of content, but after using it to help me see the big picture.
+- **Size matters:**: The bigger a post gets, the more refactoring, re-reviewing your code is required. Something that helps me to see the big picture all at once is adding a table contents to my post. Often I might opt of out using the table of contents, but after using it to help me see the big picture.
 - **Topic selection:**
   - Be confident to post on topics that others have posted on before. Why?
     - Your tone, way of explaining or putting things together is unique.
