@@ -6,7 +6,7 @@ tags: ["hugo", "content-creation", "blogging"]
 description: "Discussion about when you should start blogging, the importance of getting early feedback and how to get it, how to market your posts and more"
 ---
 
-I started blogging in Dec 2021. It's been a wonderful journey. Has enabled me to gather my thoughts in a far more structured way. The series contains things I learned in terms of Hugo knowledge, how to write a blog post and more.
+I started blogging in Dec 2021. It's been a wonderful journey. Has enabled me to gather my thoughts in a far more structured way. The series is based on my setup of Hugo - Netlify - GitHub. I'll shared my knowledge in terms of Hugo knowledge, how to write a blog post and more. If anyone is interested in the Netlify setup, see [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/) then [Netlify - Hugo setup]([@self](https://docs.netlify.com/integrations/frameworks/hugo/).
 
 ## When should you start creating a blog? 
 
@@ -55,11 +55,6 @@ Basically, the context of a fresh mind (who might have forgotten some things) is
 - Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it.   
 
 > The only way to connect your past self with your current self and future self is if you have things recorded or written. And each of these instances of you are different from the other.
-
-## Do I need to make a pull request for each post?
-- Is it a new post? No. Just add a good commit message
-- Is it a blog structural change? A Theme change? A CSS change? Something that took a while for you to figure out? Something totally different? Then yes. Add a PR with a decent PR description.
-
 ## Marketing your posts
 
 Instead of just sharing a link or what originated, share something valueable from your post along with the link. That way you at least get traction from where you posted it (Twitter, Slack). If anyone was interested they'll click to see more. You mostly need:
@@ -73,3 +68,6 @@ Instead of just sharing a link or what originated, share something valueable fro
 
 - Add your website's URL at the bottom of every image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
 - Be wary about accidentally publishing a post. This is why it's good to check your website every once a while and not just the homepage, but go through all your posts to make sure no post has actually sneaked in. Often an old post will get in because you removed the `draft: true` field but your post `date` field was from 6 months ago. So it appears in your list of posts, but not in the front page because you have a lot of newer pages. 
+- Do I need to make a Pull Request for every new post?
+  - If it's just a new post or some edit then just add a good commit message and push.
+  - Is it a blog structural change? A Theme change? A CSS change? Something that took a while for you to figure out? Something totally different? Then yes. Add a pull request with a decent PR description and then review it. For anything you're not sure, then try to use the Neflify Previews.
