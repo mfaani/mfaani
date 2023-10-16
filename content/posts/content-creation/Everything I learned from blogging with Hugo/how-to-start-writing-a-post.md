@@ -6,7 +6,7 @@ tags: ["hugo", "content-creation", "blogging"]
 description: "Discussion about when you should start blogging, the importance of getting early feedback and how to get it, how to market your posts and more"
 ---
 
-I started blogging in Dec 2021. It's been a wonderful journey. Has enabled me to gather my thoughts in a far more structured way. The series is based on my setup of Hugo - Netlify - GitHub. I'll shared my knowledge in terms of Hugo knowledge, how to write a blog post and more. If anyone is interested in the Netlify setup, see [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/) then [Netlify - Hugo setup]([@self](https://docs.netlify.com/integrations/frameworks/hugo/).
+I started blogging in Dec 2021. It's been a wonderful journey. Has enabled me to gather my thoughts in a far more structured way. The series is based on my setup of Hugo - Netlify - GitHub. I'll shared my knowledge in terms of Hugo knowledge, how to write a blog post and more. If anyone is interested in the Netlify setup, see [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/) then [Netlify - Hugo setup](https://docs.netlify.com/integrations/frameworks/hugo/).
 
 ## When should you start creating a blog? 
 
