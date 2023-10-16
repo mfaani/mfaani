@@ -63,7 +63,6 @@ Instead of just sharing a link or what originated, share something valueable fro
 - **Blog's description/subtitle:** I'll discuss some tips and tricks -----> I'll discuss how creating a dSYM can cause bloat in your app and how stripping will remove it.  
 - **Your message on Twitter:**  I've always struggled with what affects app size -----> Use `nm -a <your binary> | grep - | wc -l` to find out the number of debug symbols your binary has. Learn more in this blog post: [link] (OR: Discover the secrets in this article: [link])
 
-
 ## Other notes
 
 - Add your website's URL at the bottom of every image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
