@@ -12,7 +12,7 @@ I started blogging in Dec 2021. It's been a wonderful journey. Has enabled me to
 
 > The best time to create a blog was 5yrs ago. Second best time is today - Chinese Proverb
 
-Each and every one of us engineers have dealt with unique career paths, apps, teams, architecture, challenges. We all have a lot of insight to share. I used to write a lot on Stack Overflow. I still do, but blogging lets me explore my own passions more deeply and be less reactive to a question on Stackoverflow. It's a different and more fluid medium.
+Each and every one of us engineers have dealt with unique career paths, apps, teams, architecture, challenges. We all have a lot of insight to share. I used to write a lot on Stack Overflow. I still do, but blogging lets me explore my own passions more deeply and be less reactive to a question on Stackoverflow. It's a different and more fluid medium. And obviously it widens your network and can help add prestige to your profile.
 
 ## Content Creation
 
@@ -44,6 +44,7 @@ Each and every one of us engineers have dealt with unique career paths, apps, te
   - "This line is just wrong. You've misundertood what *Foo* means. That's what *Bar* is"
   - "Use this documentation, blog post, other slack thread" to improve/deepen on your post.
 - Often if you publish and then ask, people would be less caring. Previews are inticing much like how an early preview of a movie is. It makes the readers feel special. They truly are.
+- After you made changes to your preview and published your post, make one last check on your blog itself. Make sure everything is correct.
 
 ## How can you make sure you don't have a knowledge curse and things are clearly explained?
 Come back to the post in 2 days, again in 2 weeks, again in 2 months, again in 6months and review them. See if everything still makes sense. 
@@ -62,7 +63,6 @@ Instead of just sharing a link or what originated, share something valueable fro
 - **Blog post title:** How we improved our app -----> How we reduced our app size by 30%.  
 - **Blog's description/subtitle:** I'll discuss some tips and tricks -----> I'll discuss how creating a dSYM can cause bloat in your app and how stripping will remove it.  
 - **Your message on Twitter:**  I've always struggled with what affects app size -----> Use `nm -a <your binary> | grep - | wc -l` to find out the number of debug symbols your binary has. Learn more in this blog post: [link] (OR: Discover the secrets in this article: [link])
-
 
 ## Other notes
 
