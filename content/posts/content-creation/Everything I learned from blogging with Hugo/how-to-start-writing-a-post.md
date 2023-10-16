@@ -8,11 +8,12 @@ description: "Discussion about when you should start blogging, the importance of
 
 I started blogging in Dec 2021. It's been a wonderful journey. Has enabled me to gather my thoughts in a far more structured way. The series is based on my setup of Hugo - Netlify - GitHub. I'll shared my knowledge in terms of Hugo knowledge, how to write a blog post and more. If anyone is interested in the Netlify setup, see [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/) then [Netlify - Hugo setup](https://docs.netlify.com/integrations/frameworks/hugo/).
 
-## When should you start creating a blog? 
+## When and why you should start creating a blog? 
 
 > The best time to create a blog was 5yrs ago. Second best time is today - Chinese Proverb
 
-Each and every one of us engineers have dealt with unique career paths, apps, teams, architecture, challenges. We all have a lot of insight to share. I used to write a lot on Stack Overflow. I still do, but blogging lets me explore my own passions more deeply and be less reactive to a question on Stackoverflow. It's a different and more fluid medium. And obviously it widens your network and can help add prestige to your profile.
+Each and every one of us engineers have dealt with unique career paths, apps, teams, architecture, challenges. We all have a lot of insight to share. I used to write a lot on Stack Overflow. I still do, but blogging lets me explore my own passions more deeply and be less reactive to a question on Stackoverflow. It's a different and more fluid medium. Helps your future self to have organized learning.  
+Additionally it widens your network and can help add prestige to your profile.
 
 ## Content Creation
 
