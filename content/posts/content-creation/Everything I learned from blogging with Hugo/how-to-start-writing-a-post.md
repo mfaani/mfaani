@@ -73,7 +73,7 @@ Instead of just sharing a link or what originated, share something valueable fro
 - Add your website's URL at the bottom of every image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
 - Do I need to make a Pull Request for every new post?
   - If it's just a new post or some edit then just add a good commit message and push.
-  - Is it a blog structural change? A Theme change? A CSS change? Something that took a while for you to figure out? Something totally different? Then yes. Add a pull request with a decent PR description and then review it. For anything you're not sure, then try to use the Neflify Previews.
+  - Is it a blog structural change? A Theme change? A CSS change? Something that took a while for you to figure out? Something totally different? Then yes. Add a pull request with a decent PR description and then review it.
   
 ## Acknowledgements 
 Special thanks to [Antoine Van Der Lee](https://twitter.com/twannl) for sharing this post in his amazing [newletter](https://www.avanderlee.com/swiftlee-weekly/).
