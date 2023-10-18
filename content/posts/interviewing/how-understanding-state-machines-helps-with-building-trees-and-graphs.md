@@ -11,23 +11,38 @@ editPost:
 ---
 My team was dealing with a large flow, where user can transition from multiple states or sometimes skip certain states. We didn't have a centralized controller, every screen just had logic on where it should go next.  
 This made it difficult for us to see all our logic at once. We asked around and was told state machines are a good fit for our situation.  
-State machines are void of any UX. You just pass an event to it. Based on the event and the current state, you update to a new state and you get a command to act upon. 
+State machines are void of any UX. You just pass an event to it. Based on the event and the current state, you update to a new state along with an optinoal command to act upon. 
 
 A watered down example of a [State machine](https://gist.github.com/andymatuschak/d5f0a8730ad601bcccae97e8398e25b2) is: 
 
 ```haskell
 Event             + Current state         ->   Command    ->    New state
 -----------------------------------------------------------------------------------
-.momEnteredHome   + .houseIsClean         -> .nothing     ->   (no state change)
+.momEnteredHome   + .houseIsClean         -> nil          ->   (no state change)
 .momEnteredHome   + .houseWasAMess        -> .cleanHouse  ->   .cleaningHouse
-.houseGotCleaned  + .cleaningHouse        -> .nothing     ->   .houseIsClean
+.houseGotCleaned  + .cleaningHouse        -> nil          ->   .houseIsClean
 
 .guestsWillCome   + .houseIsClean         -> .makeFood    ->   .makingFood
-.foodPrepared     + .makingFood           -> .nothing     ->   .foodPrepared
+.foodPrepared     + .makingFood           -> nil          ->   .foodPrepared
 
 .guestsArrived    + notAllGuestsArrived   ->   .wait      ->   .waitingForAllGuests 
                    & .foodPrepared   
 .lastGuestArrived + waitingForAllGuests   -> .serveDinner ->   .eating
+
+```  
+
+```haskell
+Current state         +     Event             ->   Command    ->    New state
+-----------------------------------------------------------------------------------
+.houseIsClean         + .momEnteredHome       -> nil          ->   (no state change)
+.houseWasAMess        + .momEnteredHome       -> .cleanHouse  ->   .cleaningHouse
+.cleaningHouse        + .houseGotCleaned      -> nil          ->   .houseIsClean
+
+.houseIsClean         + .guestsWillCome               -> .makeFood    ->   .makingFood
+.makingFood           + .foodPrepared -> nil  ->   .foodPrepared
+
+.notAllGuestsArrived(isFoodPrepared: true) +    guestsArrived   ->   .wait      ->   .waitingForAllGuests 
+.waitingForAllGuests  + .allGuestsArrived     -> .serveDinner ->   .eating
 
 ```  
 
