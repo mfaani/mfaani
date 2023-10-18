@@ -54,23 +54,26 @@ I just came back to two of my old posts. I actually totally forgot I had them wr
   - Things that I skipped without explaining them. 
   - Better ways to explain certain things. 
 Basically, the context of a fresh mind (who might have forgotten some things) is closer to that of a reader with a blank slate — while the context of an author's mind is like one on steroids full of knowledge and context.
-- Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it.   
 
 > The only way to connect your past self with your current self and future self is if you have things recorded or written. And each of these instances of you are different from the other.
 ## Marketing your posts
 
-Instead of just sharing a link or what originated, share something valueable from your post along with the link. That way you at least get traction from where you posted it (Twitter, Slack). If anyone was interested they'll click to see more. You mostly need:
+Instead of just sharing a link or what originated, share something valueable from your post along with the link. That way you at least get traction from where you posted it (Twitter, Slack). If anyone was interested they'll click to see more. Not always but usually you need:
 
 - **Blog post title:** How we improved our app -----> How we reduced our app size by 30%.  
 - **Blog's description/subtitle:** I'll discuss some tips and tricks -----> I'll discuss how creating a dSYM can cause bloat in your app and how stripping will remove it.  
 - **Your message on Twitter:**  I've always struggled with what affects app size -----> Use `nm -a <your binary> | grep - | wc -l` to find out the number of debug symbols your binary has. Learn more in this blog post: [link] (OR: Discover the secrets in this article: [link])
+- Use an emoji or two when you feel like it. My most commonly used emojis are: 🚀🛠️💻👨🏼‍💻👨🏼🎉
 
-Share as many places as you can. The more social media platforms you've joined the better. Share it on Twitter, LinkedIn, Slack, etc. 
+> Unless others are eagerly following you, then share as many places as you can. The more social media platforms you've joined the better. Share it on Twitter, LinkedIn, Slack, etc. 
 
 ## Other notes
-
+- Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it.   
+  - Be wary about accidentally publishing a post. This is why it's good to check your website every once a while and not just the homepage, but go through all your posts to make sure no post has actually sneaked in. Often an old post will get in because you removed the `draft: true` field but your post `date` field was from 6 months ago. So it appears in your list of posts, but not in the front page because you have a lot of newer pages. 
 - Add your website's URL at the bottom of every image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
-- Be wary about accidentally publishing a post. This is why it's good to check your website every once a while and not just the homepage, but go through all your posts to make sure no post has actually sneaked in. Often an old post will get in because you removed the `draft: true` field but your post `date` field was from 6 months ago. So it appears in your list of posts, but not in the front page because you have a lot of newer pages. 
 - Do I need to make a Pull Request for every new post?
   - If it's just a new post or some edit then just add a good commit message and push.
   - Is it a blog structural change? A Theme change? A CSS change? Something that took a while for you to figure out? Something totally different? Then yes. Add a pull request with a decent PR description and then review it. For anything you're not sure, then try to use the Neflify Previews.
+  
+## Acknowledgements 
+Special thanks to [Antoine Van Der Lee](https://twitter.com/twannl) for sharing this post in his amazing [newletter](https://www.avanderlee.com/swiftlee-weekly/).
