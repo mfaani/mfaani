@@ -65,7 +65,7 @@ Instead of just sharing a link or what originated, share something valueable fro
 - **Your message on Twitter:**  I've always struggled with what affects app size -----> Use `nm -a <your binary> | grep - | wc -l` to find out the number of debug symbols your binary has. Learn more in this blog post: [link] (OR: Discover the secrets in this article: [link])
 - Use an emoji or two when you feel like it. My most commonly used emojis are: 🚀🛠️💻👨🏼‍💻👨🏼🎉
 
-> Unless others are eagerly following you, then share as many places as you can. The more social media platforms you've joined the better. Share it on Twitter, LinkedIn, Slack, etc. 
+> Unless others are eagerly following you, then share as many places as you can. The more social media platforms you've joined the better. Share it on Twitter, LinkedIn, Slack, and also on https://iosdevdirectory.com. Since adding my blog on the iOS dev directory, I've have more views and more shares of my posts across the internet. 
 
 ## Other notes
 - Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it.   
