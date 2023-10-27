@@ -69,6 +69,7 @@ Instead of just sharing a link or what originated, share something valueable fro
 
 ## Other notes
 - Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it.   
+  - You may simply forget to commit an image or have a Hugo variable/configuration that works ok localy. So double check the published version too.
   - Be wary about accidentally publishing a post. This is why it's good to check your website every once a while and not just the homepage, but go through all your posts to make sure no post has actually sneaked in. Often an old post will get in because you removed the `draft: true` field but your post `date` field was from 6 months ago. So it appears in your list of posts, but not in the front page because you have a lot of newer pages. 
 - Add your website's URL at the bottom of every image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
 - Do I need to make a Pull Request for every new post?
