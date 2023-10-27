@@ -59,7 +59,11 @@ That's where the `nm` command becomes useful.
 
 ### What does the nm command do?
 
-`nm` is short for 'Name Mangling'. Name refers to the name/symbol of each address. 
+`nm` is short for 'Name Mangling'. Name refers to the name/symbol of each address. Summarized from [Wikipedia - Name Mangling](https://en.wikipedia.org/wiki/Name_mangling) is about: 
+
+> In compiler construction, various problems are caused by the need to resolve unique names for programming entities in many modern programming languages.
+> 
+> Name Mangling provides a way of encoding additional information in the name of a function, structure, class or another data type in order to pass more semantic information from the compiler to the linker. Mainly due to the need to distinguish symbols with same identifiers but in different namespaces. It is required in these use cases because each signature might require different, specialized calling convention in the machine code.
 
 Just pick any [binary](https://mfaani.com/posts/devtools/whats-the-difference-between-an-app-bundle-and-a-binary/) and just do:
 
