@@ -55,8 +55,9 @@ I just came back to two of my old posts. I actually totally forgot I had them wr
   - Better ways to explain certain things. 
 Basically, the context of a fresh mind (who might have forgotten some things) is closer to that of a reader with a blank slate — while the context of an author's mind is like one on steroids full of knowledge and context.
 
-> The only way to connect your past self with your current self and future self is if you have things recorded or written. And each of these instances of you are different from the other.
-## Marketing your posts
+> You can only connect your past, current, and future selves if you have a record of your experiences, such as through writing or recording. Each version of yourself is different, but they are all connected. If you start something and use it regularly, your past and future selves are more connected. But if you learn something and don't use it, your past and present selves are less connected.
+>
+> For example, I have been working with UIKit regularly for a long time. Recently, I have been working with SwiftUI sporadically, and as a result, my SwiftUI knowledge is not very good. If I had blogged or documented my findings, it would have been easier for me to pickup SwiftUI from where I left.
 
 Instead of just sharing a link or what originated, share something valueable from your post along with the link. That way you at least get traction from where you posted it (Twitter, Slack). If anyone was interested they'll click to see more. Not always but usually you need:
 
