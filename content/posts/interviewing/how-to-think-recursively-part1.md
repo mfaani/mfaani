@@ -9,13 +9,15 @@ tags: ["Recursion", "Dynamic Programming", "Algorithmic Thinking", "Climbing Sta
 These articles are about the gotchas I faced when trying to think recursively. The logic in principle should apply to most recursive problems. 
 In this post, I will use the following question as a point of reference:
 
-'Count how many ways you can climb a staircase. You can jump either one step at a time or two steps at a time.'
+> Count how many ways you can climb a staircase. You can jump either one step at a time or two steps at a time. 
 
 Example if there are 3 stair cases then you can either jump: 
 
+```
 1,1,1  
 2,1  
 1,2
+```
 
 In total there are three ways to get to the 3rd stair. It's important to mention that that:
 
@@ -31,6 +33,8 @@ In total there are three ways to get to the 3rd stair. It's important to mention
 - Try learning about the different classic (but simple) problems that are solved using trees. Just knowing the various kinds of problems and how the traverse visually happens, helps you understand other challenges.
 - Use a paper and try to visually solve the question in the simplest form of a tree example (a root and two leafs).
 - Then make your tree bigger by adding one more level to your tree and try to visualize the solution again. If you struggle here, then don't go any further until you figure it out. 
+
+> A good paradigm shift about trees is to think of them as 'decision trees'
 
 ## Ask yourself 'what information do I need to pass down for each path, so I can have all the variables needed to make a decision'?
 - A tree is basically made up of multiple paths. **Each** path needs to be able to maintain **its own state**. The state can't be shared amongst other paths. If things are shared across paths then a states path gets overridden. You don't want that.
@@ -72,10 +76,10 @@ If you haven't reached a desired or undesired target, then you should just trave
 
 - Call your recursive function again. 
 - Pass whatever **path specific** information was needed. 
-    - You always need to mutate the previous path/state before you recurse again. 
-- **Note:** You should not do any other checks at this point. Even if you know jumping 2 steps from 2, will go beyond 3 (the desired target), you shouldn't add logic to skip calling the recursive function. You should just call your recursive function. Let it terminate / exit early in the **next run** of your function's base case checks. 
+    - You always need to mutate the previous path/state before you recurse again i.e. you have to do whatever's necessary to reflet that you've moved from one node to another.
+- **Note:** You should not do any other checks at this point. Even if you know jumping 2 steps from 2, will go beyond 3 (the desired target), you shouldn't add logic to skip calling the recursive function. You should just call your recursive function. Let it terminate / exit early in the **next run** of your function's base case checks.
 This was a confusing point for me personally. I was never sure if I needed to be smart and skip calling my recursive function again. Now I know I shouldn't be smart.  
-Basically don't mix-match the recursive calling with an exit early.
+Basically don't early exits to your recursive calling.
 
 Your overall structure should be like this: 
 
@@ -84,7 +88,6 @@ Your overall structure should be like this:
 func findSolution(inputs: [Inputs]) {
     /* 
     Call helper with its current state.
-    Don't try to alter the state. 
     */
 }
 
@@ -102,10 +105,11 @@ func helper(pathState: State) -> Value {
             - With `&&`
             - With `||`
             - With `==`
+            - max of all children. Sum of all chidren. etc
             - If you have a local property and are updating your sum/max, then you don't need to return a value. You just mutate the property of yours...
             - Other ways
         
-        This recursive call will ultimately always lead to hitting a base case i.e. stop recursing. Trust the process. 😉
+        This recursive call will ultimately always lead to hitting a base case that stops recursing. Trust the process. Don't try to pre-emptively end it within the normal recursion 😉
     */
 }
 
@@ -118,14 +122,14 @@ For our Count number of ways example:
 
 You're starting from stair `0`. And your starting/current answer is `0`. You also need to pass in your desired stair i.e. `3`.
 
-### Summary of steps
+## Summary of steps
 So to do each of the four steps we discussed earlier: 
 1. [What information do I need to pass down for each path](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#ask-yourself-what-information-do-i-need-to-pass-down-for-each-path-so-i-can-have-all-the-variables-needed-to-make-a-decision): The sum of the jumps so far. This value is what differentiates each path/branch for another.
 2. [Under what conditions do I stop tree traversal?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#under-what-conditions-do-i-stop-tree-traversal-what-do-i-return-or-do-in-case-of-a-void-function): If I reach the targeted stair. Or if jumped passed it.
 3. [So I didn't hit a base case. What then?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#so-i-didnt-hit-a-base-case-what-then): Recursively call the function. Combine the results of each node using `+`. Don't be smart: Don't try not calling your function. Let it exit any of its base cases in the next function execution.
 4. [Figure how to make the first recursive call](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#figure-out-how-to-call-your-recursive-function-from-your-main-function): Pass 0 as current node. Pass 3 as you desired target.
 
-## Code 1 - Simplest choice: 
+### Solution A - Simplest choice: 
 
 ```swift
 func howManyWays(num: Int) -> Int {
@@ -150,7 +154,7 @@ func helper(origin: Int, target: Int) -> Int {
 print(howManyWays(num: 4))
 ```
 
-## Code 2 - Pass down a computed property
+### Solution B - Pass down a computed property
 So instead of passing down both target and current, we can pass `remainingSteps`
 
 ```swift
@@ -183,8 +187,8 @@ It implies that either you:
 - Haven't handled all your base cases.
 - Didn't change the state upon traversing.
 
-### Should I return values at the end of my recursive functions? 
-With most programming problems, you can solve it by either way. At the moment I don't have tips for when one becomes the better choice. 🙃
+### Should I return values at the end of my recursive functions? Or should they be void functions? 
+With most programming problems, you can solve it by either way. At the moment I don't have tips for when one becomes the better choice. But I'm sure there are moments when one is preferred over the other. 
 
 ### I can draw the tree and traverse it on paper. I can't do the code though. Any tips?
 As humans we normally draw our trees layer by layer (BFS). However in code, we usually go deep first, then reach a leaf. Climb back then and try the next unvisited node. In code we typically do DFS not BFS. 
