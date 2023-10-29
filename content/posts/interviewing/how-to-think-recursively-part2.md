@@ -31,6 +31,9 @@ enum P: String {
     case open = "("
     case close = ")"
 }
+/// - Paramaters
+///   - diff: number of opened paranthesis subtracted by the number of close parenthesis
+///   - openedCount: We need this to be sure we don't exceed the total number of allowed parentheises
 func generateParen(num: Int) -> [String] {
     var ans: [String] = []
     func h(diff: Int, paren: P, openedCount: Int, currentPath: String) {
@@ -75,7 +78,9 @@ enum P: String {
 }
 func generateParen(num: Int) -> [String] {
     var ans: [String] = []
-    
+    /// - Paramaters
+    ///   - remainingOpen: number of parenthesis that aren't closed.
+    ///   - openedCount: We need this to be sure we don't exceed the total number of allowed parentheises
     func h(remainingOpen: Int, paren: P, openedCount: Int, currentPath: String) {
         
         if remainingOpen == 0 && openedCount == num {
@@ -98,7 +103,9 @@ func generateParen(num: Int) -> [String] {
 print(generateParen(num: 3))
 ```
 
-In the above, we have three base cases. Followed by recursive calls. It's cleaner. We clearly isolate base case exits from recursive function calls. Because we added this cleanliness, we can identify something that can be improved. 
+In the above, we have three base cases. Followed by recursive calls. It's much cleaner. We clearly isolate base case exits from recursive function calls. To say things differently: It's fine to have if-else to recurse differently. But don't have `if` conditions without `else` where it limits the recursion. Because the lack of recursion within an else implies an early exit condition
+
+Because we added this cleanliness, we can identify something that can be improved. 
 
 The highlighted lines have overlapping logic. We can combine them into `if openedCount > num`. Just try out the numbers in an example and you'll see. 
 
