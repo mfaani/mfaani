@@ -51,15 +51,18 @@ To do this, let's create an array named `dp` to represent the the answer to the 
 
 `let arr = [0, 3, 1, 7, 5, 2, 8]`
 We'll create an array with the same length of our original array. Default all the values to `1`. Example: `var dp: [Int] = Array(repeating: 1, count: arr.count)`.  
-Let's just assume we want to calculate the LIS all the way to index `4`. And we've already updated the value for all previous indexes.  How do you think we need to update `dp[4]`
-    `[0, 3, 1, 7, 5, 2, 8]`
+Let's just assume we want to calculate the LIS all the way to index `4`. And we've already updated the value for all previous indexes.  How do you think we need to update `dp[4]`:
+
+```
+    [0, 3, 1, 7, 5, 2, 8]
                   ↑
                 dp[4]
+```
 
 Which of the following would it be?
 1. The value for `dp[4]` will be `max(dp[0] + 1, dp[1] + 1, dp[2] + 1, dp[3] + 1)`
 2. The value for `dp[4]` will be `max(dp[0] + 1, dp[1] + 1, dp[2] + 1)`
-2. The value for `dp[4]` will be `max(dp[0] + 1, dp[2] + 1)`
+3. The value for `dp[4]` will be `max(dp[0] + 1, dp[2] + 1)`
 
 The correct answer is the second line.  
 First line is incorrect because `7` is bigger than `5`. `dp[3] + 1` shouldn't be considered.  
