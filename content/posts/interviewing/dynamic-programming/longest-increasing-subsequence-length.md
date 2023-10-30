@@ -9,6 +9,7 @@ editPost:
     Text: Suggest Changes
     appendFilePath: true
 ---
+Before we present the question. Let's figure out what a subsequence is:
 
 ### What's a subsequence?
 Any selection of items from the original array. The selection must respect the order. Meaning for `[1,2,3,4,5]` only two of the four below are subsequences:
@@ -40,8 +41,8 @@ In this post, we're only going to calculate the _length_ of the LIS. We won't co
 
 ### Explanation
 So this problem can be broken into subproblems i.e. 
-- The LIS of index 6, depends on the LIS at indices 0-5. 
-- The LIS of index 5, depends on the LIS at indices 0-4.
+- The LIS of index 6, depends on the LIS of all indices between 0-5. 
+- The LIS of index 5, depends on the LIS of all indices between 0-4.
 - ...
 - The LIS of index 1, depends on the LIS of index 0
 - The LIS of index 0, is 1. Because every element has a subsequence of 1. 
@@ -62,11 +63,10 @@ Let's just assume we want to calculate the LIS all the way to index `4`. And we'
 Which of the following would it be?
 1. The value for `dp[4]` will be `max(dp[0] + 1, dp[1] + 1, dp[2] + 1, dp[3] + 1)`
 2. The value for `dp[4]` will be `max(dp[0] + 1, dp[1] + 1, dp[2] + 1)`
-3. The value for `dp[4]` will be `max(dp[0] + 1, dp[2] + 1)`
+
 
 The correct answer is the second line.  
 First line is incorrect because `7` is bigger than `5`. `dp[3] + 1` shouldn't be considered.  
-Third line is incorrect because `1` is smaller than `4`, `dp[2] + 1` should be considered.  
 This means that assuming there is at least one item in the array, the default value should then be `1`.
 
 In short:
