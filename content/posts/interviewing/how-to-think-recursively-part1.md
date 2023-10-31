@@ -101,11 +101,12 @@ func helper(pathState: State) -> Value {
         - Traverse down the tree. 
         - Update the path/stack.
         - Return the result of both left and right children together. Each question has a different trick for combining. Example of different ways to combine:
-            - With `+`
-            - With `&&`
+            - With `+`. Example: sum of all nodes. 
+            - With `&&`. 
             - With `||`
             - With `==`
             - max of all children. Sum of all chidren. etc
+            - Processing every previous node with the current node. Example see my post on [longest increasing subsequence](https://mfaani.com/tags/longest-increasing-subsequence/)
             - If you have a local property and are updating your sum/max, then you don't need to return a value. You just mutate the property of yours...
             - Other ways
         
