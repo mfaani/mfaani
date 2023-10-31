@@ -117,8 +117,8 @@ a -> b -> c -> d
 Like if all you need to do is add and access certain indexes and not search or remove items, then array and dictinary aren't different so much. 
 
 - Additionally in in this question, going from left to right or right to left don't make a difference in terms of our answer. 
-  - If we start from the beginning, then each index will get added to all answers of its previous indicides — if it's bigger. 
-  - If we start from the end, then each index will still get added to all answers of its next indicies — if it's bigger.
+  - If we start from the beginning, then each index will get added to all answers of its previous indicides — if it's bigger than the value being compared to. 
+  - If we start from the end, then new each index will still get added to all answers of its next indicies — if it's smaller than the value being compared to..
 
 It really doens't matter which way we select. 
 
