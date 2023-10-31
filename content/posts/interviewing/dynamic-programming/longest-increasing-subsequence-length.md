@@ -102,6 +102,16 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
     return dp.max()!
 }
 ```
+Most of the time when you want to memoize things you use a dictionary. We could certainly do that here too. Here in this example, I used an array, because the [video](https://www.youtube.com/watch?v=cjWnW0hdF1Y) I saw was using an Array :). It intiially put me off, but I get it now.  
+Like if all you need to do is add and access certain indexes and not search or remove items, then array and dictinary aren't different so much. 
+
+Additionally in in this question, going from left to right or right to left don't make a difference in terms of our answer. 
+
+- If we start from the beginning, then each index will get added to all answers of its previous indicides — if it's bigger. 
+- If we start from the end, then each index will still get added to all answers of its next indicies — if it's bigger.
+
+It really doens't matter which way we select. 
+
 
 ### Other Questions that use LIS:
 [Russian Doll - Envelopes](https://leetcode.com/problems/russian-doll-envelopes/). I plan on posting about it next. 
