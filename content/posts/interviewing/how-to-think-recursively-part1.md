@@ -113,7 +113,6 @@ func helper(pathState: State) -> Value {
         This recursive call will ultimately always lead to hitting a base case that stops recursing. Trust the process. Don't try to pre-emptively end it within the normal recursion 😉
     */
 }
-
 ```
 
 ## Figure out how to call your recursive function from your main function
@@ -182,6 +181,15 @@ print(howManyWays(num: 3))
 ```
 
 ## Triage your recursion:
+
+## I can't come up with a solution
+Tree solutins are often a variation of figuring out the right computation/transition for: 
+- A node and its previous node.
+- A node and some aggregation of all its previous nodes.
+- A node and each individual previous node.
+- A node and other nodes at the same level.
+- Every subtree of the node and subsequent subtress. 
+- A property of the tree or subtree.
 
 ### Why does my code continue infinitely?
 It implies that either you:
