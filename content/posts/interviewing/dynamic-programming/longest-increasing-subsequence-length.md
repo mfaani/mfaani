@@ -104,7 +104,15 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
 ```
 ## Important Notes: 
 
-- A lot of times when you're going from one node to the other, all you care about is going from node c, to node d. However in this question, it's about going from all previous nodes to this node. This what makes this question **unique**. Like in the coin change example, all we needed to calculate things was from one to the other. 
+Assuming your nodes are as such:
+```
+a -> b -> c -> d
+ \
+   e -> f -> g -> h
+```
+
+
+- A lot of times when you're going from one node to the other, all you care about is going from node c, to node d. However in this question, it's about an operation that goes from **all previous nodes to this node**. i.e. it's about going from node a to d, b to d, c to d. This is what makes this question **unique**. Because in the coin change example, all we needed to calculate things was from one to the other.
 - Most of the time when you want to memoize things you use a dictionary of type `[Int: Int]`. We could certainly do that here too. Here in this example, I used an array, because the [video](https://www.youtube.com/watch?v=cjWnW0hdF1Y) I saw was using an Array :). It intiially put me off, but I get it now.  
 Like if all you need to do is add and access certain indexes and not search or remove items, then array and dictinary aren't different so much. 
 
