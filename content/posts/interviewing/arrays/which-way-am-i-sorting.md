@@ -14,7 +14,6 @@ I always got confused as to what's the end result my sort. I wasn't sure if it w
 The ultimate trick is to not think of **up** vs **down**. Instead think of increasing/decreasing from **left to right**.  
 We perceive arrays as _horizontal_ beings. Hence _left and right_ make more sense vs _up and down_
 
-
 ```swift
 let nums = [1,4,2,3]
 let sorted_nums = arr.sorted(by: {
@@ -39,10 +38,14 @@ Similarly writing `array.sorted(by: <)` is identical.
 
 
 #### And if I don't pass a block?
-It will make the array increasing. It feels natural...
+It will make the array increasing. Increasing is more natural as that's how we'd list numbers from 1...n and we almost never list numbers n...1. 
 
 ```swift
 let nums = [1,4,2,3]
 print(nums.sorted()) // [1,2,3,4]
 ```
+
+### $0 vs $1
+Never place the `$1` on the left side when sorting. `$0` is the first number, `$1` is the second number in the comparison. If you switch them then the order will get reversed.
+
 
