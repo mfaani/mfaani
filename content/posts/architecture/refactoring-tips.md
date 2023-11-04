@@ -44,6 +44,9 @@ For any TODO that you won't remove, link it to tickets so you'd do them later. O
         - Diagrams are just to help you see things easier. Reality is the ultimate source of truth. Diagrams are the closest possible manifestation of it. 
         - There are diminishing results with trying to build a perfect diagram. 
         - What you must do is to never let your diagrams go stale.
+    - Have different diagrams
+      - Don't try to put in too many things into one diagram. 
+      - Having different diagrams is ok. It might take you 2-3 different diagrams to convert them all. 
     
   You can have a more detailed diagram than this too. The note is to do it steps. Often using writing down on a paper initially makes things a whole lot easier for me.     
 

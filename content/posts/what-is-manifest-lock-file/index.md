@@ -59,8 +59,23 @@ If these two files don't match, then Xcode will throw a build time error.
 
 To be clear those two files always have to always match, it's just that there's a higher probability of things not matching when two engineers/macs are involved. Meaning one engineer has done `pod install` on their mac and has updated the `Podfile.lock` and now you have to do another `pod install` on your own mac. When you run `pod install` on your mac, it affects your `Manifest.lock`. 
 
+### Tricks
+
+You can achieve CI Caching if you don't commit the pods directory i.e.:
+1. Cache the workspace and pod directory. 
+2. When pulling a cache, can compare Podfile.lock -> Manifest.lock. 
+3. If they match: you can skip pod install, saving a bunch of time.
+4. else: do `pod install`
+
+This saves you time. Something like:  
+```
+diff Pods/Manifest.lock Podfile.lock >/dev/null || bundle exec pod install --repo-update
+```
+
 ## Why would the lock files not be in sync though?
-Only reason I can think of is, things go wrong during some merge conflict on the `Podfile` or `Podfile.lock`.
+In theory this should never happen. Except when it does. 
+- If the CocoaPods/Xcode version is different between the two machines. 
+- Also might be that during some merge conflict on the `Podfile` or `Podfile.lock` things got messed up.
 
 ## How does Xcode check your lock files?
 
@@ -88,3 +103,6 @@ If the lock files don't match, then Xcode will throw the following error:
 - `Manifest.lock` should never be committed, while `Podfile.lock` must always be committed. 
 - `Manifest.lock` should always match the `Podfile.lock`. Otherwise you'll get a build error.
 - Committing the /Pods folder depends on your team's decision. It's optional. 
+
+## Acknolwedgements 
+Shout out to [Olivier Halligon](https://github.com/AliSoftware) and [Zac West](https://github.com/zacwest) for sharing their amazing insight. 
