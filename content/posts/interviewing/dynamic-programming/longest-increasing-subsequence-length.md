@@ -138,7 +138,9 @@ list = []
 [0, 1, 5] + 4 -> [0, 1, 4] we've replaced our biggest value with 4. This makes the list acceptable to smaller numbers as its next addition.
 [0, 1, 4] + 8 -> [0, 1, 4, 8] we're expanding the list. 
 [0, 1, 4, 8] + 3 -> [0, 1, 3, 8] we've replaced the first/smallest item that's bigger than 3. This makes the list acceptable to smaller numbers as its next addition — while maintaining its order. We find the index to replace by doing a 'binary search to find the first index that has a value that's smaller than the new item (3) but also that the value at its next index (4) is greater than the new item. 
-Note: While this addition doesn't change the length, it improves the quality of the list by making it more likely to accept future additions. Future additions which will ultimately shrink down the last item. Which then means more smaller items can get added. This is important because the binary search algorithm that we are using to find the insertion point for the new element depends on the list being sorted. If you're still confused about this step, then see Example 2. It better demonstrates why we're doing this. 
+Note: While this addition doesn't change the length, it improves the quality of the list by making it more likely to accept future additions. 
+Future additions which will ultimately shrink down the last item. Which then means more smaller items can get added. 
+This is important because the binary search algorithm that we are using to find the insertion point for the new element depends on the list being sorted. If you're still confused about this step, then see Example 2. It better demonstrates why we're doing this. 
 ```
 
 Example2: 
@@ -158,7 +160,7 @@ list = []
 
 ### Idea
 
-Use the binary search algorithm to find the insertion point for each new element in the list, such that the resulting list is always in increasing order and has the longest possible length. Do this with a focus on just finidng the length. Don't care about knowing the items within the array. 
+Use the binary search algorithm to find the insertion point for each new element in the list, such that the resulting list is always in increasing order and has the longest possible length. Do this with a focus on just finidng the length. Don't care about knowing the items within the array.
 
 
 ### Code
