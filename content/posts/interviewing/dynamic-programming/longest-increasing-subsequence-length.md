@@ -2,7 +2,7 @@
 title: "Longest Increasing Subsequence Length"
 date: 2022-08-25T07:50:38-04:00
 category: "interviewing"
-tags: ["swift", "dynamic-programming", "longest-increasing-subsequence", "subsequence"]
+tags: ["swift", "dynamic-programming", "longest-increasing-subsequence", "subsequence", "LIS"]
 description: "Learn how to calculate the longest increasing subsequence"
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'

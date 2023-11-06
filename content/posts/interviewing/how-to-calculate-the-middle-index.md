@@ -117,6 +117,10 @@ We're not always cutting the array/section in half.
 
 👆 isn't to make you think how many you're dropping. It's just once you realize you're not always cutting in half, things actually start to make more sense. 
 
+## Attention
+Both 1st and 2nd approach will result in an index 0 for an empty array. Accessing index 0 will result in an "out of bounds" error. So you must exit early for empty arrays. 
+
+
 ## Conclusion
 
 Don't think of middle index as the absolute middle index. Think of it more as a pivot point. 
