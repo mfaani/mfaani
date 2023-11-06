@@ -121,7 +121,8 @@ It really doens't matter which way we select.
 
 ## Alternate solution with Binary Search
 
-Idea is: Focus on just finidng the length. Don't care about knowing the items within the array. 
+It's hard to explain it with words. I'll try to explain it with just two examples, but also see the [original video](https://www.youtube.com/watch?v=on2hvxBXJH4) as well. Maybe even before this. 
+
 
 Example1: 
 
@@ -131,10 +132,10 @@ Example1:
 list = []
 [] + 0 -> [0] we're expanding the list. 
 [0] + 15 -> [0, 15] we're expanding the list.
-[0, 15] + 1 -> [0, 1] we've replaced our biggest. This makes the list acceptable to smaller numbers as its next addition i.e. if 15 was kept then no other number from the list could have been added. Note: You can't add, but can only replace items that are 'smaller than the last item in the list. Because if it's smaller than the last item then it won't allow us to maintain a sorted list.
+[0, 15] + 1 -> [0, 1] we've replaced our biggest value with 1. This makes the list acceptable to smaller numbers as its next addition i.e. if 15 was kept then no other number from the list could have been added. Note: You can't add, but can only replace items that are 'smaller than the last item in the list. Because if it's smaller than the last item then it won't allow us to maintain a sorted list.
 [0, 1] + 7 -> [0, 1, 7] we're expanding the list. 
-[0, 1, 7] + 5 -> [0, 1, 5] we've replaced our biggest. This makes the list acceptable to smaller numbers as its next addition i.e. if 7 was kept then we would have not been able to add 2.
-[0, 1, 5] + 4 -> [0, 1, 4] we've replaced our biggest. This makes the list acceptable to smaller numbers as its next addition.
+[0, 1, 7] + 5 -> [0, 1, 5] we've replaced our biggest value with 5. This makes the list acceptable to smaller numbers as its next addition i.e. if 7 was kept then we would have not been able to add 2.
+[0, 1, 5] + 4 -> [0, 1, 4] we've replaced our biggest value with 4. This makes the list acceptable to smaller numbers as its next addition.
 [0, 1, 4] + 8 -> [0, 1, 4, 8] we're expanding the list. 
 [0, 1, 4, 8] + 3 -> [0, 1, 3, 8] we've replaced the first/smallest item that's bigger than 3. This makes the list acceptable to smaller numbers as its next addition — while maintaining its order. We find the index to replace by doing a 'binary search to find the first index that has a value that's smaller than the new item (3) but also that the value at its next index (4) is greater than the new item. 
 Note: While this addition doesn't change the length, it improves the quality of the list by making it more likely to accept future additions. Future additions which will ultimately shrink down the last item. Which then means more smaller items can get added. This is important because the binary search algorithm that we are using to find the insertion point for the new element depends on the list being sorted. If you're still confused about this step, then see Example 2. It better demonstrates why we're doing this. 
@@ -151,9 +152,14 @@ list = []
 [0, 5] + 15 -> [0, 5, 15]
 
 [0, 5, 15] + 2 -> [0, 2, 15] <- Made list more acceptable for smaller numbers to be added. If we can get rid of 15, then we're in a much stronger position to append numbers to the list. 
-[0, 2, 15] + 3 -> [0, 2, 3] <- We did it! Got rid of 15. 
+[0, 2, 15] + 3 -> [0, 2, 3] <- We did it! Got rid of 15. We have a good chance of appending a new value. 
 [0, 2, 3] + 4 -> [0, 2, 3, 4] Added another value!
 ```
+
+### Idea
+
+Use the binary search algorithm to find the insertion point for each new element in the list, such that the resulting list is always in increasing order and has the longest possible length. Do this with a focus on just finidng the length. Don't care about knowing the items within the array. 
+
 
 ### Code
 
@@ -210,3 +216,7 @@ I must admit, the 2nd approach isn't something that I'd ever be able to come up 
 ```
 ### Other Questions that use LIS:
 [Russian Doll - Envelopes](https://leetcode.com/problems/russian-doll-envelopes/). I plan on posting about it next. 
+
+## Acknowledgements
+
+Shout out to [Take U forward](https://www.youtube.com/watch?v=on2hvxBXJH4) for their YouTube post. I wasn't able to get a good grasp on the binary search approach without it. 
