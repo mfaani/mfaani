@@ -157,7 +157,6 @@ git log [<options>] [<revision-range>] [[--] <path>...]
 Translates to: 
 - `git log`
 - Any number of options. This is an odd one, because it's not marked with `...`, but the placeholder itself conveys that there can be multiple options. Typically options can be multiple.
-- a commit (SHA)
 - revision-range: Git allows you to refer to a single commit, set of commits, or range of commits in a number of ways. They aren’t necessarily obvious but are helpful to know. For more on that see [here](https://git-scm.com/docs/git-log#Documentation/git-log.txt-ltrevision-rangegt) and [here](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection). When no `<revision-range>` is specified, it defaults to `HEAD` (i.e. the whole history leading to the current commit). `origin..HEAD` specifies all the commits reachable from the current commit (i.e. `HEAD`), but not from `origin`. 
 - `--` is just a separator added — if you want to specify one or more paths. You don't need need it unless git needs it to disambiguate your command. Zero or more paths.
 
@@ -170,7 +169,7 @@ git log cj0ds9232..adfs923kcv
 git log -S "plus sign" -- Documentation/git-branch.txt
 ```
 It bit explanation for the last item:
-The []`-S`](https://git-scm.com/docs/git-log#Documentation/git-log.txt--Sltstringgt): 
+The [`-S`](https://git-scm.com/docs/git-log#Documentation/git-log.txt--Sltstringgt): 
 
 > It is useful when you’re looking for an exact block of code (like a struct), and want to know the history of that block since it first came into being
 
