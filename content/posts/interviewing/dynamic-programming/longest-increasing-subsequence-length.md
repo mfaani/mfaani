@@ -4,6 +4,7 @@ date: 2023-11-11T19:30:38-05:00
 category: "interviewing"
 tags: ["swift", "dynamic-programming", "longest-increasing-subsequence", "subsequence", "LIS"]
 description: "Learn how to calculate the longest increasing subsequence. The differences of this with other tree based algorithms and more"
+showToc: true
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
@@ -172,12 +173,6 @@ list = []
 [0, 2, 3] + 4 -> [0, 2, 3, 4] <- Appended new value!
 ```
 
-### Idea
-
-Use the (binary) search algorithm to find the insertion point for each new element in the list, such that the resulting list is always in increasing order and has the longest possible length. Do this with a focus on just finidng the length. Don't care about knowing the items within the array.
-
-As long as we update the biggest item, and keep correct number of items then we can correctly calculate the LIS.
-
 
 ### Code
 
@@ -232,9 +227,10 @@ class Solution {
 
 I must admit, it's hard to come up with the idea for such a solution. To come up with the idea for this question you have to iteratively improve it. Something like: 
 - I see "increasing". Perhaps I can create something sorted and keep it sorted.
-- Focus on the number of items and not actual subsequence
+- Focus on the number of items and not actual subsequence.
 - Once I found a solution through linear search, then maybe I can build on top of it and go with a binary search instead to optimize.
-- What makes it counter-intuitive is to figure out how to  [80, 81, 82, 1, 2, 3, 4] which is really the heart of it. And there's no way to explain it other than the examples provided. 
+
+- What makes it counter-intuitive is to figure out how a bigger subsequence is replaced with a smaller subsequnce. Example from [80, 81, 82, 1, 2, 3, 4], how to replace the current [80,81,82] with [1,2,3,4] which is really the heart of it. The idea is to sort of zip-merge together all sequences knowing that any number that's bigger than the current biggest will enlarge the sequence for the current longest. 
 
 #### Time Complexity 
 - for loop O(n)
@@ -244,7 +240,7 @@ I must admit, it's hard to come up with the idea for such a solution. To come up
 #### Memory Complexity
 `O(n)`
 
-### Other Questions that use LIS:
+## Other Questions that use LIS:
 [Russian Doll - Envelopes](https://leetcode.com/problems/russian-doll-envelopes/). I plan on posting about it next. 
 
 ## Acknowledgements
