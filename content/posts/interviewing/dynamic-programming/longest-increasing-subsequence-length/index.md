@@ -87,7 +87,7 @@ Here's what I wrote:
 
 !["LIS steps"](/LIS.jpg "Longest Increasing Subsequence Length")
 
-#### Code
+### Code
 
 
 ```
@@ -105,6 +105,18 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
     return dp.max()!
 }
 ```
+#### Time Complexity 
+
+- for loop: O(n)  
+  - for loop from beginning till current end index: O(n)  
+
+Total = O (n * n)
+
+
+#### Space Compleixty 
+
+The `dp` array: O(n)
+
 ## Important Notes: 
 
 Assuming your nodes are as such i.e. just a degenerate tree: 
@@ -125,7 +137,7 @@ It really doens't matter which way we select.
 ## Alternate solution with Binary Search
 
 - Any time you hear order, increasing, sorted, decreasing, then perhaps binary search is a helpful way of doing things. This isn't always true, but in this case it is. 
-- Think of binary search as an optimization mechanism. Not as a solution finder i.e. first try to try to solve it first without a binary search. Then improve your solution with using binary search. 
+- Think of binary search as an optimization mechanism. Not as a solution finder i.e. try to try to solve it first without a binary search. Then improve your solution using binary search. 
 
 Simply put create a list, append or replace items. 
 - Append items that are bigger than the current biggest -> Help increase the length of the list.
@@ -230,18 +242,19 @@ I must admit, it's hard to come up with the idea for such a solution. To come up
 - Focus on the number of items and not actual subsequence.
 - Once I found a solution through linear search, then maybe I can build on top of it and go with a binary search instead to optimize.
 
-- What makes it counter-intuitive is to figure out how a bigger subsequence is replaced with a smaller subsequnce. Example from [80, 81, 82, 1, 2, 3, 4], how to replace the current [80,81,82] with [1,2,3,4] which is really the heart of it. The idea is to sort of zip-merge together all sequences knowing that any number that's bigger than the current biggest will enlarge the sequence for the current longest. 
+- What makes it counter-intuitive is to figure out how a bigger subsequence is replaced with a smaller subsequnce. Example from [80, 81, 82, 1, 2, 3, 4], how to replace the current [80,81,82] with [1,2,3,4] which is really the heart of it. The idea is to zip-merge together all sequences in an increasing order knowing that any number that's bigger than the current biggest will enlarge the sequence for the current longest. 
 
 #### Time Complexity 
 - for loop: O(n)
-    - search and find: `O(log n)` -- Assuming you're using 'binary search'. 
+    - search and find: `O(log n)` -- Assuming you're using 'binary search' 
+
 = Total: `O(n * log n)`
 
 #### Memory Complexity
 `O(n)`
 
 ## Other Questions that use LIS:
-[Russian Doll - Envelopes](https://leetcode.com/problems/russian-doll-envelopes/). I plan on posting about it next. 
+See my post on [How many envelopes can you fit into another](http://mfaani/posts/interviewing/challenges/how-many-envelopes-can-you-fit-into-another/) a.k.a the Russian Doll Envelope question. 
 
 ## Acknowledgements
 

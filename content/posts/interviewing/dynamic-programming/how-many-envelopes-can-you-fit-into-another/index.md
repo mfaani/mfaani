@@ -1,9 +1,13 @@
 ---
 title: "How Many Envelopes Can You Fit Into Another?"
-date: 2022-08-03T09:44:49-04:00
-tags: [leetcode, longest increasing subsequence]
-description: "something"
-draft: true
+date: 2023-11-12T10:40:49-04:00
+category: interviewing
+tags: [leetcode, longest increasing subsequence, Russian doll]
+description: "Learn how to solve a challenging problem from LeetCode using dynamic programming and binary search. Find the longest increasing sequence of envelopes that can be nested inside each other."
+cover:
+    image: "envelope-sizes.jpg"
+    alt: "Multiple envlopes along with their width and height"
+    relative: false
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
@@ -11,11 +15,11 @@ editPost:
 ---
 
 ## Question: 
-How many envelops can you fit into another? 
-Each envelope has a 2D representation. [4,5] -> width = 4, length = 5
+How many envelops can you fit into another?  
+Each envelope has a 2D representation. [4,5] -> width = 4, length = 5  
 How many envelops can you fit into one another without rotating any envelopes. Bare in mind you can't fit in two evelopes with same width or height.
 
-This is question is very much like the Russian Doll question. Which that question itself uses an *Longest increasing subsequence* algorithm to solve. If you don't know about LIS then check my post [Longest Increasing Subsequence Length](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/)
+This is question is very much like a Russian Doll question. Which that question itself uses an *Longest increasing subsequence* algorithm to solve. If you don't know about LIS then check my post [Longest Increasing Subsequence Length](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/)
 
 ## High Level Idea
 
@@ -91,9 +95,9 @@ If you sorted items with same height in ascending order then you wouldn't know w
 ### Why LIS works?
 However if you sorted (items by same height) in descending order, and used an LIS approach then it be just an algorithmic approach because with LIS you know that:
 - you may pick one only from z,y,x since it's already sorted in reverse. If it was sorted in ascending order then all of them would have been picked.
-- You may end up not picking any if none of z,y,x satisfy the requirement of being 'bigger than 4 & smaller than 8'. 
+- You may end up not picking any if none of z,y,x satisfy the requirement of being 'bigger than 4 & smaller than 8' or if just picking an envelope with a width of 6 deters you from finding optimal solution. 
 
-So if we sorted the ones with same width in descending like below and did and LIS on all the heights then
+So if we sorted the ones with same width in descending like below and did and LIS on all the heights then we'd end up in this order: 
 
 ```
 [5,4],[6,9],[6,8],[6,7],[7,8]
@@ -154,8 +158,9 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
 ### Time Complexity
 - sorting: `O(n * log n)`
 - mapping: `O(n)`
-- LIST: `O(n * n)`
-= Total: `O(n * n)` 
+- LIS: `O(n * n)`. 
+= Total: `O(n * n)`. Note: If you used the [binary search for LIS](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/#code-1) step, then the total time complexity would be: O(n * log n)
+
 
 ### Space Complexity 
 - `O(n)`
