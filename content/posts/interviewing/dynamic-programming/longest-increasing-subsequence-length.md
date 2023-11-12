@@ -1,6 +1,6 @@
 ---
 title: "Updated - Longest Increasing Subsequence Length"
-date: 2023-11-11T07:50:38-04:00
+date: 2023-11-11T19:30:38-05:00
 category: "interviewing"
 tags: ["swift", "dynamic-programming", "longest-increasing-subsequence", "subsequence", "LIS"]
 description: "Learn how to calculate the longest increasing subsequence. The differences of this with other tree based algorithms and more"
