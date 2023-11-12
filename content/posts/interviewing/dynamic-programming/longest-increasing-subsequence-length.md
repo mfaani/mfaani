@@ -233,8 +233,8 @@ I must admit, it's hard to come up with the idea for such a solution. To come up
 - What makes it counter-intuitive is to figure out how a bigger subsequence is replaced with a smaller subsequnce. Example from [80, 81, 82, 1, 2, 3, 4], how to replace the current [80,81,82] with [1,2,3,4] which is really the heart of it. The idea is to sort of zip-merge together all sequences knowing that any number that's bigger than the current biggest will enlarge the sequence for the current longest. 
 
 #### Time Complexity 
-- for loop O(n)
-    - search and find `O(log n)` -- Assuming you're using 'binary search'. 
+- for loop: O(n)
+    - search and find: `O(log n)` -- Assuming you're using 'binary search'. 
 = Total: `O(n * log n)`
 
 #### Memory Complexity
