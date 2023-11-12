@@ -1,14 +1,16 @@
 ---
-title: "Longest Increasing Subsequence Length"
-date: 2022-08-25T07:50:38-04:00
+title: "Updated - Longest Increasing Subsequence Length"
+date: 2023-11-11T07:50:38-04:00
 category: "interviewing"
 tags: ["swift", "dynamic-programming", "longest-increasing-subsequence", "subsequence", "LIS"]
-description: "Learn how to calculate the longest increasing subsequence"
+description: "Learn how to calculate the longest increasing subsequence. The differences of this with other tree based algorithms and more"
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
     appendFilePath: true
 ---
+{{< rawhtml >}}<sub><b>Attention:</b> This post was updated to include the alternate solution that uses binary search. It reduces the Time Complexity from <i>O(n * n)</i> to <i>O(n * log n)</i>.</sub><br><br>{{< /rawhtml >}}  
+
 Before we present the question. Let's figure out what a subsequence is:
 
 ### What's a subsequence?
@@ -121,7 +123,15 @@ It really doens't matter which way we select.
 
 ## Alternate solution with Binary Search
 
-It's hard to explain it with words. I'll try to explain it with just two examples, but also see the [original video](https://www.youtube.com/watch?v=on2hvxBXJH4) as well. Maybe even before this. 
+- Any time you hear order, increasing, sorted, decreasing, then perhaps binary search is a helpful way of doing things. This isn't always true, but in this case it is. 
+- Think of binary search as an optimization mechanism. Not as a solution finder i.e. first try to try to solve it first without a binary search. Then improve your solution with using binary search. 
+
+Simply put create a list, append or replace items. 
+- Append items that are bigger than the current biggest -> Help increase the length of the list.
+- Replace items that are smaller than the current biggest -> Helps reduce the bar for adding smaller items to the list.
+- Note: Such a list like this won't always end up being a real LIS, only that it will have correct length of the LIS. 
+
+It's hard to explain it with words. I'll try to explain it with just two examples, but also see this [video](https://www.youtube.com/watch?v=on2hvxBXJH4) as well. Maybe even before this. 
 
 
 Example1: 
@@ -132,16 +142,20 @@ Example1:
 list = []
 [] + 0 -> [0] we're expanding the list. 
 [0] + 15 -> [0, 15] we're expanding the list.
-[0, 15] + 1 -> [0, 1] we've replaced our biggest value with 1. This makes the list acceptable to smaller numbers as its next addition i.e. if 15 was kept then no other number from the list could have been added. Note: You can't add, but can only replace items that are 'smaller than the last item in the list. Because if it's smaller than the last item then it won't allow us to maintain a sorted list.
+[0, 15] + 1 -> [0, 1] we've replaced our biggest value with 1. This makes the list acceptable for smaller numbers as its next addition i.e. if 15 was kept then no other number from the list could have been added. 
+
 [0, 1] + 7 -> [0, 1, 7] we're expanding the list. 
-[0, 1, 7] + 5 -> [0, 1, 5] we've replaced our biggest value with 5. This makes the list acceptable to smaller numbers as its next addition i.e. if 7 was kept then we would have not been able to add 2.
-[0, 1, 5] + 4 -> [0, 1, 4] we've replaced our biggest value with 4. This makes the list acceptable to smaller numbers as its next addition.
+[0, 1, 7] + 5 -> [0, 1, 5] we've replaced our biggest value with 5. This makes the list acceptable for smaller numbers as its next addition i.e. if 7 was kept then we would have not been able to add 2.
+[0, 1, 5] + 4 -> [0, 1, 4] we've replaced our biggest value with 4. This makes the list acceptable for smaller numbers as its next addition.
+
 [0, 1, 4] + 8 -> [0, 1, 4, 8] we're expanding the list. 
-[0, 1, 4, 8] + 3 -> [0, 1, 3, 8] we've replaced the first/smallest item that's bigger than 3. This makes the list acceptable to smaller numbers as its next addition — while maintaining its order. We find the index to replace by doing a 'binary search to find the first index that has a value that's smaller than the new item (3) but also that the value at its next index (4) is greater than the new item. 
-Note: While this addition doesn't change the length, it improves the quality of the list by making it more likely to accept future additions. 
-Future additions which will ultimately shrink down the last item. Which then means more smaller items can get added. 
-This is important because the binary search algorithm that we are using to find the insertion point for the new element depends on the list being sorted. If you're still confused about this step, then see Example 2. It better demonstrates why we're doing this. 
+[0, 1, 4, 8] + 3 -> [0, 1, 3, 8] we've replaced the first/smallest item that's bigger than 3. This makes the list acceptable for smaller numbers as its next addition — while maintaining its order. We find the index to replace by doing a 'search to find the first index that has a value that's smaller than the new item (3) but also that the value at its next index (4) is greater than the new item. 
 ```
+
+Note: While the replacement doesn't change the length, it improves the quality of the list by making it more likely to accept future additions. 
+Future additions which will ultimately shrink down the last item. Which then means more smaller items can get appended. 
+This is important because the search algorithm that we are using to find the insertion point for the new element depends on the list being sorted. If you're still confused about this step, then see Example 2. It better demonstrates why we're doing this. 
+
 
 Example2: 
 ```
@@ -153,19 +167,21 @@ list = []
 [0] + 5 -> [0, 5]
 [0, 5] + 15 -> [0, 5, 15]
 
-[0, 5, 15] + 2 -> [0, 2, 15] <- Made list more acceptable for smaller numbers to be added. If we can get rid of 15, then we're in a much stronger position to append numbers to the list. 
+[0, 5, 15] + 2 -> [0, 2, 15] <- Made list more acceptable for smaller numbers to be appended. If we can get rid of 15, then we're in a much stronger position to append numbers to the list. 
 [0, 2, 15] + 3 -> [0, 2, 3] <- We did it! Got rid of 15. We have a good chance of appending a new value. 
-[0, 2, 3] + 4 -> [0, 2, 3, 4] Added another value!
+[0, 2, 3] + 4 -> [0, 2, 3, 4] <- Appended new value!
 ```
 
 ### Idea
 
-Use the binary search algorithm to find the insertion point for each new element in the list, such that the resulting list is always in increasing order and has the longest possible length. Do this with a focus on just finidng the length. Don't care about knowing the items within the array.
+Use the (binary) search algorithm to find the insertion point for each new element in the list, such that the resulting list is always in increasing order and has the longest possible length. Do this with a focus on just finidng the length. Don't care about knowing the items within the array.
+
+As long as we update the biggest item, and keep correct number of items then we can correctly calculate the LIS.
 
 
 ### Code
 
-```
+```swift
 class Solution {
     func lengthOfLIS(_ nums: [Int]) -> Int {
         var lis: [Int] = []
@@ -192,7 +208,7 @@ class Solution {
     /// Finds the correct replacing index from within a specific range. Then replaces it. 
     /// If bigger than middle && smaller than next element after middle index then replace the element after the middle index. 
     /// Example: If list is `1,3,5` and we're trying to add `4`, then since 4 is greater than 3 but less than 5, we'll replace 5, with 4. 
-    /// tldr the binary search isn't to find an exact item. It's more of finding the first item that's bigger than our `num` field. 
+    /// tldr the binary search isn't to find an exact item. It's more of finding the first/smallest item that's bigger than our `num` field. 
     /// - Parameters:
     ///   - num: new number to get added
     ///   - arr: current list of items
@@ -212,10 +228,22 @@ class Solution {
             }
         }
 }
-
-I must admit, the 2nd approach isn't something that I'd ever be able to come up with myself. It took me a while to get a hang of it. 
-
 ```
+
+I must admit, it's hard to come up with the idea for such a solution. To come up with the idea for this question you have to iteratively improve it. Something like: 
+- I see "increasing". Perhaps I can create something sorted and keep it sorted.
+- Focus on the number of items and not actual subsequence
+- Once I found a solution through linear search, then maybe I can build on top of it and go with a binary search instead to optimize.
+- What makes it counter-intuitive is to figure out how to  [80, 81, 82, 1, 2, 3, 4] which is really the heart of it. And there's no way to explain it other than the examples provided. 
+
+#### Time Complexity 
+- for loop O(n)
+    - search and find `O(log n)` -- Assuming you're using 'binary search'. 
+= Total: `O(n * log n)`
+
+#### Memory Complexity
+`O(n)`
+
 ### Other Questions that use LIS:
 [Russian Doll - Envelopes](https://leetcode.com/problems/russian-doll-envelopes/). I plan on posting about it next. 
 

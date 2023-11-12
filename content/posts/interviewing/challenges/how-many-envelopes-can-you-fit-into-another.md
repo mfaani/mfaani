@@ -110,9 +110,9 @@ Our selected envelopes will be:
 ```
 class Solution {
     func maxEnvelopes(_ envelopes: [[Int]]) -> Int {
-         var envs = envelopes
+        var envs = envelopes
         envs.sort(by: {
-            // 1
+            // 1 & 2
             if $0.first! == $1.first! {
                 return $0.last! > $1.last!
             } else {
@@ -122,10 +122,10 @@ class Solution {
         })
         var arr: [Int] = []
         
-        // 2
+        // 3
         let heights = envs.map {$0.last!}
         
-        // 3
+        // 4
         return lengthOfLIS(heights)
     }
 }
@@ -146,35 +146,21 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
 ```
 
 #### Explanation
-1. sorts similar elements in des
+1. sort elements in _ascending_ width order. 
+2. When with is identical, then sort in _descending_ height order
+3. Map the sorted result to just their heights. 
+4. Do an LIS on the heights array. 
 
-# Alternate code
+### Time Complexity
+- sorting: `O(n * log n)`
+- mapping: `O(n)`
+- LIST: `O(n * n)`
+= Total: `O(n * n)` 
 
-func lengthOfLIS(_ nums: [Int]) -> Int {
-    // append if it's bigger than current biggest
-    // replace it with smallest biggest number 
+### Space Complexity 
+- `O(n)`
 
-    var aggregate: [Int] = []
-    for i in 0..<nums.endIndex { 
-        guard aggregate.isEmpty != false else {
 
-        }
-    }
-}
-
-// binary search 
-
-look in middle. 
-if equal then return
-if bigger then change the range from middle + 1 to end
-if smaller then change the range from middle - 1 to beginning
-
-1 3 4 7 8 9 15 16 22 23
-
-7 9
-if num is smaller than smallest or bigger than biggest then no answer. 
-
-Basically if number is bigger than left and smaller than right then we can fit it in between. Which though we then replace it with the bigger item. 2
 
 
 
