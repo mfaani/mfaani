@@ -92,11 +92,12 @@ You have to pick either x,y,z in a way that your pick is bigger than 4 and small
 
 If you sorted items with same height in ascending order then you wouldn't know which one to pick. You have to try and error — when width is `6`.
 
-### Why LIS works?
-However if you sorted (items by same height) in descending order, and used an LIS approach then it be just an algorithmic approach because with LIS you know that:
-- [LIS - Longest Increasing Subsequence](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/) works here because we're trying to find longest selection of envelopes in "increasing" order. 
-- you may pick one only from z,y,x since it's already sorted in reverse. If it was sorted in ascending order then all of them would have been picked.
+### Trick
+However if you sorted (items by same height) in descending order, and found longest selection of envelopes in "increasing height" order then it becomes a standard algorithm. Because:
+- You may pick **only ** one from z,y,x since it's already sorted in reverse. If it was sorted in ascending order then all of them would have been picked.
 - You may end up not picking any if none of z,y,x satisfy the requirement of being 'bigger than 4 & smaller than 8'.
+
+To find the longest increasing envelopes in heigh, we simply use [LIS - Longest Increasing Subsequence](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/).
 
 So if we sorted the ones with same width in descending like below and did and LIS on all the heights then we'd end up in this order: 
 
