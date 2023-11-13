@@ -94,8 +94,8 @@ If you sorted items with same height in ascending order then you wouldn't know w
 
 ### Trick
 However if you sorted (items by same height) in descending order, and found longest selection of envelopes in "increasing height" order then it becomes a standard algorithm. Because:
-- You may pick **only ** one from z,y,x since it's already sorted in reverse. If it was sorted in ascending order then all of them would have been picked.
-- You may end up not picking any if none of z,y,x satisfy the requirement of being 'bigger than 4 & smaller than 8'.
+- You may pick **only** one from z,y,x since it's already sorted in reverse. If it was sorted in ascending order then all of them would have been picked.
+- FWIW you may end up not picking any if none of z,y,x satisfy the requirement of being 'bigger than 4 & smaller than 8'.
 
 To find the longest increasing envelopes in heigh, we simply use [LIS - Longest Increasing Subsequence](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/).
 
