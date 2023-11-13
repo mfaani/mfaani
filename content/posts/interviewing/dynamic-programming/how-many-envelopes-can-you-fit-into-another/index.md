@@ -152,7 +152,7 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
 ```
 
 #### Explanation
-1. sort elements in _ascending_ width order. 
+1. Sort elements in _ascending_ width order. 
 2. When with is identical, then sort in _descending_ height order
 3. Map the sorted result to just their heights. 
 4. Do an LIS on the heights array. 
