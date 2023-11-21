@@ -51,7 +51,7 @@ end:    [-8, -6]
 copy array. 
 loop through: left to right
     for each asteroid, compare it with its next asteroid:
-        if left asteroid is going right && next asteroid is going left, then:
+        if left asteroid is going right and next asteroid is going left, then:
             figure out the collision:
             remove destroyed asteroids
             pass new indexes for comparison
