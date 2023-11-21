@@ -29,7 +29,7 @@ Each number represents the size of an asteroid. Each asteroid is either going le
 The challenge is to return: which asteroids will remain at the end?
 
 
-We can demonstrate this with an array where positive values mean moving towards right while negative values mean moving towards left: `[1,5, -3, -8, 6]`
+We can demonstrate the direction and size with an array where positive values mean moving towards _right_ while negative values mean moving towards _left_: `[1,5, -3, -8, 6]`
 
 Let's start from the beginning:
 
