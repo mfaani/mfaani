@@ -187,7 +187,7 @@ In that sense it was a new challenge, because I've always seen challenges where 
 
 ## Conclusion and things I learned along the way
 
-- Have a list of different data structures in front of you. It can help trigger your brain. I wasn't able to come up with the idea of using a Stack on my own, but some tips for being able to come up with it are: if you have some 'undoing' to do, like undo adding something, then a stack can be a good choice.
+- Have a list of different data structures in front of you. It can help trigger your brain. I wasn't able to come up with the idea of using a Stack on my own, but some tips for being able to come up with it are: if you have some 'undoing' to do, like undo adding something, then a stack can be a good choice. FWIW this problem could have also been solved with a **linked list** as well. I just didn't code that. 
 - Writing the pseudocode with indentation will make it easier to reason with, visualize the steps and come up with its time complexity a lot easier. 
 - Time Complexity of `remove(at: Int)`, is **not** always `O(n)`. It's more accurate to say `O(array.count - i)`. Example for an array of `1000` elements:
   - `array.remove(at: 2)` would be more or less `O(999)` because you're shifting 999 items in the array.
