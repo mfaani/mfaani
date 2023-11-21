@@ -14,14 +14,18 @@ editPost:
     appendFilePath: true
 ---
 
-Imagine if we had the following asteroid. Each number represents the size of an asteroid. Each asteroid is either going left or right. Bigger asteroids destroy smaller asteroids. Asteroids with same size both get destroyed. If two asteroids are going in the same direction, they don't hit each other. 
-
-The challenge is to return: which asteroids will remain at the end?
+Imagine if we had the following:
 
 ```
 1    5   3   8   6
 ->   ->  <-  <-  ->
 ```
+
+
+Each number represents the size of an asteroid. Each asteroid is either going left or right. Bigger asteroids destroy smaller asteroids. Asteroids with same size both get destroyed. If two asteroids are going in the same direction, they don't hit each other, because all are going in the same speed.
+
+The challenge is to return: which asteroids will remain at the end?
+
 
 We can demonstrate this with an array where positive values mean moving towards right while negative values mean moving towards left: `[1,5, -3, -8, 6]`
 
@@ -39,7 +43,7 @@ end:    [-8, -6]
 
 ## Solution One
 
-### Idea
+### Pseudocode
 
 ```md
 copy array. 
@@ -109,11 +113,12 @@ class Solution1 {
 ## Solution Two
 
 ### Idea
-We're comparing adjacent objects and we're doing things and maybe a bit backtracking. Because of this using a _stack_ is a good idea. 
+We're comparing adjacent objects and some a bit backtracking when we go towards the left to collide left leaning asteroids. Because of this using a _stack_ is a good idea.  
 Stacks are usally percieved as 'vertical' data structures while arrays are percieved as 'horizontal' data structures. This makes it slighly difficult to start thinking of arrays. If you think of arrays as verticle structures then a stack can also seem less counterintuitive.
 
 ### Pseudocode
-```
+
+```md
 for each asteroid
    add it to stack
    handle collisions in stack recursively — until there's no collision
@@ -165,7 +170,7 @@ class Solution2 {
 - Total: `O(n)`
 - NOTE1: The maximum number of collisions is `O(n - 1)`. As a result we won't ever end up traversing the whole array each time. Because of that, the total is `O(n)`.
 - NOTE2: `remove(at: Int)` time complexity depends on the index.
-- NOTE3: With the leetcode test cases, solution two had only slightly better results. However when I tested things in Xcode with a much larger dataset, solution one errored out due to stack overflow. Solution two worked just fine. My point is Leetcode test samples can mess up your timings and make you think your solutinos haven't improved. 
+- NOTE3: With the leetcode test cases, solution two had only slightly better results. However when I tested things in Xcode with a much larger dataset, solution one errored out due to stack overflow. Solution two worked just fine. My point is Leetcode test samples can mess up your timings and give you the wrong impression about the timings of your solutions.
 
 ### Space Complexity
 Stack creation: `O(n)`
@@ -180,8 +185,8 @@ In that sense it was a new challenge, because I've always seen challenges where 
 ## Conclusion and things I learned along the way
 
 - Have a list of different data structures in front of you. It can help trigger your brain. I wasn't able to come up with the idea of using a Stack on my own, but some tips for being able to come up with it are: if you have some 'undoing' to do, like undo adding something, then a stack can be a good choice.
-- Also I learned that when I write the pseudocode with indentation then I can reason with it, visualize the steps and come up with its time complexity a lot easier. 
+- Writing the pseudocode with indentation will make it easier to reason with, visualize the steps and come up with its time complexity a lot easier. 
 - Time Complexity of `remove(at: Int)`, is **not** always `O(n)`. It's more accurate to say `O(array.count - i)`. Example for an array of `1000` elements:
   - `array.remove(at: 2)` would be more or less `O(999)` because you're shifting 999 items in the array.
-  - `array.remove(at: 1000 - 2)` would be more or less `O(1)` because only you're only shifting one item in the array.
+  - `array.remove(at: 998)` would be more or less `O(1)` because only you're only shifting one item in the array.
 - Leetcode test cases may not always be a perfect reflection of the time complexity of your solutions.
