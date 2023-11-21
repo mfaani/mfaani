@@ -248,7 +248,7 @@ I must admit, it's hard to come up with the idea for such a solution. To come up
 - for loop: O(n)
     - search and find: `O(log n)` -- Assuming you're using 'binary search' 
 
-= Total: `O(n * log n)`
+Total: `O(n * log n)`
 
 #### Memory Complexity
 `O(n)`

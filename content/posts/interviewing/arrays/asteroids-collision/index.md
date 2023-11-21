@@ -1,0 +1,187 @@
+---
+title: "Asteroids Collision"
+date: 2023-11-20T09:00:08-05:00
+category: interviewing
+tags: [swift, arrays, leetcode, stack, asteroid collision]
+description: "Of the most fun leetcode challenges I've ever done"
+cover:
+    image: "asteroid-collision.jpeg"
+    alt: "Multiple envlopes along with their width and height"
+    relative: false
+editPost:
+    URL: 'https://github.com/mfaani/mfaani/tree/main/content'
+    Text: Suggest Changes
+    appendFilePath: true
+---
+
+Imagine if we had the following asteroid. Each number represents the size of an asteroid. Each asteroid is either going left or right. Bigger asteroids destroy smaller asteroids. Asteroids with same size both get destroyed. If two asteroids are going in the same direction, they don't hit each other. 
+
+The challenge is to return: which asteroids will remain at the end?
+
+```
+1    5   3   8   6
+->   ->  <-  <-  ->
+```
+
+We can demonstrate this with an array where positive values mean moving towards right while negative values mean moving towards left: `[1,5, -3, -8, 6]`
+
+Let's start from the beginning:
+
+```
+start:  [1,5, -3, -8, 6]
+[1]   + 5: Same direction. Don't collide. [1,5] remain.
+[1,5] + -3: Different directions. -3 is destroyed. [1,5] remain.
+[1,5] + -8: Different directions. 5 is destroyed. [1,-8] remain. 
+[-8] continues towards 1 and collides and destroys 1. [-8] remains. 
+[-8]  + -6: Same Direction. Don't collide. [-8, -6] remain.
+end:    [-8, -6]
+```
+
+## Solution One
+
+### Idea
+
+```md
+copy array. 
+loop through: left to right
+    if there's a sign change, then:
+        figure out the collision:
+        remove destroyed asteroids
+        pass new indexes for comparison
+    if there's no sign change, then:
+        continue
+```
+
+### Code
+
+```swift
+class Solution1 {
+    var i = 0 
+    func asteroidCollision(_ asteroids: [Int]) -> [Int] {
+        var asteroids = asteroids
+        while i < asteroids.count {
+            handleCollision(from: i, arr: &asteroids)
+        }
+        return asteroids
+    }
+    
+    func handleCollision(from i1: Int, arr: inout [Int]) {
+        let i2 = i1 + 1
+        guard i1 >= 0 && i1 < arr.count && i2 >= 0 && i2 < arr.count else { 
+            i += 1
+            return            
+        }
+        if arr[i1] > 0 && arr[i2] < 0 {
+            if arr[i1].magnitude > arr[i2].magnitude {
+                // remove right asteroid
+                arr.remove(at: i2)
+                // redo comparison for same index, but with updated next index.
+                handleCollision(from: i1, arr:&arr)
+            } else if arr[i1].magnitude == arr[i2].magnitude {                
+                // remove both asteroids
+                arr.remove(at: i2)
+                arr.remove(at: i1)
+                // redo comparison for same index, but with updated next index.
+                handleCollision(from: i1 - 1, arr: &arr)
+                i -= 1
+            } else {
+                // remove left asteroid
+                arr.remove(at: i1)
+                handleCollision(from: i1 - 1, arr:&arr)
+                i -= 1
+            }
+        } else {
+            // move forward without removing any asteroids
+            i += 1
+        }
+    }
+}
+```
+
+### Time Complexity
+- for loop: O(n)
+    - remote(at: Int): O(n)
+- Total: O(n * n)
+
+### Space Compelexity
+`O(1)`: If the parameter was passed as `inout` instead, then it would have been `O(1)`, because we really didn't need another variable. We just did it to make it mutable. 
+
+## Solution Two
+
+### Idea
+We're comparing adjacent objects and we're doing things and maybe a bit backtracking. Because of this using a _stack_ is a good idea. 
+Stacks are usally percieved as 'vertical' data structures while arrays are percieved as 'horizontal' data structures. This makes it slighly difficult to start thinking of arrays. If you think of arrays as verticle structures then a stack can also seem less counterintuitive.
+
+### Pseudocode
+```
+for each asteroid
+   add it to stack
+   handle collisions in stack recursively — until there's no collision
+endloop
+
+return stack
+```
+
+### Code
+
+```swift
+class Solution2 {
+    var stack: [Int] = []
+    func asteroidCollision(_ asteroids: [Int]) -> [Int] {
+        
+        for asteroid in asteroids {
+            stack.append(asteroid)
+            handleStackCollision()
+        }        
+        return stack
+    }
+    
+    func handleStackCollision() {
+        guard stack.count > 1 else { return }
+        let right = stack[stack.endIndex - 1]
+        let left = stack[stack.endIndex - 2]
+        if left > 0, right < 0 {
+            if left.magnitude == right.magnitude {
+                // pop both
+                stack.removeLast(2)
+            } else if left.magnitude > right.magnitude {
+                // pop right
+                stack.popLast()
+            } else {
+                // pop left
+                stack.remove(at: stack.count - 2)
+            }
+            handleStackCollision()
+        }
+    } 
+}
+```
+
+### Time Complexity
+- for loop: `O(n)`
+    - traverse back: `O(n)`
+    - removeLast(2): `O(2)`
+    - remove(at: stack.count - 2): `O(1)`
+- Total: `O(n)`
+- NOTE1: The maximum number of collisions is `O(n - 1)`. As a result we won't ever end up traversing the whole array each time. Because of that, the total is `O(n)`.
+- NOTE2: `remove(at: Int)` time complexity depends on the index.
+- NOTE3: With the leetcode test cases, solution two had only slightly better results. However when I tested things in Xcode with a much larger dataset, solution one errored out due to stack overflow. Solution two worked just fine. My point is Leetcode test samples can mess up your timings and make you think your solutinos haven't improved. 
+
+### Space Complexity
+Stack creation: `O(n)`
+
+### Interesting notes
+
+I was initially trying to use the stack with just recursion. Then I tried to solve it with iteration. It didn't work. 
+Simply put I had to iterate for each new addition. But then do recursion until asteroids stopped colliding. 
+
+In that sense it was a new challenge, because I've always seen challenges where I either had to iterate with a simple for-loop or do recursion, never both, let alone have it combined with stacks. It was a really fun challenge. 
+
+## Conclusion and things I learned along the way
+
+- Have a list of different data structures in front of you. It can help trigger your brain. I wasn't able to come up with the idea of using a Stack on my own, but some tips for being able to come up with it are: if you have some 'undoing' to do, like undo adding something, then a stack can be a good choice.
+- Also I learned that when I write the pseudocode with indentation then I can reason with it, visualize the steps and come up with its time complexity a lot easier. 
+- Time Complexity of `remove(at: Int)`, is **not** always `O(n)`. It's more accurate to say `O(array.count - i)`. Example for an array of `1000` elements:
+  - `array.remove(at: 2)` would be more or less `O(999)` because you're shifting 999 items in the array.
+  - `array.remove(at: 1000 - 2)` would be more or less `O(1)` because only you're only shifting one item in the array.
+- Leetcode test cases may not always be a perfect reflection of the time complexity of your solutions.
