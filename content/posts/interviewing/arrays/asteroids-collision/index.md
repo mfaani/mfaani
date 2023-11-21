@@ -50,12 +50,13 @@ end:    [-8, -6]
 ```md
 copy array. 
 loop through: left to right
-    if there's a sign change, then:
-        figure out the collision:
-        remove destroyed asteroids
-        pass new indexes for comparison
-    if there's no sign change, then:
-        continue
+    for each asteroid, compare it with its next asteroid:
+        if left asteroid is going right && next asteroid is going left, then:
+            figure out the collision:
+            remove destroyed asteroids
+            pass new indexes for comparison
+        if there's no sign change, then:
+            continue
 ```
 
 ### Code
