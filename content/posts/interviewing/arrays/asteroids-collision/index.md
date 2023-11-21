@@ -6,7 +6,7 @@ tags: [swift, arrays, leetcode, stack, asteroid collision]
 description: "Of the most fun leetcode challenges I've ever done"
 cover:
     image: "asteroid-collision.jpeg"
-    alt: "Multiple envlopes along with their width and height"
+    alt: "An AI generated image of asteroids"
     relative: false
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
