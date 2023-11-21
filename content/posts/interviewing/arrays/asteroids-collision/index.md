@@ -14,6 +14,8 @@ editPost:
     appendFilePath: true
 ---
 
+Today we're solving https://leetcode.com/problems/asteroid-collision/
+
 Imagine if we had the following:
 
 ```
