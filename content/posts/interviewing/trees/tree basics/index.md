@@ -210,7 +210,7 @@ Go back to Example 1 above. Ask yourself how is the in-order & level-order trave
 - Tree Printer. See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L40-L60)
 - Array to 'Balanced Height Binary Tree Search' Convertor
   - level-ordered array to tree. See [here](https://medium.com/nerd-for-tech/swift-leetcode-series-binary-tree-level-order-traversal-db7603af1bb3). Creates a tree exactly based on its input. 
-  - in-order array to tree: See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L62-L79). Only creates a heigh balanced tree. Won't create any other representation of the tree. 
+  - in-order array to tree: See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L62-L79). Only t balanced tree. Won't create any other representation of the tree. 
 - Traversals. See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L23-L36)
 
 ## Summary
