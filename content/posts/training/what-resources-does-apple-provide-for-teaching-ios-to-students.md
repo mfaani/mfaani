@@ -24,7 +24,7 @@ Overall Apple has teaching material in their Swift Playgrounds app and PDF books
 - Are you looking for ages 10+ or 14+?
 - Do you want to learn using Playgrounds or learn using PDF + Xcode?
 - Do you want to learn SwiftUI or UIKit?
-- Do you want to learn basic programming (for loops, conditions, etc) or want to jump in straight into building apps?
+- Do you want to learn basic programming (for-loops, conditions, etc) or want to jump in straight into building apps?
 
 Overall Apple has two distinct series. 'Every Can Code' & 'Develop in Swift'
 
