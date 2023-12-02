@@ -34,7 +34,7 @@ In total there are three ways to get to the 3rd stair. It's important to mention
 - Use a paper and try to visually solve the question in the simplest form of a tree example (a root and two leafs).
 - Then make your tree bigger by adding one more level to your tree and try to visualize the solution again. If you struggle here, then don't go any further until you figure it out. 
 
-> A good paradigm shift about trees is to think of them as 'decision trees'
+> A good paradigm shift about trees is to think of them as 'decision trees' or in certain cases 'decision tables'
 
 ## Ask yourself 'what information do I need to pass down for each path, so I can have all the variables needed to make a decision'?
 - A tree is basically made up of multiple paths. **Each** path needs to be able to maintain **its own state**. The state can't be shared amongst other paths. If things are shared across paths then a states path gets overridden. You don't want that.
