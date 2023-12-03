@@ -3,7 +3,7 @@ title: "The effect of direction on recursion"
 date: 2023-12-02T17:34:13-05:00
 category: interviewing
 tags: [swift, dynamic-programming, tabulation, memoization, recursion, two-pointers, longest common sequence, LCS]
-description: "Solve a fun challenged named 'Longest Common Subsequence' by learning how the direction in recursion can effect your perception but also how it can make comparing code difficult"
+description: "Solve a fun challenged named 'Longest Common Subsequence' by learning how the direction in recursion can effect your perception but also make comparing code difficult"
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
     Text: Suggest Changes
