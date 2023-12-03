@@ -12,7 +12,7 @@ editPost:
 
 Today I'm going to discuss another fun and common challenge. It's the [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence) a.k.a. LCS.
 
-I'll first focus on discussing a pain point I went through when I was trying to compare the algoritm I deduced on my own vs a few other algorithms I saw online. Our algoritms seemed very similar. Yet different. It made debugging my code based on other code very difficult. This is a very commong problem I face when I doing leetcode. For whatever reason my way of coding is more than often to a good extent different from what I see from others. I find it easier to compare the high level of my code with a video from Youtube since most other submissions on Leetcode itself don't contain a good breakdown pseudocode of what's happening. 
+I'll first focus on discussing a pain point I went through when I was trying to compare the algoritm I deduced on my own vs a few other algorithms I saw online. Our algoritms seemed very similar. Yet different. It made debugging my code based on other code very difficult. This is a very commong problem I face when I doing leetcode. For whatever reason my way of coding is more than often to a good extent different from what I see from others. I find it easier to compare the high level of my code with a video from Youtube since most other submissions on Leetcode itself don't contain a good breakdown/pseudocode of what's happening. 
 
 Let's first explain the problem. Suppose we have: "dabc" and "aafb". The longest common sequence is "ab". Other examples:
 
