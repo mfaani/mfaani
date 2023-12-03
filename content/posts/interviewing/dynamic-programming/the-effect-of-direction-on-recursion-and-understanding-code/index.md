@@ -1,5 +1,5 @@
 ---
-title: "The effect of direction on recursion and understanding code"
+title: "The effect of direction on recursion"
 date: 2023-12-02T17:34:13-05:00
 category: interviewing
 tags: [swift, dynamic-programming, tabulation, memoization, recursion, two-pointers, longest common sequence, LCS]
