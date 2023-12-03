@@ -154,6 +154,16 @@ Essentially where you start from will dicate the direction. The direction often 
 
 Subproblems for LCS is: "what's the LCS for two strings prefixed at (s1,s2)?" Both my approaches have the same subproblem. But the code for that becomes different because the direction is different. 
 
+### Note on readibility
+
+The returning value for the two approaches are: 
+
+- `return helper(Stage(0, 0))`
+- `return helper(Stage(t1.count - 1, t2.count - 1))`
+
+Which one makes more sense?  
+The second approach is slightly more readable in this case. Readers might be confused as to why you're returning the value for `Stage(0,0)` and not the last. That said for me personally it was easier to write code that starts from (0,0) and expand. 
+
 ## Acknowlegements
 
 Special thanks to [Tim Vermeulen](https://github.com/timvermeulen) for answering my questions so I was able to put this post together and [Maks Verner](https://stackoverflow.com/users/9651461/maks-verver) for writing [this post](https://stackoverflow.com/a/77560704/5175709)
