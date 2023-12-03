@@ -168,4 +168,4 @@ The second approach is slightly more readable in this case. Readers might be con
 
 ## Acknowlegements
 
-Special thanks to [Tim Vermeulen](https://github.com/timvermeulen) for answering dozes of my questions so I was able to put this post together and [Maks Verner](https://stackoverflow.com/users/9651461/maks-verver) for writing [this post](https://stackoverflow.com/a/77560704/5175709)
+Special thanks to [Tim Vermeulen](https://github.com/timvermeulen) for answering dozens of my questions so I was able to put this post together and [Maks Verner](https://stackoverflow.com/users/9651461/maks-verver) for writing [this post](https://stackoverflow.com/a/77560704/5175709)
