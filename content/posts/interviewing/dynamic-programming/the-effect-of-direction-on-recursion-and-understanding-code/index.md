@@ -147,7 +147,7 @@ Hence both approaches are top down. The first time I heard the term 'top-down', 
 
 ### Optimizations
 For both of these solutions you can do memoization. Tabulation though is more natural when you start from `0,0`
-- `tabulation` for when you start from (0,0). See this [gist]((https://gist.github.com/mfaani/0d6a76708d8b8f3bb41bdd13e7c0014e)) for its code 
+- `tabulation` for when you start from (0,0). See this [gist](https://gist.github.com/mfaani/0d6a76708d8b8f3bb41bdd13e7c0014e) for its code 
 - `memoization` for when you start from (m,n). See this [gist](https://gist.github.com/mfaani/89069e38f49eea20b7e47b8f14308505) for its code. 
 
 Essentially where you start from will dicate the direction. The direction often happens to also dictate the most performant algorithm you can choose.
