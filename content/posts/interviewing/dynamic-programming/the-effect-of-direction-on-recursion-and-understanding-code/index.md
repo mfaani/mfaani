@@ -135,7 +135,7 @@ func longestCommonSubsequence(_ text1: String, _ text2: String) -> Int {
 ```
 
 ## Summary and some other confusions I had along the way 
-To figure out the issue with my code I thought I had look up 'top down vs 'bottom up' & 'memoization vs tabulation'. But while those are unrelated to figuring out this issue and might confuse you even more, understanding their differences might makes it easier for you to compare things. Try not to spend too much time on the differences. Just try to break down your problem into a simple subproblem. 
+To figure out the issue with my code I thought I had look up 'top down vs 'bottom up' & 'memoization vs tabulation'. But while those are unrelated to figuring out this issue and might confuse you even more, unless fully understood, understanding their differences might make it easier for you to compare different approaches. Try not to spend too much time on the differences. Instead focus on learning how to break down your problem into a simple subproblem.
 
 About Top down approach, [Bard](https://bard.google.com/chat/f770e0be6d4da48b) said:
 
