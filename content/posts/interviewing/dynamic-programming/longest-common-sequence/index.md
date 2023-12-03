@@ -134,7 +134,7 @@ func longestCommonSubsequence(_ text1: String, _ text2: String) -> Int {
 ```
 
 ## Summary and some other confusions I had along the way 
-To figure out the issue with my code I had to look up 'top down vs 'bottom up' & 'memoization vs tabulation'. 
+To figure out the issue with my code I had to look up 'top down vs 'bottom up' & 'memoization vs tabulation'. Understanding their differences just makes it easier for you to compare things. Otherwise don't spend too much time on it.   
 I was a bit confused until [Bard](https://bard.google.com/chat/f770e0be6d4da48b) said: 
 
 > Recursive algorithms are called top-down because they break down a problem into smaller and smaller subproblems until they reach a _base case_, which is a simple problem that can be solved directly. Once the base case is solved, the results are used to solve the larger subproblems, and so on, until the original problem is solved. This process is called recursion, and it is a powerful way to solve many different types of problems.
