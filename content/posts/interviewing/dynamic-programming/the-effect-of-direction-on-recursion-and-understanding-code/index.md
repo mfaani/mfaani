@@ -73,6 +73,7 @@ return `0` for any value that's beyond the _right_ or _top_ edges of the grid.
 Start from `(2,4)` and finish at top left corner.  
 return `0` for any value that's beyond the _left_ or _bottom_ edges of the grid.
 
+> My confusion originated from the fact that I was coding from one approach, but trying to fix my code based on another approach — without realizing the approaches are different! 🙃🫤🫤😐🤔
 
 ## Approach One Code
 
@@ -134,8 +135,8 @@ func longestCommonSubsequence(_ text1: String, _ text2: String) -> Int {
 ```
 
 ## Summary and some other confusions I had along the way 
-To figure out the issue with my code I had to look up 'top down vs 'bottom up' & 'memoization vs tabulation'. 
-I was a bit confused until [Bard](https://bard.google.com/chat/f770e0be6d4da48b) said: 
+To figure out the issue with my code I had to look up 'top down vs 'bottom up' & 'memoization vs tabulation'. Understanding their differences just makes it easier for you to compare things. Otherwise don't spend too much time on it.   
+I was a bit confused until [Bard](https://bard.google.com/chat/f770e0be6d4da48b) said:
 
 > Recursive algorithms are called top-down because they break down a problem into smaller and smaller subproblems until they reach a _base case_, which is a simple problem that can be solved directly. Once the base case is solved, the results are used to solve the larger subproblems, and so on, until the original problem is solved. This process is called recursion, and it is a powerful way to solve many different types of problems.
 >
