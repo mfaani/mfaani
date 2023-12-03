@@ -73,7 +73,7 @@ return `0` for any value that's beyond the _right_ or _top_ edges of the grid.
 Start from `(2,4)` and finish at top left corner.  
 return `0` for any value that's beyond the _left_ or _bottom_ edges of the grid.
 
-> My confusion originated from the fact that I was coding from one approach, but trying to fix my code based on another approach. 
+> My confusion originated from the fact that I was coding from one approach, but trying to fix my code based on another approach — without realizing the approaches are different! 🙃🫤🫤😐🤔
 
 
 ## Approach One Code
