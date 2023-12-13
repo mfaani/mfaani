@@ -63,7 +63,7 @@ class CreditCard {
 
 > Because a credit card will **always** have a customer, you define its customer property as an `unowned` reference, to avoid a strong reference cycle.
 
-### Hows does the crash look like? 
+### How does the crash look like? 
 
 ```swift
 class ViewController: UIViewController {
