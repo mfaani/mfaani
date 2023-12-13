@@ -86,6 +86,12 @@ A crash for an `unowned` reference that's been deallocated is:
 
 > signal SIGABRT --- Fatal error: Attempted to read an `unowned` reference but the object was already deallocated
 
+## Why is it named unowned?
+
+Naming it "unowned" clearly communicates that the reference _doesn't contribute to ownership or memory management._  
+It's meant to emphasize its passive role in memory management and the importance of carefully ensuring its validity within the expected lifespan relationship. It's a clear and intentional choice that conveys both the benefit and the potential risk associated with this type of reference.
+
+The naming strategy aligns with several other syntax that Apple has for 'undefined', 'unreferenced', 'unsafe', 'UnsafePointer'
 
 ### References:
 - https://stackoverflow.com/questions/54299046/what-means-unowned-self-and-what-are-the-benefits/54313373#54313373
