@@ -185,6 +185,8 @@ Simply put I had to iterate for each new addition. But then do recursion until a
 
 In that sense it was a new challenge, because I've always seen challenges where I either had to iterate with a simple for-loop or do recursion, never both, let alone have it combined with stacks. It was a really fun challenge. 
 
+> Use **iteration** to get to all items. Then depending on your need, use **recursion** or whatever's necessary to process the current iteration.
+
 ## Conclusion and things I learned along the way
 
 - Have a list of different data structures in front of you. It can help trigger your brain. I wasn't able to come up with the idea of using a Stack on my own, but some tips for being able to come up with it are: if you have some 'undoing' to do, like undo adding something, then a stack can be a good choice. FWIW this problem could have also been solved with a **linked list** as well. I just didn't code that. 
