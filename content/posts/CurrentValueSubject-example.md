@@ -98,7 +98,7 @@ class ViewController: UIViewController {
 
 Here the subscription is valid only until the end of the `setup` function. However when you use `_` you're telling the compiler that I care less and it may be deinitialized immediately. 
 
-Generally the only way to guarantee your subscriptions stay alive is to reference them from a lexical scope that outlives the time you want to receive subscriptions.
+Generally the only way to guarantee your subscriptions stay alive is to reference them from a scope that outlives the time you want to receive subscriptions.
 
 The [docs](https://developer.apple.com/documentation/combine/publisher/sink(receivevalue:)) on `sink` also say: 
 
