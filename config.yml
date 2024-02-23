@@ -78,8 +78,12 @@ services:
   twitter:
     disableInlineCSS: true
 
-  # needed so the site's search works
+  # needed to ensure different manifestations of the site work. 
 outputs:
   home:
+  # To create webpages. 
     - HTML
+  # To create RSS Feed
     - RSS
+  # To create an index.json so search works on the site
+    - JSON
