@@ -2,6 +2,7 @@
 title: "Why Being First Is a Game Changer"
 date: 2024-02-21T08:56:08-05:00
 category: [career]
+draft: true
 tags: [culture, career-growth, leadership, being-first]
 description: "Being a good lead is a lot about being first"
 cover:
@@ -18,7 +19,7 @@ If you're ahead of others, you become people's go to person. It means more invol
 
 Being first means you can pave the way for others and be helpful. Being first is one of the key traits of a tech lead.
 
-## Advantages of being first
+## Main Advantages of being first
 
 You can set the tone, guidelines that you want _others_ to follow. And not you following others. Often you're late into some bad architecture. Folks have already made their decision on the bad architecture. Things are already in motion. Product has already signed off to the design and it's now a quarterly goal. The cost of correcting the mistake is too high. It's difficult to get people buy into your plan. 
 
@@ -43,7 +44,7 @@ Being first doesn't need to be about deliverables. It can also be about good cul
 - Greet birthdays of team members or give a hug to a colleague whose recently loss someone. 
 - Share what you learned today with others. 
 - Talk about great weather. How well a meeting went.
-- Being first onto the train station allows you to think with zen.
+- Being first at the office, train station or even waking up early allows you to think with zen.
 
 Slowly others will follow the new cultural norms you set. You'd see people giving each other shout outs. Other teams trying to mimic your team's togetherness.
 
