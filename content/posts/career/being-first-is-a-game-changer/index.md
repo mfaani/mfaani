@@ -2,7 +2,6 @@
 title: "Being First is a Game Changer"
 date: 2024-02-21T08:56:08-05:00
 category: [career]
-draft: true
 tags: [culture, career-growth, leadership, being-first]
 description: "Being a good lead is a lot about being first"
 cover:
