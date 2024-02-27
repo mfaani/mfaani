@@ -1,5 +1,5 @@
 ---
-title: "Why Being First Is a Game Changer"
+title: "Being First is a Game Changer"
 date: 2024-02-21T08:56:08-05:00
 category: [career]
 draft: true
@@ -15,20 +15,17 @@ editPost:
     appendFilePath: true
 ---
 
-If you're ahead of others, you become people's go to person. It means more involvement. More challenge, more opportunities to grow and network. 
+If you're ahead of others, you become people's go to person. It means more involvement. More challenge and opportunities to grow and network. 
 
-Being first means you can pave the way for others and be helpful. Being first is one of the key traits of a tech lead.
+Being first means you can pave the way for others and be helpful. It's one of the key traits of a lead.
 
 ## Main Advantages of being first
 
 You can set the tone, guidelines that you want _others_ to follow. And not you following others. Often you're late into some bad architecture. Folks have already made their decision on the bad architecture. Things are already in motion. Product has already signed off to the design and it's now a quarterly goal. The cost of correcting the mistake is too high. It's difficult to get people buy into your plan. 
 
-Being first means you're informed ahead of others and have time more time to react and come up with plans. You're also the first contact point and often that means you're the contact point with another team which helps build relationships. 
-
-It shows you care. The person who's always early to meetings and makes sure the screen sharing and microphone is all working is better looking than someone who's always late and can't get their microphone working properly or has forgot to give share access. I recall once I needed to play a video with some intro music and because I rehearsed my presentation with someone, they told me they're hearing nothing. It was because Teams was noise suppressing.
+Being first means you're informed ahead of others, have more time to react to feedback and come up with plans. You're also the first contact point and often that means you're the contact point with another team which helps build relationships. 
 
 Being early and well-prepared for meetings demonstrates your attentiveness and respect for others' time. Consider the person who arrives ahead of schedule, ensuring that all technical aspects, like screen sharing and microphone functionality, are in perfect order. This individual not only presents themselves more favorably but also enhances the meeting experience for everyone involved. Contrast this with someone who is habitually late, struggles with basic presentation tools, or overlooks essential permissions for content sharing. A _rehearsal_ once revealed that the audience couldn't hear the introductory music due to the noise suppression feature in Teams...
-
 
 ## How to be first
 
@@ -54,13 +51,13 @@ Here are some reasons based on research and examples:
 
 - Being first typically enables a company to establish strong brand recognition and customer loyalty before competitors enter the arena. For example, Netflix was the first company to offer online movie rental service, which gave it a huge advantage over traditional video stores like Blockbuster.
 - Being first also gives you additional time to perfect your product or service and set the market price for the new item. For example, Apple was the [first company to introduce](https://www.computerhistory.org/timeline/1983/) a personal computer with a graphical user interface, which allowed it to dominate the market for years.
-- Being first can also influence how people make choices, as they tend to prefer the options that come first: first in line, first college to offer acceptance, first salad on the menu – first is considered best. This is because people have a cognitive bias called the primacy effect, which means they remember and value the first information they encounter more than the later ones.
-- Being first can also boost your leadership skills and personality traits, especially if you are a first-born child. [Researchers from Duetsche Post Foundation](https://docs.iza.org/dp10560.pdf) found that firstborns have an advantage when it comes to emotional stability, persistence, being outgoing and social, an ability to take initiative and a willingness to take on responsibility, leading them towards top managerial positions .
+- Being first can also influence how people make choices, as they tend to prefer the options that come first: first in line, first college to offer acceptance, first salad on the menu – first is considered best. This is because people have a cognitive bias called the [primacy effect](https://www.investopedia.com/terms/f/firstmover.asp), which means they remember and value the first information they encounter more than the later ones.
+- Being first can also boost your leadership skills and personality traits, especially if you are a first-born child. [Researchers from Duetsche Post Foundation](https://docs.iza.org/dp10560.pdf) found that firstborns have an advantage when it comes to emotional stability, persistence, being outgoing and social, an ability to take initiative and a willingness to take on responsibility, leading them towards top managerial positions.
 
 As you can see, being first has many benefits that can help you succeed in your personal and professional life. So don't be afraid to take risks, innovate, and lead by example. You never know what opportunities might open up for you if you are the first one to do something.
 
-## Mistakes in being first
-- In the beginning you might you need to go so for a bit. Often till the end. 
+## Tips
+- In the beginning you might you need to go solo for a bit. Often till the end. 
 - Don't always go solo first. Get a few people to buy into your initiative. Get feedback. Make your group/team/company first — even if it doesn't mean leading or creating the team. As long as your part of the pack then that's still a major win. Often just being part of a high-impacting team is the only extra nudge you need to stand out and get the promotion!
 - Gamify it. Make it fun. Do it with a group. Give praises and get priases for people who are first. Have a leaderboard. Often even leaving cool emojis for others will kick off a joyful culture that will get back to yourself.
 - Try to be first in a few things. Like don't try to be first to learn about what's new in WWDC, what's new in fastlane, what's new in your upcoming features, etc. Focus on one or two aspects and **just build around it**. 
@@ -70,6 +67,3 @@ As you can see, being first has many benefits that can help you succeed in your 
 - Focus on strengths, but also have plans to improve your weaknesses. 
 
 Hopefully by the end, the result would be you getting ["First to the egg"](https://www.youtube.com/watch?v=sb1b5XmnrGk) 🥚🚀🏆!
-
-## References
-- [First Mover: What It Means, Examples, and First Mover Advantages](https://www.investopedia.com/terms/f/firstmover.asp)
