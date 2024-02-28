@@ -55,14 +55,17 @@ Here are some reasons based on research and examples:
 
 As you can see, being first has many benefits that can help you succeed in your personal and professional life. So don't be afraid to take risks, innovate, and lead by example. You never know what opportunities might open up for you if you are the first one to do something.
 
-## Tips
-- In the beginning you might you need to go solo for a bit. Often till the end. 
-- Don't always go solo first. Get a few people to buy into your initiative. Get feedback. Make your group/team/company first — even if it doesn't mean leading or creating the team. As long as your part of the pack then that's still a major win. Often just being part of a high-impacting team is the only extra nudge you need to stand out and get the promotion!
-- Gamify it. Make it fun. Do it with a group. Give praises and get priases for people who are first. Have a leaderboard. Often even leaving cool emojis for others will kick off a joyful culture that will get back to yourself.
+## Mistakes
+- If you're a team lead or manager then being always first isn't going to help your team members grow. I recall having a tech lead, he was first to reply to every slack message in a suport channel. For things I had to spend 10-60 minutes to figure out, he already had the answer in 2 minutes. It frustrated me very much. He cooled down after I let him know about it. We agreed that I should instead leave a "on-it" emoji, so others know I'm looking into it, and then I would reach out to him if needed. 
+- Being too quick to correct the mistakes of others. Often people realize their mistakes without neeing to be told about it. 
+- Attempting to go first while going completing solo. Get a few people to buy into your initiative. Get feedback. Make your group/team/company first — even if it doesn't mean leading or creating the team. As long as your part of the pack then that's still a major win. Often just being part of a high-impacting team is the only extra nudge you need to stand out and get the promotion!
 - Try to be first in a few things. Like don't try to be first to learn about what's new in WWDC, what's new in fastlane, what's new in your upcoming features, etc. Focus on one or two aspects and **just build around it**. 
+- Don't overload yourself. Otherwise you can't take on tasks — especially as the first person. 
+
+## Other Tips
+- Gamify it. Make it fun. Do it with a group. Give praises and get priases for people who are first. Have a leaderboard. Often even leaving cool emojis for others will kick off a joyful culture that will get back to yourself.
 - Being first [requires stamina more than it requires intensity](https://www.youtube.com/watch?v=P53N81p5yoU). Usually more tenured/experienced people are first. This means you will fail a lot early on. 
 - Embrace failure. By being first you're more exposed to corrections. 
-- Don't overload yourself. Otherwise you can't take on tasks.
-- Focus on strengths, but also have plans to improve your weaknesses. 
+- Focus on strengths, but also have plans to improve your weaknesses.
 
 Hopefully by the end, the result would be you getting ["First to the egg"](https://www.youtube.com/watch?v=sb1b5XmnrGk) 🥚🚀🏆!
