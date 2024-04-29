@@ -18,7 +18,7 @@ A binary is the linked product of all your source code. It's executable. You can
 An app, is merely a wrapper/directory, which includes that binary and other things. 
 
 ## How do you create a binary? 
-First it's import to understand what a binary is.
+First it's important to understand what a binary is.
 - You've used them every day in the terminal. Examples: `ls`, `cp`, `mkdir`.
 - You pass certain parameters to them.
 - They don't have any file extension.
