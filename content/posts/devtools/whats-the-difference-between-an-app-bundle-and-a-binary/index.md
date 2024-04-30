@@ -26,7 +26,7 @@ First it's important to understand what a binary is.
 
 With some simplification, this is how we create a binary from our source code:
 
-!["High Level"](high-level.png "each .swift -> to a .o; All .o -> linked together as a binary")
+!["High Level"](high-level.png "each .swift -> to a .o; All (necessary) .o -> linked together as a binary")
 
 So now you're wondering what an object code is. 
 Object codes, a.k.a object files are: 
