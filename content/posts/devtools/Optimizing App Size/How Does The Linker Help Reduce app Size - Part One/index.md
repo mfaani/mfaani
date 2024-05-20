@@ -65,7 +65,7 @@ With that said, the level of control for selecting source code is not the 'type 
 As soon as they're no longer any undefined symbols. The linker is much like fixing a puzzle. You start with a piece, its edges need other pieces to complete. You keep on adding more pieces. You stop when the last piece is added. Anything remaining is redundant.
 
 ### How are the compiler and linker different? 
-See my previous post on [Optimzing App Size - Jargon#Concepts](http://localhost:1313/posts/devtools/optimizing-app-size/jargon/#concepts). It explains things at the high level.  
+See my previous post on [Optimzing App Size - Jargon#Concepts](http://mfaani.com/posts/devtools/optimizing-app-size/jargon/#concepts). It explains things at the high level.  
 
 The compiler needs to know what the other symbols are in order to compile code that uses them.  
 The linker combines these object code files into an executable. The linker needs to know where the other symbols are in order to link code objects that use them.

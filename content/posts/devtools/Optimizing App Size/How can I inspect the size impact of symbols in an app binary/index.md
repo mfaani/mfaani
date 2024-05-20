@@ -7,7 +7,7 @@ ShowToc: true
 description: "Learn how to use nm to count extra symbols that impact App Size" 
 ---
 
-In the previous posts we talked about [Build Pipeline](http://localhost:1313/posts/devtools/optimizing-app-size/build-pipeline/), [Jargon](http://localhost:1313/posts/devtools/optimizing-app-size/jargon/), [Static Linker](http://localhost:1313/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-1/) vs [Dynamic Linker](http://localhost:1313/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-2/). In this post we'll benefit from the knowledge gained about the app wrapper's folder structure and the placement of all the different binaries (frameworks and main app's executable) to know _where_ to look for. New in this post is learning _how to use the `nm` command to inspect and count the number of symbols of_ each binary.
+In the previous posts we talked about [Build Pipeline](http://mfaani.com/posts/devtools/optimizing-app-size/build-pipeline/), [Jargon](http://mfaani.com/posts/devtools/optimizing-app-size/jargon/), [Static Linker](http://mfaani.com/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-1/) vs [Dynamic Linker](http://mfaani.com/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-2/). In this post we'll benefit from the knowledge gained about the app wrapper's folder structure and the placement of all the different binaries (frameworks and main app's executable) to know _where_ to look for. New in this post is learning _how to use the `nm` command to inspect and count the number of symbols of_ each binary.
 
 ## Symbols
 
