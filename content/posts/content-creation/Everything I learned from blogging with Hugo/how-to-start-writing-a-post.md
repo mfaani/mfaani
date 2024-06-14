@@ -55,7 +55,8 @@ I just came back to two of my old posts. I actually totally forgot I had them wr
   - Typos and grammatical mistakes. 
   - Things that I skipped without explaining them. 
   - Better ways to explain certain things. 
-Basically, the context of a fresh mind (who might have forgotten some things) is closer to that of a reader with a blank slate — while the context of an author's mind is like one on steroids full of knowledge and context.
+Basically, the context of a fresh mind (who might have forgotten some things) is closer to that of a reader with a blank slate — while the context of an author's mind is like one on steroids of knowledge and context.  
+From my experience, the posts that I came back to 6 months after were the ones that I found lacking appropriate path and context for how I began and how I navigated the post. 
 
 > You can only connect your past, current, and future selves if you have a record of your experiences, such as through writing or recording. Each version of yourself is different, but they are all connected. If you start something and use it regularly, your past and future selves are more connected. But if you learn something and don't use it, your past and present selves are less connected.
 >
