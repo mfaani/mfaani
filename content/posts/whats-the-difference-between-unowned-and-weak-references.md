@@ -11,6 +11,7 @@ editPost:
 
 TIL I finally learned when to use `unowned` as opposed to using `weak`.
 
+##  Differences
 - **Under the hood:** `unowned` is essentially a force-unwrap of a `weak` capture, with all that it entails. Because of this using it slightly more dangerous.
 - **Crash danger:** Accessing an _unowned_ reference while it's `nil` will cause a crash.
 - **Compilation error:** Every `weak` reference, must be an optional property. Otherwise you'll get a compilation error:
@@ -20,6 +21,9 @@ weak var delegate: DataEntryDelegate = DataHandler() // ERROR: 'weak' variable s
 ```
 
 - **Call site:** Unlike _weak_ references, it's not mandatory for _unowned_ references to be an **optional**. This makes the call site cleaner i.e. you don’t have to do the optional unwrapping dance.
+
+## Similarities
+- Both don't keep a strong hold on the instance it refers to.
 
 ### Don't
 Use `unowned` for async/network operations. Because the object may become `nil` and then accessing it would crash!
