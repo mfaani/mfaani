@@ -37,7 +37,8 @@ Additionally it widens your network and can help add prestige to your profile.
     - Things might have changed. Example how we automate things on GitHub is a forever changing subject.
     - Writing a post is the best way to learn about things. 
   - But also try to go for novel topics as well. Like some of my most read topics are on 'Cocoapods manfiest.lock file' or on 'Why can't Xcode show the caller?'
-- **Use rich media** Post videos/gifs as well. They make your website **rich**. Example, instead of a screenshot of Apple's Playground, actually take a short video and demo it. Videos have audio, show UX far easier, quicker. You don't need to use them in every post, but just that you shouldn't shy away from them. If you end up with rich media, then make sure it's just 5-60 seconds long. 
+- **Use rich media:** Post videos/gifs as well. They make your website **rich**. Example, instead of a screenshot of Apple's Playground, actually take a short video and demo it. Videos have audio, show UX far easier, quicker. You don't need to use them in every post, but just that you shouldn't shy away from them. If you end up with rich media, then make sure it's just 5-60 seconds long. 
+- **Use focused media:** Don't take a screenshot of the entire page or IDE. Otherwise the image will be greatly zoomed out. If you take a focused image instead then, it's easier for the reader to grasp. Take a look at the images of [my other post](https://mfaani.com/posts/why-cant-xcode-show-caller/) and see how certain images are easier to grasp. 
 - **Use correct dates:** If you stared the draft two months ago, but published today, then make sure the date readers see assocaited with the post on your blog is the 'publish date'. Otherwise they might think the post was from two months ago and feel its dated. 
 
 ## Benefits of getting early feedback 
@@ -72,9 +73,10 @@ Instead of just sharing a link or what originated, share something valueable fro
 > Unless others are eagerly following you, then share as many places as you can. The more social media platforms you've joined the better. Share it on Twitter, LinkedIn, Slack, and also on https://iosdevdirectory.com. Since adding my blog on the iOS dev directory, I've have more views and more shares of my posts across the internet. 
 
 ## Other notes
-- Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it.   
+- Once you've published, then check all your links and images. Checking your links is important because it's not something you can figure out by reading the markdown. You have to render it.  
   - You may simply forget to commit an image or have a Hugo variable/configuration that works ok localy. So double check the published version too.
   - Be wary about accidentally publishing a post. This is why it's good to check your website every once a while and not just the homepage, but go through all your posts to make sure no post has actually sneaked in. Often an old post will get in because you removed the `draft: true` field but your post `date` field was from 6 months ago. So it appears in your list of posts, but not in the front page because you have a lot of newer pages. 
+  - I once copy/pasted links that were off of `localhost` instead of `mfaani.com`. 
 - Add your website's URL at the bottom of every image you've created. Helps your branding and gets you more clicks when the image is shared outside your post 
 - Do I need to make a Pull Request for every new post?
   - If it's just a new post or some edit then just add a good commit message and push.
