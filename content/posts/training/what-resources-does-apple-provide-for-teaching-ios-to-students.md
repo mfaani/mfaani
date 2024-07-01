@@ -18,6 +18,7 @@ What you must understand is:
 - Some of Apple's Documents (PDFs) are a tiny bit out sync with their Playground tutorials. 
 - Some of their books found through the Books app are available in Xcode 11, Xcode 12, and Xcode 13. Making it confusing because you may not notice that the book is for an older Xcode version. So just make sure you're downloading the correct Xcode version. 
 - Some Playgrounds require a (free) subscription. 
+- See Apple Playground Release Notes [here](https://developer.apple.com/swift-playgrounds/release-notes/)
 
 ## Where to begin?
 Overall Apple has teaching material in their Swift Playgrounds app and PDF books. In my opinion what you choose, depends on how you answer the following questions. 
