@@ -122,7 +122,7 @@ The word choice of `any` vs. `some` is a confusing one. In my humble opinion `an
 - `anyButMatchingOtherReturningTypes`
 - `anyHomogeneousType`
 - `anyConsistentType`
-- `anyWhileGuaranteeingTypeRelationship_and_HoldingAFixedValue`
+- `anyWhileGuaranteeingTypeRelationship_and_HoldingAFixedType`
 - `somy`
 
 I specicially left Apple's jargon of "opaque", "existential", "boxed" out of this conversation as they often make it hard to understand. 
