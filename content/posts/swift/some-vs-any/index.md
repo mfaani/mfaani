@@ -32,7 +32,7 @@ var y: any Equatable = 9
 
 ## Differences
 
-- `any` is careless for your return types. Allows the following
+- `any` is careless for your return types. Allows the following:
 
 ```swift
 func aa() -> any Equatable { 
@@ -45,7 +45,7 @@ func aa() -> any Equatable {
 ```
 
 
-- `some` is thoughtful for your return types. Does *not* allow the following. 
+- `some` is thoughtful for your return types. Does *not* allow the following:
 
 ```swift
 func bb() -> some Equatable { 
@@ -57,7 +57,7 @@ func bb() -> some Equatable {
 }
 ```
 
-Instead `some` allows _identical_ return types of `Int` or `String`
+Instead `some` allows _identical_ return types of `Int` or `String`:
 
 ```swift
 func cc() -> some Equatable { 
