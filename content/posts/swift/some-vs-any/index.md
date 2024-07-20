@@ -125,6 +125,6 @@ The word choice of `any` vs. `some` is a confusing one. In my humble opinion `an
 - `anyWhileGuaranteeingTypeRelationship_and_HoldingAFixedConcreteType`
 - `somy`
 
-I specicially left Apple's jargon of "opaque", "existential", "boxed" out of this conversation as they often make it hard to understand. 
+I specicially left Apple's jargon of "opaque", "existential", "boxed", "type erasure" out of this post as they often make it hard to understand. That said I recommend figuring those out once you read this post. 
 
-For a more detailed analysis of their differences see [Embrace Swift Generics - WWDC 2022](https://developer.apple.com/wwdc22/110352)
+A good place to start for the detailed analysis of their differences see [Embrace Swift Generics - WWDC 2022](https://developer.apple.com/wwdc22/110352)
