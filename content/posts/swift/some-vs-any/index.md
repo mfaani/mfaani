@@ -45,7 +45,7 @@ func aa() -> any Equatable {
 ```
 
 
-- `some` is thoughtful for your return types. Doesn't allow the following. 
+- `some` is thoughtful for your return types. Does *not* allow the following. 
 
 ```swift
 func bb() -> some Equatable { 
