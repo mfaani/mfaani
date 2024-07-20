@@ -114,7 +114,7 @@ let variedAnimals: [any Animal] = [Cow(), Dog(), Cat()]
 ## Summary
 
 - The impact of `some` is *across* variables. It enforces idnetical types to be returned.
-- The impact of `any` is on a single variable. It has no enforcing to keep returning types identical.
+- The impact of `any` is on *a single* variable. It has no enforcing to keep returning types identical.
 
 !["Swift some vs Any"](some-vs-any.png "WWDC 2022 - Embrace Swift Generics - Holly Borla")
 
