@@ -127,4 +127,4 @@ The word choice of `any` vs. `some` is a confusing one. In my humble opinion `an
 
 I specicially left Apple's jargon of "opaque", "existential", "boxed", "type erasure" out of this post as they often make it hard to understand. That said I recommend figuring those out once you read this post. 
 
-A good place to start for the detailed analysis of their differences see [Embrace Swift Generics - WWDC 2022](https://developer.apple.com/wwdc22/110352)
+A good place to start for the detailed analysis of their differences is the [Embrace Swift Generics - WWDC 2022](https://developer.apple.com/wwdc22/110352) talk.
