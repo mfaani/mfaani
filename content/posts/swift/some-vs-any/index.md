@@ -112,7 +112,7 @@ let variedAnimals: [any Animal] = [Cow(), Dog(), Cat()]
 ```
 
 ## Summary
-
+- Both `some` and `any` keywords can be used to satisfy associated type requirements without explicitly specifying the associated type. This allows for more flexibility and abstraction in code.
 - The impact of `some` is *across* variables. It enforces idnetical types to be returned.
 - The impact of `any` is on *a single* variable. It has no enforcing to keep returning types identical.
 
