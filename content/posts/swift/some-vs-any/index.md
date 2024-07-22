@@ -123,7 +123,7 @@ The word choice of `any` vs. `some` is a confusing one. In my humble opinion `an
 - `anyHomogeneousType`
 - `anyConsistentType`
 - `anyWhileGuaranteeingTypeRelationship_and_HoldingAFixedConcreteType`
-- `somy`
+- `somy`, `somny` or `insomnia`
 
 I specicially left Apple's jargon of "opaque", "existential", "boxed", "type erasure" out of this post as they often make it hard to understand. That said I recommend figuring those out once you read this post. 
 
