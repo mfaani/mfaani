@@ -101,6 +101,9 @@ func feed(_ animal: some Animal) {
 >
 > For more see [this wwdc moment](https://developer.apple.com/videos/play/wwdc2022/110352/?time=783)
 
+{{< rawhtml >}}<sub> ⚠️ - Attention: <font color="#9900FF">some</font> is a universal replacement for <font color="#9900FF">T: AProtocol</font>. For more on that see 
+<a href="[url](https://forums.swift.org/t/using-some-how-can-i-get-identical-protection-to-constrained-generics-for-returning-types/73529/1)">here</a> </sub>{{< /rawhtml >}}
+
 ## When should I use `any`? 
 
 Apple recommends us to start with `some` and then only use `any` when you don't want to restrict the underlying variables to have the same type. Example: 
