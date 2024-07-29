@@ -83,7 +83,7 @@ Remember with older Swift we had to write:
 
 ```swift
 protocol Animal {...}
-func feed<T>(_ animal: T) where: T: Animal {
+func feed<T>(_ animal: T) where T: Animal {
     ...
 }
 ```
