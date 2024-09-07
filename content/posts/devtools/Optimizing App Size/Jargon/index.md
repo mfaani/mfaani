@@ -147,7 +147,7 @@ Essentially all three are different form of dependencies of your app's main exec
 
 ### What's the difference between 'Build folder' and 'Product folder'? 
 When you want to make a cake, you need flour, milk, sugar, cream, eggs, chocolate chips, oven, mixer, etc. All of those are intermediary objects. Anything intermediate goes into the build folder. 
-The final product, the cake is what goes in the Product folder. The final cake has the flour, milk, sugar and all, but its glued together in a certain structure. Thought the chocolate chips are distinguishable from the cake. The rest are not. 
+The final product, the cake is what goes in the Product folder. The final cake has the flour, milk, sugar and all, but its glued together in a certain structure. Although the chocolate chips are distinguishable from the cake. The rest are not. 
 
 Building an app is similar to that. In the build folder you'd see the built static and dynamic libraries.  
 However in the Products folder, you see the app's main executable and its dynamic library. The static libraries are already merged into the app's main executable. 
