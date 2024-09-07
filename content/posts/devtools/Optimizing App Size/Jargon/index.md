@@ -81,7 +81,7 @@ To put all these concepts together. See the following images:
 ### 1. Compilation
 !["/Short and High Level Build Pipeline"](images/compilation.png "Every file is compiled into Machine Code. An individual Object file is useless. It needs all its other missing pieces to create a functioning application.")
 ### 2. Linking
-!["/Short and High Level Build Pipeline"](images/linking.png "The linker starts from a point of entry, usually the main function and then tries to find all its undefined dependencies (any function/variable that's not defined in main). For each of those dependencies it has find their dependencies as well. Once all are find, it stops linking. The product of linking all object files together is your app (or depending on your need your dynamic library's) binary.")
+!["/Short and High Level Build Pipeline"](images/linking.png "The linker starts from a point of entry, usually the main function and then tries to find all its undefined dependencies (any function/variable that's not defined in main). For each of those dependencies it has to find their dependencies as well. Once all are find, it stops linking. The product of linking all object files together is your app (or depending on your need your dynamic library's) binary.")
 
 
 ## Quick Summary - How do all the tools and files work together? 
