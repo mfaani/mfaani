@@ -50,7 +50,6 @@ Other languages have _header files_ which they include. Swift is made more simpl
     - Converts multiple `.c` files into a `.o` file. 
     - Can't be used to compile swift files. Must use `swiftc` instead.
 - `clang`: Apple's compiler for the C family language (C, C++, Objective-C, Objective-C++). `cc` is more of a universal term. 
-- `swiftc`: Apple's compiler for the Swift language. 
 - `ld`: The Linker. Converts `.o` files into an executable. Also known as the Static linker. This is an extremely important part of the whole build process.
 - `ar`: An archiving tool. Helps to combine files together. Originally used for backups and distributions. Converts multiple `.o` files into a `.a` file. The difference between `ar` and `ld` is that:
     - `ar` just groups together object files. The product of that is a static library. 
