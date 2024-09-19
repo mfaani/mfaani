@@ -35,29 +35,29 @@ Example: If the string _lengths_ differ by 2 or more characters, then you can ex
 
 3. Keep things simple. See how I avoid adding complex logic by intentionally passing the longer string as first parameter of `isOneInsertAway`. 
 
-4. Stop caring about things you don't need. You can find the answer without knowing which character, at which index needs to be replaced. A LOT of questions often can be resolved without caring for a lot of things. Example if you're solving a question on knowing if there's a path between A, B. Then you don't need to care how you got to B. You just need to know if there's a path. Not caring simplifies your thought process. For this reason it's often good to **write down things that don't matter.**
+4. Stop caring about things you don't need. You can find the answer without knowing which character, at which index needs to be replaced. A LOT of questions often can be resolved without caring for a lot of things. Example if you're solving a question on knowing if there's a path between A, B. Then you don't need to care how you got from A to B. You just need to know if there's a path. Not caring simplifies your thought process. For this reason it's often good to **write down things that don't matter.**
 
 ### Code
 
-```swift { hl_lines=[6, 8,10]} 
+```swift
 func isOneOrZeroEditsAway(_ str1: String, _ str2: String) -> Bool { 
     let str1 = Array(str1)
     let str2 = Array(str2)
     
     if str1.count == str2.count {
-        return isOneEditReplaceAway(str1, str2)
+        return isOneReplaceAway(str1, str2)
     } else if str1.count - 1 == str2.count {
         return isOneInsertAway(str1,str2)
     } else if str2.count - 1 == str1.count {
         return isOneInsertAway(str2, str1)
     } else {
-        return false // removing noise
+        return false
     }
 }
 
 /// loop over characters. if difference, bump diff count
 /// if at the end the count was more than 1, return false. 
-func isOneEditReplaceAway(_ str1: [Character], _ str2: [Character]) -> Bool {
+func isOneReplaceAway(_ str1: [Character], _ str2: [Character]) -> Bool {
     
     var diffCount = 0
     for i in 0..<str1.count {
@@ -75,7 +75,6 @@ func isOneInsertAway(_ str1: [Character], _ str2: [Character]) -> Bool {
     
     var diffCount = 0 
     for i in 0..<str2.count {
-        guard diffCount < 2 else { return false }
         if str1[i + diffCount] != str2[i] {
             diffCount += 1
         }
@@ -84,7 +83,6 @@ func isOneInsertAway(_ str1: [Character], _ str2: [Character]) -> Bool {
 }
 ```
 
-In the above, in the highlighted lines, we don't care what the edit/remove/replacement was. We just care about its number.
 
 ### Tests
 
