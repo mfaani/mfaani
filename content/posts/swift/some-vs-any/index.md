@@ -16,7 +16,7 @@ var x: Equatable = 10 // Error: Use of protocol 'Equatable' as a type must be wr
 var y: Equatable = "10" // Same error
 ```
 You's think the compiler should let the above compile, it rightfully doesn't.  
-It's because the compiler can't know if the _associated type_ of `x`, matches with the associated type of `y`. So it just forbids it. Compiler just doesn't want to be in situation where you'd try something like:
+The compiler can't know if the _associated type_ of `x`, matches with the associated type of `y`. So it just forbids it. Compiler just doesn't want to be in situation where you'd try something like:
 
 ```swift
 if x == y { print("Equal") }
