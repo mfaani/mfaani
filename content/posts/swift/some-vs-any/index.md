@@ -9,11 +9,13 @@ tags: [Swift, Generics, wwdc2022]
 
 # What problem do `some` and `any` solve? 
 
+
+
 ```swift
 var x: Equatable = 10 // Error: Use of protocol 'Equatable' as a type must be written 'any Equatable'
 var y: Equatable = "10" // Same error
 ```
-
+You's think the compiler should let the above compile, it rightfully doesn't.  
 It's because the compiler can't know if the _associated type_ of `x`, matches with the associated type of `y`. So it just forbids it. Compiler just doesn't want to be in situation where you'd try something like:
 
 ```swift
