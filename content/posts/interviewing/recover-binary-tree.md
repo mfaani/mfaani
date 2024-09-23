@@ -48,7 +48,7 @@ but that's still incorrect.
 So once you have the array built, what you need to do is:
 
 1. Find the first item that not in its place. Let's name this `f` (for first).
-2. Find the last item that's not in its place. Let's name this `s` (for second).
+2. Continue comparing every two consecutive pair to find the _last_ item that's not in its place. Let's name this `s` (for second). As soon as you find the 2nd item, then you can stop searching.
 3. Swap those two items. 
 
 
@@ -63,7 +63,8 @@ To show you step two visually:
 [1, 2, 8, 4, 6, 7, 3]
        ↑  ↑     ↑  ↑    
        ❗️ ❗️   ❗️ ❗️ 
-       f  ←⎯⎯⎯→  s       
+   first-pair  second-pair
+       f  ←     →  s       
 
 Perform swap between `f` and `s`: 
 [1, 2, 3, 4, 6, 7, 8]
@@ -74,18 +75,19 @@ The heart of all the code would be:
 ```swift
 var fBadVal: Int? 
 var sBadVal: Int? 
-var didSwapFirst = false
+var didFindFirstNodeThatNeedsSwapping = false
 for i in 0..<tree.count {
     if let next = tree[safe:i + 1], next.val < tree[i].val{
-        if didSwapFirst == false { 
+        if didFindFirstNodeThatNeedsSwapping == false { 
             fBadVal = tree[i].val
-            didSwapFirst = true
+            didFindFirstNodeThatNeedsSwapping = true
         }
         
         sBadVal = tree[i + 1].val
     }
 }
 ```
+{{< rawhtml >}}<sub> The swapping nodes happen between the first node of the first bad pair && the second node of the second bad pair.</sub>{{< /rawhtml >}}
 
 ### Setup of bad Binary tree: 
 
@@ -112,7 +114,20 @@ var seven = TreeNode(7, six, three)
 // root node
 var four = TreeNode(4, two, seven)
 
+1, 2, 8, 4, 7, 6 , 3
+
+
+                4
+           /         \
+        2               7
+      /   \           /   \   
+    1       8       6       3
+
+
 ```
+
+
+
 
 ### Actual code: 
 
@@ -130,12 +145,12 @@ class TreeFixer {
         // find the elements where they're not matching...
         var fBadVal: Int? 
         var sBadVal: Int? 
-        var didSwapFirst = false
+        var didFindFirstNodeThatNeedsSwapping = false
         for i in 0..<tree.count {
             if let next = tree[safe:i + 1], next.val < tree[i].val{
-                if didSwapFirst == false { 
+                if didFindFirstNodeThatNeedsSwapping == false { 
                     fBadVal = tree[i].val
-                    didSwapFirst = true
+                    didFindFirstNodeThatNeedsSwapping = true
                 }
                 
                 sBadVal = tree[i + 1].val
