@@ -122,12 +122,7 @@ var four = TreeNode(4, two, seven)
         2               7
       /   \           /   \   
     1       8       6       3
-
-
 ```
-
-
-
 
 ### Actual code: 
 
