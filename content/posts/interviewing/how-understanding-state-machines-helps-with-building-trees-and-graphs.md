@@ -13,38 +13,20 @@ My team was dealing with a large flow, where user can transition from multiple s
 This made it difficult for us to see all our logic at once. We asked around and was told state machines are a good fit for our situation.  
 State machines are void of any UX. You just pass an event to it. Based on the event and the current state, you update to a new state along with an optinoal command to act upon. 
 
-A watered down example of a [State machine](https://gist.github.com/andymatuschak/d5f0a8730ad601bcccae97e8398e25b2) is: 
+A watered down examssple of a [State machine](https://gist.github.com/andymatuschak/d5f0a8730ad601bcccae97e8398e25b2) is: 
 
-```haskell
-Event             + Current state         ->   Command    ->    New state
------------------------------------------------------------------------------------
-.momEnteredHome   + .houseIsClean         -> nil          ->   (no state change)
-.momEnteredHome   + .houseWasAMess        -> .cleanHouse  ->   .cleaningHouse
-.houseGotCleaned  + .cleaningHouse        -> nil          ->   .houseIsClean
-
-.guestsWillCome   + .houseIsClean         -> .makeFood    ->   .makingFood
-.foodPrepared     + .makingFood           -> nil          ->   .foodPrepared
-
-.guestsArrived    + notAllGuestsArrived   ->   .wait      ->   .waitingForAllGuests 
-                   & .foodPrepared   
-.lastGuestArrived + waitingForAllGuests   -> .serveDinner ->   .eating
-
-```  
-
-```haskell
+```md
 Current state         +     Event             ->   Command    ->    New state
 -----------------------------------------------------------------------------------
 .houseIsClean         + .momEnteredHome       -> nil          ->   (no state change)
 .houseWasAMess        + .momEnteredHome       -> .cleanHouse  ->   .cleaningHouse
 .cleaningHouse        + .houseGotCleaned      -> nil          ->   .houseIsClean
 
-.houseIsClean         + .guestsWillCome               -> .makeFood    ->   .makingFood
-.makingFood           + .foodPrepared -> nil  ->   .foodPrepared
-
-.notAllGuestsArrived(isFoodPrepared: true) +    guestsArrived   ->   .wait      ->   .waitingForAllGuests 
-.waitingForAllGuests  + .allGuestsArrived     -> .serveDinner ->   .eating
-
+.houseIsClean         + .guestsWillCome       -> .makeFood    ->   .makingFood
+.makingFood           + .foodPrepared         -> nil          ->   .waitForAllGuests
+.waitForAllGuests     + .allGuestsArrived     -> .serveDinner ->   .eating
 ```  
+
 
 Now let's see how that can be deemed similar to graphs...
  
@@ -186,7 +168,7 @@ States (or values of interest i.e. the answer/returned value) can be associated 
 
 
 ## Another Dynamic Programming Example: 
-- Assuming you can travel in only the right and down direction: count the number of possible ways to reach from one corder of a grid to another. Assume our example grid is 3 x 3
+- Assuming you can travel in only the right and down direction of a grid: count the number of possible ways to reach from one corner of a 3 x 3 grid to another.
     - Our commands are only 
         - move right
         - move down
@@ -197,7 +179,7 @@ States (or values of interest i.e. the answer/returned value) can be associated 
         - ...
         - arrived at grid (3,3)
     - Our terminating state is:
-        - arrived at (3,3). Because we can't move down or right anymore. 
+        - arrived at (4,0)...(4,3) or (0,4)...(3,4). Because anything passed the the 3rd item in the grid — eiterh vertically or horizontally is a terminating state or out of bounds...
     - State transitions that we don't need to re-calculate over and over are: 
         - storing the number of ways to reach to (3,3) from (3,2)
         - storing the number of ways to reach to (3,3) from (2,3)
