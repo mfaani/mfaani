@@ -61,8 +61,7 @@ To show you step two visually:
        f  s
 
 [1, 2, 8, 4, 6, 7, 3]
-       ↑  ↑     ↑  ↑    
-       ❗️ ❗️   ❗️ ❗️ 
+       ↑__↑     ↑__↑
    first-pair  second-pair
        f  ←     →  s       
 
@@ -87,7 +86,7 @@ for i in 0..<tree.count {
     }
 }
 ```
-{{< rawhtml >}}<sub> The swapping nodes happen between the first node of the first bad pair && the second node of the second bad pair.</sub>{{< /rawhtml >}}
+{{< rawhtml >}}<sub> The swapping nodes happen between the first node of the first bad pair (8) && the second node of the second bad pair (3).</sub>{{< /rawhtml >}}
 
 ### Setup of bad Binary tree: 
 
@@ -218,4 +217,4 @@ Given that they're not nested to total Time complexity is `O(n)`
 - Often translating a tree into an array can be helpful.
 - Using an `inOrder` method that takes a handler block can be helpful.
 - Using a safe subscript for the array...something that Swift doesn't have can be helpful.
-- **main trick** was to continuously look for 2nd index.
+- **main trick** was to _continuously_ look for 2nd index.
