@@ -71,7 +71,7 @@ This has two advantages:
 - Groups all the bases cases together. This makes it a lot easier to process logic.
 - Reduces indentation from our code. 
 
-```swift { hl_lines=["14-17"]}
+```swift { hl_lines=["16-19"]}
 enum P: String {
     case open = "("
     case close = ")"
@@ -107,7 +107,13 @@ In the above, we have three base cases. Followed by recursive calls. It's much c
 
 Because we added this cleanliness, we can identify something that can be improved. 
 
-The highlighted lines have overlapping logic. We can combine them into `if openedCount > num`. Just try out the numbers in an example and you'll see. 
+The highlighted lines have overlapping logic. We can combine them into `if openedCount > num`. That's because the `openedCount > num` is enough of a limiting factor and it won't ever allow us to go beyond the max open. 
+
+> The other to think about this is the number of conditions needed. We only need to make sure: 
+> - We don't open more than the expected count.
+> - We don't close more than we've opened.
+>
+> Two conditions should require only two `if` clauses...
 
 ## Cleanest Solution - removing extra check
 
