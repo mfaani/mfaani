@@ -54,7 +54,10 @@ if totalJumpSum == targetSum { return 1 }
 
 Note: If you needed to return the actual jumps and not just the total 'numbers' then: 
 ```swift
-if totalJumpSum == targetSum { answerArray += [currentJumps + lastJump] } // answerArray += [[jump2,jump5] + [jump3]
+if totalJumpSum == targetSum { 
+    newAnswerArray = currentJumpsArray + lastJump // [jump2, jump5] + jump3
+    answerArray += newAnswer // answerArray += [jump2,jump5,jump3]
+} 
 ```
 
 - Don't forget you need to also stop when you go beyond the desired target. Example:
@@ -76,7 +79,7 @@ If you haven't reached a desired or undesired target, then you should just trave
 
 - Call your recursive function again. 
 - Pass whatever **path specific** information was needed. 
-    - You always need to mutate the previous path/state before you recurse again i.e. you have to do whatever's necessary to reflet that you've moved from one node to another.
+    - You always need to mutate the previous path/state before you recurse again i.e. you have to do whatever's necessary to reflect that you've moved from one node to another.
 - **Note:** You should not do any other checks at this point. Even if you know jumping 2 steps from 2, will go beyond 3 (the desired target), you shouldn't add logic to skip calling the recursive function. You should just call your recursive function. Let it terminate / exit early in the **next run** of your function's base case checks.
 This was a confusing point for me personally. I was never sure if I needed to be smart and skip calling my recursive function again. Now I know I shouldn't be smart.  
 Basically don't early exits to your recursive calling.
@@ -100,7 +103,7 @@ func helper(pathState: State) -> Value {
     else traverse_down_tree: 
         - Traverse down the tree. 
         - Update the path/stack.
-        - Return the result of both left and right children together. Each question has a different trick for combining. Example of different ways to combine:
+        - Return the result of both the children together. Each question has a different trick for combining. Example of different ways to combine:
             - With `+`. Example: sum of all nodes. 
             - With `&&`. 
             - With `||`
