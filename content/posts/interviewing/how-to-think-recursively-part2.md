@@ -26,7 +26,7 @@ Let's try applying our 4 steps:
 3. [So I didn't hit a base case. What then?](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#so-i-didnt-hit-a-base-case-what-then): Recursively call the function. Bifurcate into opening and closing both. Don't be smart: all code-paths at this point should call your function again. Let it exit any of its base cases in the next function execution.
 4. [Figure how to make the first recursive call](http:mfaani.com/posts/interviewing/how-to-think-recursively-part1/#figure-out-how-to-call-your-recursive-function-from-your-main-function): Well we start from `0` open/close parenthesis.
 
-```swift { hl_lines=["17"]}
+```swift { hl_lines=["19-21"]}
 enum P: String {
     case open = "("
     case close = ")"
@@ -61,7 +61,7 @@ print(generateParen(num: 3)) // ["((()))", "(()())", "(())()", "()(())", "()()()
 
 So the above is good. It's correct. However we didn't follow one of our principles. Can you guess?
 
-In the highlighted lines, is only executed if `openedCount < num`. But it's cleaner if we just allow it to be called and handle it in the base case exits. 
+The highlighted lines is only executed if `openedCount < num`. But it's cleaner if we just allowed it to be called, but handled it in the base case *exits*. 
 
 ## Cleaner solution
 In our `else`, we're just calling the recursive function. We don't have any conditions. We haven't sneaked in any base-case handling into there. 

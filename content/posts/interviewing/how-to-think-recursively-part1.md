@@ -75,6 +75,8 @@ As the coder you have to identify when you should stop traversing / recursing be
 
 If you haven't reached a desired or undesired target, then you should just traverse further down the tree.
 
+Or in a 2D Grid, going out of bounds would be a reason to stop.
+
 ## So I didn't hit a base case. What then? 
 
 - Call your recursive function again. 
@@ -103,7 +105,7 @@ func helper(pathState: State) -> Value {
     else traverse_down_tree: 
         - Traverse down the tree. 
         - Update the path/stack.
-        - Return the result of both the children together. Each question has a different trick for combining. Example of different ways to combine:
+        - Return the result of the children together. Each question has a different trick for combining. Example of different ways to combine:
             - With `+`. Example: sum of all nodes. 
             - With `&&`. 
             - With `||`
