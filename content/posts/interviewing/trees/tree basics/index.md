@@ -83,6 +83,35 @@ and so on.
 
 All the above are a BST made of 1,2,3,4. Because all conform to the two rules. Yet each is inserted with different order.
 
+For the tree to appear as a nice _balanced_ BST then you should be constantly inserting what would be the _middle of the range_. Example: 
+
+
+```
+                  [10,   15,   20,   25,   30]
+1st range:          ⎣___________↑___________⎦
+2nd range:          ⎣↑____⎦
+3rd range:               ⎣↑⎦
+4th range:                            ⎣↑____⎦
+5th range:                                 ⎣↑⎦
+```
+
+
+```
+      20˚                20                20                      20                    20
+                        /                 /                       /   \                 /   \
+                      10˚                10                      10    25˚             10     25
+                                          \                       \                     \       \
+                                           15˚                     15                   15       30˚
+```
+{{< rawhtml >}}<sub> Order of inserts. Each new insert into the tree is annotated with <font color="#9900FF">˚</font></sub>  {{< /rawhtml >}}  
+
+| Range| middle index calculation | middle/pivot index |
+| ---- | -------------------------| ------------------ |
+0...4 | 0 + 4 / 2 | 2 |
+0...1 | 0 + 1 / 2 | 0 |
+1...1 | 1 + 1 / 2 | 1 |
+3...4 | 3 + 4 / 2 | 3 |
+4...4 | 4 + 4 / 2 | 4 |
 
 ## Tree Traversal
 - [Breadth First Search](https://en.wikipedia.org/wiki/Breadth-first_search) (BFS). Also known as level-order traversal. 
@@ -208,13 +237,13 @@ Go back to Example 1 above. Ask yourself how is the in-order & level-order trave
 
 ## Helper functions
 - Tree Printer. See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L40-L60)
-- Array to 'Balanced Height Binary Tree Search' Convertor
+- Array to 'Balanced Height Binary Tree Search' Convertors:
   - level-ordered array to tree. See [here](https://medium.com/nerd-for-tech/swift-leetcode-series-binary-tree-level-order-traversal-db7603af1bb3). Creates a tree exactly based on its input. 
-  - in-order array to tree: See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L62-L79). Only t balanced tree. Won't create any other representation of the tree. 
+  - in-order array to tree: See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L62-L79). Only creates a height balanced tree. Won't create any other representation of the tree. 
 - Traversals. See [here](https://gist.github.com/mfaani/e6b807442ce6768aab14fb03f1a77e11#file-binarytree-swift-L23-L36)
 
 ## Summary
-- There are different kinds of trees that shouldn't be confused with one another. When it comes to binary trees, you may question why the in-order of different trees ends up the same. The answer is:, Even though insertion order the insertion order of elements was different, the logic of in-order will always lead to an in-order output.
+- There are different kinds of trees that shouldn't be confused with one another. When it comes to binary trees, you may question why the in-order of different trees ends up the same. The answer is:, Even though insertion order of elements was different, the _logic_ of in-order will always lead to an in-order output.
 - A balanced binary search tree is best for searching because you can cut in half. 
 - Differences of level-order vs in-order traversal:
   - level-order maintains a 1:1 relationship with its tree visualization. It's agnostic to order. And is just all about position. In-order is considerate of order, which is based off of position and logic. 

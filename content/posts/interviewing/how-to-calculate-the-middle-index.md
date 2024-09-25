@@ -99,7 +99,7 @@ pivot index = 5. left and right index are also index 5
 
 We're not always cutting the array/section in half. 
 
-- For odd ranges: you calculate the middle index correctly. Yet you’re not precisely cutting the section in half. Example: 
+- For **odd** ranges: you calculate the middle index correctly. Yet you’re not precisely cutting the section in half. Example: 
 
 `[2, 7, 20, 24, 40]` pivot point is `index: 2`.  
 
@@ -107,7 +107,7 @@ We're not always cutting the array/section in half.
 - You will drop three items: `(2, 7, 20)` if you’re looking for `24` or `40`.  
 - You will drop four items: `(2, 7, 24, 40)` if you’re looking for `20`.
 
-- For even ranges: You're not really calculating a middle. You **may or may not** end up precisely cutting the section in half. Example: 
+- For **even** ranges: You're not really calculating a middle. You **may or may not** end up precisely cutting the section in half. Example: 
 
 `[2, 7, 20, 24, 40, 99]` pivot point is `index: 2`.  
 
