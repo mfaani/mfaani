@@ -70,12 +70,14 @@ So
 - Return 0 if needed to terminate, but didn't find a good answer.
 
 As the coder you have to identify when you should stop traversing / recursing because either you:
-- You reach the _desired_ target.  
-- You reached an _undesired_ target.
+- You reach the _desired_ target/state.  
+- You reached an _undesired_ target/state.
 
 If you haven't reached a desired or undesired target, then you should just traverse further down the tree.
 
-Or in a 2D Grid, going out of bounds would be a reason to stop.
+Examples: in a 2D Grid, going out of bounds would be an undesired state. 
+
+Or if you ever have a range, window or 2 pointers then your right index should be greater than or equal to your left index/
 
 ## So I didn't hit a base case. What then? 
 
