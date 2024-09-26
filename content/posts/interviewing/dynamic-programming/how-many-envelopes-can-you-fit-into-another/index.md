@@ -24,7 +24,7 @@ This is question is very much like a Russian Doll question. Which that question 
 ## High Level Idea
 
 1. Sort it by width
-2. Then sort evelopes with same width by height. Sorting by height is the tricky part.
+2. Then sort envelopes with same width by height. Sorting by height is the tricky part.
 
 > The direction you sort is important. It can inverse the impact on your flow. I often got confused with the direction of sorting. You check out my post on [Which Way Am I Sorting?](https://mfaani.com/posts/interviewing/arrays/which-way-am-i-sorting/)). In short the the array’s order will match with the *direction* of the angle bracket (`<` or `>`)  you use. Think of right and left, instead of up and down, or of ascending and descending.
 
@@ -52,7 +52,7 @@ or
 
 ```
 
-So now things are sorted by the width. Great. let's 
+So now things are sorted by the width. Great. 
 
 Let's just assume we ended up with this order:
 ```
@@ -78,7 +78,7 @@ This works. However it's not forward proof. Like if our initial width sort ended
  > nil✔️  4>3✔️  5>4✔️        6==6 (width same)❌    8>9❌
 ```
 
-You can't add `7,8` any longer because `6,9` was selected before and `9` is bigger than `8`
+You can't add `[6,7]` or `[6,8]`. Because `6,9` was selected before and `9` is bigger than `8`
 
 ### Detail Explanation
 
@@ -93,11 +93,11 @@ You have to pick either x,y,z in a way that your pick is bigger than 4 and small
 If you sorted items with same height in ascending order then you wouldn't know which one to pick. You have to try and error — when width is `6`.
 
 ### Trick
-However if you sorted (items by same height) in descending order, and found longest selection of envelopes in "increasing height" order then it becomes a standard algorithm. Because:
-- You may pick **only** one from z,y,x since it's already sorted in reverse. If it was sorted in ascending order then all of them would have been picked.
-- FWIW you may end up not picking any if none of z,y,x satisfy the requirement of being 'bigger than 4 & smaller than 8'.
+However if you sorted (items by same height) in descending order by their height, and found longest selection of envelopes in "increasing height" order then it becomes a standard LIS algorithm. Because:
+> - Because when chosing from same width envelopes, mathematically you can **only** select a maximum of one envelope from z, y, x when it's _sorted in reverse_. If it was sorted in ascending order then all of them can be been picked.
+> - FWIW you may end up not picking any, if none of z, y, x satisfy the requirement of being 'bigger than 4 & smaller than 8'.
 
-To find the longest increasing envelopes in heigh, we simply use [LIS - Longest Increasing Subsequence](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/).
+To find the longest increasing envelopes in height, we simply use [LIS - Longest Increasing Subsequence](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/).
 
 So if we sorted the ones with same width in descending like below and did and LIS on all the heights then we'd end up in this order: 
 
@@ -161,7 +161,7 @@ func lengthOfLIS(_ nums: [Int]) -> Int {
 - sorting: `O(n * log n)`
 - mapping: `O(n)`
 - LIS: `O(n * n)`. 
-= Total: `O(n * n)`. Note: If you used the [binary search for LIS](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/#code-1) step, then the total time complexity would be: O(n * log n)
+- **Total:** `O(n * n)`. Note: If you used the [binary search for LIS](https://mfaani.com/posts/interviewing/dynamic-programming/longest-increasing-subsequence-length/#code-1) step, then the total time complexity would be: `O(n * log n)`
 
 
 ### Space Complexity 
