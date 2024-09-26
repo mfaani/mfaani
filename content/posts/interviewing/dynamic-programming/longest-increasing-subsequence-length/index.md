@@ -1,5 +1,5 @@
 ---
-title: "Updated - Longest Increasing Subsequence Length"
+title: "Longest Increasing Subsequence Length"
 date: 2023-11-11T19:30:38-05:00
 category: "interviewing"
 tags: ["swift", "dynamic-programming", "longest-increasing-subsequence", "subsequence", "LIS"]
@@ -184,7 +184,6 @@ list = []
 [0, 2, 15] + 3 -> [0, 2, 3] <- We did it! Got rid of 15. We have a good chance of appending a new value. 
 [0, 2, 3] + 4 -> [0, 2, 3, 4] <- Appended new value!
 ```
-
 
 ### Code
 
