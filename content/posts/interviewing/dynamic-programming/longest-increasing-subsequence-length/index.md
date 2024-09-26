@@ -124,11 +124,11 @@ Assuming your nodes are as such i.e. just a degenerate tree:
 a -> b -> c -> d
 ```
 
-- A lot of times when you're going from one node to the other, all you care about is going from node c, to node d. However in this question, it's about an operation that goes from **all previous nodes to this node**. i.e. we need to calculate: `a -> d`, `b -> d`, `c -> d` and then do a comparison between them all. This is what makes this question **unique**. Because in the coin change example, all we needed to calculate things was from previous to next.
+- A lot of times when you're going from one node to the other, all you care about is going from node c, to node d. However in this question, it's about an operation that goes from **all previous nodes to this node**. i.e. we need to calculate: `a -> d`, `b -> d`, `c -> d` and then do a comparison between them all. This is what makes this question different. Example: In the coin change question, we only needed to calculate things was from previous to next.
 - Most of the time when you want to memoize things you use a dictionary of type `[Int: Int]`. We could certainly do that here too. Here in this example, I used an array, because the [video](https://www.youtube.com/watch?v=cjWnW0hdF1Y) I saw was using an Array :). It intiially put me off, but I get it now.  
-Like if all you need to do is add and access certain indexes and not search or remove items, then array and dictinary aren't different so much. 
+Like if all you need to do is add and access certain indexes and not search or remove items, then array and dictionary aren't different so much. 
 
-- Additionally in in this question, going from left to right or right to left don't make a difference in terms of our answer. 
+- Additionally in this question, going from left to right or right to left don't make a difference in terms of our answer. 
   - If we start from the beginning, then each index will get added to all answers of its previous indicides — if it's bigger than the value being compared to. 
   - If we start from the end, then new each index will still get added to all answers of its next indicies — if it's smaller than the value being compared to..
 
@@ -136,13 +136,13 @@ It really doens't matter which way we select.
 
 ## Alternate solution with Binary Search
 
-- Any time you hear order, increasing, sorted, decreasing, then perhaps binary search is a helpful way of doing things. This isn't always true, but in this case it is. 
-- Think of binary search as an optimization mechanism. Not as a solution finder i.e. try to try to solve it first without a binary search. Then improve your solution using binary search. 
+- Any time you hear order, increasing, sorted, decreasing, then *perhaps* binary search is a helpful way of doing things. This isn't always true, but in this case it is. 
+- Think of binary search as an optimization mechanism. Not as a solution finder i.e. try to first solve the challenge without using binary search. Then improve your solution using binary search. 
 
 Simply put create a list, append or replace items. 
-- Append items that are bigger than the current biggest -> Help increase the length of the list.
-- Replace items that are smaller than the current biggest -> Helps reduce the bar for adding smaller items to the list.
-- Note: Such a list like this won't always end up being a real LIS, only that it will have correct length of the LIS. 
+- _Append_ items that are bigger than the current biggest -> Help increase the length of the list.
+- _Replace_ items the first item that is bigger the new item -> Helps **reduce the bar** for adding smaller items to the list.
+- **Note:** Such a list like this won't always contain the correct items for the LIS, however it will always have the _correct length_ of the LIS. With the Binary Search approach you optimize the space, but aren't able to regenerate the actual LIS.
 
 It's hard to explain it with words. I'll try to explain it with just two examples, but also see this [video](https://www.youtube.com/watch?v=on2hvxBXJH4) as well. Maybe even before this. 
 
@@ -241,8 +241,7 @@ I must admit, it's hard to come up with the idea for such a solution. To come up
 - I see "increasing". Perhaps I can create something sorted and keep it sorted.
 - Focus on the number of items and not actual subsequence.
 - Once I found a solution through linear search, then maybe I can build on top of it and go with a binary search instead to optimize.
-
-- What makes it counter-intuitive is to figure out how a bigger subsequence is replaced with a smaller subsequnce. Example from [80, 81, 82, 1, 2, 3, 4], how to replace the current [80,81,82] with [1,2,3,4] which is really the heart of it. The idea is to zip-merge together all sequences in an increasing order knowing that any number that's bigger than the current biggest will enlarge the sequence for the current longest. 
+- What makes it counter-intuitive is to figure out how a bigger subsequence is replaced with a smaller subsequnce. Example from [80, 81, 82, 1, 2, 3, 4], how to replace the current [80 ,81 ,82] with [1, 2, 3, 4] which is really the heart of it. The idea is to combine together all sequences in an increasing order knowing that any number that's bigger than the current biggest will enlarge the sequence for the current longest and any number smaller than the current 
 
 #### Time Complexity 
 for-loop: O(n)
