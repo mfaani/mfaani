@@ -69,6 +69,8 @@ From my experience, the posts that I came back to 6 months after were the ones t
 >
 > For example, I have been working with UIKit regularly for a long time. Recently, I have been working with SwiftUI sporadically, and as a result, my SwiftUI knowledge is not very good. If I had blogged or documented my findings, it would have been easier for me to pickup SwiftUI from where I left.
 
+Often I re-read my posts on my iPhone. The look and feel of reading on an iPhone is very different, like wearing a different hat. I'm more focused too. I'm able to spot mistakes differently. 
+
 Instead of just sharing a link or what originated, share something valuable from your post along with the link. That way you at least get traction from where you posted it (Twitter, Slack). If anyone was interested they'll click to see more. Not always but usually you need:
 
 - **Blog post title:** How we improved our app -----> How we reduced our app size by 30%.  

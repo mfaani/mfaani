@@ -7,12 +7,12 @@ description: "How to use frontmatter, shortcodes, make changes to your theme, do
 ---
 
 ## Frontmatter
-There are some standard Hugo frontmatter, but there's also a lot of theme-specific frontmatter. In this post I might be referring to theme-specific frontmatter that you won't find in another theme. But the general idea of frontmatters is universal.
+<!-- There are some standard Hugo frontmatter, but there's also a lot of theme-specific frontmatter. In this post I might be referring to theme-specific frontmatter that you won't find in another theme. But the general idea of frontmatters is universal. -->
 
   - You can add `tags: [swift, json, network call]` and it will then add the tags to your post. 
   - Add `showToc: true` and will show a table of contents for your post.
   - Hugo automatically takes the first 70 words of your content as its summary and stores it into the `.Summary` variable
-  - The `date` of the field affects the order of the post. So if you drafted the markdown of your file 2yrs ago, but published it today, then make sure you adjust the date. Otherwise it will be burried under the newer posts. 
+  - The `date` of the field affects the order of the post. So if you drafted the markdown of your file 2yrs ago, but published it today, then make sure you adjust the date. Otherwise it will be buried under the newer posts. 
     - Instead, you can manually define where the summary ends with a  "!--more--" (Notes: must be wrapped inside angle brackets) divider. 
     - Alternatively, you can add a `summary` to the front matter if you don’t want your summary to be the beginning of your post
 - Customize `Description`. The value of this field is used as an abstract in your front page and link previews.
@@ -80,9 +80,14 @@ If you ever needed to make changes to your shortcodes, then you have to:
 5. Change directory to your website's directory. Then if you do a `git diff` you'd see a change in the SHA of your submodule. Commit the SHA. Like just do `git add` adn then `git commit`.
 6. Then once you push to Netlify, Netlify will checkout the correct commit using the SHA of the submodule.
 
+
+> Pro Tip: If you ever wanted to see how your post looks like on an iPhone then on Safari >> Develop >> Open Page with >> iPhone 15 Pro (or whatever device you'd like to pick): 
+
+![alt text](Safari-view-on-iPhone.png "To quickly inspect the layout on a simulated iPhone from your macOS")
+
 ## Shortcodes
 
-It's a way for you to do custom HTML within markdown. Think of writing the html cusomization in shortcode. Then naming that customization. Then invoking it in markdown. Example see here:
+It's a way for you to do custom HTML within markdown. Think of writing the html customization in shortcode. Then naming that customization. Then invoking it in markdown. Example see here:
 
 ### Usage of shortcode
 
