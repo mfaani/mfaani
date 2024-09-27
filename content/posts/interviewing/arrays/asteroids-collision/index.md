@@ -5,7 +5,7 @@ category: interviewing
 tags: [swift, arrays, leetcode, stack, asteroid collision]
 description: "Of the most fun leetcode challenges I've ever done"
 cover:
-    image: "asteroid-collision.jpeg"
+    image: "asteroid-collision.webp"
     alt: "An AI generated image of asteroids"
     relative: false
 editPost:
