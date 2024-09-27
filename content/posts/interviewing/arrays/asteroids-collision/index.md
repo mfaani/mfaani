@@ -116,8 +116,15 @@ class Solution1 {
 ## Solution Two
 
 ### Idea
-We're comparing adjacent objects and some a bit backtracking when we go towards the left to collide left leaning asteroids. Because of this using a _stack_ is a good idea.  
-Stacks are usually perceived as 'vertical' data structures while arrays are perceived as 'horizontal' data structures. This makes it slightly difficult to start thinking of arrays. If you think of arrays as vertical structures then a stack can also seem less counterintuitive.
+Let's see why using a stack can be more effective than an array in this context:
+
+
+> A stack is a linear data structure following the **Last In, First Out (LIFO)** principle, where the most recently added item is the first to be removed, using operations like push, pop, and peek. In contrast, an array allows direct access to any element via indexing, which isn't essential for this problem.
+
+even if technically built on an array. We don't need random access or frequent inserts/removals—key array traits.
+
+💡 We need to (repeatedly) compare _adjacent_ objects at the _end_ of the array, a stack structure aligns perfectly, even if technically built on an array. We don't need random access or frequent inserts/removals—key array traits.  
+💡 Stacks are usually perceived as 'vertical' data structures while arrays are perceived as 'horizontal' data structures. However you shouldn't limit them to such. Both can be used in horizontal or vertical contexts. 
 
 ### Pseudocode
 
@@ -167,6 +174,7 @@ class Solution2 {
 
 ### Time Complexity
 - for loop: `O(n)`
+    - append: `O(1)`
     - traverse back: `O(n)`
     - removeLast(2): `O(2)`
     - remove(at: stack.count - 2): `O(1)`
