@@ -103,7 +103,7 @@ func feed(_ animal: some Animal) {
 >
 > For more see [this wwdc moment](https://developer.apple.com/videos/play/wwdc2022/110352/?time=783)
 
-{{< rawhtml >}}<sub> ⚠️ - Attention: <font color="#9900FF" style="background-color:blue;">some: AProtocol</font> is <strong>not</strong> a universal replacement for <font color="#9900FF">where T: AProtocol</font>. For more on that see 
+{{< rawhtml >}}<sub> ⚠️ - Attention: <font color="#9900FF">some: AProtocol</font> is <strong>not</strong> a universal replacement for <font color="#9900FF">where T: AProtocol</font>. For more on that see 
 <a href="https://forums.swift.org/t/using-some-how-can-i-get-identical-protection-to-constrained-generics-for-returning-types/73529/2">here</a> </sub>{{< /rawhtml >}}
 
 ## When should I use `any`? 
