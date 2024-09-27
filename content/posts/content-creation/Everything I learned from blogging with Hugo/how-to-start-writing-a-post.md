@@ -54,9 +54,10 @@ Additionally it widens your network and can help add prestige to your profile.
   - "Use this documentation, blog post, other slack thread" to improve/deepen on your post.
 - Often if you publish and then ask, people would be less caring. Previews are enticing much like how an early preview of a movie is. It makes the readers feel special. They truly are.
 - After you made changes to your preview and published your post, make one last check on your blog itself. Make sure everything is correct.
+- Not all feedback has to be from humans. You can also add a [Spell Checker Extension](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) on VSC. I usually make 6-10 spelling mistakes in a post 😅.
 
 ## How can you make sure you don't have a knowledge curse and things are clearly explained?
-Come back to the post in 2 days, again in 2 weeks, again in 2 months, again in 6months and review them. See if everything still makes sense. 
+Come back to the post in 2 days, again in 2 weeks, again in 2 months, again in 6 months and review them. See if everything still makes sense. 
 I just came back to two of my old posts. I actually totally forgot I had them written. It's a peculiar feeling. I found: 
   - Typos and grammatical mistakes. 
   - Things that I skipped without explaining them. 
@@ -87,5 +88,5 @@ Instead of just sharing a link or what originated, share something valuable from
   - If it's just a new post or some edit then just add a good commit message and push.
   - Is it a blog structural change? A Theme change? A CSS change? Something that took a while for you to figure out? Something totally different? Then yes. Add a pull request with a decent PR description and then review it.
   
-## Acknowledgements 
-Special thanks to [Antoine Van Der Lee](https://twitter.com/twannl) for sharing this post in his amazing [newletter](https://www.avanderlee.com/swiftlee-weekly/).
+## Special Thanks 
+To [Antoine Van Der Lee](https://twitter.com/twannl) for sharing this post in his amazing [newsletter](https://www.avanderlee.com/swiftlee-weekly/).
