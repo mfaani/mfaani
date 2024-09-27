@@ -77,7 +77,7 @@ If you ever needed to make changes to your shortcodes, then you have to:
 2. Change directory to your theme's repo. This is a subdirectory from the main repo that uses your theme. 
 3. Make changes locally to the theme. 
 4. Push the commit to your fork.
-5. Change directory to your website's directory. Then if you do a `git status` you'd see a change in the SHA of your submodule. Commit the SHA. Like just do `git add` adn then `git commit`.
+5. Change directory to your website's directory. Then if you do a `git diff` you'd see a change in the SHA of your submodule. Commit the SHA. Like just do `git add` adn then `git commit`.
 6. Then once you push to Netlify, Netlify will checkout the correct commit using the SHA of the submodule.
 
 ## Shortcodes
