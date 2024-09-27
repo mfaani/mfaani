@@ -11,9 +11,9 @@ editPost:
 ---
 My team was dealing with a large flow, where user can transition from multiple states or sometimes skip certain states. We didn't have a centralized controller, every screen just had logic on where it should go next.  
 This made it difficult for us to see all our logic at once. We asked around and was told state machines are a good fit for our situation.  
-State machines are void of any UX. You just pass an event to it. Based on the event and the current state, you update to a new state along with an optinoal command to act upon. 
+State machines are void of any UX. You just pass an event to it. Based on the event and the current state, you update to a new state along with an optional command to act upon. 
 
-A watered down examssple of a [State machine](https://gist.github.com/andymatuschak/d5f0a8730ad601bcccae97e8398e25b2) is: 
+A watered down example of a [State machine](https://gist.github.com/andymatuschak/d5f0a8730ad601bcccae97e8398e25b2) is: 
 
 ```md
 Current state         +     Event             ->   Command    ->    New state
@@ -179,7 +179,7 @@ States (or values of interest i.e. the answer/returned value) can be associated 
         - ...
         - arrived at grid (3,3)
     - Our terminating state is:
-        - arrived at (4,0)...(4,3) or (0,4)...(3,4). Because anything passed the the 3rd item in the grid — eiterh vertically or horizontally is a terminating state or out of bounds...
+        - arrived at (4,0)...(4,3) or (0,4)...(3,4). Because anything passed the 3rd item in the grid — either vertically or horizontally is a terminating state or out of bounds...
     - State transitions that we don't need to re-calculate over and over are: 
         - storing the number of ways to reach to (3,3) from (3,2)
         - storing the number of ways to reach to (3,3) from (2,3)

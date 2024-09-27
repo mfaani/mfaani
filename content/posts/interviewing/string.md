@@ -215,4 +215,4 @@ To check whether a string is empty, use its `isEmpty` property instead of compar
 - [Stackoverflow - What's the difference between a character, a code point, a glyph and a grapheme?](https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme)
 - [What's the difference between ASCII and Unicode?](https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode)
 - [Quora - What's the difference between a character, a glyph, and a grapheme?](https://www.quora.com/Whats-the-difference-between-a-character-a-glyph-and-a-grapheme)
-- [Unicode Gloassary](https://unicode.org/glossary)
+- [Unicode Glossary](https://unicode.org/glossary)

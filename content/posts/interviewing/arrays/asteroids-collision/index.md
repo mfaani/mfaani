@@ -110,14 +110,14 @@ class Solution1 {
     - remote(at: Int): O(n)
 - Total: O(n * n)
 
-### Space Compelexity
+### Space Complexity
 `O(1)`: If the parameter was passed as `inout` instead, then it would have been `O(1)`, because we really didn't need another variable. We just did it to make it mutable. 
 
 ## Solution Two
 
 ### Idea
 We're comparing adjacent objects and some a bit backtracking when we go towards the left to collide left leaning asteroids. Because of this using a _stack_ is a good idea.  
-Stacks are usally percieved as 'vertical' data structures while arrays are percieved as 'horizontal' data structures. This makes it slighly difficult to start thinking of arrays. If you think of arrays as verticle structures then a stack can also seem less counterintuitive.
+Stacks are usually perceived as 'vertical' data structures while arrays are perceived as 'horizontal' data structures. This makes it slightly difficult to start thinking of arrays. If you think of arrays as vertical structures then a stack can also seem less counterintuitive.
 
 ### Pseudocode
 

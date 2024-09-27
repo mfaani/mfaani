@@ -31,9 +31,9 @@ enum P: String {
     case open = "("
     case close = ")"
 }
-/// - Paramaters
-///   - diff: number of opened paranthesis subtracted by the number of close parenthesis
-///   - openedCount: We need this to be sure we don't exceed the total number of allowed parentheises
+/// - Parameters
+///   - diff: number of opened parenthesis subtracted by the number of close parenthesis
+///   - openedCount: We need this to be sure we don't exceed the total number of allowed parentheses
 func generateParen(num: Int) -> [String] {
     var ans: [String] = []
     func h(diff: Int, paren: P, openedCount: Int, currentPath: String) {
@@ -78,9 +78,9 @@ enum P: String {
 }
 func generateParen(num: Int) -> [String] {
     var ans: [String] = []
-    /// - Paramaters
+    /// - Parameters
     ///   - remainingOpen: number of parenthesis that aren't closed.
-    ///   - openedCount: We need this to be sure we don't exceed the total number of allowed parentheises
+    ///   - openedCount: We need this to be sure we don't exceed the total number of allowed parentheses
     func h(remainingOpen: Int, paren: P, openedCount: Int, currentPath: String) {
         
         if remainingOpen == 0 && openedCount == num {

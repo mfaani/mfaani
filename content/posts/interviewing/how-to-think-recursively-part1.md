@@ -112,12 +112,12 @@ func helper(pathState: State) -> Value {
             - With `&&`. 
             - With `||`
             - With `==`
-            - max of all children. Sum of all chidren. etc
+            - max of all children. Sum of all children. etc
             - Processing every previous node with the current node. Example see my post on [longest increasing subsequence](https://mfaani.com/tags/longest-increasing-subsequence/)
             - If you have a local property and are updating your sum/max, then you don't need to return a value. You just mutate the property of yours...
             - Other ways
         
-        This recursive call will ultimately always lead to hitting a base case that stops recursing. Trust the process. Don't try to pre-emptively end it within the normal recursion 😉
+        This recursive call will ultimately always lead to hitting a base case that stops recursing. Trust the process. Don't try to preemptively end it within the normal recursion 😉
     */
 }
 ```
@@ -190,12 +190,12 @@ print(howManyWays(num: 3))
 ## Triage your recursion:
 
 ## I can't come up with a solution
-Tree solutins are often a variation of figuring out the right computation/transition for: 
+Tree solutions are often a variation of figuring out the right computation/transition for: 
 - A node and its previous node.
 - A node and some aggregation of all its previous nodes.
 - A node and each individual previous node.
 - A node and other nodes at the same level.
-- Every subtree of the node and subsequent subtress. 
+- Every subtree of the node and subsequent subtrees. 
 - A property of the tree or subtree.
 
 ### Why does my code continue infinitely?

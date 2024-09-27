@@ -83,7 +83,7 @@ func isOneInsertAway(_ str1: [Character], _ str2: [Character]) -> Bool {
 }
 ```
 
-It took me a while to understand that the following are interchangable: "OneInsertAway" and "OneRemoveAway". 
+It took me a while to understand that the following are interchangeable: "OneInsertAway" and "OneRemoveAway". 
 - "OneInsertAway" is about *inserting* one character to the shorter string
 - "OneRemoveAway"  is about *removing* one character from the longer string.
 
