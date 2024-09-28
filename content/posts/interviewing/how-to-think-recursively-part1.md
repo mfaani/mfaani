@@ -222,6 +222,12 @@ Example we don't need to pass down the desired stair. Instead we can just pass t
 ### Any last tips? 
 Add documentation to your code. It often creates a rubber ducky moment for you...
 
+As a summarized alternate way of saying things:
+1. Think of what terminates recursion. It's either by reaching a desirable target or reaching an undesirable target. <-- Base case
+2. Think of how to traverse from an adjacent state to the terminating state. How values and state change.
+3. Expand that into a formula which starts from your origin.
+See [here](https://gist.github.com/mfaani/89069e38f49eea20b7e47b8f14308505#file-longest-common-subsequence-memoization-swift-L27-L35) for more.
+
 ## Out of scope
 - Optimization / Memoization was intentionally left out of scope.
 
