@@ -16,7 +16,7 @@ let r4 = 3...
 let r5 = ..<3
 ```
 
-Now they all have range like characteristics, but have slightly different traits. It's because they're actually different types.
+They all have range like characteristics, but have slightly different traits. It's because they're actually different types.
 
 ## Different Range Types
 ```swift
@@ -27,11 +27,11 @@ let r4 = 3...  // PartialRangeFrom<Int>
 let r5 = ..<3  // PartialRangeUpTo<Int>
 ```
 
-By having different types, the compiler can enforce certain behavior within each type. Looking at the names without seeing the syntax that generates them can be confusing. Hopefully the code above helps with that. 
+By having different types, the compiler can enforce certain behavior/restrictions within each type. Looking at the names without seeing the syntax that generates them can be confusing. Hopefully the code above helps with that. 
 
-- `ClosedRange`: contains both lower bound and upper bound. 
+- `ClosedRange`: Contains both lower bound and upper bound. 
 - `Range`: Contains the lower bound, but not the upper bound.
-- `PartialRangeThrough`: A partial interval – up to, and including_, an upper bound.
+- `PartialRangeThrough`: A partial interval _up to, and including_, an upper bound.
 - `PartialRangeFrom`: A partial interval extending upward _from_ a lower bound.
 - `PartialRangeUpTo`: A partial half-open interval _up to, but not including_, an upper bound.
 
@@ -55,7 +55,7 @@ r5.lowerbound // doesn't compile
 r5.upperbound // compiles
 ```
 
-tldr if a range doesn't really have a lowerbound / upperbound, then the syntax doesn't allow accessing it either.
+tldr if a range doesn't really have a lowerbound / upperbound, then the compiler doesn't allow accessing it either.
 
 ## Range Usage
 
@@ -116,7 +116,7 @@ x...y.forEach // incorrect.
 ## Are the following the same? 
 
 ```swift
-let ClosedRange = Int.min...3
+let closedRange = Int.min...3
 let partialRange = ...3
 ```
 
@@ -125,8 +125,9 @@ Best way is to try them out
 ```
 let numbers = [10, 20, 30, 40, 50, 60, 70]
 
-print(numbers[closedRange]) // 💣💣💣 from index: -9223372036854775808 (Int.min) all the way to index: 3
+print(numbers[closedRange]) // 💣💣💣 ERROR: Negative Array index is out of range
 ```
+It's because the range starts from index: -9223372036854775808 (Int.min) all the way to index: 3
 
 ```
 let numbers = [10, 20, 30, 40, 50, 60, 70]
