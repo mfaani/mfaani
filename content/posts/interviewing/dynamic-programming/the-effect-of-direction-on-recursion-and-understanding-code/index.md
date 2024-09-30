@@ -12,7 +12,7 @@ editPost:
 
 Today I'm going to discuss another fun and common challenge. It's the [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence) a.k.a. LCS.
 
-I'll first focus on discussing a pain point I went through when I was trying to compare the algoritm I deduced on my own vs a few other algorithms I saw online. Our algoritms seemed very similar. Yet different. It made debugging my code based on other code very difficult. This is a very commong problem I face when I doing leetcode. For whatever reason my way of coding is more than often to a good extent different from what I see from others. I find it easier to compare the high level of my code with a video from Youtube since most other submissions on Leetcode itself don't contain a good breakdown pseudocode of what's happening. 
+I'll first focus on discussing a pain point I went through when I was trying to compare the algorithm I deduced on my own vs a few other algorithms I saw online. Our algorithms seemed very similar. Yet different. It made debugging my code based on other code very difficult. This is a very common problem I face when I doing leetcode. For whatever reason my way of coding is more than often to a good extent different from what I see from others. I find it easier to compare the high level of my code with a video from Youtube since most other submissions on Leetcode itself don't contain a good breakdown pseudocode of what's happening. 
 
 Let's first explain the problem. Suppose we have: "dabc" and "aafb". The longest common subsequence is "ab". Other examples:
 
@@ -139,7 +139,7 @@ To figure out the issue with my code I thought I had look up 'top down vs 'botto
 
 About Top down approach, [Bard](https://bard.google.com/chat/f770e0be6d4da48b) said:
 
-> Recursive algorithms are called top-down because they break down a problem into smaller and smaller subproblems until they reach a _base case_, which is a simple problem that can be solved directly. Once the base case is solved, the results are used to solve the larger subproblems, and so on, until the original problem is solved. This process is called recursion, and it is a powerful way to solve many different types of problems.
+> Recursive algorithms are called top-down because they break down a problem into smaller and smaller sub problems until they reach a _base case_, which is a simple problem that can be solved directly. Once the base case is solved, the results are used to solve the larger sub problems, and so on, until the original problem is solved. This process is called recursion, and it is a powerful way to solve many different types of problems.
 >
 > The term "top-down" is used to describe this approach because the algorithm starts at the top of the problem hierarchy and works its way down to the base cases. This is in contrast to a bottom-up approach, which starts at the base cases and works its way up to the top of the problem hierarchy.
 
@@ -150,13 +150,13 @@ For both of these solutions you can do memoization. Tabulation though is more na
 - `tabulation` for when you start from (0,0). See this [gist](https://gist.github.com/mfaani/0d6a76708d8b8f3bb41bdd13e7c0014e) for its code 
 - `memoization` for when you start from (m,n). See this [gist](https://gist.github.com/mfaani/89069e38f49eea20b7e47b8f14308505) for its code. 
 
-Essentially where you start from will dicate the direction. The direction often happens to also dictate the most performant algorithm you can choose.
+Essentially where you start from will dictate the direction. The direction often happens to also dictate the most performant algorithm you can choose.
 
-> With tabulation you compute subproblems **in advance**, with memoization you compute subproblems **on demand**.
+> With tabulation you compute sub problems **in advance**, with memoization you compute sub problems **on demand**.
 
-Subproblems for LCS is: "what's the LCS for two strings prefixed at (s1,s2)?" Both my approaches have the same subproblem. But the code for that becomes different because the direction is different. 
+Sub problems for LCS is: "what's the LCS for two strings prefixed at (s1,s2)?" Both my approaches have the same subproblem. But the code for that becomes different because the direction is different. 
 
-### Note on readibility
+### Note on readability
 
 The returning value for the two approaches are: 
 
@@ -166,6 +166,6 @@ The returning value for the two approaches are:
 Which one makes more sense?  
 The second approach is slightly more readable in this case. Readers might be confused as to why you're returning the value for `Stage(0,0)` and not the last. That said for me personally it was easier to write code that starts from (0,0) and expand.
 
-## Acknowlegements
+## Acknowledgements
 
 Special thanks to [Tim Vermeulen](https://github.com/timvermeulen) for answering dozens of my questions so I was able to put this post together and [Maks Verner](https://stackoverflow.com/users/9651461/maks-verver) for writing [this post](https://stackoverflow.com/a/77560704/5175709)
