@@ -125,7 +125,7 @@ b = a // Allowed
 a = b // ERROR: Cannot assign value of type 'any Equatable' to type 'some Equatable'
 ```
 
-Basically you can't fulfill the requirement of `some` by passing `any`. This is because `some` needs specifics while the purpose of `any` is exactly to _hide_ those specifics. 
+Basically you can't fulfill the requirement of `some` by passing `any`. This is because `some` needs specifics while the purpose of `any` is exactly to _hide_ those specifics. Also see [here](https://gist.github.com/mfaani/183c334a75eb5f5e6d35d577a09d5b4f).
 
 ## Summary
 - Both `some` and `any` keywords can be used to satisfy associated type requirements without explicitly specifying the associated type. This allows for more flexibility and abstraction in code.
