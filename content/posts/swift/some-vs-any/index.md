@@ -79,7 +79,7 @@ func dd() -> some Equatable {
 }
 ```
 
-## How does `some` work across multiple returning types? 
+### How does `some` work across multiple returning types? 
 
 Remember with older Swift we had to write: 
 
@@ -106,7 +106,7 @@ func feed(_ animal: some Animal) {
 {{< rawhtml >}}<sub> ⚠️ - Attention: <font color="#9900FF">some: AProtocol</font> is <strong>not</strong> a universal replacement for <font color="#9900FF">where T: AProtocol</font>. For more on that see 
 <a href="https://forums.swift.org/t/using-some-how-can-i-get-identical-protection-to-constrained-generics-for-returning-types/73529/2">here</a> </sub>{{< /rawhtml >}}
 
-## When should I use `any`? 
+### When should I use `any`? 
 
 Apple recommends us to start with `some` and then only use `any` when you don't want to restrict the underlying variables to have the same type. Example: 
 
@@ -115,7 +115,7 @@ let specificAnimals: [some Animal] = [Cow(), Cow()] // ❌ won't allow adding `D
 let variedAnimals: [any Animal] = [Cow(), Dog(), Cat()]
 ```
 
-## When is that you can't use `any`?
+### When is that you can't use `any`?
 
 ```swift
 var a: some Equatable = 10
@@ -143,7 +143,7 @@ The word choice of `any` vs. `some` is a confusing one. In my humble opinion `an
 
 I specifically left Apple's jargon of "opaque", "existential", "boxed", "type erasure" out of this post as they often make it hard to understand. That said I recommend figuring those out once you read this post. 
 
-## Further resources 
+### Further resources 
 1. [Embrace Swift Generics - WWDC 2022](https://developer.apple.com/wwdc22/110352) talk
 2. [Opaque and Boxed Protocol Types - Apple Docs](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/)
 3. [What is an existential? - My stackoverflow post](https://stackoverflow.com/a/69508305/5175709)
