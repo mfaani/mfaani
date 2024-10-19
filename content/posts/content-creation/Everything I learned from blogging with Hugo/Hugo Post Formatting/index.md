@@ -37,6 +37,14 @@ gem install bundler -v "2.3.3"
 bundle install
 pod lib lint
 ```
+## Syntax Highlighting
+
+Not sure if this applies to all themes, but for the PaperMod theme I used, the [instructions](https://github.com/adityatelange/hugo-PaperMod/discussions/119) were as such:
+1. Find your own custom css from [here](https://cdnjs.com/libraries/highlight.js/10.2.1) 
+2. Add its css link into you `extend_head.html`, so it's passed down into `head` of every page.
+
+You can find [Hugo docs](https://gohugo.io/content-management/syntax-highlighting/#generate-syntax-highlighter-css) on configuring your own highlighter. But I wasn't able to make it work...
+
 
 ## Resource management
 
