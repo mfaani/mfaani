@@ -1,6 +1,6 @@
 ---
 title: "How Do Binaries work together?"
-date: 2024-06-22T15:22:35-04:00
+date: 2024-10-20T15:22:35-04:00
 description: "Ever wondered what how two binaries interface with one another? What impacts ABI and what does not? Also explain how it's different from API"
 category: "Devtools"
 tags: ["compiler", "ABI", "API", "Application Programming Interface", "Application Binary Interface", "dyld", "Breaking Change"]
@@ -10,9 +10,9 @@ draft: true
 
 Let's start with how two (dynamic) libraries work together. 
 
-It's similar to how two Swift classes work with each other. If you have correct function, parameter names, and are able to access it (it's not `private`) then you're good. The **compiler** validates if the correct contract is being used. It validates if classA is using the correct Programming Interface from classB <-- API (Application Programming Interface)
+It's similar to how two Swift classes work with each other. If you have correct function, parameter names, and are able to access it (it's not `private`) then you're good. The **compiler** validates if classA is using the correct Programming Interface from classB <-- API (Application Programming Interface)
 
-When you're at the binary level, then the compiler is no longer invovled. What's involved is the dynamic linker `dyld`. 
+When you're at the binary level, then the compiler is no longer involved. What's involved is the dynamic linker `dyld`. 
 
 It checks to see if the [undefined symbols - symbols that are to be provided by another binary](https://mfaani.com/posts/devtools/optimizing-app-size/how-can-i-inspect-the-size-impact-of-symbols-in-an-app-binary/#can-you-explain-the-above-symbols-a-bit-more) can be found in another dynamically linked library. `dyld` checks if binaryA is using the correct Binary Interface from binaryB  <-- ABI (Application Binary Interface)
 
@@ -54,9 +54,9 @@ public struct Map {
 }
 
 public enum Accuracy {...} 
-```e
+```
 
-Once the two libraries are compiled, then inspecting `libA`'s symbols using `nm` (see [my other post](https://mfaani.com/posts/devtools/optimizing-app-size/how-can-i-inspect-the-size-impact-of-symbols-in-an-app-binary/#nm-command) for more.), we'd see undefined symbols. Among the list of outputs we'd see something similar to this: 
+Once the two libraries are compiled, then inspecting `libA`'s symbols using `nm` (see [my other post](https://mfaani.com/posts/devtools/optimizing-app-size/how-can-i-inspect-the-size-impact-of-symbols-in-an-app-binary/#nm-command) for more), we'd see undefined symbols. Among the list of outputs we'd see something similar to this: 
 
 ```
 U _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq 
@@ -99,7 +99,8 @@ LibA needs to get **recompiled** so its binary is aware of the new symbol. Code 
 | Swift Syntax | `LibB.Map.start(accuracy: Accuracy)` | `LibB.Map.start(accuracy: Accuracy, distance: Int)`| `LibB.Map.start(accuracy: Accuracy, distance: Int = 10)` |
 | Symbol | `T _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF` |
 
-{{< rawhtml >}}<sub>Table 1 - API to ABI conversion </sub>  {{< /rawhtml >}}  
+💡 The symbol of the 2nd and 3rd column are the same.  
+💡 Information about the default value doesn't get carried within the symbol tables. 
 
 ### LibA - source code: 
 Assume LibA is not _pre-compiled_. You have access to its _source code_ and are always compiling it when you run/build/archive the app. After you pull in the latest version of LibB, you re-compile (as you always do for every run) LibA with `LibB.Map.start(accuracy: Accuracy, distance: Int)`. Although _technically_ a breaking change, since code change isn't necessary and you're always re-compiling then it _appears_ so that it's not a breaking change. 
@@ -111,21 +112,21 @@ It's **always** a breaking change when the change adds a new parameter to an exi
 Every tag/commit on you library can be either delivered as source-code or precompiled. As a result you must version your code with the assumption that it could be either. Even if you shipped pre-compiled, there's nothing holding back _another_ developer giving access to source code for a specific tag.
 
 
-Having that said, I've added new parameters to functions with default values — without doing major bumps. This is a mistake, yet things compile fine because the dependent library/app was using the the source code of the library. 
+Having that said, I've added new parameters to functions with default values — without doing major bumps. This is a mistake, yet things ended up fine because the dependent library/app was using the the *source code* of the library. 
 
 ### So adding a default value doesn't do anything?
-Default values help with API. Not with ABI. As illustrated above in Table - 1, default values have no impact on ABI. This is because in most languages, a function is uniquely identified by its name, and its parameters. Both the argument labels, and the types. For more on that see this [WWDC Session - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/?time=1339)
+Default values help with API. Not with ABI. As illustrated the above table, default values have no impact on ABI. This is because in most languages, a function is uniquely identified by its name, and its parameters. Both the argument labels, and the types. For more on that see this [WWDC Session - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/?time=1339)
 
 
-### Are there any breaking changes that don't break the API/ABI? 
-- If you change the behavior of something. Examples:
+### Are there any breaking changes are not originated from a change in the API/ABI?
+Yes. If you change the *behavior* of something. Examples:
   - **Performance Change:** A function used to take 0.3 seconds but now takes 6 seconds
   - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. 
   - **Behavioral Change:** A function that used to fire notifications and now it doesn't. Or previously it didn't fire any notifications to a known channel but now it does.
   - **Thread Safety:** Introducing or removing thread safety in a function can also be a breaking change. For example, making a function that was previously thread-safe no longer thread-safe, or vice versa.
   - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1% battery, but now uses 5%.
 
-All the above changes should be marked with a major version change.
+All the above changes should be marked with a major version change along with proper release notes. 
 
 ## How can I not make a breaking change when adding new parameters to my functions?
 
@@ -149,7 +150,7 @@ public struct Map {
 }
 ```
 
-By doing 👆 you haven't changed your ABI, rather you've just made additions.
+By doing 👆 you haven't changed your ABI, rather you've just made *additions*.
 
 ## Summary
 
