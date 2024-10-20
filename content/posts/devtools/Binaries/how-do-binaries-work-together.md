@@ -94,7 +94,7 @@ Assume LibA is pre-compiled. It was only aware of `LibB.Map.start(accuracy: Accu
 
 LibA needs to get **recompiled** so its binary is aware of the new symbol. Code change is not needed though. Upon recompilation, LibA **learns of the updated symbol**. Without that things LibA is still looking for the old symbol which doesn't have the `distance` parameter.
 
-|   | LibB v1 | v1.1.a LibB with new param | v1.1.b LibB with new param and default value |
+|   | LibB v1 | v2.a LibB with new param | v2.b LibB with new param and default value |
 | - | ---- | ------------------- | ------------------------------------- |
 | Swift Syntax | `LibB.Map.start(accuracy: Accuracy)` | `LibB.Map.start(accuracy: Accuracy, distance: Int)`| `LibB.Map.start(accuracy: Accuracy, distance: Int = 10)` |
 | Symbol | `T _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF` |
