@@ -73,11 +73,16 @@ As the coder you have to identify when you should stop traversing / recursing be
 - You reach the _desired_ target/state.  
 - You reached an _undesired_ target/state.
 
-If you haven't reached a desired or undesired target, then you should just traverse further down the tree.
-
-Examples: in a 2D Grid, going out of bounds would be an undesired state. 
-
-Or if you ever have a range, window or 2 pointers then your right index should be greater than or equal to your left index/
+If you haven't reached a desired or undesired target, then you should just traverse further down the tree. Examples: 
+- Array, 2D Grid: Out of bounds, beyond our target
+- Range, (sliding) window or 2 pointers: left index becoming greater than your right index
+- Graph: often a visited node is considered a terminated state, because you've already processed it. It could lead to redundant work or cause cycles.
+- Other kinds of undesired state: 
+  - Going passed a certain count
+  - Going over our budget
+  - Some required logic, becomes incorrect. 
+    - In DFS/Backtracking: Upon violating a Sudoku rule, you undo the last step or choice and try a different option. In recursion, this means returning to a previous state and exploring other possible paths after hitting an undesired or invalid condition. For example, if placing a number in Sudoku breaks the rules, you remove that number and try a different one in the same spot.
+    - In Sorted contexts or Binary Search: You go beyond the min/max values
 
 ## So I didn't hit a base case. What then? 
 
