@@ -1,7 +1,7 @@
 ---
-title: "How Do Binaries work together?"
+title: "How Do Binaries work together? What breaks ABI?"
 date: 2024-10-20T15:22:35-04:00
-description: "Ever wondered what how two binaries interface with one another? What impacts ABI and what does not? Also explain how it's different from API"
+description: "Ever wondered what how two binaries interface with one another? Which changes impact ABI and which don't?"
 category: "Devtools"
 tags: ["compiler", "ABI", "API", "Application Programming Interface", "Application Binary Interface", "dyld", "Breaking Change"]
 ShowToc: true
@@ -117,17 +117,6 @@ Having that said, I've added new parameters to functions with default values —
 ### So adding a default value doesn't do anything?
 Default values help with API. Not with ABI. As illustrated the above table, default values have no impact on ABI. This is because in most languages, a function is uniquely identified by its name, and its parameters. Both the argument labels, and the types. For more on that see this [WWDC Session - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/?time=1339)
 
-
-### Are there any breaking changes are not originated from a change in the API/ABI?
-Yes. If you change the *behavior* of something. Examples:
-  - **Performance Change:** A function used to take 0.3 seconds but now takes 6 seconds
-  - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. 
-  - **Behavioral Change:** A function that used to fire notifications and now it doesn't. Or previously it didn't fire any notifications to a known channel but now it does.
-  - **Thread Safety:** Introducing or removing thread safety in a function can also be a breaking change. For example, making a function that was previously thread-safe no longer thread-safe, or vice versa.
-  - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1% battery, but now uses 5%.
-
-All the above changes should be marked with a major version change along with proper release notes. 
-
 ## How can I not make a breaking change when adding new parameters to my functions?
 
 Assume you had the following
@@ -152,9 +141,20 @@ public struct Map {
 
 By doing 👆 you haven't changed your ABI, rather you've just made *additions*.
 
+
+## Are there any breaking changes are not originated from a change in the API/ABI?
+Yes. If you change the *behavior* of something. Examples:
+  - **Performance Change:** A function used to take 0.3 seconds but now takes 6 seconds
+  - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. 
+  - **Behavioral Change:** A function that used to fire notifications and now it doesn't. Or previously it didn't fire any notifications to a known channel but now it does.
+  - **Thread Safety:** Introducing or removing thread safety in a function can also be a breaking change. For example, making a function that was previously thread-safe no longer thread-safe, or vice versa.
+  - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1% battery, but now uses 5%.
+
+All the above changes should be marked with a major version change along with proper release notes. 
+
 ## Summary
 
 API is about correct mapping of Programming Interface. ABI is about correct mapping of symbols. Symbols are based off of function name, parameter names and parameter types. Default values don't show up in symbols. 
 
-As a result adding a new parameter with a default value is still a breaking change. There were lots of other ways to break binary compatibility. It's important to be able to identify these and do major version bumps when needed. 
-Last but not least, often you've made a breaking change but your [build process masks it and helps you recover from it](http://localhost:1313/posts/devtools/binaries/how-do-binaries-work-together/#liba---source-code). Be sure to stay alert!
+As a result adding a new parameter with a default value is still a breaking change. There were lots of other ways to break binary compatibility. It's important to be able to identify these and do major version bumps when needed.  
+Last but not least, often you've made a breaking change but your [build process masks it and helps you recover from it](http://localhost:1313/posts/devtools/binaries/how-do-binaries-work-together/#liba---source-code). Be sure to do a major bump.
