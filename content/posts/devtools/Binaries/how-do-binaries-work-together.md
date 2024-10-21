@@ -164,6 +164,7 @@ Not every two binaries can work together. The ABI between the two need to unders
 > A foreign function interface (FFI) is a mechanism by which a program written in one programming language can call routines or make use of services written or compiled in another one.  
 > It mates the semantics and calling conventions of one programming language (the host language, or the language which defines the FFI), with the semantics and conventions of another (the guest language).
 
+You basically have to spend extra effort and use the ffi to create the interface. This is something that you don't have to do for two Swift binaries, because it's all automatic. 
 ## Summary
 
 API is about correct mapping of Programming Interface. ABI is about correct mapping of symbols. Symbols are based off of function name, parameter names and parameter types. Default values don't show up in symbols. 
