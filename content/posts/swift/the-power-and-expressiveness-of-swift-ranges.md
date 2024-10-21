@@ -71,13 +71,20 @@ for i in nums[range] {
 ```
 
 
-## Iterating over a range itself:
+### Iterating over a range itself:
 
 ```swift
 for i in r1 {
     print(i)
 }
 // Output: 1,2,3
+```
+
+### Creating an Array: 
+
+```swift
+let array = Array(1...5)
+print(array) // [0, 1, 2, 3, 4, 5]
 ```
 
 ## Syntax
@@ -189,6 +196,7 @@ for (i,v) in [1,2,3,4,5] {
 ```
 
 vs
+
 ```swift
 for v in [1,2,3,4,5][..<4] {
     print(v)
