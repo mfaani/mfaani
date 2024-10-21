@@ -93,11 +93,11 @@ Changing `func start(accuracy: Accuracy)` to `LibB.Map.start(accuracy: Accuracy,
 ### LibA precompiled: 
 Assume LibA is pre-compiled. It was only aware of `LibB.Map.start(accuracy: Accuracy)`'s symbol at the time of its complication, even if you give the function a default value, because the symbols are different, LibA and LibB are incompatible. 
 
-LibA needs to get **recompiled** so its binary is aware of the new symbol. Code change is not needed though. Upon recompilation, LibA **learns of the updated symbol**. Without that things LibA is still looking for the old symbol which doesn't have the `distance` parameter.
+> LibA needs to get **recompiled** so its binary is aware of the new symbol. Code change is not needed though. Upon recompilation, LibA **learns of the updated symbol**. Without recompilation, LibA would be still looking for the *old* symbol which doesn't have the `distance` parameter. The table below shows the *lack* of impact of default values on symbol table.
 
 |   | LibB v1 | v2.a LibB with new param | v2.b LibB with new param and default value |
 | - | ---- | ------------------- | ------------------------------------- |
-| Swift Syntax | `LibB.Map.start(accuracy: Accuracy)` | `LibB.Map.start(accuracy: Accuracy, distance: Int)`| `LibB.Map.start(accuracy: Accuracy, distance: Int = 10)` |
+| Syntax | `LibB.Map.start(accuracy: Accuracy)` | `LibB.Map.start(accuracy: Accuracy, distance: Int)`| `LibB.Map.start(accuracy: Accuracy, distance: Int = 10)` |
 | Symbol | `T _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF` |
 
 💡 The symbol of the 2nd and 3rd column are the same.  
@@ -112,8 +112,7 @@ It's **always** a breaking change when the change adds a new parameter to an exi
 
 Every tag/commit on you library can be either delivered as source-code or precompiled. As a result you must version your code with the assumption that it could be either. Even if you shipped pre-compiled, there's nothing holding back _another_ developer giving access to source code for a specific tag.
 
-
-Having that said, I've added new parameters to functions with default values — without doing major bumps. This is a mistake, yet things ended up fine because the dependent library/app was using the the *source code* of the library. 
+That being said, I've added new parameters to functions with default values without doing major version bumps. Although this was a mistake, everything worked out because the dependent library/app was using the library's _source code_ directly.
 
 ### So adding a default value doesn't do anything?
 Default values help with API. Not with ABI. As illustrated the above table, default values have no impact on ABI. This is because in most languages, a function is uniquely identified by its name, and its parameters. Both the argument labels, and the types. For more on that see this [WWDC Session - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/?time=1339)
@@ -140,10 +139,10 @@ public struct Map {
 }
 ```
 
-By doing 👆 you haven't changed your ABI, rather you've just made *additions*.
+By doing 👆 you haven't changed your ABI, rather you've just made an *addition*.
 
 
-## Are there any breaking changes are not originated from a change in the API/ABI?
+## Are there any breaking changes that are't originated from a change in the API/ABI?
 Yes. If you change the *behavior* of something. Examples:
   - **Performance Change:** A function used to take 0.3 seconds but now takes 6 seconds
   - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. 
@@ -151,11 +150,12 @@ Yes. If you change the *behavior* of something. Examples:
   - **Thread Safety:** Introducing or removing thread safety in a function can also be a breaking change. For example, making a function that was previously thread-safe no longer thread-safe, or vice versa.
   - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1% battery, but now uses 5%.
 
-All the above changes should be marked with a major version change along with proper release notes. 
+It's better to mark all the above changes as a major version change along with proper release notes. 
 
 ## Summary
 
 API is about correct mapping of Programming Interface. ABI is about correct mapping of symbols. Symbols are based off of function name, parameter names and parameter types. Default values don't show up in symbols. 
 
-As a result adding a new parameter with a default value is still a breaking change. There were lots of other ways to break binary compatibility. It's important to be able to identify these and do major version bumps when needed.  
-Last but not least, often you've made a breaking change but your [build process masks it and helps you recover from it](http://localhost:1313/posts/devtools/binaries/how-do-binaries-work-together/#liba---source-code). Be sure to do a major bump.
+Adding a new parameter with a default value is still a breaking change. There were lots of other ways to break binary compatibility. It's important to be able to identify these and do major version bumps when needed.  
+
+Last but not least, often you've made a breaking change but your [build process masks it and helps you recover from it](http://localhost:1313/posts/devtools/binaries/how-do-binaries-work-together/#liba---source-code). Be sure to still do a major bump.
