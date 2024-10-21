@@ -63,19 +63,18 @@ public enum Accuracy {...}
 
 Once the two libraries are compiled, then inspecting `libA`'s symbols using `nm` (see [my other post](https://mfaani.com/posts/devtools/optimizing-app-size/how-can-i-inspect-the-size-impact-of-symbols-in-an-app-binary/#nm-command) for more), we'd see undefined symbols. Among the list of outputs we'd see something similar to this: 
 
-```
+```html
 U _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq 
 U _$s4LibB8AccuracyO4highyA2CmF
 
 ```
-
 > `U _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq`: Is the mangled name for the `Map.start(accuracy:)` method in Swift.  
 > `U _$s4LibB8AccuracyO4highyA2CmF`: Is the mangled name for the Accuracy enum in Swift, also undefined in libA and defined in libB.  
 > The `U` indicates that it is _undefined_ in libA and must be provided by libB and that things will be resolved by dynamic linking.  
 
 Similarly, if we inspected libB, then we'd the same symbols, but as such: 
 
-```
+```html
 T _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq 
 T _$s4LibB8AccuracyO4highyA2CmF
 ```
@@ -87,6 +86,7 @@ T _$s4LibB8AccuracyO4highyA2CmF
 - Changes of existing API: Renaming a public function, type or variable OR adding an additional parameter to a function. 
 - Reduction of access control: Making a `public` function, type of variable `internal` or `private`
 - Adding to protocol requirements: Adding a new function to the protocol.
+- Increasing the size of a parameter even if the symbol is the same: If you added 100 new private variables to a struct then it *may* end up breaking the ABI. It doesn't apply to classes because they're referenced and it's indirect.
 - Using a much newer or older Swift compiler which causes the symbols between the binaries to mismatch. See [here](https://stackoverflow.com/questions/58654714/module-compiled-with-swift-5-1-cannot-be-imported-by-the-swift-5-1-2-compiler)
 - etc. 
 
@@ -172,3 +172,7 @@ API is about correct mapping of Programming Interface. ABI is about correct mapp
 Adding a new parameter with a default value is still a breaking change. There were lots of other ways to break binary compatibility. It's important to be able to identify these and do major version bumps when needed.  
 
 Last but not least, often you've made a breaking change but your [build process masks it and helps you recover from it](http://localhost:1313/posts/devtools/binaries/how-do-binaries-work-together/#liba---source-code). Be sure to still do a major bump.
+
+## Acknowledgements
+
+Shout outs to [Saagar Jha](https://saagarjha.com) as well for helping me figure all of these unknown and reviewing this post. 
