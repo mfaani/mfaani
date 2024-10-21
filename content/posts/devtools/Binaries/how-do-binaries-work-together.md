@@ -99,10 +99,10 @@ Assume LibA is pre-compiled. It was only aware of `LibB.Map.start(accuracy: Accu
 
 > LibA needs to get **recompiled** so its binary is aware of the new symbol. Code change is not needed though. Upon recompilation, LibA **learns of the updated symbol**. Without recompilation, LibA would be still looking for the *old* symbol which doesn't have the `distance` parameter. The table below shows the *lack* of impact of default values on symbol table.
 
-|   | LibB v1 | v2.a LibB with new param | v2.b LibB with new param and default value |
-| - | ---- | ------------------- | ------------------------------------- |
-| Syntax | `LibB.Map.start(accuracy: Accuracy)` | `LibB.Map.start(accuracy: Accuracy, distance: Int)`| `LibB.Map.start(accuracy: Accuracy, distance: Int = 10)` |
-| Symbol | `T _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF` |
+|        | LibB v1                                            | v2.a LibB with new param                            | v2.b LibB with new param and default value               |
+| ------ | -------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------- |
+| Syntax | `LibB.Map.start(accuracy: Accuracy)`               | `LibB.Map.start(accuracy: Accuracy, distance: Int)` | `LibB.Map.start(accuracy: Accuracy, distance: Int = 10)` |
+| Symbol | `T _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq` | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF`   | `T _$s4LibB3MapVAA8AccuracyO8distanceSi4startyyF`        |
 
 💡 The symbol of the 2nd and 3rd column are the same.  
 💡 Information about the default value doesn't get carried within the symbol tables. 
@@ -119,7 +119,18 @@ Every tag/commit on you library can be either delivered as source-code or precom
 That being said, I've added new parameters to functions with default values without doing major version bumps. Although this was a mistake, everything worked out because the dependent library/app was using the library's _source code_ directly.
 
 ### So adding a default value doesn't do anything?
-Default values help with API. Not with ABI. As illustrated the above table, default values have no impact on ABI. This is because in most languages, a function is uniquely identified by its name, and its parameters. Both the argument labels, and the types. For more on that see this [WWDC Session - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/?time=1339)
+Default values help with API but not for every instance˚. Not with ABI. As illustrated the above table, default values have no impact on ABI. This is because in most languages, a function is uniquely identified by its name, and its parameters. Both the argument labels, and the types. For more on that see this [WWDC Session - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/?time=1339)
+
+˚: Adding a new parameter is **also** a breaking change. It just doesn't manifest in all kinds of code usage:
+
+```swift
+func foo(_: Int) -> Int { 0 }
+func foo2(_: Int, _: String = "") -> Int { 0 }
+[1, 2, 3].map(foo)
+[1, 2, 3].map(foo2) // Error: Cannot convert value of type 'Int' to expected element type '(Int, String)'
+```
+
+Shout out to Saagar Jha who helped me figure this out.
 
 ## How can I not make a breaking change when adding new parameters to my functions?
 
