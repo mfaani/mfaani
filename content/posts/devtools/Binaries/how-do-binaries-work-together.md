@@ -11,7 +11,7 @@ For two (dynamic) libraries to work together they need:
 - API compatibility
 - ABI compatibility
 
-ABI compatibility is similar to how two Swift classes work with each other. If you have correct function, parameter names, and are able to access it (it's not `private`) then you're good. The **compiler** validates if classA is using the correct Programming Interface from classB 👈 API (Application Programming Interface)
+If you have correct function, parameter names, and are able to access it (it's not `private`) then you're good. The **compiler** validates if classA is using the correct Programming Interface from classB 👈 API (Application Programming Interface)
 
 ## Example of API usage
 
@@ -29,7 +29,7 @@ struct Address {
 }
 ```
 
-When you're at the *binary* level, then the compiler is no longer involved. What's involved is the dynamic linker `dyld`. 
+ABI compatibility is similar to API, but just at the *binary* level, then the compiler is no longer involved. What's involved is the dynamic linker `dyld`. 
 
 It checks to see if the [undefined symbols - symbols that are to be provided by another binary](https://mfaani.com/posts/devtools/optimizing-app-size/how-can-i-inspect-the-size-impact-of-symbols-in-an-app-binary/#can-you-explain-the-above-symbols-a-bit-more) can be found in another dynamically linked library. `dyld` checks if binaryA is using the correct Binary Interface from binaryB 👈 ABI (Application Binary Interface)
 
