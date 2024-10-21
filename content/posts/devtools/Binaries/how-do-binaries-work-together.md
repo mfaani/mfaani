@@ -7,7 +7,7 @@ tags: ["compiler", "ABI", "API", "Application Programming Interface", "Applicati
 ShowToc: true
 ---
 
-Let's start with how two (dynamic) libraries work together. For two libraries to work together they need: 
+For two (dynamic) libraries to work together they need: 
 - API compatibility
 - ABI compatibility
 
