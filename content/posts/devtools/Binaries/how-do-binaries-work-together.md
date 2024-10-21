@@ -130,7 +130,7 @@ func foo2(_: Int, _: String = "") -> Int { 0 }
 [1, 2, 3].map(foo2) // Error: Cannot convert value of type 'Int' to expected element type '(Int, String)'
 ```
 
-Shout out to Saagar Jha who helped me figure this out.
+Shout out to Saagar Jha who hinted the above.
 
 ## How can I not make a breaking change when adding new parameters to my functions?
 
