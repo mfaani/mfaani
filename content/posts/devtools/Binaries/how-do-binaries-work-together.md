@@ -69,7 +69,7 @@ U _$s4LibB8AccuracyO4highyA2CmF
 
 ```
 
-> `U _$s4**LibB**3**Map**VAA0C0VyAA8**Accuracy**O4**start**yAF_tFTq`: Is the mangled name for the `Map.start(accuracy:)` method in Swift.  
+> `U _$s4LibB3MapVAA0C0VyAA8AccuracyO4startyAF_tFTq`: Is the mangled name for the `Map.start(accuracy:)` method in Swift.  
 > `U _$s4LibB8AccuracyO4highyA2CmF`: Is the mangled name for the Accuracy enum in Swift, also undefined in libA and defined in libB.  
 > The `U` indicates that it is _undefined_ in libA and must be provided by libB and that things will be resolved by dynamic linking.  
 
