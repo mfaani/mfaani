@@ -33,6 +33,11 @@ ABI compatibility is similar to API, but just at the *binary* level. The compile
 
 It checks to see if the [undefined symbols - symbols that are to be provided by another binary](https://mfaani.com/posts/devtools/optimizing-app-size/how-can-i-inspect-the-size-impact-of-symbols-in-an-app-binary/#can-you-explain-the-above-symbols-a-bit-more) can be found in another dynamically linked library. `dyld` checks if binaryA is using the correct Binary Interface from binaryB 👈 ABI (Application Binary Interface)
 
+
+### What is the purpose of ABI Stability?
+
+Dynamic linking is our goal, and ABI stability is just a means to that end - [How Swift Achieved Dynamic Linking Where Rust Couldn't - Aria Desire](https://faultlore.com/blah/swift-abi/)
+
 ## Example of ABI usage
 
 Library A
@@ -148,8 +153,16 @@ Yes. If you change the *behavior* of something. Examples:
   - **Behavioral Change:** A function that used to fire notifications and now it doesn't. Or previously it didn't fire any notifications to a known channel but now it does.
   - **Thread Safety:** Introducing or removing thread safety in a function can also be a breaking change. For example, making a function that was previously thread-safe no longer thread-safe, or vice versa.
   - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1% battery, but now uses 5%.
+  - Not a breaking change, but worth mentioning that you can't compile a binary for the macOS *platform* but then expect it to work for the Linux platform. The binary has to be for the appropriate platform.
 
 It's better to mark all the above changes as a major version change along with proper release notes. 
+
+## How does a binary written in `Swift` work with a binary written in `Rust`?
+
+Not every two binaries can work together. The ABI between the two need to understand one another. This is assisted by a [ffi](https://en.wikipedia.org/wiki/Foreign_function_interface). FFIs assist with exposing the interface of one library to the other. Usually the interface is on top of C, since C is a widely used low-level language. 
+
+> A foreign function interface (FFI) is a mechanism by which a program written in one programming language can call routines or make use of services written or compiled in another one.  
+> It mates the semantics and calling conventions of one programming language (the host language, or the language which defines the FFI), with the semantics and conventions of another (the guest language).
 
 ## Summary
 
