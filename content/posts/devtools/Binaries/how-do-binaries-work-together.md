@@ -64,10 +64,9 @@ U _$s4LibB8AccuracyO4highyA2CmF
 
 ```
 
-> U _$s4**LibB**3**Map**VAA0C0VyAA8**Accuracy**O4**start**yAF_tFTq: This is the mangled name for the `Map.start(accuracy:)` method in Swift. The `U` indicates that it is _undefined_ in libA and must be provided by libB and that things will be resolved by dynamic linking
-> 
-> `U _$s4LibB8AccuracyO4highyA2CmF`: This is the mangled name for the Accuracy enum in Swift, also undefined in libA and defined in libB.
-
+> `U _$s4**LibB**3**Map**VAA0C0VyAA8**Accuracy**O4**start**yAF_tFTq`: Is the mangled name for the `Map.start(accuracy:)` method in Swift.  
+> `U _$s4LibB8AccuracyO4highyA2CmF`: Is the mangled name for the Accuracy enum in Swift, also undefined in libA and defined in libB.  
+> The `U` indicates that it is _undefined_ in libA and must be provided by libB and that things will be resolved by dynamic linking.  
 
 Similarly, if we inspected libB, then we'd the same symbols, but as such: 
 
@@ -83,7 +82,7 @@ T _$s4LibB8AccuracyO4highyA2CmF
 - Changes of existing API: Renaming a public function, type or variable OR adding an additional parameter to a function. 
 - Reduction of access control: Making a `public` function, type of variable `internal` or `private`
 - Adding to protocol requirements: Adding a new function to the protocol.
-- Using a much newer or older Swift compiler which causes the symbols between the binaries to mismatch
+- Using a much newer or older Swift compiler which causes the symbols between the binaries to mismatch. See [here](https://stackoverflow.com/questions/58654714/module-compiled-with-swift-5-1-cannot-be-imported-by-the-swift-5-1-2-compiler)
 - etc. 
 
 ## Would it still be a breaking change if you add a new parameter but gave it a default value? 
