@@ -83,6 +83,7 @@ T _$s4LibB8AccuracyO4highyA2CmF
 - Changes of existing API: Renaming a public function, type or variable OR adding an additional parameter to a function. 
 - Reduction of access control: Making a `public` function, type of variable `internal` or `private`
 - Adding to protocol requirements: Adding a new function to the protocol.
+- Using a much newer or older Swift compiler which causes the symbols between the binaries to mismatch
 - etc. 
 
 ## Would it still be a breaking change if you add a new parameter but gave it a default value? 
