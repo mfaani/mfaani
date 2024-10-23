@@ -6,6 +6,10 @@ tags: ["hugo", "content-creation", "Hugo Formatting", "Hugo Frontmatter"]
 description: "How to use frontmatter, shortcodes, make changes to your theme, do syntax highlighting"
 ---
 
+## Markdown
+
+Your posts can be formatted using [markdown syntax](https://www.markdownguide.org/basic-syntax/). It's critical to know how it works. It's super simple.  
+
 ## Frontmatter
 <!-- There are some standard Hugo frontmatter, but there's also a lot of theme-specific frontmatter. In this post I might be referring to theme-specific frontmatter that you won't find in another theme. But the general idea of frontmatters is universal. -->
 

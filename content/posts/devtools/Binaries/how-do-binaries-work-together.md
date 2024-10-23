@@ -82,7 +82,10 @@ T _$s4LibB8AccuracyO4highyA2CmF
 - Reduction of access control: Making a `public` function, type of variable `internal` or `private`
 - Adding to protocol requirements: Adding a new function to the protocol.
 - Increasing the size of a parameter even if the symbol is the same: If you added 100 new private variables to a struct then it *may* end up breaking the ABI. It doesn't apply to classes because they're referenced and it's indirect.
-- Using a much newer or older Swift compiler which causes the symbols between the binaries to mismatch. See [here](https://stackoverflow.com/questions/58654714/module-compiled-with-swift-5-1-cannot-be-imported-by-the-swift-5-1-2-compiler)
+- ~~Using a much newer or older Swift compiler which causes the symbols between the binaries to mismatch. See [here](https://stackoverflow.com/questions/58654714/module-compiled-with-swift-5-1-cannot-be-imported-by-the-swift-5-1-2-compiler)~~ Since Swift5, Swift's ABI is stable. This means: 
+  - libraries compiled with Swift 5 and SwiftX (X ≥ 5) should always compatible
+  - libraries compiled with Swift 5 and SwiftY (Y < 5) are not compatible.
+  - Note: Apple first introduced Swift 5 with Xcode `10.2`. So this problem isn't more or less non-existent at this point.
 - etc. 
 
 ## Would it still be a breaking change if you add a new parameter but gave it a default value? 
