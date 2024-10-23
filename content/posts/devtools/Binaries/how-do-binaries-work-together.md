@@ -197,4 +197,4 @@ Last but not least, often you've made a breaking change but your [build process 
 
 ## Acknowledgements
 
-Shout outs to [Saaggar Jha](https://saagarjha.com) for helping me figure all of the unknown and reviewing this post. 
+Shout outs to [Saagar Jha](https://saagarjha.com) for helping me figure all of the unknown and reviewing this post. 
