@@ -160,13 +160,23 @@ By doing 👆 you haven't changed your ABI, rather you've just made an *addition
 ## Are there any breaking changes that are't originated from a change in the API/ABI?
 Yes. If you change the *behavior* of something. Examples:
   - **Performance Change:** A function used to take 0.3 seconds but now takes 6 seconds
-  - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. 
+  - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. This is what's known as **binary-compatible source-breaking change.**. You can find plenty of more examples of that [here](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst)
   - **Behavioral Change:** A function that used to fire notifications and now it doesn't. Or previously it didn't fire any notifications to a known channel but now it does.
   - **Thread Safety:** Introducing or removing thread safety in a function can also be a breaking change. For example, making a function that was previously thread-safe no longer thread-safe, or vice versa.
   - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1% battery, but now uses 5%.
   - Not a breaking change, but worth mentioning that you can't compile a binary for the macOS *platform* but then expect it to work for the Linux platform. The binary has to be for the appropriate platform.
 
 It's better to mark all the above changes as a major version change along with proper release notes. 
+
+## What does ABI help achieve?
+
+Dynamic linking is very important to system APIs because it’s what allows the system’s implementation to be updated **without** also rebuilding all the applications that run on it. It can significantly reduce a system’s memory footprint by making every application share the same implementation of a library.
+
+Since Swift is (Ahead of Time) AOT compiled, the application and the dylib both have to make a bunch of assumptions on how to communicate with the other side long before they’re linked together. These assumptions are what we call ABI (an Application’s Binary Interface), and since it **needs to be consistent** over a long period of time, that ABI better be stable!
+
+So dynamic linking is a developer's goal, and ABI stability is just a means to that end.
+
+{{< rawhtml >}}<small><small><small> 👆Above section was extracted from <a href="https://faultlore.com/blah/swift-abi/">Aria's post:</a></small></small></small>{{< /rawhtml >}}
 
 ## How does a binary written in `Swift` work with a binary written in `Rust`?
 
@@ -176,6 +186,7 @@ Not every two binaries can work together. The ABI between the two need to unders
 > It mates the semantics and calling conventions of one programming language (the host language, or the language which defines the FFI), with the semantics and conventions of another (the guest language).
 
 You basically have to spend extra effort and use the ffi to create the interface. This is something that you don't have to do for two Swift binaries, because it's all automatic. 
+
 ## Summary
 
 API is about correct mapping of Programming Interface. ABI is about correct mapping of symbols. Symbols are based off of function name, parameter names and parameter types. Default values don't show up in symbols. 
@@ -183,6 +194,11 @@ API is about correct mapping of Programming Interface. ABI is about correct mapp
 Adding a new parameter with a default value is still a breaking change. There were lots of other ways to break binary compatibility. It's important to be able to identify these and do major version bumps when needed.  
 
 Last but not least, often you've made a breaking change but your [build process masks it and helps you recover from it](http://localhost:1313/posts/devtools/binaries/how-do-binaries-work-together/#liba---source-code). Be sure to still do a major bump.
+
+## References
+- [Glossary by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst#glossary)
+- [Library Evolution by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst). The link is amazing. It mentions almost every possible breaking/non-breaking ABI change across protocols, classes, structs, properties, extensions, functions, enums, enum cases, Type Aliases and more.
+- For a full on discussion about about how ABI stability helps achieve dynamic linking and its significance see this [How Swift Achieved Dynamic Linking Where Rust Couldn't - Aria Desires](https://faultlore.com/blah/swift-abi/). It's fantastic. I'd focus only on the 'Background' section. The 'Details' section might be beyond the scope of this article.
 
 ## Acknowledgements
 
