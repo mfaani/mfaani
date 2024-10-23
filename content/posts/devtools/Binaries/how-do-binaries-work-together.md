@@ -33,11 +33,6 @@ ABI compatibility is similar to API, but just at the *binary* level. The compile
 
 It checks to see if the [undefined symbols - symbols that are to be provided by another binary](https://mfaani.com/posts/devtools/optimizing-app-size/how-can-i-inspect-the-size-impact-of-symbols-in-an-app-binary/#can-you-explain-the-above-symbols-a-bit-more) can be found in another dynamically linked library. `dyld` checks if binaryA is using the correct Binary Interface from binaryB 👈 ABI (Application Binary Interface)
 
-
-### What is the purpose of ABI Stability?
-
-Dynamic linking is our goal, and ABI stability is just a means to that end - [How Swift Achieved Dynamic Linking Where Rust Couldn't - Aria Desire](https://faultlore.com/blah/swift-abi/)
-
 ## Example of ABI usage
 
 Library A
@@ -197,7 +192,7 @@ Last but not least, often you've made a breaking change but your [build process 
 
 ## References
 - [Glossary by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst#glossary)
-- [Library Evolution by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst). The link is amazing. It mentions almost every possible breaking/non-breaking ABI change across protocols, classes, structs, properties, extensions, functions, enums, enum cases, Type Aliases and more.
+- [Library Evolution by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst). The link is amazing. Mentions almost every possible breaking/non-breaking ABI change across protocols, classes, structs, properties, extensions, functions, enums, enum cases, Type Aliases and more.
 - For a full on discussion about about how ABI stability helps achieve dynamic linking and its significance see this [How Swift Achieved Dynamic Linking Where Rust Couldn't - Aria Desires](https://faultlore.com/blah/swift-abi/). It's fantastic. I'd focus only on the 'Background' section. The 'Details' section might be beyond the scope of this article.
 
 ## Acknowledgements
