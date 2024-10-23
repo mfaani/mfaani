@@ -192,9 +192,9 @@ Last but not least, often you've made a breaking change but your [build process 
 
 ## References
 - [Glossary by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst#glossary)
-- [Library Evolution by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst). The link is amazing. Mentions almost every possible breaking/non-breaking ABI change across protocols, classes, structs, properties, extensions, functions, enums, enum cases, Type Aliases and more.
+- [Library Evolution by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst). The link is amazing. Mentions almost every possible breaking/non-breaking ABI change across protocols, classes, structs, properties, extensions, functions, enums, enum cases, typealiases and more.
 - For a full on discussion about about how ABI stability helps achieve dynamic linking and its significance see this [How Swift Achieved Dynamic Linking Where Rust Couldn't - Aria Desires](https://faultlore.com/blah/swift-abi/). It's fantastic. I'd focus only on the 'Background' section. The 'Details' section might be beyond the scope of this article.
 
 ## Acknowledgements
 
-Shout outs to [Saagar Jha](https://saagarjha.com) as well for helping me figure all of these unknown and reviewing this post. 
+Shout outs to [Saaggar Jha](https://saagarjha.com) for helping me figure all of the unknown and reviewing this post. 
