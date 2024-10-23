@@ -92,7 +92,7 @@ T _$s4LibB8AccuracyO4highyA2CmF
 
 ## Would it still be a breaking change if you add a new parameter but gave it a default value? 
 
-Changing `func start(accuracy: Accuracy)` to `LibB.Map.start(accuracy: Accuracy, distance: Int = 10)`  breaks the ABI. It doesn't break API though. Let's explain that:
+Changing `func start(accuracy: Accuracy)` to `LibB.Map.start(accuracy: Accuracy, distance: Int = 10)`  breaks both ABI and API. Let's explain that:
 
 ### LibA precompiled: 
 Assume LibA is pre-compiled. It was only aware of `LibB.Map.start(accuracy: Accuracy)`'s symbol at the time of its complication, even if you give the function a default value, because the symbols are different, LibA and LibB are incompatible. 
@@ -121,7 +121,7 @@ That being said, I've added new parameters to functions with default values with
 ### So adding a default value doesn't do anything?
 Default values help with API but not for every instance˚. Not with ABI. As illustrated the above table, default values have no impact on ABI. This is because in most languages, a function is uniquely identified by its name, and its parameters. Both the argument labels, and the types. For more on that see this [WWDC Session - Binary Frameworks in Swift](https://developer.apple.com/videos/play/wwdc2019/416/?time=1339)
 
-˚: Adding a new parameter is **also** a breaking change. It just doesn't manifest in all kinds of code usage:
+> ˚: Adding a new parameter is **also** a breaking change. It just doesn't manifest in all kinds of code usage:
 
 ```swift
 func foo(_: Int) -> Int { 0 }
