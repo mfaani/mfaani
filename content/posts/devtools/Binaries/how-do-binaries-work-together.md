@@ -194,9 +194,10 @@ Adding a new parameter with a default value is still a breaking change. There we
 Last but not least, often you've made a breaking change but your [build process masks it and helps you recover from it](http://localhost:1313/posts/devtools/binaries/how-do-binaries-work-together/#liba---source-code). Be sure to still do a major bump.
 
 ## References
-- [Glossary by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst#glossary)
-- [Library Evolution by Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst). The link is amazing. Mentions almost every possible breaking/non-breaking ABI change across protocols, classes, structs, properties, extensions, functions, enums, enum cases, typealiases and more.
+- [Glossary - Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst#glossary)
+- [Library Evolution - Swift Team](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst). The link is amazing. Mentions almost every possible breaking/non-breaking ABI change across protocols, classes, structs, properties, extensions, functions, enums, enum cases, typealiases and more.
 - For a full on discussion about about how ABI stability helps achieve dynamic linking and its significance see this [How Swift Achieved Dynamic Linking Where Rust Couldn't - Aria Desires](https://faultlore.com/blah/swift-abi/). It's fantastic. I'd focus only on the 'Background' section. The 'Details' section might be beyond the scope of this article.
+- [Swift ABI Stability Manifesto - Swift Team](https://github.com/swiftlang/swift/blob/main/docs/ABIStabilityManifesto.md) and [other low level docs on ABI](https://github.com/swiftlang/swift/tree/main/docs/ABI)
 
 ## Acknowledgements
 
