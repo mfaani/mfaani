@@ -158,7 +158,7 @@ By doing 👆 you haven't changed your ABI, rather you've just made an *addition
 ## Are there any breaking changes that are't originated from a change in the API/ABI?
 Yes. If you change the *behavior* of something. Examples:
   - **Performance Change:** A function used to take 0.3 seconds but now takes 6 seconds
-  - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. This is what's known as **binary-compatible source-breaking change.**. You can find plenty of more examples of that [here](https://github.com/swiftlang/swift/blob/main/docs/LibraryEvolution.rst)
+  - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. It may break tests, cause unexpected runtime behavior and cause anger among devs. 
   - **Behavioral Change:** A function that used to fire notifications and now it doesn't. Or previously it didn't fire any notifications to a known channel but now it does.
   - **Thread Safety:** Introducing or removing thread safety in a function can also be a breaking change. For example, making a function that was previously thread-safe no longer thread-safe, or vice versa.
   - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1% battery, but now uses 5%.
