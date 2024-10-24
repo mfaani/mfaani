@@ -161,7 +161,7 @@ Yes. If you change the *behavior* of something. Examples:
   - **Semantic Change:** A function that takes `a`, `b` as inputs and returns `c`, but after a change returns `d`. This is a breaking change. It may break tests, cause unexpected runtime behavior and cause anger among devs. 
   - **Behavioral Change:** A function that used to fire notifications and now it doesn't. Or previously it didn't fire any notifications to a known channel but now it does.
   - **Thread Safety:** Removing thread safety in a function can also be a breaking change. Making a function that was previously thread-safe no longer thread-safe.
-  - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1% battery, but now uses 5%.
+  - **Resource Management:** Changing how resources are managed or cleaned up within a function. For example, if a function that previously did not close file handles now closes them, it can impact the overall resource management in an application. Or if a function previously used 1X battery, but now uses 5X.
   - Not a breaking change, but worth mentioning that you can't compile a binary for the macOS *platform* but then expect it to work for the Linux platform. The binary has to be for the appropriate platform.
 
 It's better to mark all the above changes as a major version change along with proper release notes. 
