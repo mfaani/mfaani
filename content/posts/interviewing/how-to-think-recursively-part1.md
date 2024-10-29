@@ -208,6 +208,10 @@ It implies that either you:
 - Haven't handled all your base cases.
 - Didn't change the state upon traversing.
 
+> 💡: Often my codes causes stack overflow, but I'm coding in Swift Playgrounds and don't have access to a proper debugger. To be able to see logs without the Playgrounds app crashing (due to overflow), I add logs and **exit early** if I've called a recursive function more than 20 times. I just add a counter and increment it.
+>
+> 💡 I also add conformance to `CustomStringConvertible` protocol so I can logs in the exact way I prefer for my custom types. 
+
 ### Should I return values at the end of my recursive functions? Or should they be void functions? 
 With most programming problems, you can solve it by either way. At the moment I don't have tips for when one becomes the better choice. But I'm sure there are moments when one is preferred over the other. 
 
