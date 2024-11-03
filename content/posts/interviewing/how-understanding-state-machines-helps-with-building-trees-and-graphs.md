@@ -89,16 +89,16 @@ It's important to note that:
 
 ```swift
 func howManyWays(num: Int) -> Int {
-    return helper(origin: 0, current: 0, target: num)
+    return helper(origin: 0, target: n)
 }
 
-func helper(origin: Int, current: Int, target: Int) -> Int { 
+func helper(origin: Int, target: Int) -> Int { 
     if origin == target {
         return 1
     } else if origin > target {
         return 0
     } else {
-        return current + helper(origin: origin + 1, current: current, target: target) + helper(origin: origin + 2, current: current, target: target)
+        return helper(origin: origin + 1,target: target) + helper(origin: origin + 2, target: target)
     }
 }
 
@@ -110,10 +110,10 @@ print(howManyWays(num: 4))
 ```swift
 var cache: [Int: Int] = [:]
 func howManyWays(num: Int) -> Int {
-    return helper(origin: 0, current: 0, target: num)
+    return helper(origin: 0, target: num)
 }
 
-func helper(origin: Int, current: Int, target: Int) -> Int {
+func helper(origin: Int, target: Int) -> Int {
     if let val = cache[origin] {
         return val
     }
@@ -129,7 +129,7 @@ func helper(origin: Int, current: Int, target: Int) -> Int {
         ans = 0
         return ans
     } else {
-        ans = current + helper(origin: origin + 1, current: current, target: target) + helper(origin: origin + 2, current: current, target: target)
+        ans = helper(origin: origin + 1, target: target) + helper(origin: origin + 2, target: target)
         return ans
     }
 }
