@@ -112,7 +112,7 @@ func helper(pathState: State) -> Value {
     else traverse_down_tree: 
         - Traverse down the tree. 
         - Update the path/stack.
-        - Return the result of the children together. Each question has a different trick for combining. Example of different ways to combine:
+        - Return the result of all paths† together. Each question has a different trick for combining. Example of different ways to combine:
             - With `+`. Example: sum of all nodes. 
             - With `&&`. 
             - With `||`
@@ -123,6 +123,8 @@ func helper(pathState: State) -> Value {
             - Other ways
         
         This recursive call will ultimately always lead to hitting a base case that stops recursing. Trust the process. Don't try to preemptively end it within the normal recursion 😉
+
+    †: All paths mean all paths that stat from the root and end with your terminating (desired + undesired) states.
     */
 }
 ```
