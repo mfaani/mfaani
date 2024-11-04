@@ -239,8 +239,17 @@ As a summarized alternate way of saying things:
 3. Expand that into a formula which starts from your origin.
 See [here](https://gist.github.com/mfaani/89069e38f49eea20b7e47b8f14308505#file-longest-common-subsequence-memoization-swift-L27-L35) for more.
 
-## Out of scope
-- Optimization / Memoization was intentionally left out of scope.
+## Optimization
+I'm mainly leaving Memoization out of scope. Just a single yet important note:  
+
+When implementing memoization, the choice of key to hash for each node is crucial to avoid redundant calculations and ensure correctness. In tree-based problems, the 
+following attributes are often used to uniquely identify nodes, each serving a distinct purpose:
+- The **level** of the node in the tree. Example you're at the 3rd level away from the root.
+- The **value** of the node in the tree. Examples: 
+  - The value of this node is `18`. 
+  - `fibonacci(3)`. 
+  - For more complicated problem, the value could be a complex value. For the [416. Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/description/) question I had to create a `State` type so I can hash based off multiple values. 
+- The **path** took prior to arriving at that node in the tree. Example nodes A, R, K were took before.
 
 ## More Reading
 
