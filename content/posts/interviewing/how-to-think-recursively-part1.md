@@ -239,7 +239,7 @@ As a summarized alternate way of saying things:
 3. Expand that into a formula which starts from your origin.
 See [here](https://gist.github.com/mfaani/89069e38f49eea20b7e47b8f14308505#file-longest-common-subsequence-memoization-swift-L27-L35) for more.
 
-## Optimization
+## Optimization (avoiding repeated calculations)
 I'm mainly leaving Memoization out of scope. Just a single yet important note:  
 
 When implementing memoization, the choice of key to hash for each node is crucial to avoid redundant calculations and ensure correctness. In tree-based problems, the 
