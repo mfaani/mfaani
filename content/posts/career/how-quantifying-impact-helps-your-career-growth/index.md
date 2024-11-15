@@ -40,9 +40,9 @@ Apple Product Launches do a great job at highlighting the user/product impact
 
 ## Summary 
 
-When I shared my findings with one of our company's most distinguished engineers I was immediately told: 
+Upon sharing my realization with my team members as a common shortcoming of us engineers, one of our company's most distinguished engineers immediately replied with: 
 
-> Every time I’ve been promoted at our company, it’s because I had data like this to quantify my business impact, and I made sure to collect it every time I shipped something so I had an inventory of impact to reference.
+> Excellent Advice. Every time I’ve been promoted at our company, it’s because I had data like this to quantify my business impact, and I made sure to collect it every time I shipped something so I had an inventory of impact to reference.
 
 As someone who's recently became a tech lead, it took me a while to understand, regardless of my engineering abilities, I lack significantly in the domain of office skills such as metrics gathering and showing impact. Since realizing that, I've been accounting time for how to log the diff, not to rush releases, and most of all, the time that I have to spend (or delegate to a PM or Manager) to find a reasonable dollar value to be calculated.
 
