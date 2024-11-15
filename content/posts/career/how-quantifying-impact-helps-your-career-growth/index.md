@@ -41,7 +41,7 @@ Apple Product Launches do a great job at highlighting the user/product impact or
 
 ## Summary 
 
-Upon sharing my realization with my team members as a common shortcoming of us engineers, one of our company's most distinguished engineers immediately replied with: 
+Upon sharing my realization with my team members as a common shortcoming of us engineers, one of our company's most distinguished engineers - [John Riviello](https://www.johnriviello.com) immediately replied with: 
 
 > Excellent Advice. Every time I’ve been promoted at our company, it’s because I had data like this to quantify my business impact, and I made sure to collect it every time I shipped something so I had an inventory of impact to reference. 
 >
