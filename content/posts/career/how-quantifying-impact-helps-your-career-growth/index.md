@@ -1,7 +1,6 @@
 ---
 title: "How Quantifying Impact Helps Your Career Growth"
 date: 2024-11-15T12:22:07-05:00
-draft: true
 category: [career]
 tags: [career-growth, metrics, impact]
 description: "Often as engineers we do ourselves a disservice and just do the hard work without measuring its impact. This post gives you strategies to promote yourself"
