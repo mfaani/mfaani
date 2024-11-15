@@ -31,11 +31,13 @@ The more the change impacts the users, the more you have to get Product involved
 
 ## Examples
 
-Apple Product Launches do a great job at highlighting the user/product impact
+Apple Product Launches do a great job at highlighting the user/product impact or the delta of what their doing vs others/before
+
+![](M3-perf.jpg "M3 CPU Performance")
 
 ![](adoption.jpg "macOS vs Windows Adoption Rate")
 
-![](M3-perf.jpg "M3 CPU Performance")
+
 
 
 ## Summary 
