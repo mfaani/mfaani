@@ -196,7 +196,16 @@ print(howManyWays(num: 3))
 
 ## Triage your recursion:
 
-## I can't come up with a solution
+### Do I need a helper function? 
+
+**Managing Additional Parameters:**
+- State Maintenance: If your recursive solution requires maintaining extra state or parameters (like indices, accumulators, or flags) that aren't part of the initial function call, a helper function can encapsulate these details.
+- Simplifying the Public Interface: By using a helper function, you can keep the primary function's signature simple, hiding the complexity from the user.  
+
+**Initializing Values:**
+When certain initial values or conditions are required for the recursion to work correctly, a helper function can set these up without exposing them to the user.
+
+### I can't come up with a solution
 Tree solutions are often a variation of figuring out the right computation/transition for: 
 - A node and its previous node.
 - A node and some aggregation of all its previous nodes.
