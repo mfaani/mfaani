@@ -20,7 +20,7 @@ So at my company, I get:
 But the 'account list' on the left is slightly vague. It looks like this: 
 !["account list"](/account-list.png "Fidelity Account List. The list remains there for some screens.")
 
-And I was never able to tell how much I actually currently have if I was to leave the company today and how much of it is unvested and will be lost if I leave. 
+> I was never able to tell how much I actually currently have if I was to leave the company today and how much of it is unvested and will be lost if I leave. 
 
 ### Quick breakdown
 
@@ -87,15 +87,18 @@ And whenever you sell the vested stocks then you get taxed for capital gains (pr
 2. It gets vested at $400 at 2021. 
 3. You sell it for $500 at 2025. 
 
-For tax purposes, the grant price/date isn't important.
+For tax purposes, the grant price / date isn't important. The vesting date is. 
 
-1. In 2021 you'll have $400 as taxable income.
-2. In 2025, you'll have $100 as an increase in your capital gains tax. ($500 - $400 = $100)
+1. In 2021, you'll have $400 increase as taxable income.
+2. In 2025, you'll have $100 increase as taxable capital gains. ($500 - $400 = $100)
+
+> If you sold your stocks less than a year after it had vested then whatever profit you make is taxed based in income tax.  
+> Income tax rates are higher than capital gains tax rates. 
 
 ### Do I have to file taxes for each year for my RSUs?
 
-- Vesting: Whenever it vests, very likely it's already included in your W2 and you get taxed as income tax. 
-- Cashing: But if you're selling then stocks, then you just have to pay capital gains tax.
+- **Vesting Stocks:** Whenever it vests, very likely it's already included in your W2 and you get taxed as income tax. So as long as you process your W2 then it will all get processed.
+- **Cashing Stocks:** If you're selling then you have to pay capital gains tax. That's no longer reflected in your W2. You should be getting **`1099-B`** from your *brokerage* instead. Need to use that when you're filing taxes.
 
 For taxes about options. See [here](https://mfaani.com/posts/how-fidelity-stocks-work/#does-the-options-selling-get-reported-in-my-w2)
 
