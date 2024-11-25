@@ -12,6 +12,7 @@ Learning from my product peers, TIL if youâ€™re making an impactful change, itâ€
 - Engineers
 - Product Managers
 - Company
+
 With these numbers in hand, you can craft a narrative that not only highlights your achievements but also resonates with stakeholders across all levels.
 
 Example if your change causes less errors (or more users down a funnel), then:
