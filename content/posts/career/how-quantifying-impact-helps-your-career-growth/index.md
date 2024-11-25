@@ -6,11 +6,13 @@ tags: [career-growth, metrics, impact]
 description: "Often as engineers we do ourselves a disservice and just do the hard work without measuring its impact. This post gives you strategies to promote yourself"
 ---
 
-Learning from my product peers, TIL if you’re making an impactful change then it’s always good to be able to have logs / metrics / dashboards that help you quantify the impact from the perspective of: 
+Learning from my product peers, TIL if you’re making an impactful change, it’s not just about the change itself—it’s about how you communicate its success. A compelling story can amplify your impact, but every great story needs a foundation of data to back it up. Logs, metrics, and dashboards are essential tools that help you visualize, quantify the problem and measure the impact of your solution from the perspectives of:
+
 - Users
 - Engineers
 - Product Managers
 - Company
+With these numbers in hand, you can craft a narrative that not only highlights your achievements but also resonates with stakeholders across all levels.
 
 Example if your change causes less errors (or more users down a funnel), then:
 1. Previously 2000 users a day were seeing errors, now only 600 see the error. Less chatting with the AI chat box. 
