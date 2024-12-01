@@ -15,7 +15,7 @@ This is the 2nd post of ["Everything I learned from blogging with Hugo" series](
 > A static website is made up of one or more HTML webpages that **load the same way every time**. Static websites contrast with dynamic websites, which load differently based on any number of changing data inputs, such as the user's location, the time of day, or user actions. While static webpages are simple HTML files that can load quickly, dynamic webpages require the execution of JavaScript code within the browser in order to render
 
 
-- [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/). Unlike other tools ([gatsby](https://www.gatsbyjs.com)or [Jekyll](https://jekyllrb.com)), there is no `npm`, `Gemfile` or `ruby` hell that you have to deal with. 
+- [Hugo Quick Start](https://gohugo.io/getting-started/quick-start/). Unlike other tools ([gatsby](https://www.gatsbyjs.com)or [Jekyll](https://jekyllrb.com)), there is no `npm`, `Gemfile` or `ruby` hell that you have to deal with. Though this also means that you may not be able to benefit from what `npm` offers unless it's offered for you in Hugo.
 - It's super fast.
 - Hugo has a semi easy building block system. Each theme has certain abilities that can be enabled as long as you add its appropriate metadata values. These metadata values are known as [frontmatter](https://gohugo.io/content-management/front-matter/).
 
