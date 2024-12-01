@@ -16,7 +16,6 @@ let numericalRange = 1...10
 
 numericalRange.contains(8) // true
 
-
 let a: Character = "a"
 let z: Character = "z"
 let alphabeticalRange = a...z
@@ -176,6 +175,8 @@ You can create ranges of Characters. However because `Character` doesn't conform
 
 Where as for integers or other types that conform to `Strideable` the range has more meaning. As in: 
 > A range with a lower and upper bound. Iterating is understandable and stable.
+
+If you were still determined to do a `for loop` or get count on a range of characters, then while not fully safe, you could use this [gist](https://gist.github.com/mfaani/14f5286131f2dcf4602e03cb1d1c020c) I wrote.
 
 ## Acknowledgements
 
