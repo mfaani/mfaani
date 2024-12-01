@@ -7,7 +7,8 @@ tags: ["Swift", "Ranges", "Characters", "Unicode", "Strideable"]
 
 ---
 
-This is a follow up from my previous post: [The power and expressiveness of Swift ranges](http://mfaani.com/posts/swift/the-power-and-expressiveness-of-swift-ranges/)
+This is a follow up from my previous post: [The power and expressiveness of Swift ranges](http://mfaani.com/posts/swift/the-power-and-expressiveness-of-swift-ranges/).  
+For a Character Range:
 
 ## `contain` works fine
 
@@ -153,7 +154,7 @@ Yes. Plenty:
     - Future Additions: Keeping characters together leaves room for adding more characters in the same range (e.g., new symbols or letters for dialects or historical scripts) without disrupting the organization.
     - Backward Compatibility: Software relying on contiguous ranges remains unaffected by updates to the Unicode standard.
 
-- **Language detection becomes difficult:** Currently the way that text processing works is that:
+- **Language detection becomes a lot easier:** Currently the way that text processing works is that:
 
 ```js
 if char >= '\u{0590}' && char <= '\u{05FF}' { // Hebrew block
