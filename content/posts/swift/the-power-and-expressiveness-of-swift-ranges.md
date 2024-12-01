@@ -201,7 +201,12 @@ vs
 for v in [1,2,3,4,5][..<4] {
     print(v)
 }
+
+for v in [1,2,3,4,5][newLowerBound..<newUpperBound] {
+    print(v)
+}
 ```
+
 
 
 ## Can I create ranges for stuff other than numbers? 
