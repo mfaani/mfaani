@@ -32,10 +32,14 @@ print(String(describing: lowercaseA.asciiValue)) // nil
 Then came Unicode. It was roomy. Currently Unicode has `144,697` characters. 
 - Unlike ASCII where it only supported English, Unicode supports characters in most languages.
 - It has the same concept of mapping in ASCI. 
-- Anything is asci will have the same value it did in Unicode. This helps backwards compatibility.
+- Anything that is in asci will have the same value it did in Unicode. This helps backwards compatibility.
 - Has combining logic. Examples: 
-    - `"a"` + `" ́"` together will create `"á"`.  You'd have to write it as such: `"a\u{301}"`. `\u{codepoint}`
-    - `🇺` + `🇸` together will create 🇺🇸 . For more on that see https://en.wikipedia.org/wiki/Regional_indicator_symbol 
+    - `"a"` + `" ́"` together will create `"á"`.  You'd have to write it as such: `"a\u{301}"`. `\u{<code point>}`
+    - `🇺` + `🇸` together will create 🇺🇸 . For more on that see https://en.wikipedia.org/wiki/Regional_indicator_symbol
+- Similar to how Hex is prefixed with `0x`, Unicode is prefixed with `U+`
+    - U+1F600 (😀 emoji)
+    - U+0041 ("A")
+- Unicode has [blocks](https://en.wikipedia.org/wiki/Unicode_block#List_of_blocks) for each language. For more on that see my other post on [Why can't you loop over ranges of characters - benefits of keeping all characters of a language grouped together](http://localhost:1313/posts/swift/why-cant-you-loop-over-ranges-of-characters-in-swift/#are-there-benefits-to-keeping-all-characters-of-a-language-grouped-together)
 
 Unicode is a giant table of code-points (Swift calls scalars) matching to some full characters, some combining accents, and some invisibles.
 
@@ -51,7 +55,7 @@ let z = "a\u{301}"
 
 func visualize(_ string: String) {
     print("string:",string)
-    print("used codepoints:")
+    print("used code points:")
     for s in string.unicodeScalars {
         print(s,":",s.value)
     }
@@ -67,21 +71,32 @@ Output:
 
 ```swift
 string: a
-used codepoints:
+used code points:
 a : 97 // See https://unicode.scarfboy.com/?s=U%2b0061
 ----
 string: á
-used codepoints:
+used code points:
 á : 225 // See https://unicode.scarfboy.com/?s=U%2b00E1
 ----
 string: á
-used codepoints:
+used code points:
 a : 97 // See https://unicode.scarfboy.com/?s=U%2b0061
 ́ : 769 // See https://unicode.scarfboy.com/?s=U%2b0301
 ----
 ```
 
-What's interesting is that `a\u{301}` produces `á`. Unicode has logic to combine codepoints.
+What's interesting is that `a\u{301}` produces `á`. Unicode has logic to combine code points. Much like how Math knows how to combine things. i.e. 
+
+```swift
+let y = "á"
+let z = "a\u{301}"
+
+print(y == z) // true
+```
+
+Think of how `5 + 3` is equal to `7 + 1` yet if you compared the two literally then they're obviously not the same. 
+
+> `Character` comparisons occur on the final rendered Character. Not the the literal form of it. 
 
 ### 👆 is one of the main reasons why Swift Strings are complicated. 
 
@@ -92,13 +107,15 @@ However if you're reading `á` then it's reverse could be either:
 - `á`  (the reverse of y)
 - ` ́a` (the reverse of z)
 
-i.e. one could argue that the palindrome of `á` is ` ́a` i.e. two codepoints can end up being palindrome with one codepoint. 
+i.e. one could argue that the palindrome of `á` is ` ́a` i.e. two code points can end up being palindrome with one code point. 
 
 Depending on how the string/character is constructed the character count could be different —  i.e. `a` is 1 character, but `á` can be either just `á` or `a ́`. 
 
+Also 
+
 
 ### Other notes from https://unicode.org/glossary
-- A grapheme is a logical entity, not visual: it can be composed of one or multiple codepoints. 
+- A grapheme is a logical entity, not visual: it can be composed of one or multiple code points. 
 
 - A "glyph", also in the glossary (https://unicode.org/glossary/#glyph) which is typically used to mean "the drawn representation of graphemes".
 
@@ -159,12 +176,12 @@ In an empty string, `startIndex` is equal to `endIndex`.
 
 #### Why is `endIndex` "past the end" position?!
 
-If endIndex were the last valid subscript, then a question would arise as: in an empty collection what should the value of endIndex be? You can't change the logic for calculating the endIndex — only for empty arrays. You need consistency.
+If endIndex were the last valid subscript, then a question would arise as: in an empty collection what should the value of `endIndex` be? You can't change the logic for calculating the endIndex — only for empty arrays. You need consistency.
 
 - [first](https://developer.apple.com/documentation/swift/array/first) and [last](https://developer.apple.com/documentation/swift/array/last) return **optional** 
 values because the thing might be empty, so there is no "first" nor "last" element or index
 
-- On the other hand, startIndex is where the collection begins, and whether it’s empty or non-empty, an array **always** begins at 0. 
+- On the other hand, `startIndex` is where the collection begins, and whether it’s empty or non-empty, an array **always** begins at 0. 
 Because of this, accessing an array using `startIndex` or `endIndex` can cause out of bounds crashes. Example: 
 
 ```swift
@@ -204,14 +221,15 @@ To check whether a string is empty, use its `isEmpty` property instead of compar
 
 ## Summary
 
-- `a` has a codepoint of 97. It's a grapheme by itself.  
-- ` ́` has a codepoint of 769. It's a grapheme by itself.  
+- `a` has a code point of 97. It's a grapheme by itself.  
+- ` ́` has a code point of 769. It's a grapheme by itself.  
 - Together they form a new grapheme cluster: `á`.  
 - `á`, _`á`_, **`á`** are all the same grapheme, but because of the font they're different glyphs.  
 - For interviewing most people that are comfortable with Swift, find it easier to convert the string to an array of Characters. Because the focus of the interview isn't on your String skills it's about your interview, algo and DS abilities. Or at least that's what it should be.
 
 
 ## References
+- Also recommend seeing my other post on [Why can't you loop over a Range of Swift Characters](http://localhost:1313/posts/swift/why-cant-you-loop-over-ranges-of-characters-in-swift/)
 - [Stackoverflow - What's the difference between a character, a code point, a glyph and a grapheme?](https://stackoverflow.com/questions/27331819/whats-the-difference-between-a-character-a-code-point-a-glyph-and-a-grapheme)
 - [What's the difference between ASCII and Unicode?](https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode)
 - [Quora - What's the difference between a character, a glyph, and a grapheme?](https://www.quora.com/Whats-the-difference-between-a-character-a-glyph-and-a-grapheme)

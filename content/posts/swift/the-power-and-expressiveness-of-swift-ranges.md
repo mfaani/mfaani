@@ -224,16 +224,14 @@ Surprisingly I wasn't able to do:
 let r2 = "a"..."m"
 print(r2.count) // Referencing property 'count' on 'ClosedRange' requires that 'String' conform to 'Strideable'
 ```
-
 Shout out to [Josh Caswell](https://github.com/woolsweater) for helping me figure it out: 
 
-The reason for this error is that there's a conditional conformance for `ClosedRange` to the `Collection`, `BidirectionalCollection`, `RandomAccessCollection` protocols. See [extension ClosedRange : Sequence where Bound : Strideable](https://github.com/apple/swift/blob/main/stdlib/public/core/ClosedRange.swift#L200-L201)
+The reason for this error is that there's a conditional conformance for `ClosedRange` when its `Bound` is `Strideable`. See [extension ClosedRange : Sequence where Bound : Strideable](https://github.com/apple/swift/blob/main/stdlib/public/core/ClosedRange.swift#L200-L201)
 
-With Characters in Swift you don't get this conformance out of the box because Swift Characters are a _cluster_. To learn more about why Swift Characters are a cluster, see my other post on [Swift Strings for iOS interviewing
-](https://mfaani.com/posts/interviewing/string/)
+With Characters in Swift you don't get this conformance out of the box. To learn why, see my other post on [Why Can't You Loop Over Ranges of Characters in Swift](http://mfaani.com/posts/swift/why-cant-you-loop-over-ranges-of-characters-in-swift/)
 
 ## Any last words?
 
 - Often usage of ranges can be difficult. Because you might need to convert a `Range` into `ClosedRange` or vice versa and it's not very straightforward. 
-- You might have to handle bounds. Example `0...array.count - 1` when the array is empty will result in a range that creates `0...-1` which results in a crash/error. Or you might have a left and right range where your range shrinks every time, this could lead to a range of 0, 1, or often negative. So you have to be considerate of all those. As a result you must always have **safety checks** in your ranges, otherwise your app will crash.
+- You might have to handle bounds. Example if an array is is empty then the `0...array.count - 1` range will translate to `0...-1` which results in a crash/error. Or you might have a left and right range where your range shrinks every time, this could lead to a range of 0, 1, or often negative. So you have to be considerate of all those. As a result you must always have **safety checks** in your ranges, otherwise your app will crash. To avoid that you should always have the following check `if range.startIndex < range.endIndex` before processing values at
 - There's another range type that we didn't discuss. See [unboundedrange](https://developer.apple.com/documentation/swift/unboundedrange_/)

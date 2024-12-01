@@ -12,7 +12,7 @@ editPost:
 
 This post is the result of some post-discussion on my [Swift Strings for iOS interviewing](https://mfaani.com/posts/interviewing/string/) post. 
 
-Given that characters look like one another or that are invisible codepoints I thought there might be some room for abuse. Luckily Unicode has great documentation security. At the high level there are two types of security issues:
+Given that characters look like one another or that are invisible code points I thought there might be some room for abuse. Luckily Unicode has great documentation security. At the high level there are two types of security issues:
 
 ### Visual Security Issues
 
