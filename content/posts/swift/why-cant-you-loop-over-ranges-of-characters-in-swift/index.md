@@ -82,7 +82,7 @@ This means users of different countries could end up having different understand
 let range = "z"..."à"
 ```
 
-To an English and Swedish user that range would make sense, while to a French engineer it wouldn't. The Swift language can't truly tell you what's next in a `for loop`.
+To an English and Swedish user that range would make sense, while to a French user it wouldn't. The Swift language can't truly tell you what's next in a `for loop`.
 
 > Also note: if you don't have a locale set then it will just go based on the code points order.
 
