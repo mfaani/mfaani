@@ -39,7 +39,7 @@ for char in alphabeticalRange { // ❌  Referencing instance method 'next()' on 
 }
 ```
 
-> What both of those errors mean is that Swift can't figure out what the _next_ character is for a given character. It's because `Character` doesn't conform to [`Strideable`](https://developer.apple.com/documentation/swift/strideable)
+> What both of those errors mean is that Swift can't figure out what the _next_ character is for a given character. The folks who implemented `Character` chose not to conform it to [`Strideable`](https://developer.apple.com/documentation/swift/strideable).
 
 ### I'm confused! Can't Swift know that after "a" there will be "b", then "c" and so on?
 
