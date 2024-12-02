@@ -41,7 +41,7 @@ for char in alphabeticalRange { // ❌  Referencing instance method 'next()' on 
 
 > What both of those errors mean is that Swift can't figure out what the _next_ character is for a given character. The folks who implemented `Character` chose not to conform it to [`Strideable`](https://developer.apple.com/documentation/swift/strideable).
 
-### I'm confused! Can't Swift know that after "a" there will be "b", then "c" and so on?
+### I'm confused! Aren't Characters just some number in a table? Can't Swift know that after "a" there will be "b", then "c" and so on?
 
 You're asking a very good question. Swift does know that. Yet since Characters are for _every_ possible value in Unicode, and not just simple ascii characters (like "a" and "z"), then things can get a bit tricky. Let's explain how it can get tricky:
 
@@ -167,6 +167,23 @@ Based on all the above reasons, the 2nd choice is cleaner, since you’re keepin
 > But because of the decision of having empty code points to allow future additions with ease, you're not allowed doing `for loops` or `counts` because the result of that across the before and after new additions can be different. It’s basically unstable API
 >
 > This is different from a normal Integer range `1...100` where there's always 98 items in between.
+
+## 3 - Some Characters are Clusters
+Lots of emojis are made up by using two or more code points. Although not exclusive to Flag Emojis, See [Regional Indicator Symbols](https://en.wikipedia.org/wiki/Regional_indicator_symbol) for more. 
+
+```swift
+let cs = Character("\u{1f1e8}\u{1f1ed}")...Character("\u{1f1e8}\u{1f1ee}")
+print(cs.lowerBound, cs.upperBound) // 🇨🇭  🇨🇮
+```
+
+One could even argue if it's actually correct to create a range for Characters. Let alone iterate or get the count. Like what is the true lower bound? 
+- The decimal value of the first code point of the lower bound `1f1e8`
+- or the decimal value of the second code point of the lower bound
+- or some combination of the two? 
+
+When Characters are clusters then creating a range, doing counts and for loops becomes unclear. 
+
+> Note: While often Character clusters can be represented in either single code point or combined code point, some characters can **only** be created from *two* code points. 
 
 ## Summary
 
