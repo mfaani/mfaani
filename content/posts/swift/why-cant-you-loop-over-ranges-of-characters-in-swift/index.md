@@ -154,7 +154,7 @@ Yes. Plenty:
     - Future Additions: Keeping characters together leaves room for adding more characters in the same range (e.g., new symbols or letters for dialects or historical scripts) without disrupting the organization.
     - Backward Compatibility: Software relying on contiguous ranges remains unaffected by updates to the Unicode standard.
 
-- **Language detection becomes a lot easier:** Currently the way that text processing works is that:
+- **Language detection becomes a lot easier:** Currently the way that text processing works is something like:
 
 ```js
 if char >= '\u{0590}' && char <= '\u{05FF}' { // Hebrew block
