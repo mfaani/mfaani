@@ -189,7 +189,7 @@ When Characters are clusters then creating a range, doing counts and for loops b
 
 You can create ranges of Characters. However because `Character` doesn't conform to `Strideable`, you can't do a `for-loop` or get a `count`. Your mindset about them should simply be: 
 
-> A range with a lower and upper bound. While iterating it for simple ascii characters is plausible, Swift is just being overly safe since iterating it is confusing (because of locale) and unstable (because of versions).
+> A range with a lower and upper bound. While iterating it for simple ascii characters is plausible, Swift is just being overly safe since iterating it is confusing (because of locale and character clusters) and unstable (because of versions).
 
 Where as for integers or other types that conform to `Strideable` the range has more meaning. As in: 
 > A range with a lower and upper bound. Iterating is understandable and stable.
