@@ -248,9 +248,9 @@ struct Person: Comparable {
     }
 }
 
-let range = Person(name: "Mohammad", salary: 10000)...Person(name: "Matt", salary: 20000)
+let range = Person(name: "Mohammad", salary: 10000)...Person(name: "Matt", salary: 20000) // Named After Matt Smollinger who's mentored me through out my career + answered countless questions from me. Currently an EM at Ford.
 
-range.contains(Person(name: "Kotaro", salary: 15000)) // true
+range.contains(Person(name: "Kotaro", salary: 15000)) // true. Named after Kotaro Fujita who's the co-organizer of PhillyCocoa, Side Project Spot Lot Podcast. Principal Engineer at Comcast and more.
 ```
 
 Surprisingly I wasn't able to do: 
