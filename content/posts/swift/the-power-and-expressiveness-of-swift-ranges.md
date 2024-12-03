@@ -208,19 +208,49 @@ for v in [1,2,3,4,5][newLowerBound..<newUpperBound] {
 ```
 
 
-
 ## Can I create ranges for stuff other than numbers? 
 Yes!
 
-> Use the closed range operator (...) to create a closed range of any type that conforms to the **Comparable** protocol. This example creates a ClosedRange<Character> from “a” up to, and including, “z”.
+> Use the closed range operator (...) to create a closed range of any type that conforms to the **Comparable** protocol. 
 
+### Character Range
 Like I've seen folks do 
 ```swift
-let alphabets = "abcdefghijklmnopqrstuvwxyz"
+let alphabets = "abcdefghijk"
 ```
 However you can simply do: 
 ```swift
-let alphabets = "a"..."z"
+let alphabets = "a"..."k"
+```
+
+### String Range
+You could create ranges for Strings. Think of them as two words in a dictionary (like a real book dictionary)
+
+```swift
+let r = "alpha"..."clpha"
+
+["alphaa","d", "cmllllll", "cllzzzz"].forEach {
+    print(r.contains($0)) // true, false, false, true
+}
+```
+
+For String it's basically a lexicographically i.e. a dictionary sort.
+
+
+### Custom Type Range
+```swift
+struct Person: Comparable {
+    let name: String
+    let salary: Int
+    
+    static func < (lhs: Person, rhs: Person) -> Bool {
+        return lhs.salary < rhs.salary
+    }
+}
+
+let range = Person(name: "Mohammad", salary: 10000)...Person(name: "Matt", salary: 20000)
+
+range.contains(Person(name: "Kotaro", salary: 15000)) // true
 ```
 
 Surprisingly I wasn't able to do: 
@@ -233,10 +263,11 @@ Shout out to [Josh Caswell](https://github.com/woolsweater) for helping me figur
 
 The reason for this error is that there's a conditional conformance for `ClosedRange` when its `Bound` is `Strideable`. See [extension ClosedRange : Sequence where Bound : Strideable](https://github.com/apple/swift/blob/main/stdlib/public/core/ClosedRange.swift#L200-L201)
 
-With Characters in Swift you don't get this conformance out of the box. To learn why, see my other post on [Why Can't You Loop Over Ranges of Characters in Swift](http://mfaani.com/posts/swift/why-cant-you-loop-over-ranges-of-characters-in-swift/)
+The Swift Engineers have decided not to not have `Character` conform to `Strideable`. To learn why, see my other post on [Why Can't You Loop Over Ranges of Characters in Swift](http://mfaani.com/posts/swift/why-cant-you-loop-over-ranges-of-characters-in-swift/)
 
 ## Any last words?
 
 - Often usage of ranges can be difficult. Because you might need to convert a `Range` into `ClosedRange` or vice versa and it's not very straightforward. 
 - You might have to handle bounds. Example if an array is is empty then the `0...array.count - 1` range will translate to `0...-1` which results in a crash/error. Or you might have a left and right range where your range shrinks every time, this could lead to a range of 0, 1, or often negative. So you have to be considerate of all those. As a result you must always have **safety checks** in your ranges, otherwise your app will crash. To avoid that you should always have the following check `if range.startIndex < range.endIndex` before processing values at
+- You can create ranges on anything that's `Comparable`. However only for ranges that are `Strideable` you can do things like `count` or `for loop`.
 - There's another range type that we didn't discuss. See [unboundedrange](https://developer.apple.com/documentation/swift/unboundedrange_/)
