@@ -8,7 +8,8 @@ tags: ["Swift", "Ranges", "Characters", "Unicode", "Strideable"]
 ---
 
 This is a follow up from my previous post: [The power and expressiveness of Swift ranges](http://mfaani.com/posts/swift/the-power-and-expressiveness-of-swift-ranges/).  
-For a Character Range:
+  
+For a `Character` Range:
 
 ## `contain` works fine
 
