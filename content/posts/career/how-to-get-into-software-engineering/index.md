@@ -194,7 +194,7 @@ Best examples I can think of are:
 - A website that shows your portfolio.
 - We had an engineer at work who at the time of joining was a relatively junior engineer, but he already had an app in the App Store. It didn't matter how many people were using his app. It just meant that he was a doer. His app was a simple but extremely functional [app for a Train Time Table](https://apps.apple.com/us/app/patco-train-schedule/id1275141690). He identified a problem: It was difficult for commuters to to look into small font pdfs and try to find the time of the next train. He turned into a very easy to read app. 
 - At a conference an engineer talked about an [app](https://apps.apple.com/us/app/nannerscanner/id1470699124) he owns. The app would just scan a banana and tell you if the banana was ripe or not. I asked him why did he do the app, he said:
-    - There are some color blind people that can't tell. It was amazed. You can build apps that even yourself use. But still there's a market for it. 
+    - There are some color blind people that can't tell. My ignorance made me first think that the app was made just for run. I was intrigued at the idea that you can build apps that you never end up using yourself.
     - I can speak about **my** own app experience during interviews.
     - I got to try out new Apple code for Machine Learning.
     - The app was super simple to build, it had only 2 - 3 screens. But I did it good. It made me stand out in a lot of conversations. 
