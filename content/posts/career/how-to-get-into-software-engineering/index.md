@@ -2,7 +2,6 @@
 title: "How to Get Into Software Engineering"
 date: 2024-12-12T22:07:25-05:00
 category: ['Career']
-draft: true
 tags: [Career, Bootcamp, College, University ]
 description: "most people think you need to study four years to get a job in tech. That's not true"
 cover:
