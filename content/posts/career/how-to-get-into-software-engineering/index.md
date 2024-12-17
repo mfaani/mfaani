@@ -138,6 +138,11 @@ With self-learning you often might get stuck on a bug and be clueless for hours 
 
 If you have took a class or two on general programming then self-learning or if you have a mentor that you can reach out to 3-4 times a week then self-learning becomes a lot easier. Otherwise bootcamps are a lot better. 
 
+## Some Top Free Courses
+- [CS50 - Harvard](https://youtube.com/playlist?list=PLhQjrBD2T381WAHyx1pq-sBfykqMBI7V4&si=af_cbsFqP_t0jdnI). World Class. Lots of assignments per lecture. Covers basics. Might be too difficult for a beginner. The course has huge online presence across social media.
+- [Swift and iOS Learning - Apple](https://developer.apple.com/swift-playgrounds/). There are lots of fun and extremely beginner friendly tutorials there. The app is is great on iPads but also works for MacBooks. It's only helpful if you want to learn iOS Programming. 
+- [CodeAcademy](https://www.codecademy.com/catalog). Lots of free courses. They make it easy to track your progress. All you need a is browser. 
+- I'm specifically leaving out introductory courses for learning Machine Learning / AI. Because I haven't took any myself, nor you can start learning AI without having a decent background in a programming language and some other concepts. 
 
 ## I've gone through a bootcamp, done my own self-learning. How can I stand out? 
 It's tough. A lot tougher than it was in 2020. Have something small but working that's already being used by more than 100 people. 
