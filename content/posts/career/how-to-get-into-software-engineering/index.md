@@ -14,11 +14,16 @@ cover:
 This post is from my personal experience with some oversimplification. 
 
 ## Software Engineering vs Medicine?
+
+Five years ago if you asked anyone what should I study to make guaranteed money, they'd all tell you to get into programming. The answer isn't the same. 
+
+> Tech degrees no longer guarantee a job. This WSJ [article](https://www.wsj.com/tech/tech-jobs-artificial-intelligence-cce22393) is filled with unfortunate anecdotes. Lately, I'm hearing similar narratives from students. Previously, a Berkeley CS graduate, even if not a top student, would receive multiple appealing job offers in terms of work type, location, salary, and employer. However, outstanding students, like those with a 4.0 in-major GPA, are now contacting me worried because they have zero offers. I suspect this trend is irreversible and likely part of the broader trend impacting almost every employment sector. 
+
 Medicine requires significant money and time investment. On average you have a debt of 200k before you get into the job market + 7yrs of time with little money making. That's almost 900k in debt before you start and it's with a head start that's 4-5 years late. Though once you get into the industry, you'd be making 150k-300k a year on average, which is typically higher than an average software engineer.
 
-Unlike Medicine, Software engineering doesn't require a lot of money or upfront investment to spend, you can also make money, before, during school. Both Software Engineering and Medicine have lower and higher ends. In Software Engineering, AI Engineers make more than your typical Engineer. Similarly Surgeons, Dentists make a lot more than your average specialist. 
+Unlike Medicine, Software engineering doesn't require a lot of money or upfront investment to spend, you can also make money, before, during school. Both Software Engineering and Medicine have lower and higher ends. In Software Engineering, AI Engineers make 20-80% more than your typical Engineer. It's similar to how Surgeons, Dentists make a lot more than your average specialist. 
 
-It's just that something like AI requires a bit more brains like complex mathematics (linear algebra, calculus, probability, and statistics) and a deeper understanding of algorithms, data structures, and machine learning models vs your typical programming. 
+Just that AI requires a bit more brains like complex mathematics (linear algebra, calculus, probability, and statistics) and a deeper understanding of algorithms, data structures, and machine learning models vs your typical programming. 
 
 tldr Medicine pays great in the long run. AI is hot for now, but requires more effort and talent. They're hiring more than your typical software engineer / programmer. It's likely that it will remain the same for the foreseeable future. 
 
