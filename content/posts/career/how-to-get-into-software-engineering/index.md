@@ -138,7 +138,7 @@ I vividly remember my first encounters with Stackoverflow
 
 The last one is key. People tend to care a bit more when its someone from their own town, neighborhood. 
 Most Meetup groups these days have their own Slack group where you could remain in contact through out the week / month. 
-I learned a lot from my local Slack group. It was named [PhillyCocoahHeads](http://phillycocoa.org). I got to ask a lot about basic Programming concepts from people that I never met in person. Without their help, I would not be where I am today.
+I learned a lot from my local Slack group. It was named [PhillyCocoaHeads](http://phillycocoa.org). I got to ask a lot about basic Programming concepts from people that I never met in person. Without their help, I would not be where I am today.
 
 Stackoverflow.com's main benefit is that it's open to public and conversations are forever available. Though the UI of the site and its culture need some love. 
 Slack may have a time limit for how long it keeps the history of conversations (typically 180 days) and is only available to the members of the Slack organization. 
