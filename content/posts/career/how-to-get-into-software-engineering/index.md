@@ -170,7 +170,8 @@ For the right person and dedication, and with a good amount of luck and support,
 - When you want to go all in and you have time for it. 
 Some of the top Machine Learning, AI experts at Apple, Google, Microsoft have done extensive research with truly experienced professors during their Masters or PhD programs enabling them to innovate in ways that others can't.
 - You're attending an Ivy League university that has great professors. 
-- The university has a great connection with the local companies and is great at helping you land your first job. This is less of an issue if you have a good amount of friends and family that can give you referrals. 
+- The university cultivates building networks with your peers and has a great connection with the local companies and is great at helping you land your first job. This is less of an issue if you have a good amount of friends and family that can give you referrals. 
+- Universities may also have certain budgets to undertake certain high risk, high reward projects.
 
 ## BootCamp vs Self-learning
 
@@ -190,13 +191,17 @@ If you have took a class or two on general programming then self-learning or if 
 It's tough. A lot tougher than it was in 2020. Have something small but working that's already being used by more than 100 people. 
 
 Best examples I can think of are: 
-- A website that shows your portfolio.
+- A well crafted website that shows your portfolio.
 - We had an engineer at work who at the time of joining was a relatively junior engineer, but he already had an app in the App Store. It didn't matter how many people were using his app. It just meant that he was a doer. His app was a simple but extremely functional [app for a Train Time Table](https://apps.apple.com/us/app/patco-train-schedule/id1275141690). He identified a problem: It was difficult for commuters to to look into small font pdfs and try to find the time of the next train. He turned into a very easy to read app. 
-- At a conference an engineer talked about an [app](https://apps.apple.com/us/app/nannerscanner/id1470699124) he owns. The app would just scan a banana and tell you if the banana was ripe or not. I asked him why did he do the app, he said:
+- At a conference, an engineer I met talked about an [app](https://apps.apple.com/us/app/nannerscanner/id1470699124) he owns. The app would just scan a banana and tell you if the banana was ripe or not. I asked him why did he do the app, he said:
     - There are some color blind people that can't tell. My ignorance made me first think that the app was made just for run. I was intrigued at the idea that you can build apps that you never end up using yourself.
     - I can speak about **my** own app experience during interviews.
     - I got to try out new Apple code for Machine Learning.
     - The app was super simple to build, it had only 2 - 3 screens. But I did it good. It made me stand out in a lot of conversations. 
+- But overall if you show you can create, do and demonstrate a persistent sense of ownership and _create_ (don't just seek jobs but rather create them too), then you have higher chances. 
+
+> I tend to overlook resumes overloaded with flashy keywords. I prefer the _underdog_ who is consistently building and seeking to create a job on their own at a steady pace, even if it’s small and unpolished.
+
 
 ## How Important is Networking? And when should I start?
 Don't start networking when your resume is ready. Start it as soon you're learning. It's just that the *manner* and intensity of your networking should be different. If you're new then networking for you just means:
