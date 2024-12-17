@@ -36,7 +36,7 @@ The beauty of software engineering is the low cost of entry:
 But like medicine, there’s a spectrum:
 
 - Your average programmer might hit a ceiling sooner.
-- Specialists—like AI Engineers—are earning 20%-500% (yes 5X) more than typical developers.
+- Specialists, like AI Engineers are earning 20%-500% (yes 5X) more than typical developers.
 
 ### Trades: The Unexpected Millionaires
 Here’s a curveball: skilled trades are booming. A recent [WSJ article](https://www.wsj.com/business/entrepreneurship/plumbers-hvac-skilled-trades-millionaires-2b62bf6c) shows how plumbers, HVAC technicians, and other trade entrepreneurs are turning into millionaires.
