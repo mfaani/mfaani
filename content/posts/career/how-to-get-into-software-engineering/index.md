@@ -14,20 +14,20 @@ cover:
 This post is from my personal experience with some oversimplification. 
 
 ## Software Engineering vs Medicine?
-Medicine requires significant money and time investment. On average you have a debt of 200k before you get into the job market + 7yrs of time with little money making. That's like being behind by 900k before you start, but then once you get into the industry, you'd be making 150k-300k a year on average, which is typically higher than 
+Medicine requires significant money and time investment. On average you have a debt of 200k before you get into the job market + 7yrs of time with little money making. That's almost 900k in debt before you start and it's with a head start that's 4-5 years late. Though once you get into the industry, you'd be making 150k-300k a year on average, which is typically higher than an average software engineer.
 
 Unlike Medicine, Software engineering doesn't require a lot of money or upfront investment to spend. Both Software Engineering and Medicine have lower and higher ends. In Software Engineering, AI Engineers make more than your typical Engineer. Similarly Surgeons, Dentists make a lot more than your average specialist. 
 
 
 It's just that something like AI requires a bit more brains like complex mathematics (linear algebra, calculus, probability, and statistics) and a deeper understanding of algorithms, data structures, and machine learning models vs your typical programming. 
 
-tldr Medicine pays great in the long run. AI is hot for now, but requires more effort. They're hiring more than your typical software engineer / programmer. It's likely that it will remain the same for the foreseeable future. 
+tldr Medicine pays great in the long run. AI is hot for now, but requires more effort and talent. They're hiring more than your typical software engineer / programmer. It's likely that it will remain the same for the foreseeable future. 
 
 ## Do I need a four year degree? 
 
 What most people don't realize is the difference of what you're taught at university vs how much of it is useful at your actual job. 
 
-> In university you're taught only a whole lot of breadth without much depth. At work you actually need depth.
+> In university you're taught only a whole lot of breadth without much depth. At work you actually need depth without much breadth.
 
 To become an iOS engineer you don't need to learn about: 
 - Android
@@ -37,6 +37,7 @@ To become an iOS engineer you don't need to learn about:
 - Networking
 - Security
 - Operating Systems
+- UI & UX
 - AI
 - Data Structure and Algorithms
 - Mathematics
@@ -44,7 +45,7 @@ To become an iOS engineer you don't need to learn about:
 - Computer Graphics
 - Hardware, CPU, etc. 
 
-> However in a four year course the university teaches you lots of stuff, they rather be safe than sorry. They rather have you absorb 100X more than what you actually need so it increases your chances of landing a job, plus they've got you spending at the university for four years rather than one or two. 
+> However in a four year course the university teaches you lots of stuff, they rather be safe than sorry and have you absorb 100X more than what you actually need so it may increase your chances of landing a job. They also get you spending at the university for four years rather than one or two. 
 
 For anyone who already has a degree in something, it's recommended that you just focus on the new domain that you want and learn that, don't go out and get a four year degree from scratch. 
 
@@ -58,6 +59,10 @@ For example in order to become an iOS developer you have to learn:
 
 Unless you're joining a startup where you need to be a jack of all trades, you do **not** need to learn much about the rest that is taught in a four year Computer Science Program. 
 
+> I'm a senior iOS developer. Some of my skills are easily transferrable to other domains and but most are not. I have zero experience with Android, Web, OS, Security, Hardware, AI, etc. Yet I'm very successful at the work I do. 
+> 
+> You'll be fine if you're great in one domain and clueless in others. This knowledge can save you a lot of time and anxiety.
+
 ## How do I pick the domain I like? 
 
 ### Ask ChatGPT to ask you the following question: 
@@ -66,11 +71,11 @@ Unless you're joining a startup where you need to be a jack of all trades, you d
 
 It will help you get a good start.
 
-### Can you find a mentor for the domain you like? 
+### Pick domains that you have access to mentors
 
-> Would you rather go the east without any tour guide or go to the west with a tour guide? 
+> Would you rather go to the east without any tour guide or go to the west with a tour guide? 
 
-People usually go with the journey where they have a trusted guide. It's the same with making yourself a career in tech. Having a good mentor is critical, especially in the early stages. If you were undecided between which domain to pick, then try picking one that you can find mentors easier. There's lots of things that you're either utterly clueless about or just don't know that you don't know. Only way to resolve them is **if you have a mentor or a support group.**
+People usually go with the journey where they have a trusted guide. It's the same when it comes to making a career for yourself in tech. Having a good mentor is critical, especially in the early stages. If you were undecided between which domain to pick, then try picking one that you can find mentors easier. There's lots of things that you're either utterly clueless about or just don't know that you don't know. Only way to resolve them is **if you have a mentor or a support group or waste 10X more hours figuring things on your own**
 
 ## But strangers don't answer my questions online
 They do. They do that a LOT!
@@ -88,32 +93,32 @@ All you have to do is write a well crafted question. Get it to the right audienc
 - [Medium.com](https://medium.com) (A social publishing platform where users can share stories, ideas, and perspectives)
 - [Meetup.com](https://www.meetup.com) and their associated Slack Groups. Meetup is a platform that assists groups of like-minded people meet in person on online. Slack is an app that helps teams collaborate and communicate with great ease online.:
 
-The last one is key. People tend to care more when its someone from their own town, neighborhood. 
+The last one is key. People tend to care a bit more when its someone from their own town, neighborhood. 
 Most Meetup groups these days have their own Slack group where you could remain in contact through out the week / month. 
-I learned a lot from my local Slack group. It was named [PhillyCocoahHeads](http://phillycocoa.org). I got to ask a lot about basic Programming concepts from people that I never met until years later. 
+I learned a lot from my local Slack group. It was named [PhillyCocoahHeads](http://phillycocoa.org). I got to ask a lot about basic Programming concepts from people that I never met in person. Without their help, I would not be where I am today.
 
 Stackoverflow.com's main benefit is that it's open to public and conversations are forever available. Though the UI of the site and its culture need some love. 
 Slack may have a time limit for how long it keeps the history of conversations (typically 180 days) and is only available to the members of the Slack organization. 
 Yet it's in real time and often with people that you actually know. 
 
 Medium.com is public but it is not meant to be a Q&A place or where discussions happen. It's more of a fancy micro blog platform. 
-ChatGPT (and don't forget claude.ai) is getting better and better at answering, but often there's some tribal knowledge or lack of a human element that makes understanding directly from ChatGPT difficult. 
+ChatGPT (and don't forget claude.ai) is getting better and better at answering and having conversations, but often there's some tribal knowledge or lack of a human element that makes understanding directly from ChatGPT difficult. 
 
 Nowadays if I need something, I search for it or ask ChatGPT. 
-If I can't figure things out then depending on the factors listed below, I decide to take it to to either Stackoverflow or Slack
+If I can't figure things out (or need a bit more depth) then depending on the factors listed below, I decide to take it to to either Stackoverflow or Slack
 - The type of question.
 - How experienced and responsive the Slack vs Stackoverflow folks are on that subject.
 - When was the last time I asked a question. I don't want to be asking too many questions from the same people. 
 
 Example:
-- On Stackoverflow, due to its requirements for having straightforward answers, you can not ask an _open ended_ question of: "Is using Java better or Kotlin to make a server? Why". So Slack is your only choice. 
+- On Stackoverflow, due to its requirements that questions must have straightforward answers, you can not ask an _open ended_ question of: "Is using Java better or Kotlin to make a server? Why". So Slack is your only choice. 
 
 - Everyone you know in your Slack group has knowledge on iOS, no one knows anything about Network Security. So your only choice is to ask the question on Stackoverflow.
 
 ## Should I learn on my own or join a BootCamp or get an associate degree? 
 The path to success is anything between 6-24 months. There are no shortcuts. No Program is a silver bullet. 
 
-The programs are meant to show you the path and help you stay on the path. Do not think by joining a university, bootcamp, the job is done. You're the one that has to spend time experimenting, finding yourself mentors, attending meetups, do the network, figuring out bugs, practicing, preparing for interviews, writing your resume, setting up sample projects, etc. 
+The programs are meant to show you the path and help you stay on the path. Do not think by joining a university, bootcamp, the job is done. _You_ are the one that has to spend time experimenting, finding yourself mentors, attending meetups, do networking, figuring out bugs, practicing, preparing for interviews, writing your resume, setting up sample or real (but small) projects / apps,  etc. 
 
 For the right person and dedication, and with a good amount of luck and support, either of the approaches work.
 
@@ -123,7 +128,16 @@ For the right person and dedication, and with a good amount of luck and support,
 - When you want to go all in and you have time for it. 
 Some of the top Machine Learning, AI experts at Apple, Google, Microsoft have done extensive research with truly experienced professors during their Masters or PhD programs enabling them to innovate in ways that others can't.
 - You're attending an Ivy League university that has great professors. 
-- The university has a great connection with the local companies and is great at helping you land your first job.
+- The university has a great connection with the local companies and is great at helping you land your first job. This is less of an issue if you have a good amount of friends and family that can give you referrals. 
+
+## BootCamp vs Self-learning
+
+Bootcamps jump start you a whole lot easier than self-learning. In a bootcamp, you have your peers and a mentor that helps with you on a daily basis. 
+
+With self-learning you often might get stuck on a bug and be clueless for hours or days whereas a mentor can help resolve it in 5 minutes. Or may be looking at a tutorial and not realizing that the tutorial is no longer applicable or that it no longer compiles, etc. 
+
+If you have took a class or two on general programming then self-learning or if you have a mentor that you can reach out to 3-4 times a week then self-learning becomes a lot easier. Otherwise bootcamps are a lot better. 
+
 
 ## I've gone through a bootcamp, done my own self-learning. How can I stand out? 
 It's tough. A lot tougher than it was in 2020. Have something small but working that's already being used by more than 100 people. 
@@ -137,12 +151,14 @@ Best examples I can think of are:
     - I got to try out new Apple code for Machine Learning.
     - The app was super simple to build, it had only 2 - 3 screens. But I did it good. It made me stand out in a lot of conversations. 
 
-## When should I start networking?
-Don't start networking when your resume is ready. Start it as soon you're learning. It's just that the manner and intensity of your networking should be different. If you're new then networking for you means:
+## How Important is Networking? And when should I start?
+Don't start networking when your resume is ready. Start it as soon you're learning. It's just that the *manner* and intensity of your networking should be different. If you're new then networking for you just means:
 
-> just have a profile on Stackoverflow, on your local slack group and show up in meetups. People are more willing to spend time, give you referrals if they see you making progress. 
+> just have a profile on Stackoverflow, on your local slack group and show up in meetups. People are more willing to spend time, give you referrals if they _see_ you making progress. 
+
+Referrals are super critical to your early success. So the better your network is, the more chances that you get referrals and get your resume to the hiring manager and being setup for an interview. 
 
 ## Summary
 Find a mentor or join platforms and groups where you can quickly ask questions and get answers.
 A four-year degree isn’t always necessary, as most jobs focus on specific tasks. 
-However, if you aim to be among the best, a degree can help. Whether you choose a bootcamp or self-study, having a mentor is key. Ultimately, success comes down to the effort and hard work you put in.
+However, if you aim to be among the best, a degree can help. Whether you choose a bootcamp or self-study, having a mentor is key. Ultimately, success comes down to the effort, networking and the hard work you put in.
