@@ -5,8 +5,8 @@ category: ['Career']
 tags: [Career, Bootcamp, College, University ]
 description: "most people think you need to study four years to get a job in tech. That's not true"
 cover:
-    image: "jack-of-all-trades.jpg"
-    alt: "A jack of all trades"
+    image: "paths.webp"
+    alt: "Different paths to success"
     relative: true
 ---
 
@@ -41,12 +41,20 @@ But like medicine, there’s a spectrum:
 ### Trades: The Unexpected Millionaires
 Here’s a curveball: skilled trades are booming. A recent [WSJ article](https://www.wsj.com/business/entrepreneurship/plumbers-hvac-skilled-trades-millionaires-2b62bf6c) shows how plumbers, HVAC technicians, and other trade entrepreneurs are turning into millionaires.
 
-Think about it:
-
 - There’s a huge demand for tradespeople.
-- Less competition compared to software engineering.
-- Starting your own business as a plumber or HVAC technician can pay off big time.
-If you’re entrepreneurial, you might have a higher chance of making more money in trades than in tech.
+- Less competition compared to software engineering. 
+- Less chances of being replaced by an AI bot. These days you can speak to AI, have it examine your MRIs, blood tests and give you advice. 
+
+But let’s be real: trades are a grind. They’re hard, physical work, and that’s part of why they pay so well. Even if you invest gradually there’s still a higher entry cost compared to software:
+
+- Licensure and certification requirements.
+- Bonding, insurance, and union fees.
+- Tools, equipment, and vehicles—often big upfront costs.
+
+However, trades offer something unique: if you’re entrepreneurial, you can split expenses across partners and scale up. Yes, there’s significant investment, but like any business, the costs can turn into profits once you establish yourself.
+
+In a way, the recurring costs for trades mirror other fields like medicine. Doctors need malpractice insurance, medical equipment, and offices; trade entrepreneurs need tools, trucks, and employees. Both can be expensive to start—but both can be highly rewarding for those who persevere.
+
 
 ### AI: Hot and Harder
 If you're eyeing AI, be ready for the challenge. It’s not your "just learn to code" pathway:
@@ -94,6 +102,8 @@ For example in order to become an iOS developer you have to learn:
 - Working with the Developer Tools (Xcode)
 - Some more intricate subjects of Swift Programming.
 - Understanding the main Apple Frameworks / Libraries (built-in functionality of different systems of the Apple Operating System)
+
+![](jack-of-all-trades.jpg "Being a jack of all trades is only needed in environments (such as startups) where there's limited human resources, otherwise mastery in one domain is all that's necessary")
 
 Unless you're joining a startup where you need to be a jack of all trades, you do **not** need to learn much about the rest that is taught in a four year Computer Science Program. 
 
