@@ -204,7 +204,7 @@ Don't start networking when your resume is ready. Start it as soon you're learni
 
 > just have a profile on Stackoverflow, on your local slack group and show up in meetups. People are more willing to spend time, give you referrals if they _see_ you making progress. 
 
-Referrals are super critical to your early success. So the better your network is, the more chances that you get referrals and get your resume to the hiring manager and being setup for an interview. 
+Referrals are super critical to your early success. So the better your network is, the more chances that the referrals will help your resume get to the right person. 
 
 ## Summary
 Find a mentor or join platforms and groups where you can quickly ask questions and get answers.
