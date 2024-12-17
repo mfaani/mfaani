@@ -11,21 +11,56 @@ cover:
     relative: true
 ---
 
-This post is from my personal experience with some oversimplification. 
+This post is based on my personal experience and is a bit oversimplified for brevity.
 
-## Software Engineering vs Medicine?
+## Is Software Engineering Still the Golden Ticket? What About Medicine… or Trades?
 
-Five years ago if you asked anyone what should I study to make guaranteed money, they'd all tell you to get into programming. The answer isn't the same. 
+A few years ago, if you asked anyone, "What should I study to make good money?" the answer was almost always: programming. Fast forward to today, and the answer isn't so clear-cut.
 
-> Tech degrees no longer guarantee a job. This WSJ [article](https://www.wsj.com/tech/tech-jobs-artificial-intelligence-cce22393) is filled with unfortunate anecdotes. Lately, I'm hearing similar narratives from students. Previously, a Berkeley CS graduate, even if not a top student, would receive multiple appealing job offers in terms of work type, location, salary, and employer. However, outstanding students, like those with a 4.0 in-major GPA, are now contacting me worried because they have zero offers. I suspect this trend is irreversible and likely part of the broader trend impacting almost every employment sector. 
+> A tech degree is no longer a guarantee for a job. This recent [WSJ article](https://www.wsj.com/tech/tech-jobs-artificial-intelligence-cce22393) highlights some harsh realities. I've seen similar patterns with students reaching out to me. Not long ago, even an average CS graduate from Berkeley could count on multiple solid job offers—good pay, great location, and reputable companies. Now, even top-tier students with perfect GPAs are struggling to get any offer.
+This isn't just a temporary glitch; I suspect it's part of a broader and likely irreversible employment trend.
 
-Medicine requires significant money and time investment. On average you have a debt of 200k before you get into the job market + 7yrs of time with little money making. That's almost 900k in debt before you start and it's with a head start that's 4-5 years late. Though once you get into the industry, you'd be making 150k-300k a year on average, which is typically higher than an average software engineer.
+### Medicine: A Long Road, but a Clear Reward
+Medicine requires:
 
-Unlike Medicine, Software engineering doesn't require a lot of money or upfront investment to spend, you can also make money, before, during school. Both Software Engineering and Medicine have lower and higher ends. In Software Engineering, AI Engineers make 20-80% more than your typical Engineer. It's similar to how Surgeons, Dentists make a lot more than your average specialist. 
+- 7+ years of education and training, where you're making very little money.
+- An average $200K in debt before you even start your career.  
 
-Just that AI requires a bit more brains like complex mathematics (linear algebra, calculus, probability, and statistics) and a deeper understanding of algorithms, data structures, and machine learning models vs your typical programming. 
+That’s roughly $900K+ in missed income and loans combined if you compare it to someone who gets a head start in another field. But once you’re in, you’re earning $150K-$300K/year on average—often higher than a typical software engineer.
 
-tldr Medicine pays great in the long run. AI is hot for now, but requires more effort and talent. They're hiring more than your typical software engineer / programmer. It's likely that it will remain the same for the foreseeable future. 
+### Software Engineering: Faster, Cheaper, but Changing
+The beauty of software engineering is the low cost of entry:
+
+- No need for hundreds of thousands in debt.
+- You can make money while you're still learning or often before you start school.  
+
+But like medicine, there’s a spectrum:
+
+- Your average programmer might hit a ceiling sooner.
+- Specialists—like AI Engineers—are earning 20%-80% more than typical developers.
+
+### Trades: The Unexpected Millionaires
+Here’s a curveball: skilled trades are booming. A recent [WSJ article](https://www.wsj.com/business/entrepreneurship/plumbers-hvac-skilled-trades-millionaires-2b62bf6c) shows how plumbers, HVAC technicians, and other trade entrepreneurs are turning into millionaires.
+
+Think about it:
+
+- There’s a huge demand for tradespeople.
+- Less competition compared to software engineering.
+- Starting your own business as a plumber or HVAC technician can pay off big time.
+If you’re entrepreneurial, you might have a higher chance of making more money in trades than in tech.
+
+### AI: Hot and Harder
+If you're eyeing AI, be ready for the challenge. It’s not your "just learn to code" pathway:
+
+- You’ll need a solid foundation in linear algebra, calculus, probability, statistics, and a deeper understanding of algorithms, data structures, and machine learning models.
+- AI jobs demand more brainpower, more effort, and arguably more talent than regular programming roles—but they’re hiring, and the pay reflects that.
+
+### TL;DR:
+Medicine pays off in the long run but takes time and money. Software engineering remains accessible but isn’t the easy-money path it once was. Skilled trades like plumbing and HVAC? They’re quietly turning people into millionaires. AI? It’s hot, it’s hiring, and it pays—but only if you’re ready to go the extra mile. 
+
+----
+
+The remainder of this post, assumes that you're aiming to get into the Tech World. 
 
 ## Do I need a four year degree? 
 
@@ -89,6 +124,10 @@ They do. They do that a LOT!
 
 All you have to do is write a well crafted question. Get it to the right audience and wait for folks to come out and share their experience and wisdom.
  It's both refreshing and easy for a seasoned engineer to share answers.
+
+I vividly remember my first encounters with Stackoverflow
+- In 2012 I asked a question. It (rightfully) got marked as duplicate. Back then I was mad and sad. Didn't come to the site for until two years later. The website is rigorous about duplicate (or low quality questions) because they don't want to answer the same question again and again. 
+- In 2014 I asked a well crafted question. In less than an hour I got detailed answers from three very experienced engineers. I've often got answers from people working at Apple, Google or other places. People who literally wrote books, protocols and stuff. The internet is an amazing place!
 
 ## How can I find such strangers to answer my questions? 
 
