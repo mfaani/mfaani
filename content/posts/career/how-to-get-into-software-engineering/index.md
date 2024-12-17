@@ -143,11 +143,13 @@ I vividly remember my first encounters with Stackoverflow
 - [Stackoverflow.com](https://stackoverflow.com) (The world's most commonly used question-and-answer website for computer programmers)
 - [ChatGPT](https://chatgpt.com) (The AI that can answer your questions)
 - [Medium.com](https://medium.com) (A social publishing platform where users can share stories, ideas, and perspectives)
-- [Meetup.com](https://www.meetup.com) and their associated Slack Groups. Meetup is a platform that assists groups of like-minded people meet in person on online. Slack is an app that helps teams collaborate and communicate with great ease online.:
+- [Meetup.com](https://www.meetup.com) and their associated Slack (a platform very similar to Discord) Groups. Meetup is a platform that assists groups of like-minded people meet in person on online. Slack is an app that helps teams collaborate and communicate with great ease online.:
 
 The last one is key. People tend to care a bit more when its someone from their own town, neighborhood. 
 Most Meetup groups these days have their own Slack group where you could remain in contact through out the week / month. 
 I learned a lot from my local Slack group. It was named [PhillyCocoaHeads](http://phillycocoa.org). I got to ask a lot about basic Programming concepts from people that I never met in person. Without their help, I would not be where I am today.
+
+![](slack.png "This Slack has a 'code-help' channel where people can ask their questions and get answers. Some of the other channels are 'book-club' and 'today-i-learned'")
 
 Stackoverflow.com's main benefit is that it's open to public and conversations are forever available. Though the UI of the site and its culture need some love. 
 Slack may have a time limit for how long it keeps the history of conversations (typically 180 days) and is only available to the members of the Slack organization. 
