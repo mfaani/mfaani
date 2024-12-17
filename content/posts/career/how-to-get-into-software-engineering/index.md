@@ -174,7 +174,7 @@ The path to success is anything between 6-24 months. There are no shortcuts. No 
 
 The programs are meant to show you the path and help you stay on the path. Do not think by joining a university, bootcamp, the job is done. _You_ are the one that has to spend time experimenting, finding yourself mentors, attending meetups, do networking, figuring out bugs, practicing, preparing for interviews, writing your resume, setting up sample or real (but small) projects / apps,  etc. 
 
-For the right person and dedication, and with a good amount of luck and support, either of the approaches work.
+With the right dedication, the right person, and a bit of luck and support, any of these approaches can work. The advantage of bootcamps is their laser focus on a single domain, unlike universities. Compared to self-learning where it’s easy to get lost, stuck on debugging, or unsure how to move forward, bootcamps provide mentorship to keep you on track and focused.
 
 ## When is it beneficial to get a degree? 
 
