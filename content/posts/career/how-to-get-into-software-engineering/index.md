@@ -68,7 +68,7 @@ What most people don't realize is the difference of what you're taught at univer
 
 > In university you're taught only a whole lot of breadth without much depth. At work you actually need depth without much breadth.
 
-To become an iOS engineer you don't need to learn about: 
+For example, to become an iOS engineer you can get all F in the following courses, but still be a great at iOS Programming.
 - Android
 - Web Development
 - Database
@@ -84,7 +84,7 @@ To become an iOS engineer you don't need to learn about:
 - Computer Graphics
 - Hardware, CPU, etc. 
 
-> However in a four year course the university teaches you lots of stuff, they rather be safe than sorry and have you absorb 100X more than what you actually need so it may increase your chances of landing a job. They also get you spending at the university for four years rather than one or two. 
+> In a four year course the university teaches you lots of stuff, they rather be safe than sorry and have you absorb 100X more than what you actually need so it may increase your chances of landing a job. They also get you spending at the university for four years rather than one or two. 
 
 For anyone who already has a degree in something, it's recommended that you just focus on the new domain that you want and learn that, don't go out and get a four year degree from scratch. 
 
