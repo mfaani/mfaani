@@ -14,7 +14,7 @@ This post is based on my personal experience and is a bit oversimplified for bre
 
 ## Is Software Engineering Still the Golden Ticket? What About Medicine… or Trades?
 
-A few years ago, if you asked anyone, "What should I study to make good money?" the answer was almost always: programming. Fast forward to today, and the answer isn't so clear-cut.
+A few years ago, if you asked anyone, "What should I study to make good money?" the answer was almost always: programming. Fast forward to today, and the answer isn't so clear-cut. 
 
 > A tech degree is no longer a guarantee for a job. This recent [WSJ article](https://www.wsj.com/tech/tech-jobs-artificial-intelligence-cce22393) highlights some harsh realities. I've seen similar patterns with students reaching out to me. Not long ago, even an average CS graduate from Berkeley could count on multiple solid job offers—good pay, great location, and reputable companies. Now, even top-tier students with perfect GPAs are struggling to get any offer.
 This isn't just a temporary glitch; I suspect it's part of a broader and likely irreversible employment trend.
@@ -36,7 +36,7 @@ The beauty of software engineering is the low cost of entry:
 But like medicine, there’s a spectrum:
 
 - Your average programmer might hit a ceiling sooner.
-- Specialists—like AI Engineers—are earning 20%-5000% (yes 5X) more than typical developers.
+- Specialists—like AI Engineers—are earning 20%-500% (yes 5X) more than typical developers.
 
 ### Trades: The Unexpected Millionaires
 Here’s a curveball: skilled trades are booming. A recent [WSJ article](https://www.wsj.com/business/entrepreneurship/plumbers-hvac-skilled-trades-millionaires-2b62bf6c) shows how plumbers, HVAC technicians, and other trade entrepreneurs are turning into millionaires.
