@@ -16,8 +16,7 @@ This post is from my personal experience with some oversimplification.
 ## Software Engineering vs Medicine?
 Medicine requires significant money and time investment. On average you have a debt of 200k before you get into the job market + 7yrs of time with little money making. That's almost 900k in debt before you start and it's with a head start that's 4-5 years late. Though once you get into the industry, you'd be making 150k-300k a year on average, which is typically higher than an average software engineer.
 
-Unlike Medicine, Software engineering doesn't require a lot of money or upfront investment to spend. Both Software Engineering and Medicine have lower and higher ends. In Software Engineering, AI Engineers make more than your typical Engineer. Similarly Surgeons, Dentists make a lot more than your average specialist. 
-
+Unlike Medicine, Software engineering doesn't require a lot of money or upfront investment to spend, you can also make money, before, during school. Both Software Engineering and Medicine have lower and higher ends. In Software Engineering, AI Engineers make more than your typical Engineer. Similarly Surgeons, Dentists make a lot more than your average specialist. 
 
 It's just that something like AI requires a bit more brains like complex mathematics (linear algebra, calculus, probability, and statistics) and a deeper understanding of algorithms, data structures, and machine learning models vs your typical programming. 
 
