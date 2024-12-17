@@ -68,7 +68,7 @@ What most people don't realize is the difference of what you're taught at univer
 
 > In university you're taught only a whole lot of breadth without much depth. At work you actually need depth without much breadth.
 
-For example, to become an iOS engineer you can get all F in the following courses, but still be a great at iOS Programming.
+For example, to become an iOS engineer you can get all F in the following courses, but still be a great at iOS Programming:
 - Android
 - Web Development
 - Database
