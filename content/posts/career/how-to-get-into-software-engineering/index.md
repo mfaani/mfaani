@@ -36,7 +36,7 @@ The beauty of software engineering is the low cost of entry:
 But like medicine, there’s a spectrum:
 
 - Your average programmer might hit a ceiling sooner.
-- Specialists—like AI Engineers—are earning 20%-80% more than typical developers.
+- Specialists—like AI Engineers—are earning 20%-5000% (yes 5X) more than typical developers.
 
 ### Trades: The Unexpected Millionaires
 Here’s a curveball: skilled trades are booming. A recent [WSJ article](https://www.wsj.com/business/entrepreneurship/plumbers-hvac-skilled-trades-millionaires-2b62bf6c) shows how plumbers, HVAC technicians, and other trade entrepreneurs are turning into millionaires.
@@ -67,7 +67,7 @@ What most people don't realize is the difference of what you're taught at univer
 
 > In university you're taught only a whole lot of breadth without much depth. At work you actually need depth without much breadth.
 
-For example, to become an iOS engineer you can get all F in the following courses, but still be a great at iOS Programming:
+For example, to become an iOS engineer you can be below average in the following courses, but still be a great at iOS Programming:
 - Android
 - Web Development
 - Database
