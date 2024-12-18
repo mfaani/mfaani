@@ -81,6 +81,7 @@ For example, to become an iOS engineer you don't need to be good in the followin
 - Database
 - Data Science
 - Networking
+- Server
 - Security
 - Operating Systems
 - UI & UX
@@ -105,7 +106,7 @@ For example in order to become an iOS developer you have to learn:
 
 ![](jack-of-all-trades.jpg "Being a jack of all trades is only needed in environments (such as startups) where there's limited human resources, otherwise mastery in one domain is all that's necessary")
 
-Unless you're joining a startup where you need to be a jack of all trades, you do **not** need to learn much about the rest that is taught in a four year Computer Science Program. 
+Unless you're joining a startup where you need to be a jack of all trades, you do **not** need to learn much about the rest that is taught in a four year Computer Science Program. As an iOS developer, I've **never** been asked to write code for Android, Server, Security etc.
 
 > I'm a senior iOS developer. Some of my skills are easily transferrable to other domains and but most are not. I have zero experience with Android, Web, OS, Security, Hardware, AI, etc. Yet I'm very successful at the work I do. 
 > 
@@ -115,7 +116,7 @@ Unless you're joining a startup where you need to be a jack of all trades, you d
 
 ### Ask ChatGPT to ask you the following question: 
 
-> Can You ask me 10 questions and then help me figure out which field (iOS, web, Android, Security, Networking, web, DB, AI, Compilers, data structures and algorithms, framework development, etc) of Computer science is best for me? 
+> Can You ask me 10 questions and then help me figure out which field (iOS, web, Android, Security, Networking, web, DB, AI, Compilers, data structures and algorithms, framework development, server, etc) of Computer science is best for me? 
 
 It will help you get a good start.
 
@@ -134,8 +135,8 @@ They do. They do that a LOT!
 All you have to do is write a well crafted question. Get it to the right audience and wait for folks to come out and share their experience and wisdom.
  It's both refreshing and easy for a seasoned engineer to share answers.
 
-I vividly remember my first encounters with Stackoverflow
-- In 2012 I asked a question. It (rightfully) got marked as duplicate. Back then I was mad and sad. Didn't come to the site for until two years later. The website is rigorous about duplicate (or low quality questions) because they don't want to answer the same question again and again. 
+I vividly remember my first encounters with Stackoverflow.com
+- In 2012 I asked a question. It (rightfully) got marked as duplicate and closed. I couldn't get answers to it. Back then I was mad and sad. Put away learning and didn't come back to the site for two years later. The website is rigorous about duplicate (or low quality questions) because they don't want to answer the same question again and again. 
 - In 2014 I asked a well crafted question. In less than an hour I got detailed answers from three very experienced engineers. I've often got answers from people working at Apple, Google or other places. People who literally wrote books, protocols and stuff. The internet is an amazing place!
 
 ## How can I find such strangers to answer my questions? 
@@ -143,16 +144,17 @@ I vividly remember my first encounters with Stackoverflow
 - [Stackoverflow.com](https://stackoverflow.com) (The world's most commonly used question-and-answer website for computer programmers)
 - [ChatGPT](https://chatgpt.com) (The AI that can answer your questions)
 - [Medium.com](https://medium.com) (A social publishing platform where users can share stories, ideas, and perspectives)
-- [Meetup.com](https://www.meetup.com) and their associated Slack (a platform very similar to Discord) Groups. Meetup is a platform that assists groups of like-minded people meet in person on online. Slack is an app that helps teams collaborate and communicate with great ease online.:
+- [Meetup.com](https://www.meetup.com) and their associated Slack (a communication platform very similar to Discord) groups. Meetup is a platform that assists groups of like-minded people meet in person on online. Slack is an app that helps teams collaborate and communicate with great ease online.:
 
 The last one is key. People tend to care a bit more when its someone from their own town, neighborhood. 
 Most Meetup groups these days have their own Slack group where you could remain in contact through out the week / month. 
-I learned a lot from my local Slack group. It was named [PhillyCocoaHeads](http://phillycocoa.org). I got to ask a lot about basic Programming concepts from people that I never met in person. Without their help, I would not be where I am today.
+
+I learned a ton from my local Slack group. It was named [PhillyCocoaHeads](http://phillycocoa.org). I got to ask a lot about basic Programming concepts from people that I never met in person. Without their help, I would not be where I am today.
 
 ![](slack.png "This Slack has a 'code-help' channel where people can ask their questions and get answers. Some of the other channels are 'book-club' and 'today-i-learned'")
 
 Stackoverflow.com's main benefit is that it's open to public and conversations are forever available. Though the UI of the site and its culture need some love. 
-Slack may have a time limit for how long it keeps the history of conversations (typically 180 days) and is only available to the members of the Slack organization. 
+Slack may have a time limit for how long it keeps the history of conversations (typically 180 days) and is only available to the members of its Slack organization. 
 Yet it's in real time and often with people that you actually know. 
 
 Medium.com is public but it is not meant to be a Q&A place or where discussions happen. It's more of a fancy micro blog platform. 
@@ -174,24 +176,23 @@ The path to success is anything between 6-24 months. There are no shortcuts. No 
 
 The programs are meant to show you the path and help you stay on the path. Do not think by joining a university, bootcamp, the job is done. _You_ are the one that has to spend time experimenting, finding yourself mentors, attending meetups, do networking, figuring out bugs, practicing, preparing for interviews, writing your resume, setting up sample or real (but small) projects / apps,  etc. 
 
-With the right dedication, the right person, and a bit of luck and support, any of these approaches can work. The advantage of bootcamps is their laser focus on a single domain, unlike universities. Compared to self-learning where it’s easy to get lost, stuck on debugging, or unsure how to move forward, bootcamps provide mentorship to keep you on track and focused.
+With the right dedication, the right person, and a bit of luck and support, any of these approaches can work. The advantage of bootcamps is their laser focus on a single domain, unlike universities.
 
-## When is it beneficial to get a degree? 
-
-- When you have no degrees at all. 
-- When you want to go all in and you have time for it. 
-Some of the top Machine Learning, AI experts at Apple, Google, Microsoft have done extensive research with truly experienced professors during their Masters or PhD programs enabling them to innovate in ways that others can't.
-- You're attending an Ivy League university that has great professors. 
-- The university cultivates building networks with your peers and has a great connection with the local companies and is great at helping you land your first job. This is less of an issue if you have a good amount of friends and family that can give you referrals. 
-- Universities may also have certain budgets to undertake certain high risk, high reward projects.
-
-## BootCamp vs Self-learning
+### Self-learning vs Instructor / Professor / Mentor
 
 Bootcamps jump start you a whole lot easier than self-learning. In a bootcamp, you have your peers and a mentor that helps with you on a daily basis. 
 
-With self-learning you often might get stuck on a bug and be clueless for hours or days whereas a mentor can help resolve it in 5 minutes. Or may be looking at a tutorial and not realizing that the tutorial is no longer applicable or that it no longer compiles, etc. 
+With self-learning you often might get stuck on a bug and be clueless for hours or days whereas a mentor / professor can help resolve it in 5 minutes. Or may be looking at a tutorial and not realizing that the tutorial is no longer applicable or that it no longer compiles, etc. 
 
-If you have took a class or two on general programming then self-learning or if you have a mentor that you can reach out to 3-4 times a week then self-learning becomes a lot easier. Otherwise bootcamps are a lot better. 
+If you have took a class or two on general programming then self-learning or if you have a mentor that you can reach out to 2-4 times a week (especially in the early stages) then self-learning becomes a lot easier. Otherwise bootcamps (associate degree programs) are better. 
+
+## When is it beneficial to get an undergrad or masters degree? 
+
+- When you have no degrees at all. 
+- When you want to go all in and you have time for it. Some of the top Machine Learning, AI experts at Apple, Google, Microsoft have done extensive research with truly experienced professors during their Masters or PhD programs enabling them to innovate in ways that others can't.
+- You're attending an Ivy League university that has great professors. 
+- The university cultivates building networks with your peers and has a great connection with the local companies and is great at helping you land your first job. This is less of an issue if you have a good amount of friends and family that can give you referrals. 
+- Universities may also have certain budgets to undertake certain high risk, high reward projects.
 
 ## Some Top Free Courses
 - [CS50 - Harvard](https://youtube.com/playlist?list=PLhQjrBD2T381WAHyx1pq-sBfykqMBI7V4&si=af_cbsFqP_t0jdnI). World Class. Lots of assignments per lecture. Covers basics. Might be too difficult for a beginner. The course has huge online presence across social media.
