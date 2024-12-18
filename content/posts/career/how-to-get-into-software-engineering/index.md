@@ -75,7 +75,7 @@ What most people don't realize is the difference of what you're taught at univer
 
 > In university you're taught only a whole lot of breadth without much depth. At work you actually need depth without much breadth.
 
-For example, to become an iOS engineer you can be not good in the following courses, but still be a great at iOS Programming:
+For example, to become an iOS engineer you don't need to be good in the following courses, but still be a great at iOS Programming:
 - Android
 - Web Development
 - Database
