@@ -26,6 +26,7 @@ editPost:
 - You can't be sharing your Wallet, Photos, Contacts, Notes, Reminders. It's because iCloud from your personal iPhone with your Company's MacBook are likely to be with different Apple IDs.
 - Configuration of certain developer or app become difficult as well if you want to separate work and personal things. Example:
     - Configuring multiple GitHub accounts and then making sure every commit is using the correct name and email while not difficult to configure can be done incorrectly without anyone noticing it.
+- With [Apple Handoff](https://support.apple.com/en-us/102426) you can start work on one device, then switch to another nearby device and pick up where you left off.
 
 ## Privacy
 - 99% of what you do is recorded. Your email user/password all get logged and stored for however long your company's complain policy requires and more. While _most_ companies don't have keylogger, your user / pass is still exposed, because your company has root certificates installed and everything you send to the internet gets signed with it and therefore visible. Having an HTTPS or End to End encryption doesn't protect you from this. 
