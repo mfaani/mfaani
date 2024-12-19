@@ -3,6 +3,7 @@
 
 ### Mac ###
 .DS_STORE
+.vscode/
 
 ### Hugo ###
 # Generated files by hugo
