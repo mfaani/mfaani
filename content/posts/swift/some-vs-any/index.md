@@ -9,8 +9,6 @@ tags: [Swift, Generics, wwdc2022]
 
 # What problem do `some` and `any` solve? 
 
-
-
 ```swift
 var x: Equatable = 10 // Error: Use of protocol 'Equatable' as a type must be written 'any Equatable'
 var y: Equatable = "10" // Same error
@@ -93,6 +91,7 @@ func feed<T>(_ animal: T) where T: Animal {
 It was cumbersome syntax. Well now we can just write that as simple as: 
 
 ```swift
+protocol Animal {...}
 func feed(_ animal: some Animal) {
 }
 ```
@@ -144,7 +143,7 @@ The word choice of `any` vs. `some` is a confusing one. In my humble opinion `an
 I specifically left Apple's jargon of "opaque", "existential", "boxed", "type erasure" out of this post as they often make it hard to understand. That said I recommend figuring those out once you read this post. 
 
 ### Further resources 
-1. [Embrace Swift Generics - WWDC 2022](https://developer.apple.com/wwdc22/110352) talk
+1. [Embrace Swift Generics - WWDC 2022](https://developer.apple.com/wwdc22/110352)
 2. [Opaque and Boxed Protocol Types - Apple Docs](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/)
 3. [What is an existential? - My stackoverflow post](https://stackoverflow.com/a/69508305/5175709)
 4. [Why does SwiftUI use “some View” for its view type? - Paul Hudson](https://www.hackingwithswift.com/books/ios-swiftui/why-does-swiftui-use-some-view-for-its-view-type)
