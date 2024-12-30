@@ -7,6 +7,11 @@ tags: ['swift', 'swift-protocols', 'compile-time-check', 'Xcode']
 # need to upload the project without any git stuff...
 ---
 
+## Edit
+
+Ever since I've upgraded to Xcode 16.1 I've experienced significant issues with finding callers. Yet aside from Xcode being broken, this post is still applicable for having a correct understanding of when / why / how Xcode should and shouldn't work. 
+
+### Sample Project
 Download the [sample project](https://github.com/prohoney/xcode-cant-show-caller-sample) if you want. You don't have to though.
 The project doesn't even need to be ran. It's just provided for context. 
 
