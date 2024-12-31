@@ -15,7 +15,7 @@ cover:
 ---
 A binary is the linked product of all your source code. It's executable. You can run commands against it. 
 
-An app, is merely a wrapper/directory, which includes that binary and other things. 
+An app, is merely a wrapper / directory, which includes that binary and other things. 
 
 ## How do you create a binary? 
 First it's important to understand what a binary is.
@@ -40,8 +40,8 @@ Object codes are very much like pieces of a puzzle.
 
 Once you put all these pieces of the puzzle together in perfect order, then you have a complete picture. Much like a binary.
 
-If a piece of a puzzle is missing, then the linker will make it so that you have an 'undefined symbol' error.  
-If two identical pieces of a puzzle exist, then the linker throw you the 'multiple definitions' error, since it wouldn't know which one to choose.
+- If a piece of a puzzle is missing, then the linker will make it so that you have an 'undefined symbol' error.  
+- If two identical pieces of a puzzle exist, then the linker throw you the 'multiple definitions' error, since it wouldn't know which one to choose.
 
 ## OK. So what's an app? 
 An app is just a structured directory, containing the binary and some other files. 
@@ -49,7 +49,7 @@ If you want to create an app _wrapper_ then all you have to do is: `mkdir Cool.a
 
 When Xcode builds your app, it does it in a two step process: 
 1. Build all targets that your app depends on.
-2. Create your app wrapper/directory and then copy everything in the right place. To use Xcode jargon, the frameworks will get **Embedded** into the app bundle/wrapper. 
+2. Create your app wrapper / directory and then copy everything in the right place. To use Xcode jargon, the frameworks will get **Embedded** into the app bundle / wrapper. 
 
 🔍: Make sure you go and inspect the app bundle and see its content. You can even do this for your `/Applications` directory of your macos as well. You can also ditch Xcode and make your app without it. For more on that see [Building osx app bundle](https://stackoverflow.com/questions/1596945/building-osx-app-bundle)
 
