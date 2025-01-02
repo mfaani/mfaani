@@ -10,7 +10,9 @@ cover:
     relative: true
 ---
 
-This post is based on my personal experience and is a bit oversimplified for brevity.
+This post is based on my personal experience and is a bit oversimplified for brevity. 
+
+**Update:** Added some of the feedback that I got from some readers.
 
 ## Is Software Engineering Still the Golden Ticket? What About Medicine… or Trades?
 
@@ -62,8 +64,23 @@ If you're eyeing AI, be ready for the challenge. It’s not your "just learn to 
 - You’ll need a solid foundation in linear algebra, calculus, probability, statistics, and a deeper understanding of algorithms, data structures, and machine learning models.
 - AI jobs demand more brainpower, more effort, and arguably more talent than regular programming roles—but they’re hiring, and the pay reflects that.
 
-### TL;DR:
-Medicine pays off in the long run but takes time and money. Software engineering remains accessible but isn’t the easy-money path it once was. Skilled trades like plumbing and HVAC? They’re quietly turning people into millionaires. AI? It’s hot, it’s hiring, and it pays—but only if you’re ready to go the extra mile. 
+### Updated - Comments I got for this post: 
+
+> I am not sharing this feedback on your post publicly for reasons. To start, the post is good. But I have had such difficulty in job interviews and such difficulty spending the time necessary to succeed in those interviews that I would not recommend this career to anyone. Getting a job is not about being a good developer. It’s about doing an insane amount of interview prep and surviving pressure-cooker interviews. Here is a translation of a typical interview prompt: “Code this app from scratch in 45 minutes. If you fail to implement any requirements, you fail.”
+
+{{< rawhtml >}}<small><small><small> 👆 was a comment an experienced iOS engineer shared privately with me on Slack</small></small></small>{{< /rawhtml >}}
+
+Another person said: 
+
+> Entering the market NOW as a junior is so disconnected with how it was when I entered. Hard to have complete empathy for what they deal with. It’s awful.
+
+
+
+
+### TL;DR
+Medicine pays off in the long run but takes time and money. Software engineering remains far less accessible than before nor is the easy-money path it once was. It's partly due to over-supply and shift of demand towards AI. 
+
+Skilled trades like plumbing and HVAC? They’re quietly turning people into millionaires. AI? It’s hot, it’s hiring, and it pays very well — but only if you’re ready to go the extra mile. 
 
 ----
 

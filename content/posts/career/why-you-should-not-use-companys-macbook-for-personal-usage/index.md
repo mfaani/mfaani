@@ -3,7 +3,6 @@ title: "Separate Devices, Better Life: Why Personal Freedom Beats Using Your Wor
 date: 2024-12-18T18:10:19-05:00
 category: [career]
 tags: [career, life, MacBook, focus]
-draft: true
 description: "Why having your own personal laptop is a game changer"
 editPost:
     URL: 'https://github.com/mfaani/mfaani/tree/main/content'
