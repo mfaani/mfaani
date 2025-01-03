@@ -41,9 +41,11 @@ So maybe you can get around this by creating a dummy child account...
 
 
 ## Privacy
-- 99% of what you do is recorded. Your email user/password all get logged and stored for however long your company's complain policy requires and more. While _most_ companies don't have keylogger, your user / pass is still exposed, because your company has root certificates installed and everything you send to the internet gets signed with it and therefore visible. Having an HTTPS or End to End encryption doesn't protect you from this. 
+Assume the worst!
+
+- 99% of what you do is likely recorded. Your email user/password all get logged and stored for however long your company's complain policy requires and more. While _most_ companies don't have keylogger, your user / pass is likely still exposed, because your company has root certificates installed and everything you send to the internet gets signed with it and therefore visible. Having an HTTPS or End to End encryption will **not** protect you from this, because their root certificate becomes part of the root chain.
 - Unlikely, but company can profile you based on your network activity. 
-- Less stress when leaving company. Because you don't have anything personal on it to transfer. 
+- Less stress when leaving company. Because you don't have anything personal on it to transfer or lose. Last thing you want is a weirdo across the planet having hold of your family photos.
 
 > You **never** know when they’ll lay you off and you lose access 😔.
 
