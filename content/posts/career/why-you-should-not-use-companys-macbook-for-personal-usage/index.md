@@ -33,10 +33,20 @@ editPost:
     - Configuring multiple GitHub accounts and then making sure every commit is using the correct name and email can be done incorrectly without anyone noticing it.
 - You can't use [Apple Handoff](https://support.apple.com/en-us/102426) between work Laptop and personal device i.e. you can't start work on one device, then switch to another nearby device and pick up where you left off.
 
+That said someone gave feedback that he gets things across devices by: 
+
+> Separate iCloud accounts and purchases are shared via family sharing
+
+So maybe you can get around this by creating a dummy child account...
+
+
 ## Privacy
 - 99% of what you do is recorded. Your email user/password all get logged and stored for however long your company's complain policy requires and more. While _most_ companies don't have keylogger, your user / pass is still exposed, because your company has root certificates installed and everything you send to the internet gets signed with it and therefore visible. Having an HTTPS or End to End encryption doesn't protect you from this. 
-- Unlikely , but company can profile you based on your network activity. 
+- Unlikely, but company can profile you based on your network activity. 
 - Less stress when leaving company. Because you don't have anything personal on it to transfer. 
+
+> You **never** know when they’ll lay you off and you lose access 😔.
+
 - IT may have remote access capabilities to view your screen or take control without notification
 - File sync services (Dropbox, Google Drive etc.) could potentially expose personal files to company monitoring or you may just be completely banned from using.
 
