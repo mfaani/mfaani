@@ -18,6 +18,10 @@ editPost:
 
 ## Performance
 - Company keeps adding more monitoring. Your MacBook will only get slower. You will get annoyed by this. 
+
+!["slow MacBook"](slow.png "Mike Zorn's comment about this post")
+
+
 - Often developers get even restricted from using tools like Charles Proxy / Proxyman, because they require adding a new root certificate which then interfere with company's monitoring tools.
 - You can leave your work laptop at work. Never carry it back and forth with yourself. Go easy on your back. Read a book, breath fresh air, make a friend. I find this to be significantly refreshing. I don't get when  people carry heavy laptops back and forth with zero usage at home. Your office should be treated as a safe as your home. 
 - There's a ton of stuff that you 1) you must use a laptop. Can't use your iPhone for 2) absolutely don't want done with your work laptop. 
@@ -54,7 +58,7 @@ Assume the worst!
 
 ## Freedom
 - Ability to work on side projects (or actual read personal projects). Your own app, blog or business. Not having your laptop can be extremely limiting.
-- You can customize the specs and color however you like.
+- You can customize the specs and color however you like. You no longer need to select from company storage.
 - There are no travel regulations for personal laptops.
 - You can update to the latest Operating Systems or use Beta versions. 
 - You can install any app you want. At work, I once created a fresh "Command Line Tool" app using Xcode. It was nothing but a dummy print "Hello World". The app crashed on launch because it was flagged by IT. 
