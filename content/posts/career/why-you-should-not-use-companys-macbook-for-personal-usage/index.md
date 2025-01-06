@@ -83,4 +83,4 @@ Before getting my personal MacBook, my thoughts were consumed by work. Now, I fe
 # Cons
 - Extra cost of device and purchasable apps.
 - On trips you may need to carry two devices. I'm using 14" so it's easier for me. 
-- Need to re-install and re-configure all your terminal aliases, git aliases, computer settings, IDE settings, Networking configurations
+- Need to re-install and re-configure all your terminal aliases, git aliases, computer settings, IDE settings, SSH keys and access tokens, Networking configurations
