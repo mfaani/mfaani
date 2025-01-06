@@ -1,4 +1,4 @@
-hs---
+---
 title: "Separate Devices, Better Life: Why Personal Freedom Beats Using Your Work MacBook"
 date: 2024-12-18T18:10:19-05:00
 category: [career]
