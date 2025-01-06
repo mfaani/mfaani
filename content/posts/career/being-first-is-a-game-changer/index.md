@@ -26,6 +26,8 @@ Being first means you're informed ahead of others, have more time to react to fe
 
 Being early and well-prepared for meetings demonstrates your attentiveness and respect for others' time. Consider the person who arrives ahead of schedule, ensuring that all technical aspects, like screen sharing and microphone functionality, are in perfect order. This individual not only presents themselves more favorably but also enhances the meeting experience for everyone involved. Contrast this with someone who is habitually late, struggles with basic presentation tools, or overlooks essential permissions for content sharing. A _rehearsal_ once revealed that the audience couldn't hear the introductory music due to the noise suppression feature in Teams...
 
+> 💡 Being first also translates to being fast. Often I've been handed tasks / projects. The project get de-prioritized because someone beat me to getting their own project passed the first phase. Example: Product Team then has 3 projects to choose from. All projects are worthy of pursuit. They decide to prioritize the project that's further ahead. The other two projects gets de-prioritized.
+
 ## How to be first
 
 Demonstrating care and staying informed requires a blend of knowledge, attentiveness, and the flexibility to manage your schedule effectively. Implementing automation, setting up metrics in advance or just being the go-to person can significantly expedite your ability to be responsive and authoritative, positioning you as the lead. Yet, it's not just about showing concern or being proactive; it's about leading with action, delivering results swiftly, and being at the forefront of addressing challenges or incidents. Equally important is the willingness to share insights and discoveries, even when they may not lead to immediate, tangible outcomes. Investing time to understand and interpret your metrics is invaluable, as it not only enhances your expertise but also cements your status as a trailblazer and leader in your field. 
@@ -56,14 +58,14 @@ Here are some reasons based on research and examples:
 As you can see, being first has many benefits that can help you succeed in your personal and professional life. So don't be afraid to take risks, innovate, and lead by example. You never know what opportunities might open up for you if you are the first one to do something.
 
 ## Mistakes
-- If you're a team lead or manager then being always first isn't going to help your team members grow. I recall having a tech lead, he was first to reply to every slack message in a suport channel. For things I had to spend 10-60 minutes to figure out, he already had the answer in 2 minutes. It frustrated me very much. He cooled down after I let him know about it. We agreed that I should instead leave a "on-it" emoji, so others know I'm looking into it, and then I would reach out to him if needed. 
-- Being too quick to correct the mistakes of others. Often people realize their mistakes without neeing to be told about it. 
+- If you're a team lead or manager then being always first isn't going to help your team members grow. I recall having a tech lead, he was first to reply to every slack message in a support channel. For things I had to spend 10-60 minutes to figure out, he already had the answer in 2 minutes. It frustrated me very much. He cooled down after I let him know about it. We agreed that I should instead leave a "on-it" emoji, so others know I'm looking into it, and then I would reach out to him if needed. 
+- Being too quick to correct the mistakes of others. Often people realize their mistakes without needing to be told about it. 
 - Attempting to go first while going completing solo. Get a few people to buy into your initiative. Get feedback. Make your group/team/company first — even if it doesn't mean leading or creating the team. As long as your part of the pack then that's still a major win. Often just being part of a high-impacting team is the only extra nudge you need to stand out and get the promotion!
 - Try to be first in a few things. Like don't try to be first to learn about what's new in WWDC, what's new in fastlane, what's new in your upcoming features, etc. Focus on one or two aspects and **just build around it**. 
 - Don't overload yourself. Otherwise you can't take on tasks — especially as the first person. 
 
 ## Other Tips
-- Gamify it. Make it fun. Do it with a group. Give praises and get priases for people who are first. Have a leaderboard. Often even leaving cool emojis for others will kick off a joyful culture that will get back to yourself.
+- Gamify it. Make it fun. Do it with a group. Give praises and get praises for people who are first. Have a leaderboard. Often even leaving cool emojis for others will kick off a joyful culture that will get back to yourself.
 - Being first [requires stamina more than it requires intensity](https://www.youtube.com/watch?v=P53N81p5yoU). Usually more tenured/experienced people are first. This means you will fail a lot early on. 
 - Embrace failure. By being first you're more exposed to corrections. 
 - Focus on strengths, but also have plans to improve your weaknesses.
