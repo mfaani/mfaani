@@ -70,7 +70,10 @@ They do. They do that a LOT!
 - Some people actually really love and enjoy helping others. 
 
 All you have to do is write a well crafted question. Get it to the right audience and wait for folks to come out and share their experience and wisdom.
- It's both refreshing and easy for a seasoned engineer to share answers.
+It's both refreshing and easy for a seasoned engineer to share answers.
+
+
+> Often in Slack, folks that you didn't know exist, people that never ever enter in any chats, enter a conversation because it's very personal to them, it’s something that they're a subject matter expert and only they can answer. Those are the best conversations!
 
 ## How can I find such strangers to answer my questions? 
 
