@@ -111,7 +111,7 @@ But what's more interesting is that:
 
 > The Unicode suggests that you reserve some empty space (see the "non assigned code points" in the screenshot). 
 
-So if in future you needed to add new characters, then the newer characters aren’t all located at the end of all existing blocks while being scattered from the rest of its similar characters. Imagine if we didn't reserver empty space and had the following ranges:
+So if in future you needed to add new characters, then the newer characters aren’t all located at the end of *all* existing blocks while being separated from the rest of its similar characters. Imagine if we didn't reserver empty space and had the following ranges:
 
 
 ```
