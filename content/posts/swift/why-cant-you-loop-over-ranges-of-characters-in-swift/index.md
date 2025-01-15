@@ -177,7 +177,7 @@ let cs = Character("\u{1f1e8}\u{1f1ed}")...Character("\u{1f1e8}\u{1f1ee}")
 print(cs.lowerBound, cs.upperBound) // 🇨🇭  🇨🇮
 ```
 
-One could even argue if it's actually correct to create a range for Characters. Let alone iterate or get the count. Like what is the true lower bound? 
+One could even argue if it's actually correct to create a range for Characters. Let alone iterate or get the count. Like what is the true lower bound here? 
 - The decimal value of the first code point of the lower bound `1f1e8`
 - or the decimal value of the second code point of the lower bound
 - or some combination of the two? 
