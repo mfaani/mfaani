@@ -113,3 +113,5 @@ Different languages have different ways of doing things. The different options a
 ## Any Problems with Static Linking? 
 
 Yes there are a few. Mainly when it comes to sharing libraries between an app and its app extensions. For more on that see [part 2](https://mfaani.com/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-2/) of this post. 
+
+[👉 Next Post - How Does the Linker Help Reduce App Size? What are the different types of linking - Part Two](https://mfaani.com/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-two/)

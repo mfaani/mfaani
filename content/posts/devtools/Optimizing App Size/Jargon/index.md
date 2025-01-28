@@ -243,3 +243,5 @@ Suppose you need a single function from a library named `foo.a`. You might end u
 
 What can you do resolve this? Hopefully I'll discuss this in my next upcoming post
 
+
+[👉 Next Post - How Does the Linker Help Reduce App Size? What are the different types of linking - Part One](https://mfaani.com/posts/devtools/optimizing-app-size/how-does-the-linker-help-reduce-app-size-part-one/)

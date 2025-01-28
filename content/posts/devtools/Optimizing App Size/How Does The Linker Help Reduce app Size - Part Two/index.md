@@ -132,3 +132,5 @@ To better understand static and dynamic libraries, I highly recommend going thro
 ## Acknowledgements
 
 Special shout out to [Mark Rowe](https://twitter.com/bdash) and [Saagar Jha](https://saagarjha.com) who answered dozens of my questions so I can put these posts together. 
+
+[👉 Next Post - How Can I Inspect the Size Impact of Symbols in an App Binary: A Practical Guide for Apple Developers](https://mfaani.com/posts/devtools/optimizing-app-size/how-can-i-inspect-the-size-impact-of-symbols-in-an-app-binary/)

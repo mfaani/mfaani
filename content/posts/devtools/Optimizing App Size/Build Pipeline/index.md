@@ -65,3 +65,5 @@ The series will include:
 - How to inspect a binary. How are symbols baked into the app. 
 - The stripping flags Apple has and what they each do and their affect on app size and dSYM.
 - Pivot into CocoaPods and its _faulty_ stripping behavior as well. 
+
+[ 👉 Next Post - Optimizing Binaries - Build Pipeline Jargon](https://mfaani.com/posts/devtools/optimizing-app-size/jargon/)
