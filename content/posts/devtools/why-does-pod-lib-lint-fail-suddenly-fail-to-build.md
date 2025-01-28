@@ -65,6 +65,9 @@ What you have to understand is that:
 At this moment your linting vs. normal project building/running have bifurcated into using two different sets of dependencies.  
 In my situation, the 4.1.4 was causing a compilation error. Linting was failing. 
 
+> To be clear, the developer who who did a patch update made a huge mistake. If they properly did a major version bump to 5.0.0 then this issue would have never happened. 
+
+
 ### Debugging tips to resolve such issues faster?
 1. In general if things only fail on CI, then it's usually a good idea to go step by step with exactly what your CI is doing.
 2. Run `pod lib lint` locally and see if things work. If doesn't then look into the logs for anomaly. See if all the dependency is using the version you're expecting. 
@@ -82,6 +85,7 @@ pod lib lint
 will vary depending on the time it was ran.
 
 In general stuff you do in CI, dependency management, build phase scripts are things that go unnoticed when developing or reviewing code. Having an insight to look into these can be helpful.
+
 
 ## Proposal Discussion:
 I explained the problem to some CocoaPods experts and mentioned my proposal. 
