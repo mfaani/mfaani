@@ -21,7 +21,7 @@ editPost:
 
 !["slow MacBook"](slow.png "Mike Zorn's comment about this post")
 
-
+- Apple is finding more ways to restrict access to surveillance. This forces companies to restrict access to tools further because they lack the visibility into things. *You* pay the price...
 - Often developers get even restricted from using tools like Charles Proxy / Proxyman, because they require adding a new root certificate which then interfere with company's monitoring tools.
 - You can leave your work laptop at work. Never carry it back and forth with yourself. Go easy on your back. Read a book, breath fresh air, make a friend. I find this to be significantly refreshing. I don't get when  people carry heavy laptops back and forth with zero usage at home. Your office should be treated as a safe as your home. 
 - There's a ton of stuff that you 1) you must use a laptop. Can't use your iPhone for 2) absolutely don't want done with your work laptop. 
