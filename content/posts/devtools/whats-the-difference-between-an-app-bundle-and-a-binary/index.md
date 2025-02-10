@@ -13,9 +13,9 @@ cover:
     alt: "Difference between an app bundle and a binary"
     relative: false
 ---
-A binary is the linked product of all your source code. It's executable. You can run commands against it. 
+A binary is the final product from [linking](https://mfaani.com/posts/devtools/optimizing-app-size/jargon/#concepts) all your source code. It's executable. You can run commands against it. 
 
-An app, is merely a wrapper / directory, which includes that binary and other things. 
+An app, is merely a wrapper / directory, which includes that binary *and* other things. 
 
 ## How do you create a binary? 
 First it's important to understand what a binary is.
