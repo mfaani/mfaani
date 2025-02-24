@@ -9,7 +9,7 @@ editPost:
     appendFilePath: true
 ---
 
-## The sync closure
+## 1  - The sync closure
 
 ```swift
 func processTwoNumbers(_ num1: Int, _ num2: Int, handler: (Int, Int) -> ()) {
@@ -32,7 +32,7 @@ print(101)
 
 **Uniqueness:** The block passed in is executed *immediately* at the call site. 
 
-## The async closure — block isn't stored.
+## 2 - The async closure — block isn't stored.
 
 ```swift
 enum Result {
@@ -56,7 +56,7 @@ func startFlow(handler: @escaping (Result) -> ()) {
 
 **Uniqueness:** `handler` block is called by the `startFlow` function. Execution of the block is within the function itself. It gets called after some asynchronous operation. 
 
-## The async closure — block is stored. 
+## 3 - The async closure — block is stored. 
 
 So you'd have the following definitions: 
 
@@ -86,7 +86,7 @@ The usage would be something like:
 class Controller {
     var flowManager = FlowManager()
     func start() {
-         { [weak self] result in
+        flowManager.startFlow { [weak self] result in
             switch result {   
             case .success: self?.showSuccessScreen() // Line A
             case .error: self?.showFailureScreen // Line B
@@ -107,7 +107,7 @@ class Controller {
 #### Ask yourself: When do Lines A and B get executed?
 Obviously, unlike the first example, they do not get executed before `start()` is finished. 
 
-More importantly, unlike the second example, the execution of the block passed in, is **not** controlled by the `startFlow` function. Instead the block is executed whenever `handleFlowExit` is called. But that's not clear from the callsite at all!
+More importantly, unlike the second example, the execution of the block passed in, is **not** controlled by the `startFlow` function. Instead the block is executed whenever `handleFlowExit` is called. But that's not clear from the call site in `Controller`. One would only know of that if they looked into the implementation of `FlowManager.startFlow()`.
 
 #### Why would you want to do something like this?
 When you want to tie blocks of code together — even though they're not chained after another i.e. they're just semantically related, but one block will execute now, the other depending on UX / business logic will execute later.
@@ -126,7 +126,7 @@ To say that the following signature:
 func startFlow(handler: @escaping (Result) -> ()) {
 ```
 
-can operate differently between the second and third example. Having good documentation becomes key for diffrentiating and clarifying when the callback is called by the function itself vs another function/event. 
+can operate differently between the second and third example. Having good documentation becomes key for differentiating and clarifying when the callback is called by the function itself vs another function/event. 
 
 ## So how is this related to background tasks?
 Well it just so happens that background tasks are of the third way. 
@@ -146,12 +146,12 @@ And always thought `UIApplication.shared.beginBackgroundTask()` is getting execu
 
 ```swift
 UIApplication.shared.tellOSIhaveATask(expirationHandler_whichGetsStored_andToBeCalledIfNeeded_inAbout30Seconds: {
-    immediateatlyStopTask()
+    immediatelyStopTask()
     UIApplication.shared.endBackgroundTask(backgroundTaskID)
 })
 ```
 
-**tldr Think of `expirationHandler` as a parameter that gets passed around. It's semantically different from most other compeletionHandlers iOS has**
+**tldr Think of `expirationHandler` as a parameter that gets passed around. Its behavior is semantically different from most other completionHandlers iOS has**
 
 ### UIApplication internal implementation
 
