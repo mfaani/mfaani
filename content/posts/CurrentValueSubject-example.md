@@ -253,6 +253,11 @@ var primaryUserSubscriptions: Set<AnyCancellable> = []
 var secondaryUserSubscriptions:  Set<AnyCancellable> = [] 
 ```
 
+### Why is the function to subscribe named `sink`?
+So a publisher is a *stream* of data. Think more of a water flow analogy. It collects (and combines) data from (other) streams. 
+
+The `map`, `filter` functions, consume the stream but then also produce a stream. A `sink` functions consumes the stream without producing a newer stream. Because it's terminal in its nature and we're using a water flow analogy, the term _sink_ makes somewhat sense. 
+
 ### What's with the cover image of the post? 
 It's an image of disposable bags. Just like how some name the set of their subscriptions. 😀
 
@@ -268,7 +273,7 @@ All that said, often a single value can still be useful if you need to shorten t
 The concept of disposeBag / having a Set<AnyCancellable> variable, is not about leaking memory i.e. it’s not about ending subscriptions when an object goes out of memory. That will happen automatically. 
 
 The main purpose is to retain the subscription until the object is in memory (or until you call `cancel` yourself)
-Because if you don’t store your subscriptions (or use a dispose bag), your subscriptions will go out of memory right away as shown earlier. So no leaking will happen.
+Because if you don’t store your subscriptions (or use a disposable bag), your subscriptions will go out of memory right away as shown earlier. So no leaking will happen.
 
 ### Anything else about `Set<AnyCancellable>`? 
 
