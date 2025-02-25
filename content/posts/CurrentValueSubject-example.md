@@ -254,9 +254,9 @@ var secondaryUserSubscriptions:  Set<AnyCancellable> = []
 ```
 
 ### Why is the function to subscribe named `sink`?
-So a publisher is a *stream* of data. Think more of a water flow analogy. It collects (and combines) data from (other) streams. 
+So a publisher is a *stream* of data. Think more of a water flow analogy. It collects (and combines) data from streams. 
 
-The `map`, `filter` functions, consume the stream but then also produce a stream. A `sink` functions consumes the stream without producing a newer stream. Because it's terminal in its nature and we're using a water flow analogy, the term _sink_ makes somewhat sense. 
+The `map`, `filter` functions, consume the stream but then also produce a stream. A `sink` functions consumes the stream without producing a newer stream. Because it's terminal in its nature and with a water flow analogy, the term _sink_ somewhat makes sense. 
 
 ### What's with the cover image of the post? 
 It's an image of disposable bags. Just like how some name the set of their subscriptions. 😀
