@@ -33,6 +33,8 @@ The more the change impacts the users, the more you have to get Product involved
 
 Also often you do something that has a huge impact on engineers, but the combination your director, vp, culture, business goals don't appreciate what you did — even if it saved the company 2000 engineer / hrs a year. This is why it's often better to identify something that aligns with the existing goals of the company / director / vp. This way you don't have to convince them. You're just fulfilling a _pre-defined_ goal. 
 
+> Basically you have be good at the office politics game and choose things that matter to those that promote employees. 
+
 ## Examples
 
 Apple Product Launches do a great job at highlighting the user/product impact or the delta of what their doing vs others/before
