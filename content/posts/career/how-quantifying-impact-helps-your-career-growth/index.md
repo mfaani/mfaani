@@ -44,6 +44,24 @@ Apple Product Launches do a great job at highlighting the user/product impact or
 ![](adoption.jpg "macOS vs Windows Adoption Rate")
 
 
+## UX Example
+We reduced the number of screens a user had to see to accomplish a task. When we were showing this to our VP. She asked: 
+
+> Can you tell us how long the task took previously? How many screens did the user see previously? How many taps did the user make before? vs the new approach? 
+
+The expected answer would be something like: 
+
+- From 15 minutes down to 9 minutes
+- From 16 screens down to 5 screens
+- From 20 taps down to 7 taps
+
+Some other items that would require real metrics to compare are: 
+
+- Error Rate
+- Completion Rate
+- User Satisfaction (which is more difficult to calculate)
+
+Basically some metrics could be computed upon code-delivery, others require user metrics. 
 
 
 ## Summary 
