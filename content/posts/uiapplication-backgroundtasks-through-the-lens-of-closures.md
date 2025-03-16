@@ -209,18 +209,21 @@ class UIApplication {
 
 ### How are things different in +iOS13?
 
-You don't use `beginBackgroundTask(expirationHandler:)`. Instead you use the `BackgroundTasks` framework. A lot of things change with that, but that's beyond the scope of this article. The API is cleaner i.e. specifically for expiration, there is a [property named `expirationHandler`](https://developer.apple.com/documentation/backgroundtasks/bgtask/3142234-expirationhandler) that you need to set:
+Apple has provided two _additional_ ways to do things while the app is in background: 
 
-```swift
-task.expirationHandler = {
-    endTask()
-}
-```
+> - The `BGAppRefreshTaskRequest` class replaces UIKit’s older background app refresh (launch app in background) functionality.
+> - The `BGProcessingTaskRequest` class lets you request extended background execution time in an unknown time in future, typically overnight where other apps aren't in foreground any more and user doesn't care much about their battery.
+> 
+> The purpose of the existing `beginBackgroundTask(expirationHandler:)` is to 'raise an immediate "don’t suspend me" assertion' to the OS. Typically good for only 30 seconds. 
+
 
 ## Summary
 Not every block is to be considered a `completionHandler`. Some blocks get stored for later execution. Some blocks may never get executed. It all just depends on the logic. The `expirationHandler` parameter of the  `beginBackgroundTask` is a block that gets stored and may or may not get executed later.
 
 
-## Also see
+## MUST Also see
 
-[Apple forums: UIApplication Background Task Notes](https://developer.apple.com/forums/thread/85066). It addressses a lot of commons questions. 
+[Apple forums: UIApplication Background Task Notes](https://developer.apple.com/forums/thread/85066). It addresses a lot of commons questions. 
+
+> The name background task is somewhat misappropriate. Specifically, `beginBackgroundTask(expirationHandler:)` doesn’t actually start any sort of background task, but rather it tells the system that you have started some ongoing work that you want to continue even if your app is in the background. You still have to write the code to create and manage that work. So it’s best to think of the background task API as raising a “don’t suspend me” assertion.
+

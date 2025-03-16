@@ -23,7 +23,10 @@ Additionally it widens your network and can help add prestige to your profile.
 
 > Content in your brain is like fresh food. If you don't eat when it's warm and fresh then it will go bad or just take a lot of time to defrost, or some more fresh food will come. Most things after they are learned become trivial and you think less of them. Truth is, anything can be fresh for the right person. 
 
-- **Use headers** from the beginning. Don't let your post turn into a graveyard.
+- **Use headers** from the beginning. Don't let your post turn into a graveyard. Often when I have a large post and don't know where to start from, then I just begin with my headers. I try to create sections along with a hierarchy i.e. I use `#` and `##`. Then I move items around under different headers or merge them or what not. It allows me to envision things so much faster. 
+
+!["Headers"](./headers.png "How I use headers to organize and order my post before I get into its details")
+
 - **Links can die**, like Apple can remove a WWDC video. Make sure you annotate the link as much as possible. Example, don't just share the link to the session. Share the link and the name, year and minute of the session. That way folks can perhaps google it and find it or maybe download the video and upload it elsewhere if allowed. 
 - **Don't over explain.** If you're doing that, then usually it means you haven't found the right break down, wording, story, image to explain things. Or at least don't over explain too many things in a single blog post, unless your post is meant to cover a-z or be a post on the terminology of something. Small highly focused posts are often better. Some good examples of that are https://www.hackingwithswift.com and http://css-tricks.com. Most of the time they're laser focused. They just go deep for a single subject. Not 5 at once. tldr it's hard to have breadth and depth in the same post. 
   - Instead of writing one gigantic post >> write five small posts on different concepts. Then write a sixth post that summarizes and pieces it all together.
