@@ -13,6 +13,13 @@ I recently went on a quest for Live Activities. There's a ton of gotchas or subt
 
 I saw Apple's videos and docs on ActivityKit. They do a decent job of showing you 80% of the API and how Live Activity works. The remaining 20% is an enigma though. Additionally parts of their docs on how to begin a live activity from Push Notification was incorrect. I'll try to address those all .  
 
+## How do I begin development for Live Activities?
+- Add a widget. Make sure you select 'Live Activities'
+- Add the necessary plist items. 
+- Add push notification capability
+
+A widget is just another form of app extension. 
+
 ## What's the difference between Live Activity and Dynamic Island?
 
 - Dynamic Island is a physical location of certain newer models. First introduced in iPhone 14 Pro, and then on every model since then. 
@@ -24,10 +31,10 @@ The Live Activity can appear in multiple forms:
 - Dynamic Island
     - Compact 
     - Expanded
-    - Minimal
-        - Attached
-        - Detached
+    - Minimal (attached or detached)
 - Lock Screen
+
+Apple requires you to have them all added. You can't skip any of them. 
 
 ## Does the Dynamic Island appear when app is in foreground?
 No. You need to have your own in-app UI for this. 
@@ -47,11 +54,7 @@ You have think of it more as a dismiss. When you dismiss a Live Activity timer t
 
 NOTE: 
 
-
-
 ## Docs are incorrect for how to start a Live Activity from Push 
-
-## Ticking between activities 
 
 # What is a Live Activity
 ## How can I dismiss a Live Activity?
@@ -72,14 +75,43 @@ NOTE:
 
 ## Previews are a in pain!!! Constantly check the project build logs and the preview error. Also the app seems to be built even though it shouldn't be deemed a dependency. ## Removing the swiftlint saved me 10-15 seconds on average...
 
+## How do you began a live activity? 
+- Creating a request from the main app while app is in foreground.
+- Creating a `start` event from server
+- Starting from App Intent
+
 # Development - Token
 
+## Code Sharing across targets
+
+- Models should be shared across targets. 
+  - App needs the model to manage its lifecycle (start, update, end, handling dismissed / stale activities). 
+  - Widget needs the model to be able to present it. 
+- Views should only be members of a target if it needs them. 
+- Can't import / link libraries that use `shared` or libraries that use certain APIs. For a workaround see [here](https://stackoverflow.com/questions/48122769/facebook-cocoapods-sharedapplication-is-unavailable-not-available-on-ios-app)
+
 ## Token variances and how to acquire them. Frequency of change
+
+## Why can't we just use the regular apns token? 
+- Apple wants to control the start / duration / lifecycle of the live activity. 
+- Apple wants to control it at the APNs level, not at the iOS level. 
 
 ## Access to Static variables vs instance variables
 
 ## Updates (to token, to content, activity life cycle)
 
+## Where should you place your subscription for receiving updates to token updates?⚡️⚡️⚡️
+
+## Architecture on how to update? 
+- Get a hold of the activity, upon updates, update your in-app UI. 
+  - if your info is stale (due to network issues or just not receiving updates / notifications), then: 
+    - Mark your UI as stale
+    - query the latest manually. 
+- Update are in the form of: 
+  - Content update
+  - New activities. As in a brand new Live Activity 
+  - Content State updates: `stale`, `dismissed`, `active`, `ended`
+  - Token updates
 # Debugging
 ## `timestamp`
 
@@ -97,6 +129,11 @@ NOTE:
 
 ## Encoding
 
+## Notification delivery
+
+> the debugger loads with a development profile and is not exactly the same, particularly with notification delivery.
+>
+> from [forums](https://developer.apple.com/forums/thread/741939)
 
 
 # Improvements
@@ -107,8 +144,9 @@ NOTE:
 
 ## Tips for reusing views
 
-
 # Open Questions
+
+## Ticking between activities 
 
 ## App Intent ???
 
@@ -130,7 +168,7 @@ Example if I do something to force the app to listen to location changes, and th
 
 I wonder what the impact of this is on your app. Like should I just always be setting all kinds of observations when app is launched into the background? or only set those up if the app is launched due to an event associated with it? But then what if there's a follow up even that's not associated with the previous app launch? 
 
-App is launched, I setup observance assocaited to that specific event, now comes another event, but since the app is launched I just assume the the observance has happened which is then an incorrect assumption!
+App is launched, I setup observance associated to that specific event, now comes another event, but since the app is launched I just assume the the observance has happened which is then an incorrect assumption!
 
 ## In-app experience ????
 
