@@ -11,7 +11,21 @@ I recently went on a quest for Live Activities. There's a ton of gotchas or subt
 # Intro
 ## Example app - wwdc code - docs confusion points 
 
-I saw Apple's videos and docs on ActivityKit. They do a decent job of showing you 80% of the API and how Live Activity works. The remaining 20% is an enigma though. Additionally parts of their docs on how to begin a live activity from Push Notification was incorrect. I'll try to address those all .  
+I saw Apple's videos and docs on ActivityKit. They do a decent job of showing you 80% of the API and how Live Activity works. The remaining 20% is an enigma though. 
+- How to dismiss a live activity
+- How to properly update a notification in a timely manner 
+- How to update a live activity that wasn't started from the app
+- How to show a live activity while the app is in foreground
+- How to properly handle observations once app is launched into the background?
+- How to present a live activity once a live activity is sent
+- How to use tokens to start vs update a live activity. 
+- Why has Apple not just re-used the existing APNs token for live activities?
+- How to share code between Targets
+
+
+The issue was a bit exacerbated because docs on How to begin a live activity from Push Notification are incorrect (Mar 24 2025)
+
+I'll try to address those all .  
 
 ## How do I begin development for Live Activities?
 - Add a widget. Make sure you select 'Live Activities'
