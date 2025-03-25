@@ -21,32 +21,37 @@ I saw Apple's videos and docs on ActivityKit. They do a decent job of showing yo
 - How to use tokens to start vs update a live activity. 
 - Why has Apple not just re-used the existing APNs token for live activities?
 - How to share code between Targets
+- etc.
 
 
-The issue was a bit exacerbated because docs on How to begin a live activity from Push Notification are incorrect (Mar 24 2025)
-
-I'll try to address those all .  
+The whole problem was a bit exacerbated because:
+1. When Apple first introduced `ActivityKit`, the ability to begin live activities from APNs was not added. It only came later. This caused some duality in documentations and their sessions.
+2. As of Mar 24 2025 docs on How to begin a live activity from Push Notification are incorrect.
 
 ## How do I begin development for Live Activities?
 - Add a widget. Make sure you select 'Live Activities'
 - Add the necessary plist items. 
-- Add push notification capability
+- Add push notification capability. Only needed if you want to start / update from server. If everything is done from within the app then you don't need this. Example 'Clock' App on iPhone adds timers to your phone without any server interaction. 
 
-A widget is just another form of app extension. 
+Note: A widget is a specific kind of app extension. 
 
 ## What's the difference between Live Activity and Dynamic Island?
 
-- Dynamic Island is a physical location of certain newer models. First introduced in iPhone 14 Pro, and then on every model since then. 
-- Live Activity is an Apple feature. Think of it as a shape shifting notification.
+- Dynamic Island is a _physical_ location of certain newer models. First introduced in iPhone 14 Pro, and then on every model since then. 
+- Live Activity is an _Apple feature_. Think of it as a shape shifting notification.
 - The Live Activity appears in the dynamic island when the phone is unlocked. If a phone doesn't have a live activity then it appears as a notification 
 
 ## What forms does the Live Activity take?
-The Live Activity can appear in multiple forms: 
+Apple calls them presentations. The Live Activity can appear in multiple presentations: 
 - Dynamic Island
     - Compact 
     - Expanded
     - Minimal (attached or detached)
 - Lock Screen
+
+Note: a Live Activity that's began from a push Notification is immediately expanded upon its arrival. Then within a few seconds is shrinks down to a compact mode. 
+
+
 
 Apple requires you to have them all added. You can't skip any of them. 
 
