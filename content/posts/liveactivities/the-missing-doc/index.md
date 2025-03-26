@@ -48,30 +48,25 @@ Apple calls them presentations. The Live Activity can appear in multiple present
     - Expanded
     - Minimal (attached or detached)
 - Lock Screen
+Apple _requires_ you to have them all added. You can't skip any of them. 
 
 Note: a Live Activity that's began from a push Notification is immediately expanded upon its arrival. Then within a few seconds is shrinks down to a compact mode. 
-
-
-
-Apple requires you to have them all added. You can't skip any of them. 
 
 ## Does the Dynamic Island appear when app is in foreground?
 No. You need to have your own in-app UI for this. 
 
 ## How long can a Live Activity remain on the screen? 
-- A Live Activity can be active for up to eight hours unless its app or a person ends it before this limit. 
-- After the eight-hour limit, the system automatically ends the Live Activity, and immediately removes it **from the Dynamic Island**
-- However, the Live Activity remains on the **Lock Screen** until a person removes it or for up to four _additional_ hours before the system removes it — whichever comes first. As a result, a Live Activity remains on the Lock Screen for a maximum of 12 hours.
+- Maximum of 8 hours on dynamic island
+- Maximum of 12 hours on lock screen. 
+- or sooner if user dismisses it. 
 
 ## How can I cancel / end a Live Activity? 
-You have think of it more as a dismiss. When you dismiss a Live Activity timer then you're NOT stopping the timer. You're just removing it from your dynamic island. To give you another example, if you dismiss the live activity of an Uber ride, then it does NOT cancel the ride. It just removes it from your dynamic island / view. If you wanted to cancel a live activity, then you can either add cancel buttons onto the live activity, and then allow users to cancel the the timer using certain actions associated with the notification or allow users to tap on the live activity, open the app and then cancel / end it. 
+You have think of it more as a dismiss. When you dismiss a Live Activity timer then you're NOT stopping the timer. You're just removing it from your dynamic island. Similarly, if you dismiss the live activity of an Uber trip, then it does NOT cancel the trip. It just removes it from your dynamic island / view. If you wanted to cancel an activity, then you can either add cancel buttons onto the live activity, and then allow users to cancel the the timer using certain actions associated with the notification or allow users to tap on the live activity, open the app and then cancel / end it. 
 
-
-- From the compact mode, you can swipe left on its **center**
+- From the compact mode, you can swipe left on its **center**.
 - From the expanded mode, you can't swipe left. 
-- From the lock screen mode, you can swipe left and then click on the 'clear' action. 
+- From the lock screen mode, you can dismiss it much like a regular notification. 
 
-NOTE: 
 
 ## Docs are incorrect for how to start a Live Activity from Push 
 
