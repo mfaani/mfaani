@@ -21,52 +21,52 @@ I saw Apple's videos and docs on ActivityKit. They do a decent job of showing yo
 - How to use tokens to start vs update a live activity. 
 - Why has Apple not just re-used the existing APNs token for live activities?
 - How to share code between Targets
+- etc.
 
 
-The issue was a bit exacerbated because docs on How to begin a live activity from Push Notification are incorrect (Mar 24 2025)
-
-I'll try to address those all .  
+The whole problem was a bit exacerbated because:
+1. When Apple first introduced `ActivityKit`, the ability to begin live activities from APNs was not added. It only came later. This caused some duality in documentations and their sessions.
+2. As of Mar 24 2025 docs on How to begin a live activity from Push Notification are incorrect.
 
 ## How do I begin development for Live Activities?
 - Add a widget. Make sure you select 'Live Activities'
 - Add the necessary plist items. 
-- Add push notification capability
+- Add push notification capability. Only needed if you want to start / update from server. If everything is done from within the app then you don't need this. Example 'Clock' App on iPhone adds timers to your phone without any server interaction. 
 
-A widget is just another form of app extension. 
+Note: A widget is a specific kind of app extension. 
 
 ## What's the difference between Live Activity and Dynamic Island?
 
-- Dynamic Island is a physical location of certain newer models. First introduced in iPhone 14 Pro, and then on every model since then. 
-- Live Activity is an Apple feature. Think of it as a shape shifting notification.
+- Dynamic Island is a _physical_ location of certain newer models. First introduced in iPhone 14 Pro, and then on every model since then. 
+- Live Activity is an _Apple feature_. Think of it as a shape shifting notification.
 - The Live Activity appears in the dynamic island when the phone is unlocked. If a phone doesn't have a live activity then it appears as a notification 
 
 ## What forms does the Live Activity take?
-The Live Activity can appear in multiple forms: 
+Apple calls them presentations. The Live Activity can appear in multiple presentations: 
 - Dynamic Island
     - Compact 
     - Expanded
     - Minimal (attached or detached)
 - Lock Screen
+Apple _requires_ you to have them all added. You can't skip any of them. 
 
-Apple requires you to have them all added. You can't skip any of them. 
+Note: a Live Activity that's began from a push Notification is immediately expanded upon its arrival. Then within a few seconds is shrinks down to a compact mode. 
 
 ## Does the Dynamic Island appear when app is in foreground?
 No. You need to have your own in-app UI for this. 
 
 ## How long can a Live Activity remain on the screen? 
-- A Live Activity can be active for up to eight hours unless its app or a person ends it before this limit. 
-- After the eight-hour limit, the system automatically ends the Live Activity, and immediately removes it **from the Dynamic Island**
-- However, the Live Activity remains on the **Lock Screen** until a person removes it or for up to four _additional_ hours before the system removes it — whichever comes first. As a result, a Live Activity remains on the Lock Screen for a maximum of 12 hours.
+- Maximum of 8 hours on dynamic island
+- Maximum of 12 hours on lock screen. 
+- or sooner if user dismisses it. 
 
 ## How can I cancel / end a Live Activity? 
-You have think of it more as a dismiss. When you dismiss a Live Activity timer then you're NOT stopping the timer. You're just removing it from your dynamic island. To give you another example, if you dismiss the live activity of an Uber ride, then it does NOT cancel the ride. It just removes it from your dynamic island / view. If you wanted to cancel a live activity, then you can either add cancel buttons onto the live activity, and then allow users to cancel the the timer using certain actions associated with the notification or allow users to tap on the live activity, open the app and then cancel / end it. 
+You have think of it more as a dismiss. When you dismiss a Live Activity timer then you're NOT stopping the timer. You're just removing it from your dynamic island. Similarly, if you dismiss the live activity of an Uber trip, then it does NOT cancel the trip. It just removes it from your dynamic island / view. If you wanted to cancel an activity, then you can either add cancel buttons onto the live activity, and then allow users to cancel the the timer using certain actions associated with the notification or allow users to tap on the live activity, open the app and then cancel / end it. 
 
-
-- From the compact mode, you can swipe left on its **center**
+- From the compact mode, you can swipe left on its **center**.
 - From the expanded mode, you can't swipe left. 
-- From the lock screen mode, you can swipe left and then click on the 'clear' action. 
+- From the lock screen mode, you can dismiss it much like a regular notification. 
 
-NOTE: 
 
 ## Docs are incorrect for how to start a Live Activity from Push 
 
